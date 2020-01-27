@@ -4,7 +4,20 @@ foreword.md
 
 {mainmatter}
 
-chapter1.md
+react-modern.md
+
+react-legacy.md
+
+react-styling.md
+
+react-maintainance.md
+react-typescript.md
+react-testing.md
+react-folder-structure.md
+
+react-modern-advanced.md
+
+react-deploy.md
 
 {backmatter}
 
