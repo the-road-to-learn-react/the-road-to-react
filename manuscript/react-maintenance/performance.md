@@ -279,7 +279,7 @@ Now, after we went through these scenarios for `useMemo`, `useCallback`, and `me
   * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/react-modern-final...hs/Performance-in-React?expand=1).
 * Read more about [React's memo API](https://reactjs.org/docs/react-api.html#reactmemo).
 * Read more about [React's useCallback Hook](https://reactjs.org/docs/hooks-reference.html#usecallback).
-* Download *React Developer Tools* as an extension for your browser. Open it for your application in the browser via the browser's developer tools and try its various features. For instance, you can use it to visualize React’s component tree and its updating components.
+* Download *React Developer Tools* as an extension for your browser. Open it for your application in the browser via the browser's developer tools and try its various features. For instance, you can use it to visualize React's component tree and its updating components.
 * Does the SearchForm re-render when removing an item from the List with the "Dismiss" button? If it's the case, apply performance optimization techniques to prevent re-rendering.
 * Does each Item re-render when removing an item from the List with the "Dismiss" button? If it's the case, apply performance optimization techniques to prevent re-rendering.
 * Remove all performance optimizations to keep the application simple. Our current application doesn't suffer from any performance bottlenecks. Try to avoid [premature optimzations](https://en.wikipedia.org/wiki/Program_optimization). Use this section as reference, in case you run into performance problems.

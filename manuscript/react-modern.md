@@ -1588,7 +1588,7 @@ Now the input field starts with the correct initial value, using the `searchTerm
 
 We learned about controlled components in this section, and, taking all the previous sections as learning steps into consideration, discovered another concept called **unidirectional data flow**:
 
-{title="Code Playground",lang="javascript"}
+{title="Visualization",lang="javascript"}
 ~~~~~~~
 UI -> Side-Effect -> State -> UI -> ...
 ~~~~~~~

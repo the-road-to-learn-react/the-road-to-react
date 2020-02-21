@@ -189,7 +189,7 @@ const List = ({ list, onRemoveItem }: ListProps) =>
   ));
 ~~~~~~~
 
-The `onRemoveItem` function is typed twice for the `ItemProps` and `ListProps`. To be more accurate, you *could* extract this to a standalone defined `OnRemoveItem` TypeScript type and reuse it for both `onRemoveItem` prop type definitions. Note, however, that development becomes increasingly difficult as components are split up into different files. That’s why we will keep the duplication here.
+The `onRemoveItem` function is typed twice for the `ItemProps` and `ListProps`. To be more accurate, you *could* extract this to a standalone defined `OnRemoveItem` TypeScript type and reuse it for both `onRemoveItem` prop type definitions. Note, however, that development becomes increasingly difficult as components are split up into different files. That's why we will keep the duplication here.
 
 Since we already have the `Story` and `Stories` types, we can repurpose them for other components. Add the `Story` type to the callback handler in the `App` component:
 
@@ -286,7 +286,7 @@ const storiesReducer = (
 };
 ~~~~~~~
 
-The stories state, the current state, and the action are types; the return new state (inferred) are type safe now. For instance, if you would dispatch an action to the reducer with an action type that’s not defined, you would get an type error. Or if you would pass something else than a story to the action which removes a story, you would get a type error as well.
+The stories state, the current state, and the action are types; the return new state (inferred) are type safe now. For instance, if you would dispatch an action to the reducer with an action type that's not defined, you would get an type error. Or if you would pass something else than a story to the action which removes a story, you would get a type error as well.
 
 There is still a type safety issue in the App component's return statement for the returned List component. It can be fixed by giving the List component a wrapping HTML `div` element or a React fragment:
 

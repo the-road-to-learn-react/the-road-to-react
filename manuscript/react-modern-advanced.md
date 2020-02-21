@@ -214,7 +214,7 @@ const List = ({ list, onRemoveItem }) => {
 };
 ~~~~~~~
 
-It’s done. First we extracted the sort function from the dictionary by its `sortKey` (state). Then, we applied the function to the list, before mapping it to render each Item component. Again, the initial sort state will be `'NONE'`, meaning it will sort nothing.
+It's done. First we extracted the sort function from the dictionary by its `sortKey` (state). Then, we applied the function to the list, before mapping it to render each Item component. Again, the initial sort state will be `'NONE'`, meaning it will sort nothing.
 
 Second we rendered more HTML buttons to give our users interaction. Then, we added implementation details for each button by changing the sort state. Finally, we used the sort state to sort the actual list.
 
