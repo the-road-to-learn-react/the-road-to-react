@@ -12,7 +12,7 @@ This section is just here for the sake of learning about performance improvement
 
 Previously we covered React's useEffect Hook, which is used for side-effects. It runs the first time a component renders (mounting), and then every re-render (updating). By passing an empty dependency array to it as a second argument, we can tell the hook to run on the first render only. Out of the box, there is no way to tell the hook to run only on every re-render (update) and not on the first render (mount). For instance, examine this custom hook for state management with React's useState Hook and its semi persistent state with local storage using React's useEffect Hook:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const useSemiPersistentState = (key, initialState) => {
   const [value, setValue] = React.useState(
@@ -34,7 +34,7 @@ With a closer look at the developer's tools, we can see the log for a first time
 
 As mentioned, there is no React Hook that runs on every re-render, and there is no way to tell the `useEffect` hook in a React idiomatic way to call its function only on every re-render. However, by using React's useRef Hook which keeps its `ref.current` property intact over re-renders, we can keep a *made up state* (without re-rendering the component on state updates) of our component's lifecycle:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const useSemiPersistentState = (key, initialState) => {
 # leanpub-start-insert
@@ -72,7 +72,7 @@ The above was only about preventing the invocation of one simple function for a 
 
 Earlier, we explored React's re-rendering mechanism. We'll repeat this exercise for the App and List components. For both components, add a logging statement.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -99,7 +99,7 @@ const List = ({ list, onRemoveItem }) =>
 
 Because the List component has no function body, and developers are lazy folks who don't want to refactor the component for a simple logging statement, the List component uses the `||` operator instead. This is a neat trick for adding a logging statement to a function component without a function body. Since the `console.log()` on the left hand side of the operator always evaluates to false, the right hand side of the operator gets always executed.
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 function getTheTruth() {
   if (console.log('B:List')) {
@@ -116,7 +116,7 @@ console.log(getTheTruth());
 
 Let's focus on the actual logging in the browser's developer tools. You should see a similar output. First the App component renders, followed by its child components (e.g. List component).
 
-{title="",lang="text"}
+{title="Visualization",lang="text"}
 ~~~~~~~
 B:App
 B:List
@@ -127,7 +127,7 @@ B:List
 
 Since a side-effect triggers data fetching after the first render, only the App component renders, because the List component is replaced by a loading indicator in a conditional rendering. Once the data arrives, both components render again.
 
-{title="",lang="text"}
+{title="Visualization",lang="text"}
 ~~~~~~~
 // initial render
 B:App
@@ -143,7 +143,7 @@ B:List
 
 So far, this behavior is acceptable, since everything renders on time. Now we'll take this experiment a step further, by typing into the SearchForm component's input field. You should see the changes with every character entered into the element:
 
-{title="",lang="text"}
+{title="Visualization",lang="text"}
 ~~~~~~~
 B:App
 B:List
@@ -155,7 +155,7 @@ If a parent component re-renders, its child components re-render as well. React 
 
 Sometimes we want to prevent re-rendering, however. For instance, huge data sets displayed in a table shouldn't re-render if they are not affected by an update. It's more efficient to perform an equality check if something changed for the component. Therefore, we can use React's memo API to make this equality check for the props:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const List = React.memo(
@@ -176,7 +176,7 @@ const List = React.memo(
 
 However, the output stays the same when typing into the SearchForm's input field:
 
-{title="",lang="text"}
+{title="Visualization",lang="text"}
 ~~~~~~~
 B:App
 B:List
@@ -184,7 +184,7 @@ B:List
 
 The `list` passed to the List component is the same, but the `onRemoveItem` callback handler isn't. If the App component re-renders, it always creates a new version of this callback handler. Earlier, we used React's useCallacbk Hook to prevent this behavior, by creating a function only on a re-render (if one of its dependencies has changed).
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -218,7 +218,7 @@ Sometimes `memo` alone doesn't help, though. Callback handlers are re-defined ea
 
 Sometimes we'll have performance-intensive computations in our React components -- between a component's function signature and return block -- which run on every render. For this scenario, we must create a use case in our current application first.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const getSumComments = stories => {
@@ -254,7 +254,7 @@ If all arguments are passed to a function, it's acceptable to have it outside th
 
 Each time text is typed in the input field of the SearchForm component, this computation runs again with an output of "C". This may be fine for a non-heavy computation like this one, but imagine this computation would take more than 500ms. It would give the re-rendering a delay, because everything in the component has to wait for this computation. We can tell React to only run a function if one of its dependencies has changed. If no dependency changed, the result of the function stays the same. React's useMemo Hook helps us here:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...

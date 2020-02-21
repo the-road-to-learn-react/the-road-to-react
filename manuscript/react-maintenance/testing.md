@@ -14,7 +14,7 @@ Often the lines between unit and integration tests are unclear. Testing the List
 
 Let's start with a pseudo test in your *src/App.test.js* file:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 describe('something truthy', () => {
   it('true to be true', () => {
@@ -25,14 +25,14 @@ describe('something truthy', () => {
 
 Fortunately, create-react-app comes with Jest. You can run the test using the interactive create-react-app test script on the command line. The output for all test cases will be presented in your command line interface.
 
-{title="",lang="text"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 npm test
 ~~~~~~~
 
 Jest matches all files with a *test.js* suffix in its filename when its command is run. Successful tests are displayed in green; failed tests are displayed in red:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 describe('something truthy', () => {
   it('true to be true', () => {
@@ -43,7 +43,7 @@ describe('something truthy', () => {
 
 Tests in Jest consist of **test suites** (`describe`), which are comprised of **test cases** (`it`), which have **assertions** (`expect`) that turn out green or red:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 // test suite
 describe('truthy and falsy', () => {
@@ -63,7 +63,7 @@ describe('truthy and falsy', () => {
 
 The "it"-block describes one test case. It comes with a test description that returns success or failure. We can also wrap this block into a "describe"-block that defines our test suite with many "it"-blocks for one specific component. Both blocks are used to organize your test cases. Note that the `it` function is known in the JavaScript community as a single-test case function; in Jest, however, `it` is often used as an alias `test` function.
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 describe('something truthy', () => {
 # leanpub-start-insert
@@ -76,14 +76,14 @@ describe('something truthy', () => {
 
 To use React components in Jest, we require a utility library for rendering components in a test environment:
 
-{title="",lang="text"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 npm install react-test-renderer --save-dev
 ~~~~~~~
 
 Also, before you can test your first components, you have to export them from your *src/App.js* file:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 ...
 
@@ -94,7 +94,7 @@ export { SearchForm, InputWithLabel, List, Item };
 
 Import them along with the previously installed utility library in the *src/App.test.js* file:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 import React from 'react';
@@ -106,7 +106,7 @@ import App, { Item, List, SearchForm, InputWithLabel } from './App';
 
 Write your first component test for the Item component. The test case renders the component with a given `item` using the utility library:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 import renderer from 'react-test-renderer';
@@ -137,7 +137,7 @@ describe('Item', () => {
 
 Information about a component's or element's attributes are available via the `props` property. In the test assertion, we find the anchor tag (`a`) and its `href` attribute, and perform an equality check. If the test turns out green, we can be sure the anchor tag's `href` attribute is set to the correct `url` property of the `item`. In the same test case, we can add more test assertions for the other item's properties:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 describe('Item', () => {
   const item = {
@@ -167,7 +167,7 @@ describe('Item', () => {
 
 Since there are multiple `span` elements, we find all of them and select the second one (index is `1` , because we count from `0`) and compare its React `children` prop to the item's `author`. This test isn't thorough enough, though. Once the order of `span` elements in the Item component changes, the test fails. Avoid this flaw by changing the assertion to:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 describe('Item', () => {
   const item = { ... };
@@ -189,7 +189,7 @@ The test assertion isn't as specific anymore. It just tests whether there is one
 
 We tested whether the Item component renders as text or HTML attributes (`href`), but we didn't test the callback handler. The following test case makes this assertion by simulating a click event via the `button` element's `onClick` attribute:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 describe('Item', () => {
   const item = { ... };
@@ -221,7 +221,7 @@ Jest lets us pass a test-specific function to the Item component as prop. These 
 
 Item component's unit test is complete, because we tested input (`item`) and output (`onRemoveItem`). The two shouldn't be confused with input (arguments) and output (JSX) of the function component, which were also tested as. One last improvement makes the test suite for the Item component more concise by giving it a shared setup function:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 describe('Item', () => {
   const item = { ... };
@@ -259,7 +259,7 @@ describe('Item', () => {
 
 A common setup (or teardown) function in tests removes duplicated code. Since the component must be rendered for both test cases, and the props are the same for both renderings, we can share this code in a common setup function. From there, we'll move on to testing the List component:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 ...
 
@@ -303,7 +303,7 @@ The test checks straightforward whether two Item components are rendered for the
 
 Keeping this question in the room, we will move on to the SearchForm with InputWithLabel component:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 describe('SearchForm', () => {
@@ -331,7 +331,7 @@ describe('SearchForm', () => {
 
 In this test, we assert whether the InputWithLabel component receives the correct prop from the SearchForm component. Essentially the test stops before the InputWithLabel component, because it only tests the interface (props) of it. Arguably it's still a unit test, because the underlying implementation details of the InputWithLabel component could change without changing the interface. You can change the test to make it work through to the InputWithLabel component's input field, because all child components and its elements are rendered too:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 describe('SearchForm', () => {
   ...
@@ -348,7 +348,7 @@ describe('SearchForm', () => {
 
 This is our first integration test between the SearchForm and InputWithLabel components, which aren't as tightly coupled as the List and Item components. The InputWithLabel component can be used in other components (highly reusable), whereas the Item component is essentially a non-reusable part of the List component.
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 describe('SearchForm', () => {
   const searchFormProps = {
@@ -389,7 +389,7 @@ Like the Item component, the last two tests asserted the component's callback ha
 
 You can test edge cases  like a disabled button as well. The `update()` method on the rendered test component helps us provide new props to the component at stake:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 describe('SearchForm', () => {
   const searchFormProps = {
@@ -422,7 +422,7 @@ describe('SearchForm', () => {
 
 Now we'll move one level higher in our application's component hierarchy. The App component fetches the list data, which is provided to the List component. After importing the App component, a naive test would look like this:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 describe('App', () => {
@@ -456,7 +456,7 @@ describe('App', () => {
 
 In the actual App component, a third-party library (axios) is used to make a request to a remote API. This API returns data we can't foresee in the test, so we have to mock it instead. Jest provides mechanisms that mock entire libraries and their methods. In this case, we want  to mock the `get()` method of axios to return our desired data:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 import renderer from 'react-test-renderer';
@@ -495,7 +495,7 @@ describe('App', () => {
 
 The test reads synchronously, but we still have to deal with the asynchronous data. The component should re-render when its state updates. We can perform this with our utility library and async/await:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 describe('App', () => {
 # leanpub-start-insert
@@ -526,7 +526,7 @@ describe('App', () => {
 
 Instead of rendering the App component, we mocked the response from the remote API by mocking the method that fetches the data. To stay on the *happy path*, we told the test to treat the component as an asynchronously updating component. You can apply a similar strategy to the *unhappy path*:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 describe('App', () => {
   it('succeeds fetching data with a list', async () => {
@@ -559,7 +559,7 @@ The data fetching and integration with a remote API is tested now. We moved from
 
 Jest also lets you take a **snapshot** of your rendered component, run it against future captures, and be notified of changes. Changes can then be accepted or denied depending on the desired outcome. This mechanism complements unit and integration tests well, since it only tests the differences of the rendered output without heavy maintenance costs. To see it in action, extend the Item component test suite with your first snapshot test:
 
-{title="",lang="javascript"}
+{title="src/App.test.js",lang="javascript"}
 ~~~~~~~
 describe('Item', () => {
   ...

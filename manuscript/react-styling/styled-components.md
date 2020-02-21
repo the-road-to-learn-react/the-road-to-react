@@ -2,14 +2,14 @@
 
 With the previous approaches from CSS-in-CSS, Styled Components is one of several approaches for **CSS-in-JS**. I picked Styled Components because it's the most popular. It comes as a JavaScript dependency, so we must install it on the command line:
 
-{title="",lang="text"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 npm install styled-components
 ~~~~~~~
 
 Then import it in your *src/App.js* file:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 import axios from 'axios';
@@ -20,7 +20,7 @@ import styled from 'styled-components';
 
 As the name suggests, CSS-in-JS happens in your JavaScript file. In your *src/App.js* file, define your first styled components:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const StyledContainer = styled.div`
   height: 100vw;
@@ -41,7 +41,7 @@ const StyledHeadlinePrimary = styled.h1`
 
 When using Styled Components, you are using the JavaScript template literals the same way as JavaScript functions. Everything between the backticks can be seen as an argument and the `styled` object gives you access to all the necessary HTML elements (e.g. div, h1) as functions. Once a function is called with the style, it returns a React component that can be used in your App component:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -72,7 +72,7 @@ const App = () => {
 
 This kind of React component follows the same rules as a common React component. Everything passed between its element tags is passed automatically as React `children` prop. For the Item component, we are not using inline styles this time, but defining a dedicated styled component for it. `StyledColumn` receives its styles dynamically using a React prop:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
 # leanpub-start-insert
@@ -102,7 +102,7 @@ const Item = ({ item, onRemoveItem }) => (
 
 The flexible `width` prop is accessible in the styled component's template literal as an argument of an inline function. The return value from the function is applied there as a string. Since we can use immediate returns when omitting the arrow function's body, it becomes a concise inline function:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const StyledItem = styled.div`
   display: flex;
@@ -127,7 +127,7 @@ const StyledColumn = styled.span`
 
 Advanced features like CSS nesting are available in Styled Components by default. Nested elements are accessible and the current element can be selected with the `&` CSS operator:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const StyledButton = styled.button`
   background: transparent;
@@ -146,7 +146,7 @@ const StyledButton = styled.button`
 
 You can also create specialized versions of styled components by passing another component to the library's function. The specialized button receives all the base styles from the previously defined StyledButton component:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const StyledButtonSmall = styled(StyledButton)`
   padding: 5px;
@@ -165,7 +165,7 @@ const StyledSearchForm = styled.form`
 
 When we use a styled component like StyledSearchForm, its underlying elements ( `form`, `button`) are used in the real HTML output. We can continue using the native HTML attributes ( `onSubmit`, `type`, `disabled`) there:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const SearchForm = ({ ... }) => (
 # leanpub-start-insert
@@ -193,7 +193,7 @@ const SearchForm = ({ ... }) => (
 
 Finally, the InputWithLabel decorated with its yet undefined styled components:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const InputWithLabel = ({ ... }) => {
   ...
@@ -220,7 +220,7 @@ const InputWithLabel = ({ ... }) => {
 
 And its matching styled components are defined in the same file:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const StyledLabel = styled.label`
   border-top: 1px solid #171212;

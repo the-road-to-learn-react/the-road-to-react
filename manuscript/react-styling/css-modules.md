@@ -2,14 +2,14 @@
 
 CSS Modules are an advanced **CSS-in-CSS** approach. The CSS file stays the same, where you could apply CSS extensions like Sass, but its use in React components changes. To enable CSS modules in create-react-app, rename the *src/App.css* file to *src/App.module.css*. This action is performed in the command line from your project's directory:
 
-{title="",lang="text"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 mv src/App.css src/App.module.css
 ~~~~~~~
 
 In the renamed *src/App.module.css*, start with the first CSS class definitions, as before:
 
-{title="",lang="css"}
+{title="src/App.module.css",lang="css"}
 ~~~~~~~
 .container {
   height: 100vw;
@@ -30,7 +30,7 @@ In the renamed *src/App.module.css*, start with the first CSS class definitions,
 
 Import the *src/App.module.css* file with a relative path again. This time, import it as a JavaScript object where the name of the object (here `styles`) is up to you:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 import axios from 'axios';
@@ -42,7 +42,7 @@ import styles from './App.module.css';
 
 Instead of defining the `className` as a string mapped to a CSS file, access the CSS class directly from the `styles` object, and assigns it with a JavaScript in JSX expression to your elements.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -73,7 +73,7 @@ const App = () => {
 
 There are various ways to add multiple CSS classes via the `styles` object to the element's single `className` attribute. Here, we use JavaScript template literals:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
 # leanpub-start-insert
@@ -104,7 +104,7 @@ const Item = ({ item, onRemoveItem }) => (
 
 We can also add inline styles as more dynamic styles in JSX again. It's also possible to add a CSS extension like Sass to enable advanced features like CSS nesting. We will stick to native CSS features though:
 
-{title="",lang="css"}
+{title="src/App.module.css",lang="css"}
 ~~~~~~~
 .item {
   display: flex;
@@ -127,7 +127,7 @@ We can also add inline styles as more dynamic styles in JSX again. It's also pos
 
 Then the button CSS classes in the *src/App.module.css* file:
 
-{title="",lang="css"}
+{title="src/App.module.css",lang="css"}
 ~~~~~~~
 .button {
   background: transparent;
@@ -154,7 +154,7 @@ Then the button CSS classes in the *src/App.module.css* file:
 
 There is a shift toward pseudo BEM naming conventions here, in contrast to `button_small` and `button_large` from the previous section. If the previous naming convention holds true, we can only access the style with `styles['button_small']` which makes it more verbose because of  JavaScript's limitation with object underscores. The same shortcomings would apply for classes defined with a dash (`-`). In contrast, now we can use `styles.buttonSmall` instead (see: Item component):
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const SearchForm = ({ ... }) => (
 # leanpub-start-insert
@@ -179,7 +179,7 @@ const SearchForm = ({ ... }) => (
 
 The SearchForm component receives the styles as well. It has to use string interpolation for using two styles in one element via JavaScript's template literals. One alternative way is the [classnames](https://github.com/JedWatson/classnames) library, which is installed via the command line as project dependency:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 import cs from 'classnames';
 
@@ -191,7 +191,7 @@ className={cs(styles.button, styles.buttonLarge)}
 
 The library offers conditional stylings as well. Finally, continue with the InputWithLabel component:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const InputWithLabel = ({ ... }) => {
   ...
@@ -221,7 +221,7 @@ const InputWithLabel = ({ ... }) => {
 
 And finish up the remaining style in the *src/App.module.css* file:
 
-{title="",lang="css"}
+{title="src/App.module.css",lang="css"}
 ~~~~~~~
 .searchForm {
   padding: 10px 0 20px 0;

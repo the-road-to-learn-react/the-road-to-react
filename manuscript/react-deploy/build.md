@@ -10,28 +10,28 @@ The next step is to take your application to the *production stage* by hosting i
 
 Fortunately, optimizations and packaging, also called bundling, comes with the build tools in create-react-app. First, build your application on the command line:
 
-{title="",lang="text"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 npm run build
 ~~~~~~~
 
 This creates a new *build/* folder in your project with the bundled application. You could take this folder and deploy it on a hosting provider now, but we'll use a local server to mimic this process before engaging in the real thing. First, install an HTTP server on your machine:
 
-{title="",lang="text"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 npm install -g http-server
 ~~~~~~~
 
 Next, serve your application with this local HTTP server:
 
-{title="",lang="text"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 http-server build/
 ~~~~~~~
 
 The process can also be done on demand with a single command:
 
-{title="",lang="text"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 npx http-server build/
 ~~~~~~~

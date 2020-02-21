@@ -10,7 +10,7 @@ Throughout this section we will compare a [modern React application](https://cod
 
 React components have undergone many changes, from **createClass components** over **class components**, to **function components**. Going through a React application today, it's likely that we'll see class components next to the modern function components.
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 class InputWithLabel extends React.Component {
   render() {
@@ -42,7 +42,7 @@ A typical class component is a JavaScript class with a mandatory **render method
 
 For a while class components were the popular choice for writing React applications. Eventually, function components were added, and both co-existed with their distinct purposes side by side:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 const InputWithLabel = ({
   id,
@@ -80,7 +80,7 @@ With the addition of React Hooks, function components worked the same as class c
 
 Before React Hooks, class components were superior to function components because they could be stateful. With a class constructor, we can set an initial state for the component. Also, the component's instance (`this`) gives access to the current state (`this.state`) and the component's state updater method (`this.setState`):
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 class App extends React.Component {
   constructor(props) {
@@ -135,7 +135,7 @@ In a React function component, React's useRef Hook is used mostly for imperative
 
 Recently, the React team introduced **React's createRef** as the  latest equivalent to a function component's useRef hook:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 class InputWithLabel extends React.Component {
   constructor(props) {

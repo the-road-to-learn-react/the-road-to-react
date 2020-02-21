@@ -42,7 +42,7 @@ Before we can begin, we'll need to have [node and npm](https://nodejs.org/en/) i
 
 You can verify node and npm versions in the command line using the `node --version` command. If you don't receive output in the terminal indicating which version is installed, you need to install node and npm:
 
-{title="",lang="text"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 node --version
 *vXX.YY.ZZ
@@ -58,21 +58,21 @@ In the Road to React, we'll use [create-react-app](https://github.com/facebook/c
 
 After installing Node and npm, use the command line to type the following command in a dedicated folder for your project. We'll refer to this project as *hacker-stories*, but you may choose any name you like:
 
-{title="",lang="text"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 npx create-react-app hacker-stories
 ~~~~~~~
 
 Navigate into your new folder after the setup has finished:
 
-{title="",lang="text"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 cd hacker-stories
 ~~~~~~~
 
 Now we can open the application in an editor or IDE. For Visual Studio Code, you can simply type `code .` on the command line. The following folder structure, or a variation of it depending on the *create-react-app* version, should be presented:
 
-{title="",lang="text"}
+{title="Project Structure",lang="text"}
 ~~~~~~~
 hacker-stories/
 --node_modules/
@@ -105,7 +105,7 @@ Additionally, you will find a *src/App.test.js* file for your tests, and a *src/
 
 After you have learned about the folder and file structure of your React project, let's go through the available commands to get it started. All your project specific commands can be found in your *package.json* under the *scripts* property. They may look similar to these:
 
-{title="",lang="javascript"}
+{title="package.json",lang="javascript"}
 ~~~~~~~
 {
   ...
@@ -122,7 +122,7 @@ After you have learned about the folder and file structure of your React project
 
 These scripts are executed with the `npm run <script>` command in an IDE-integrated terminal or command line tool. The `run` can be omitted for the `start` and `test` scripts. The commands are as follows:
 
-{title="",lang="text"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 # Runs the application in http://localhost:3000
 npm start
@@ -153,7 +153,7 @@ Another command from the previous npm scripts called `eject` shouldn't be used f
 
 Our first React component is in the *src/App.js* file, which should look similar to the example below. The file might differ slightly, because create-react-app will sometimes update the default component's structure.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 import logo from './logo.svg';
@@ -185,7 +185,7 @@ export default App;
 
 This file will be our focus throughout this tutorial, unless otherwise specified. Let's start by reducing the component to a more lightweight version for getting you started without too much boilerplate code from create-react-app.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 import React from 'react';
@@ -206,7 +206,7 @@ First, this React component, called App component, is just a JavaScript function
 
 The function component possess implementation details like any other JavaScript function. You will see this in practice in action throughout your React journey:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 
@@ -227,7 +227,7 @@ export default App;
 
 Variables defined in the function's body will be re-defined each time this function runs, like all JavaScript functions:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 
@@ -248,7 +248,7 @@ export default App;
 
 Since we don't need anything from within the App component used for this variable -- e.g. parameters coming from the function signature -- we can define the variable outside of the App component as well:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 
@@ -281,7 +281,7 @@ Let's use this variable in the next section.
 
 Recall that I mentioned the returned output of the App component resembles HTML. This output is called JSX, which mixes HTML and JavaScript. Let's see how this works for displaying the variable:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 
@@ -304,7 +304,7 @@ Start your application with `npm start` again, and look for the rendered variabl
 
 Let's focus on the HTML, which is expressed almost the same in JSX. An input field with a label can be defined as follows:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 
@@ -330,7 +330,7 @@ We specified three HTML attributes here: `htmlFor`, `id`, and `type`. Where `id`
 
 We will revisit the HTML input field for implementation details later; for now, let's return to JavaScript in JSX. We have defined a string primitive to be displayed in the App component, and the same can be done with a JavaScript object:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 
@@ -361,7 +361,7 @@ export default App;
 
 Remember, everything in curly braces in JSX can be used for JavaScript expressions (e.g. function execution):
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 
@@ -401,7 +401,7 @@ JSX was initially invented for React, but it became useful for other modern libr
 
 So far we've rendered a few primitive variables in JSX; next we'll render a list of items. We'll experiment with sample data at first, then we'll apply that to fetch data from a remote API. First, let's define the array as a variable. As before, we can define a variable outside or inside the component. The following defines it outside:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 
@@ -435,7 +435,7 @@ I used a `...` here as a placeholder, to keep my code snippet small (without App
 
 Each item in the list has a title, a url, an author, an identifier (`objectID`), points -- which indicate the popularity of an item -- and a count of comments. Next, we'll render the list within our JSX dynamically:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 function App() {
   return (
@@ -461,7 +461,7 @@ function App() {
 
 You can use the [built-in JavaScript map method for arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) to iterate over each item of the list and return a new version of each:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 const numbers = [1, 4, 9, 16];
 
@@ -475,7 +475,7 @@ console.log(newNumbers);
 
 We won't map from one JavaScript data type to another in our case. Instead, we return a JSX fragment that renders each item of the list:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 function App() {
   return (
@@ -498,7 +498,7 @@ Actually, one of my first React "Aha" moments was using barebones JavaScript to 
 
 React will display each item now, but you can still improve your code so React handles advanced dynamic lists more gracefully. By assigning a key attribute to each list item's element, React can identify modified items if the list changes (e.g. re-ordering). Fortunately, our list items come with an identifier:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 function App() {
   return (
@@ -525,7 +525,7 @@ function App() {
 
 We avoid using the index of the item in the array to make sure the key attribute is a stable identifier. If the list changes its order, for example, React will not be able to identify the items properly:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 // don't do this
 {list.map(function(item, index) {
@@ -539,7 +539,7 @@ We avoid using the index of the item in the array to make sure the key attribute
 
 So far, only the title is displayed for each item. Let's experiment with displaying more of the item's properties:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 function App() {
   return (
@@ -584,7 +584,7 @@ The map function is inlined concisely in your JSX. Within the map function, we h
 
 So far we've only been using the App component to create our applications. We used the App component in the last section to express everything needed to render our list in JSX, and it should scale with your needs and eventually handle more complex tasks. To help with this, we'll split some of its responsibilities into a standalone List component:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const list = [ ... ];
 
@@ -610,7 +610,7 @@ function List() {
 
 Optional: If this component looks odd, because the outermost part of the returned JSX starts with JavaScript. We could use it with a wrapping HTML element as well, but we'll continue with the previous version.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 function List() {
 # leanpub-start-insert
@@ -629,7 +629,7 @@ function List() {
 
 Now the new List component can be used in the App component:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 function App() {
   return (
@@ -667,7 +667,7 @@ Next, I'll briefly explain JavaScript classes, to help clarify React components.
 
 Classes are most often used in object-oriented programming languages. JavaScript, always flexible in its programming paradigms, allows functional programming and object-oriented programming to co-exist side-by-side. To recap JavaScript classes for object-oriented programming, consider the following *Developer* class:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 class Developer {
   constructor(firstName, lastName) {
@@ -685,7 +685,7 @@ Each class has a constructor that takes arguments and assigns them to the class 
 
 Defining the Developer class once is just one part; instantiating it is the other. The class definition is the blueprint of its capabilities, and usage occurs when an instance is created with the `new` statement.
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 // class definition
 class Developer { ... }
@@ -705,7 +705,7 @@ console.log(dennis.getName());
 
 If a JavaScript class definition exists, one can create *multiple* instances of it. It is similar to a React component, which has only *one* component definition, but can have *multiple* instances:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 // definition of App component
 function App() {
@@ -742,7 +742,7 @@ Once we've defined a **component**, we can use it like an HTML **element** anywh
 
 Now that we've learned about component definitions and their instantiation, we can move to the App component's instantiation. It has been in our application from the start, in the *src/index.js* file:
 
-{title="",lang="javascript"}
+{title="src/index.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -757,7 +757,7 @@ ReactDOM.render(
 
 Next to React, there is another imported library called `react-dom`, in which a `ReactDOM.render()` function uses an HTML node to replace it with JSX. The process integrates React into HTML. `ReactDOM.render()` expects two arguments; the first is to render the JSX. It creates an instance of your App component, though it can also pass simple JSX without any component instantiation.
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 ReactDOM.render(
   <h1>Hello React World</h1>,
@@ -779,7 +779,7 @@ The following refactorings are optional recommendations to explain the different
 
 All components in the *src/App.js* file are function component. JavaScript has multiple ways to declare functions. So far, we have used the function statement, though arrow functions can be used more concisely:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 // function declaration
 function () { ... }
@@ -790,7 +790,7 @@ const () => { ... }
 
 You can remove the parentheses in an arrow function expression if it has only one argument, but multiple arguments require parentheses:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 // allowed
 const item => { ... }
@@ -807,7 +807,7 @@ const (item, index) => { ... }
 
 Defining React function components with arrow functions makes them more concise:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const App = () => {
@@ -838,7 +838,7 @@ const List = () => {
 
 This holds also true for other functions, like the one we used in our JavaScript array's map method:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const List = () => {
 # leanpub-start-insert
@@ -860,7 +860,7 @@ const List = () => {
 
 If an arrow function doesn't do *anything* in between, but only returns *something*, -- in other words, if an arrow function doesn't perform any task, but only returns information --, you can remove the **block body** (curly braces) of the function. In a **concise body**, an **implicit return statement** is attached, so you can remove the return statement:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 // with block body
 count => {
@@ -876,7 +876,7 @@ count =>
 
 This can be done for the App and List component as well, because they only return JSX and don't perform any task in between. Again it also applies for the arrow function that's used in the map function:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const App = () => (
@@ -907,7 +907,7 @@ const List = () =>
 
 Our JSX is more concise now, as it omits the function statement, the curly braces, and the return statement. However, remember this is an optional step, and that it's acceptable to use normal functions instead of arrow functions and block bodies with curly braces for arrow functions over implicit returns. Sometimes block bodies will be necessary to introduce more business logic between function signature and return statement:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 const App = () => {
   // perform any task in between
@@ -933,7 +933,7 @@ Be sure to understand this refactoring concept, because we'll move quickly from 
 
 The App component still has the input field and label, which we haven't used. In HTML outside of JSX, input fields have an [onchange handler](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onchange). We're going to discover how to use onchange handlers with a React component's JSX. First, refactor the App component form a concise to block body so we can add implementation details.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const App = () => {
@@ -959,7 +959,7 @@ const App = () => {
 
 Next, define a function -- which can be normal or arrow -- for the change event of the input field. In React, this function is called an **(event) handler**. Now the function can be passed to the `onChange` attribute (JSX named attribute) of the input field.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
 # leanpub-start-insert
@@ -987,7 +987,7 @@ const App = () => {
 
 After opening your application in a web browser, open the browser's developer tools to see logging occur after you type into the input field. This is called a **synthetic event** defined by a JavaScript object. Through this object, we can access the emitted value of the input field:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   const handleChange = event => {
@@ -1004,7 +1004,7 @@ The synthetic event is essentially a wrapper around the [browser's native event]
 
 This is how we give HTML elements in JSX handler functions to respond to user interaction. Always pass functions to these handlers, not the return value of the function, except when the return value is a function:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 // don't do this
 <input
@@ -1041,7 +1041,7 @@ We are currently using the `list` variable as a global variable in the current a
 
 Using so called props, we can pass variables as information from one component to another component. Before using props, we'll move the list from the global scope into the App component and rename it to its actual domain:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
 # leanpub-start-insert
@@ -1073,7 +1073,7 @@ const App = () => {
 
 Next, we'll use **React props** to pass the array to the List component:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   const stories = [ ... ];
@@ -1099,7 +1099,7 @@ const App = () => {
 
 The variable is called `stories` in the App component, and we pass it under this name to the List component. In the List component's instantiation, however, it is assigned to the `list` attribute. We access it as `list` from the `props` object in the List component's function signature:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const List = props =>
@@ -1128,7 +1128,7 @@ React Props are used to pass information down the component tree; **React state*
 
 First, there is a utility function called `useState` that we take from `React` for managing state. The `useState` function is called a hook. There is more than one **React hook** -- related to state management but also other things in React -- and you will learn about them throughout the next sections. For now, let's focus on **React's `useState` hook**:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   const stories = [ ... ];
@@ -1145,7 +1145,7 @@ React's `useState` hook takes an *initial state* as an argument. We'll use an em
 
 If you are not familiar with the syntax of the two values from the returned array, consider reading about [JavaScript array destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Array_destructuring). It is used to read from an array more concisely. This is array destructuring and its benefits visualized in a nutshell:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 // basic array definition
 const list = ['a', 'b'];
@@ -1160,7 +1160,7 @@ const [firstItem, secondItem] = list;
 
 In the case of React, the React `useState` hook is a function which returns an array. Take again the following JavaScript example as comparison:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 function getAlphabet() {
   return ['a', 'b'];
@@ -1176,7 +1176,7 @@ const [firstItem, secondItem] = getAlphabet();
 
 Array destructuring is just a shorthand version of accessing each item one by one. If you express it without the array destructuring in React, it becomes less readable:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   const stories = [ ... ];
@@ -1192,7 +1192,7 @@ const App = () => {
 
 The React team chose array destructuring because of its concise syntax and ability to name destructured variables. The following code snippet is an example of array destructuring:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   const stories = [ ... ];
@@ -1207,7 +1207,7 @@ const App = () => {
 
 After we initialize the state and have access to the current state and the state updater function, use them to display the current state and update it within the App component's event handler:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   const stories = [ ... ];
@@ -1254,7 +1254,7 @@ When the user types into the input field, the input field's change event is capt
 
 Next we'll focus on the input field and label, by separating a standalone Search component and creating an instance of it in the App component. Through this process, the Search component becomes a sibling of the List component, and vice versa. We'll also move the handler and the state into the Search component to keep our functionality intact.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   const stories = [ ... ];
@@ -1300,7 +1300,7 @@ We have an extracted Search component that handles state and shows state without
 
 There is no way to pass information as JavaScript data types up the component tree, since props are naturally only passed downwards. However, we can introduce a **callback handler** as a function: A callback function gets introduced (A), is used elsewhere (B), but "calls back" to the place it was introduced (C).
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   const stories = [ ... ];
@@ -1360,7 +1360,7 @@ Currently, the Search component still has its internal state. While we establish
 
 The search term is needed in the App to filter the list before passing it to the List component as props. We'll need to **lift state up** from Search to App component to share the state with more components.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
  const stories = [ ... ];
@@ -1404,7 +1404,7 @@ Always manage the state at a component where every component that's interested i
 
 By managing the search feature state in the App component, we can finally filter the list with the stateful `searchTerm` before passing the `list` to the List component:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
  const stories = [ ... ];
@@ -1439,7 +1439,7 @@ const App = () => {
 
 Here, the [JavaScript array's built-in filter function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) is used to create a new filtered array. The filter function takes a function as an argument, which accesses each item in the array and returns true or false. If the function returns true, meaning the condition is met, the item stays in the newly created array; if the function returns false, it's removed:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 const words = [
  'spray',
@@ -1460,7 +1460,7 @@ console.log(filteredWords);
 
 The filter function checks whether the `searchTerm` is present in our story item's title, but it's still too opinionated about the letter case. If we search for "react", there is no filtered "React" story in your rendered list. To fix this problem, we have to lower case the story's title and the `searchTerm`.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
  ...
@@ -1481,7 +1481,7 @@ Now you should be able to search for "eact", "React", or "react" and see one of 
 
 The remaining section shows a couple of refactoring steps. We will be using the final refactored version in the end, so it makes sense to understand these steps and keep them. As learned before, we can make the function more concise using a JavaScript arrow function:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
  ...
@@ -1500,7 +1500,7 @@ const App = () => {
 
 In addition, we could turn the return statement into an immediate return, because no other task (business logic) happens before the return:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
  ...
@@ -1530,7 +1530,7 @@ Now we can manipulate state in React, using the Search component's callback hand
 
 Let's go through a scenario that shows  why we should follow the concept of controlled components throughout our React application. After applying the following change -- giving the `searchTerm` an initial state -- can you spot the mistake in your browser?
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
  const stories = [ ... ];
@@ -1547,7 +1547,7 @@ While the list has been filtered according to the initial search, the input fiel
 
 We need to convert the Search component with its input field into a controlled component. So far, the input field doesn't know anything about the `searchTerm`. It only uses the change event to inform us of a change. Actually, the input field has a `value` attribute.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
  const stories = [ ... ];
@@ -1588,7 +1588,7 @@ Now the input field starts with the correct initial value, using the `searchTerm
 
 We learned about controlled components in this section, and, taking all the previous sections as learning steps into consideration, discovered another concept called **unidirectional data flow**:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 UI -> Side-Effect -> State -> UI -> ...
 ~~~~~~~
@@ -1614,7 +1614,7 @@ Props are passed from parent to child down the component tree. Since we use prop
 
 React props are a JavaScript object, else we couldn't access `props.list` or `props.onSearch` in React components. Since `props` is an object, we can apply a couple JavaScript tricks to it. For instance, accessing its properties:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 const user = {
  firstName: 'Robin',
@@ -1637,7 +1637,7 @@ console.log(firstName + ' ' + lastName);
 
 This JavaScript feature is called [object destructuring in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment). If we need to access multiple properties of an object, using one line of code instead of multiple lines is simpler and more elegant. Let's transfer this knowledge to React props in our Search component:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const Search = props => {
 # leanpub-start-insert
@@ -1662,7 +1662,7 @@ const Search = props => {
 
 That's a basic destructuring of the `props` object in a React component, so that its properties can be used in the component without the `props` object. We refactored the Search component's arrow function from concise body into block body to access the properties of `props`. This would happen quite often if we followed this pattern, and it wouldn't make things easier for us. We can take it a step further by destructuring the `props` right away in the function signature, omitting the block body again:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const Search = ({ search, onSearch }) => (
@@ -1685,7 +1685,7 @@ React's `props` are rarely used in components by themselves; rather, all the inf
 
 Let's check out another scenario where its less about the `props` object, and more about an object that comes from it. The same lesson is applicable for the `props` object. First, we will extract a new Item component from the List component:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const List = ({ list }) =>
@@ -1708,7 +1708,7 @@ const Item = ({ item }) => (
 
 We applied previous lesson by destructuring the `props` object in the function signature of each component. The incoming `item` of the Item component could be seen the same as the `props`, because it's never directly used in the Item component. There are three potential ways to handle this problem. The first is to perform a *nested destructuring* in the component's function signature:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 // version 1 (final)
 const Item = ({
@@ -1739,7 +1739,7 @@ const Item = ({
 
 Nested destructuring introduces lots of clutter through indentations in the function signature. While it's not the most readable option, it can be useful in specific scenarios. On to the second way:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 // version 2 (I)
 const List = ({ list }) =>
@@ -1772,7 +1772,7 @@ const Item = ({ title, url, author, num_comments, points }) => (
 
 Even though the Item component's function signature is more concise, the clutter ended up in the List component instead, because every property is passed to the Item component individually. We can improve this technique using [JavaScript's spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax):
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 const person = {
  firstName: 'Robin',
@@ -1797,7 +1797,7 @@ console.log(personWithDetails);
 
 Instead of passing each property one at a time via props from List to Item component, we could use JavaScript's spread operator to pass all the object's key/value pairs as attribute/value pairs to the JSX element:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 // version 2 (II)
 const List = ({ list }) =>
@@ -1812,7 +1812,7 @@ const Item = ({ title, url, author, num_comments, points }) => (
 
 Then, we'll use [JavaScript's rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters):
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 const person = {
  firstName: 'Robin',
@@ -1833,7 +1833,7 @@ The JavaScript rest operator is the last part of an object destructuring. It sho
 
 Now it can be used in our List component to separate the `objectID` from the item, because the `objectID` is only used as `key` and isn't used (so far) in the Item component. Only the remaining (rest) item gets spread as attribute/value pairs into the Item component (as before):
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 // version 2 (III/final)
 const List = ({ list }) =>
@@ -1846,7 +1846,7 @@ const List = ({ list }) =>
 
 While this version is very concise, it comes with  advanced JavaScript features that may be unknown to some. The third way of handling this situation is to keep it the same as before:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 // version 3 (final)
 const List = ({ list }) =>
@@ -1885,7 +1885,7 @@ Next we'll add a feature to our Search component in the form of another React ho
 
 First, use the local storage of the browser to store the `searchTerm` accompanied by an identifier. Next, use the stored value, if there a value exists, to set the initial state of the `searchTerm`. Otherwise, the initial state defaults to our initial state (here "React") as before:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
  ...
@@ -1912,7 +1912,7 @@ When using the input field and refreshing the browser tab, the browser should re
 
 There is one flaw, though. The handler function should mostly be concerned about updating the state, but now it has a side-effect. If we use the `setSearchTerm` function elsewhere in our application, we will break the feature we implemented because we can't be sure the local storage will also get updated. Let's fix this by handling the side-effect at a dedicated place. We'll use **React's useEffect Hook** to trigger the side-effect each time the `searchTerm` changes:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
  ...
@@ -1958,7 +1958,7 @@ We'll eventually cover more hooks that come with React -- in this volume and in 
 
 We will use the two hooks we already possess to create a new custom hook called `useSemiPersistentState`, named as such because it manages state yet synchronizes with the local storage. It's not fully persistent because clearing the local storage of the browser deletes relevant data for this application. Start by extracting all relevant implementation details from the App component into this new custom hook:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const useSemiPersistentState = () => {
@@ -1979,7 +1979,7 @@ const App = () => {
 
 So far, it's just a function around our previously in the App component used `useState` and `useEffect` hooks. Before we can use it, let's return the values that are needed in our App component from this custom hook:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const useSemiPersistentState = () => {
  const [searchTerm, setSearchTerm] = React.useState(
@@ -1998,7 +1998,7 @@ const useSemiPersistentState = () => {
 
 We are following two conventions of React's built-in hooks here. First, the naming convention which puts the "use" prefix in front of every hook name; second, the returned values are returned as an array. Now we can use the custom hook with its returned values in the App component with the usual array destructuring:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
  const stories = [ ... ];
@@ -2023,7 +2023,7 @@ const App = () => {
 
 Another goal of a custom hook should be reusability. All of this custom hook's internals are about the search domain, but the hook should be for a value that's set in state and synchronized in local storage. Let's adjust the naming therefore:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const useSemiPersistentState = () => {
 # leanpub-start-insert
@@ -2048,7 +2048,7 @@ We handle an abstracted "value" within the custom hook. Using it in the App comp
 
 There is still one problem with this custom hook. Using the custom hook more than once in a React application leads to an overwrite of the "value"-allocated item in the local storage. To fix this, pass in a key:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const useSemiPersistentState = key => {
@@ -2085,7 +2085,7 @@ Since the key comes from outside, the custom hook assumes that it could change, 
 
 Another improvement is to give the custom hook the initial state we had from the outside:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const useSemiPersistentState = (key, initialState) => {
@@ -2127,7 +2127,7 @@ However, knowing more about custom hooks gives you lots of new options. A custom
 
 One caveat with JSX, especially when we create a dedicated Search component, is that we must introduce a wrapping HTML element to render it:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const Search = ({ search, onSearch }) => (
 # leanpub-start-insert
@@ -2148,7 +2148,7 @@ const Search = ({ search, onSearch }) => (
 
 Normally the JSX returned by a React component needs only one wrapping top-level element. To render multiple top-level elements side-by-side, we have to wrap them into an array instead. Since we're working with a list of elements, we have to give every sibling element React's `key` attribute:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const Search = ({ search, onSearch }) => [
  <label key="1" htmlFor="search">
@@ -2166,7 +2166,7 @@ const Search = ({ search, onSearch }) => [
 
 This is one way to have multiple top-level elements in your JSX. It doesn't turn out very readable, though, as it becomes verbose with the additional key attribute. Another solution is to use a **React fragment**:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const Search = ({ search, onSearch }) => (
 # leanpub-start-insert
@@ -2199,7 +2199,7 @@ Have a closer look at the Search component. The label element has the text "Sear
 
 Since the Search component doesn't have any actual "search" functionality, it takes little effort to generalize other search domain properties to make the component reusable for the rest of the application. Let's pass an additional `id` and `label` prop to the Search component, rename the actual value and callback handler to something more abstract, and rename the component accordingly:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
  ...
@@ -2248,7 +2248,7 @@ const InputWithLabel = ({ id, label, value, onInputChange }) => (
 
 It's not fully reusable yet. If we want an input field for data like a number (`number`) or phone number (`tel`), the `type` attribute of the input field needs to be accessible from the outside too:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const InputWithLabel = ({
  id,
@@ -2289,7 +2289,7 @@ With just a few changes we turned a specialized Search component into a more reu
 
 Now we'll discover how to use a React element in the same fashion as an HTML element, with an opening and closing tag:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -2316,7 +2316,7 @@ const App = () => {
 
 Instead of using the `label` prop from before, we inserted the text "Search:" between the component's element's tags. In the InputWithLabel component, you have access to this information via **React's children** prop. Instead of using the`label` prop, use the children`prop to render everything that has been passed down from above where you want it:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const InputWithLabel = ({
   id,
@@ -2344,7 +2344,7 @@ const InputWithLabel = ({
 
 Now the React component's elements behave similar to native HTML. Everything that's passed between a component's elements can be accessed as children`in the component and be rendered somewhere. Sometimes when using a React component, you want to have more freedom from the outside what to render in the inside of a component:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -2393,7 +2393,7 @@ React is inherently declarative, starting with JSX and ending with hooks. In JSX
 
 Because imperative programming in React is often verbose and counterintuitive, we'll walk only through a small example for setting the focus of an input field imperatively. For the declarative way, simply set the input field's autofocus attribute:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const InputWithLabel = ({ ... }) => (
   <>
@@ -2414,7 +2414,7 @@ const InputWithLabel = ({ ... }) => (
 
 This works, but only if one of the reusable components is rendered once. For instance, if the App component renders two InputWithLabel components, only the last rendered component receives the auto-focus on its render. However, since we have a reusable React component here, we can pass a dedicated prop and let the developer decide whether its input field should have an autofocus or not:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -2442,7 +2442,7 @@ const App = () => {
 
 Using just `isFocused` as an attribute is equivalent to `isFocused={true}`. Within the component, use the new prop for the input field's `autoFocus` attribute:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const InputWithLabel = ({
   id,
@@ -2472,7 +2472,7 @@ const InputWithLabel = ({
 
 The feature works, yet it's still a declarative implementation. We are telling React *what* to do and not *how* to do it. Even though it's possible to do it with the declarative approach, let's refactor this scenario to an imperative approach. We want to execute the `focus()` method programmatically via the input field's DOM API once it has been rendered:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const InputWithLabel = ({
   id,
@@ -2539,7 +2539,7 @@ The list of stories we have so far is only an unstateful variable. We can filter
 
 To gain control over the list, make it stateful by using it as initial state in React's useState Hook. The returned values are the current state (`stories`) and the state updater function (`setStories`). We aren't using the custom `useSemiPersistentState` hook yet, because we don't want to open the browser with the cached list each time. Instead, we always want to start with the initial list.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const initialStories = [
@@ -2569,7 +2569,7 @@ const App = () => {
 
 The application behaves the same because the `stories`, now returned from `useState`, are still filtered into `searchedStories` and displayed in the List. Next we'll manipulate the list by removing an item from it:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -2606,7 +2606,7 @@ const App = () => {
 
 The callback handler in the App component receives an item to be removed as an argument, and filters the current stories based on this information by removing all items that don't meet its condition(s). The returned stories are then set as new state, and the List component passes the function to its child component. It's not using this new information; it's just passing it on:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const List = ({ list, onRemoveItem }) =>
@@ -2624,7 +2624,7 @@ const List = ({ list, onRemoveItem }) =>
 
 Finally, we can use the incoming function in another handler in the Item component to pass the `item` to it. A button element is used to trigger the actual event:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const Item = ({ item, onRemoveItem }) => {
@@ -2657,7 +2657,7 @@ We could have passed only the item's `objectID`, since that's all we need  in th
 
 We have made the list of stories stateful with React's useState Hook; passed the still searched stories down as props to the List component; and implemented a callback handler (`handleRemoveStory`) and handler (`handleRemoveItem`) to be used in their respective components. Since a handler is just a function, and in this case it doesn't return anything, we could remove the block body for it for the sake of completeness.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => {
 # leanpub-start-insert
@@ -2671,7 +2671,7 @@ const Item = ({ item, onRemoveItem }) => {
 
 This change makes our source code less readable as we accumulate handlers in the function component. Sometimes I refactor handlers in a function component from an arrow function back to a normal function statement, just to make the component more explorable:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => {
 # leanpub-start-insert
@@ -2686,7 +2686,7 @@ const Item = ({ item, onRemoveItem }) => {
 
 In this section we applied props, handlers, callback handlers, and state. That are all lessons learned from before. Now we'll tackle **inline handlers**, which allow us to execute the function right in the JSX. There are two solutions using the incoming function in the Item component as an inline handler. First, using JavaScript's bind method:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
   <div>
@@ -2711,7 +2711,7 @@ Using [JavaScript's bind method](https://developer.mozilla.org/en-US/docs/Web/Ja
 
 The second and more popular solution is to use a wrapping arrow function, which allows us to sneak in arguments like `item`:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
   <div>
@@ -2734,7 +2734,7 @@ const Item = ({ item, onRemoveItem }) => (
 
 This is a quick solution, because sometimes we don't want to refactor a function component's concise function body back to a block body to define an appropriate handler between function signature and return statement. While this way is more concise than the others, it can also be more difficult to debug because JavaScript logic may be hidden in JSX. It becomes even more verbose if the wrapping arrow function encapsulates more than one line of implementation logic, by using a block body instead of a concise body. This should be avoided:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
   <div>
@@ -2771,7 +2771,7 @@ We have two interactions in our application: searching the list, and removing it
 
 Sometimes we must render a component before we can fetch data from a third-party API and display it. In the following, we will simulate this kind of asynchronous data in the application. In a live application, this asynchronous data gets fetched from a real remote API. We start off with a function that returns a promise -- data, once it resolves -- in its shorthand version. The resolved object holds the previous list of stories:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const initialStories = [ ... ];
 
@@ -2783,7 +2783,7 @@ const getAsyncStories = () =>
 
 In the App component, instead of using the `initialStories`, use an empty array for the initial state. We want to start off with an empty list of stories, and simulate fetching these stories asynchronously. In a new `useEffect` hook, call the function and resolve the returned promise. Due to the empty dependency array, the side-effect only runs once the component renders for the first time:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -2806,7 +2806,7 @@ const App = () => {
 
 Even though the data should arrive asynchronously when we start the application, it appears to arrive synchronously, because it's rendered immediately. Let's change this by giving it a bit of a realistic delay, because every network request to an API would come with a delay. First, remove the shorthand version for the promise:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const getAsyncStories = () =>
 # leanpub-start-insert
@@ -2818,7 +2818,7 @@ const getAsyncStories = () =>
 
 And second, when resolving the promise, delay it for a few seconds:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const getAsyncStories = () =>
   new Promise(resolve =>
@@ -2845,7 +2845,7 @@ Handling asynchronous data in React leaves us with conditional states: with data
 
 In a real world application, there are more than two conditional states for asynchronous data, though. Consider showing users a loading indicator when data loading is delayed:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -2874,7 +2874,7 @@ const App = () => {
 
 With [JavaScript's ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator), we can inline this conditional state as a **conditional rendering** in JSX:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -2904,7 +2904,7 @@ const App = () => {
 
 Asynchronous data comes with error handling, too. It doesn't happen in our simulated environment, but there could be errors if we start fetching data from another third-party API. Introduce another state for error handling and solve it in the promise's `catch()` block when resolving the promise:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -2934,7 +2934,7 @@ const App = () => {
 
 Next, give the user feedback in case something went wrong with another conditional rendering. This time, it's either rendering something or nothing. So instead of having a ternary operator where one side returns `null`, use the logical `&&` operator as shorthand:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -2977,7 +2977,7 @@ All state management in this application makes heavy use of React's useState Hoo
 
 We'll move the `stories` state management from the `useState` hook to a new `useReducer` hook. First, introduce a reducer function outside of your components. A reducer function always receives `state` and `action`. Based on these two arguments, a reducer always returns a new state:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const storiesReducer = (state, action) => {
@@ -2994,7 +2994,7 @@ A reducer `action` is often associated with a `type`. If this type matches a con
 
 In the App component, exchange `useState` for `useReducer` for managing the `stories`. The new hook receives a reducer function and an initial state as arguments and returns an array with two items. The first item is the *current state*; the second item is the *state updater function* (also called *dispatch function*):
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3012,7 +3012,7 @@ const App = () => {
 
 The new dispatch function can be used instead of the `setStories` function, which was returned from `useState`. Instead of setting state explicitly with the state updater function from `useState`, the `useReducer` state updater function dispatches an action for the reducer. The action comes with a `type` and an optional payload:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3056,7 +3056,7 @@ The application appears the same in the browser, though a reducer and React's `u
 
 So far, the `handleRemoveStory` handler computes the new stories. It's valid to move this logic into the reducer function and manage the reducer with an action, which is another case for moving from imperative to declarative programming. Instead of doing it ourselves by saying *how it should be done*, we are telling the reducer *what to do*. Everything else is hidden in the reducer.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3076,7 +3076,7 @@ const App = () => {
 
 Now the reducer function has to cover this new case in a new conditional state transition. If the condition for removing a story is met, the reducer has all the implementation details needed to remove the story. The action gives all the necessary information, an item's identifier`, to remove the story from the current state and return a new list of filtered stories as state.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const storiesReducer = (state, action) => {
   if (action.type === 'SET_STORIES') {
@@ -3095,7 +3095,7 @@ const storiesReducer = (state, action) => {
 
 All these if else statements will eventually clutter when adding more state transitions into one reducer function. Refactoring it to a switch statement for all the state transitions makes it more readable:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const storiesReducer = (state, action) => {
 # leanpub-start-insert
@@ -3130,7 +3130,7 @@ Perhaps you've noticed a disconnect between the single states in the App compone
 
 There is nothing wrong with multiple `useState` hooks in one React component. Be wary once you see multiple state updater functions in a row, however. These conditional states can lead to **impossible states**, and undesired behavior in the UI. Try changing your pseudo data fetching function to the following to simulate the error handling:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const getAsyncStories = () =>
   new Promise((resolve, reject) => setTimeout(reject, 2000));
@@ -3140,7 +3140,7 @@ The impossible state happens when an error occurs for the asynchronous data. The
 
 Fortunately, we can improve our chances by moving states that belong together from multiple `useState` and `useReducer` hooks into a single `useReducer` hook. Take the following `useState` hooks:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3158,7 +3158,7 @@ const App = () => {
 
 Merge them into one `useReducer` hook for a unified state management and a more complex state object:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3176,7 +3176,7 @@ const App = () => {
 
 Everything related to asynchronous data fetching must use the new dispatch function for state transitions:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3213,7 +3213,7 @@ const App = () => {
 
 Since we introduced new types for state transitions, we must handle them in the `storiesReducer` reducer function:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const storiesReducer = (state, action) => {
   switch (action.type) {
@@ -3255,7 +3255,7 @@ For every state transition, we return a *new state* object which contains all th
 
 Observe how the `REMOVE_STORY` action changed as well. It operates on the `state.data` , not longer just the plain `state`. The state is a complex object with data, loading and error states rather than just a list of stories. This has to be solved in the remaining code too:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3298,7 +3298,7 @@ const App = () => {
 
 Try to use the erroneous data fetching function again and check whether everything works as expected now:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const getAsyncStories = () =>
   new Promise((resolve, reject) => setTimeout(reject, 2000));
@@ -3319,7 +3319,7 @@ We are currently fetching data, but it's still pseudo data coming from a promise
 
 Instead of using the `initialStories` array and `getAsyncStories` function (you can remove these), we will fetch the data directly from the API:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 // A
 # leanpub-start-insert
@@ -3357,7 +3357,7 @@ First, the `API_ENDPOINT` (A) is used to fetch popular tech stories for a certai
 
 In the previous code example we used [JavaScript's Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) for a string interpolation. When this feature wasn't available in JavaScript, we'd have used the + operator on strings instead:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 const greeting = 'Hello';
 
@@ -3388,7 +3388,7 @@ So far, the App component fetches a list of stories once with a predefined query
 
 First, remove`searchedStories`, because we will receive the stories searched from the API. Pass only the regular stories to the List component:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3411,7 +3411,7 @@ const App = () => {
 
 And second, instead of using a hardcoded search term like before, use the actual `searchTerm` from the component's state. If `searchTerm` is an empty string, do nothing:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3444,7 +3444,7 @@ const App = () => {
 
 The initial search respects the search term now, so we'll implement data refetching. If the `searchTerm` changes, run the side-effect for the data fetching again. If `searchTerm` is not present (e.g. null, empty string, undefined), do nothing (as a more generalized condition):
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3488,7 +3488,7 @@ Re-fetching data each time someone types into the input field isn't optimal, so 
 
 The previous sections have taught you about handlers, callback handlers, and inline handlers. Now we'll introduce a **memoized handler**, which can be applied on top of handlers and callback handlers. For the sake of learning, we will move all the data fetching logic into a standalone function outside the side-effect (A); wrap it into a `useCallback` hook (B); and then invoke it in the `useEffect` hook (C):
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3530,7 +3530,7 @@ The application behaves the same; only the implementation logic has been refacto
 
 Let's explore  why React's `useCallback` Hook is needed here. This hook creates a memoized function every time its dependency array (E) changes. As a result, the `useEffect` hook runs again (C) because it depends on the new function (D):
 
-{title="",lang="javascript"}
+{title="Visualization",lang="javascript"}
 ~~~~~~~
 1. change: searchTerm
 2. implicit change: handleFetchStories
@@ -3539,7 +3539,7 @@ Let's explore  why React's `useCallback` Hook is needed here. This hook creates 
 
 If we didn't create a memoized function with React's `useCallback` Hook, a new `handleFetchStories` function would be created with each App component is rendered. The `handleFetchStories` function would be created each time, and would be executed in the `useEffect` hook to fetch data. The fetched data is then stored as state in the component. Because the state of the component changed, the component re-renders and creates a new `handleFetchStories` function. The side-effect would be triggered to fetch data, and we'd be stuck in an endless loop:
 
-{title="",lang="javascript"}
+{title="Visualization",lang="javascript"}
 ~~~~~~~
 1. define: handleFetchStories
 2. run: side-effect
@@ -3566,7 +3566,7 @@ Re-fetching all data each time someone types in the input field isn't optimal. S
 
 To solve this problem, change the implementation details from implicit to explicit data (re-)fetching. In other words, the application will refetch data only if someone clicks a confirmation button. First, add a button element for the confirmation to the JSX:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3604,7 +3604,7 @@ const App = () => {
 
 Second, the handler, input, and button handler receive implementation logic to update the component's state. The input field handler still updates the `searchTerm`; the button handler sets the `url` derived from the *current* `searchTerm` and the static API URL as a new state:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   const [searchTerm, setSearchTerm] = useSemiPersistentState(
@@ -3638,7 +3638,7 @@ const App = () => {
 
 Third, instead of running the data fetching side-effect on every `searchTerm` change -- which would happen each time the input field's value changes -- the `url` is used. The `url` is set explicitly by the user when the search is confirmed via our new button:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3686,14 +3686,14 @@ We previously introduced the native fetch API to complete requests to the Hacker
 
 One alternative is to substitute the native fetch API with a stable library like [axios](https://github.com/axios/axios), which performs asynchronous requests to remote APIs. In this section, we will discover how to substitute a library--a native API of the browser in this case--with another library from the npm registry. First, install axios on the command line:
 
-{title="",lang="javascript"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 npm install axios
 ~~~~~~~
 
 Second, import axios in your App component's file:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 # leanpub-start-insert
@@ -3705,7 +3705,7 @@ import axios from 'axios';
 
 You can use `axios` instead of `fetch`, and its usage looks almost identical to the native fetch API. It takes the URL as an argument and returns a promise. You don't have to transform the returned response to JSON anymore, since axios wraps the result into a data object in JavaScript. Just make sure to adapt your code to the returned data structure:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3750,7 +3750,7 @@ We can see with these examples that axios is a powerful library for performing r
 
 You'll work with asynchronous data often in React, so it's good to know alternative syntax for handling promises: async/await. The following refactoring of the `handleFetchStories` function without error handling shows how:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3778,7 +3778,7 @@ const App = () => {
 
 To use async/await, our function requires the `async` keyword. Once you start using the `await` keyword, everything reads like synchronous code. Actions after the `await` keyword are not executed until promise resolves, meaning the code will wait.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3821,7 +3821,7 @@ Earlier we introduced a new button to fetch data explicitly with a button click.
 
 Forms aren't much different in React's JSX than in HTML. We'll implement it in two refactoring steps with some HTML/JavaScript. First, wrap the input field and button into an HTML form element:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3863,7 +3863,7 @@ Instead of passing the `handleSearchSubmit` handler to the button, it's used in 
 
 Since the handler is used for the form event, it executes `preventDefault` in React's synthetic event. This prevents the HTML form's native behavior, which leads to a browser reload.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -3884,7 +3884,7 @@ const App = () => {
 
 Now we can execute the search feature with the keyboard's `Enter` key. In the next two steps, we will only separate the component into its standalone SearchForm component:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const SearchForm = ({
@@ -3912,7 +3912,7 @@ const SearchForm = ({
 
 The new component is used by the App component. The App component still manages the state for the form, because the state is used in the App component to fetch data passed as props (`stories.data`) to the List component:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...

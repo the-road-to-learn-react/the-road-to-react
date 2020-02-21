@@ -8,7 +8,7 @@ We'll complete a simple refactoring for the project's folder/file structure for 
 
 On the command line in your project's folder, navigate into the *src/* folder and create the following component dedicated files:
 
-{title="",lang="text"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 cd src
 touch List.js InputWithLabel.js SearchForm.js
@@ -16,7 +16,7 @@ touch List.js InputWithLabel.js SearchForm.js
 
 Move every component from the *src/App.js* file in its own file, except for the List component which has to share its place with the Item component in the *src/List.js* file. Then in every file make sure to import React and to export the component which needs to be used from the file. For instance, in *src/List.js* file:
 
-{title="",lang="javascript"}
+{title="src/List.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 import React from 'react';
@@ -54,7 +54,7 @@ export default List;
 
 Since only the List component uses the Item component, we can keep it in the same file. If this changes because the Item component is used elsewhere, we can give the Item component its own file. The SearchForm component in the *src/SearchForm.js* file must import the InputWithLabel component. Like the Item component, we could have left the InputWithLabel component next to the SearchForm; but our goal is to make InputWithLabel component reusable with other components. We'll probably import it eventually.
 
-{title="",lang="javascript"}
+{title="src/SearchForm.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 import React from 'react';
@@ -92,7 +92,7 @@ export default SearchForm;
 
 The App component has to import all the components it needs to render. It doesn't need to import InputWithLabel, because it's only used for the SearchForm component.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 import axios from 'axios';
@@ -113,7 +113,7 @@ export default App;
 
 Components that are used in other components now have their own file. Only if a component (e.g. Item) is dedicated to another component (e.g. List) do we keep it in the same file. If a component should be used as a reusable component (e.g. InputWithLabel), it also receives its own file. From here, there are several strategies to structure your folder/file hierarchy. One scenario is to create a folder for every component:
 
-{title="",lang="text"}
+{title="Project Structure",lang="text"}
 ~~~~~~~
 - List/
 -- index.js
@@ -125,7 +125,7 @@ Components that are used in other components now have their own file. Only if a 
 
 The *index.js* file holds the implementation details for the component, while other files in the same folder have different responsibilities like styling, testing, and types:
 
-{title="",lang="text"}
+{title="Project Structure",lang="text"}
 ~~~~~~~
 - List/
 -- index.js
@@ -136,7 +136,7 @@ The *index.js* file holds the implementation details for the component, while ot
 
 If using CSS-in-JS, where no CSS file is needed, one could still have a separate *style.js* file for all the styled components:
 
-{title="",lang="text"}
+{title="Project Structure",lang="text"}
 ~~~~~~~
 - List/
 -- index.js
@@ -149,7 +149,7 @@ If using CSS-in-JS, where no CSS file is needed, one could still have a separate
 
 Sometimes we'll need to move from a **technical-oriented folder structure** to a **domain-oriented folder structure**, especially once the project grows. Universal *shared/* folder is shared across domain specific components:
 
-{title="",lang="text"}
+{title="Project Structure",lang="text"}
 ~~~~~~~
 - Messages.js
 - Users.js
@@ -160,7 +160,7 @@ Sometimes we'll need to move from a **technical-oriented folder structure** to a
 
 If you scale this to the deeper level folder structure, each component will have its own folder in a domain-oriented project structure as well:
 
-{title="",lang="text"}
+{title="Project Structure",lang="text"}
 ~~~~~~~
 - Messages/
 -- index.js

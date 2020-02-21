@@ -4,7 +4,7 @@ TypeScript for JavaScript and React have many benefits for developing robust app
 
 To use TypeScript in React, install TypeScript and its dependencies into your application using the command line. If you run into obstacles, follow the official TypeScript installation instructions for [create-react-app](https://create-react-app.dev/docs/adding-typescript/):
 
-{title="",lang="text"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 npm install --save typescript @types/node @types/react
 npm install --save typescript @types/react-dom @types/jest
@@ -12,15 +12,15 @@ npm install --save typescript @types/react-dom @types/jest
 
 Next, rename all JavaScript files (*.js*) to TypeScript files (*.tsx*).
 
-{title="",lang="text"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 mv src/index.js src/index.tsx
 mv src/App.js src/App.tsx
 ~~~~~~~
 
-Restart your development server in the command line. You may encounter compile errors in the browser and IDE. If the latter doesn't work, try installing a TypeScript plugin for your editor, or extension for your IDE. After the initial TypeScript in React setup, we'll add type safety for the entire *src/App.js* file, starting with typing the arguments of the custom hook:
+Restart your development server in the command line. You may encounter compile errors in the browser and IDE. If the latter doesn't work, try installing a TypeScript plugin for your editor, or extension for your IDE. After the initial TypeScript in React setup, we'll add type safety for the entire *src/App.tsx* file, starting with typing the arguments of the custom hook:
 
-{title="",lang="javascript"}
+{title="src/App.tsx",lang="javascript"}
 ~~~~~~~
 const useSemiPersistentState = (
 # leanpub-start-insert
@@ -42,7 +42,7 @@ const useSemiPersistentState = (
 
 Adding types to the function's arguments is more about Javascript than React. We are telling the function to expect two arguments, which are JavaScript string primitives. Also, we can tell the function to return an array (`[]`) with a `string` (state), and tell functions like `state updater function` that take a `value` to return nothing (`void`):
 
-{title="",lang="javascript"}
+{title="src/App.tsx",lang="javascript"}
 ~~~~~~~
 const useSemiPersistentState = (
   key: string,
@@ -64,7 +64,7 @@ const useSemiPersistentState = (
 
 Related to React though, considering the previous type safety improvements for the custom hook, we hadn't to add types to the internal React hooks in the function's body. That's because **type inference** works most of the time for React hooks out of the box. If the *initial state* of a React useState Hook is a JavaScript string primitive, then the returned *current state* will be inferred as a string and the returned *state updater function* will only take a string as argument and return nothing:
 
-{title="",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 const [value, setValue] = React.useState('React');
 // value is inferred to be a string
@@ -73,7 +73,7 @@ const [value, setValue] = React.useState('React');
 
 If adding type safety becomes an aftermath for a React application and its components, there are multiple ways on how to approach it. We will start with the props and state for the leaf components of our application. For instance, the Item component receives a story (here `item`) and a callback handler function (here `onRemoveItem`). Starting out very verbose, we could add the inlined types for both function arguments as we did before:
 
-{title="",lang="javascript"}
+{title="src/App.tsx",lang="javascript"}
 ~~~~~~~
 const Item = ({
   item,
@@ -106,7 +106,7 @@ const Item = ({
 
 There are two problems: the code is verbose, and it has duplications. Let's get rid of both problems by defining a custom `Story` type outside the component, at the top of *src/App.js*:
 
-{title="",lang="javascript"}
+{title="src/App.tsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 type Story = {
@@ -138,7 +138,7 @@ const Item = ({
 
 The `item` is of type `Story`; the `onRemoveItem` function takes an `item` of type `Story` as an argument and returns nothing. Next, clean up the code by defining the props of Item component outside:
 
-{title="",lang="javascript"}
+{title="src/App.tsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 type ItemProps = {
@@ -158,7 +158,7 @@ const Item = ({ item, onRemoveItem }: ItemProps) => (
 
 That's the most popular way to type React component's props with TypeScript. From here, we can navigate up the component tree into the List component and apply the same type definitions for the props:
 
-{title="",lang="javascript"}
+{title="src/App.tsx",lang="javascript"}
 ~~~~~~~
 type Story = {
   ...
@@ -193,7 +193,7 @@ The `onRemoveItem` function is typed twice for the `ItemProps` and `ListProps`. 
 
 Since we already have the `Story` and `Stories` types, we can repurpose them for other components. Add the `Story` type to the callback handler in the `App` component:
 
-{title="",lang="javascript"}
+{title="src/App.tsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -213,7 +213,7 @@ const App = () => {
 
 The reducer function manages the `Story` type as well, except without looking into the `state` and `action` types. As the application's developer, we know both objects and their shapes passed to this reducer function:
 
-{title="",lang="javascript"}
+{title="src/App.tsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 type StoriesState = {
@@ -242,7 +242,7 @@ const storiesReducer = (
 
 The `Action` type with its `string` and `any` (TypeScript **wildcard**) type definitions are still too broad; and we gain no real type safety through it, because actions are not distinguishable. We can do better by specifying each action TypeScript type as an **interface**, and using a **union type** (here `StoriesAction`) for the final type safety:
 
-{title="",lang="javascript"}
+{title="src/App.tsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 interface StoriesFetchInitAction {
@@ -290,7 +290,7 @@ The stories state, the current state, and the action are types; the return new s
 
 There is still a type safety issue in the App component's return statement for the returned List component. It can be fixed by giving the List component a wrapping HTML `div` element or a React fragment:
 
-{title="",lang="javascript"}
+{title="src/App.tsx",lang="javascript"}
 ~~~~~~~
 const List = ({ list, onRemoveItem }: ListProps) => (
 # leanpub-start-insert
@@ -313,7 +313,7 @@ According to a TypeScript with React issue on GitHub: *"This is because due to l
 
 Let's shift our focus to the SearchForm component, which has callback handlers with events:
 
-{title="",lang="javascript"}
+{title="src/App.tsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 type SearchFormProps = {
@@ -336,7 +336,7 @@ const SearchForm = ({
 
 Often using `React.SyntheticEvent` instead of `React.ChangeEvent<HTMLInputElement>` or `React.FormEvent<HTMLFormElement>` is usually enough. Going up to the App component again, we apply the same type for the callback handler there:
 
-{title="",lang="javascript"}
+{title="src/App.tsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -365,7 +365,7 @@ const App = () => {
 
 All that's left is the InputWithLabel component. Before handling this component's props, let's take a look at the `ref` from React's useRef Hook. Unfortunately, the return value isn't inferred:
 
-{title="",lang="javascript"}
+{title="src/App.tsx",lang="javascript"}
 ~~~~~~~
 const InputWithLabel = ({ ... }) => {
 # leanpub-start-insert
@@ -383,7 +383,7 @@ We made the returned `ref` type safe, and typed it as read-only because we only 
 
 Lastly, we will apply type safety checks for the InputWithLabel component's props. Note the`children` prop with its React specific type and the **optional types**  signaled with a question mark:
 
-{title="",lang="javascript"}
+{title="src/App.tsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 type InputWithLabelProps = {

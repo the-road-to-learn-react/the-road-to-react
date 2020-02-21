@@ -6,7 +6,7 @@ This section builds on the "CSS in React" we covered earlier, to give the SVG ic
 
 This icon as SVG is taken from [Flaticon's Freepick](https://www.flaticon.com/authors/freepik). Many of the SVGs on this website are free to use, though they require you to mention the author. You can download the icon from [here](https://www.flaticon.com/free-icon/check_109748) as SVG and put it in your project as *src/check.svg*. Downloading the file is the recommended way, however, for the sake of completion, this is the verbose SVG definition:
 
-{title="",lang="html"}
+{title="Code Playground",lang="html"}
 ~~~~~~~
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -25,7 +25,7 @@ This icon as SVG is taken from [Flaticon's Freepick](https://www.flaticon.com/au
 
 Because we're using create-react-app again , we can  import SVGs (similar to CSS) as React components right away. In *src/App.js*, use the following syntax for importing the SVG:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 import axios from 'axios';
@@ -38,7 +38,7 @@ import { ReactComponent as Check } from './check.svg';
 
 We are importing an SVG, and this works for many different uses for SVGs (e.g. logo, background). Instead of a button text, pass the SVG component as a `height` and `width` attribute:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
   <div className="item">
@@ -65,7 +65,7 @@ const Item = ({ item, onRemoveItem }) => (
 
 Regardless of the styling approach you are using, you can give your SVG icon in the button a hover effect too. In the basic CSS approach, it would look like the following in the *src/App.css* file:
 
-{title="",lang="css"}
+{title="src/App.css",lang="css"}
 ~~~~~~~
 .button:hover > svg > g {
   fill: #ffffff;

@@ -15,7 +15,7 @@ We've covered most of React's fundamentals, its legacy features, and techniques 
 
 We will treat the list of data like a table. Each row represents an item of the list and each column represents one property of the item. Headers provide the user more guidance about each column:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const List = ({ list, onRemoveItem }) => (
@@ -44,7 +44,7 @@ const List = ({ list, onRemoveItem }) => (
 
 We are using inline style for the most basic layout. To match the layout of the header with the rows, give the rows in the Item component a layout as well:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
 # leanpub-start-insert
@@ -71,7 +71,7 @@ In the ongoing implementation, we will remove the style attributes, because it t
 
 The List component will handle the new sort state. This can also be done in the App component, but only the List component is in play, so we can lift the state management directly to it. The sort state initializes with a `'NONE'` state, so the list items are displayed in the order they are fetched from the API. Further, we added a new handler to set the sort state with a sort-specific key.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const List = ({ list, onRemoveItem }) => {
@@ -92,7 +92,7 @@ const List = ({ list, onRemoveItem }) => {
 
 In the List component's header, buttons can help us to set the sort state for each column/property. An inline handler is used to sneak in the sort-specific key (`sortKey`). When the button for the "Title" column is clicked, `'TITLE'` becomes the new sort state.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const List = ({ list, onRemoveItem }) => {
   ...
@@ -143,14 +143,14 @@ State management for the new feature is implemented, but we don't see anything w
 
 Sorting an array with JavaScript isn't trivial, because every JavaScript primitive (e.g. string, boolean, number) comes with edge cases when an array is sorted by its properties. We will use a library called [Lodash](https://lodash.com/) to solve this, which comes with many JavaScript utility functions (e.g. `sortBy`). First, install it via the command line:
 
-{title="",lang="text"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 npm install lodash
 ~~~~~~~
 
 Second, at the top of your file, import the utility function for sorting:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 import axios from 'axios';
@@ -163,7 +163,7 @@ import { sortBy } from 'lodash';
 
 Third, create a JavaScript object (also called dictionary) with all the possible `sortKey` and sort function mappings. Each specific sort key is mapped to a function that sorts the incoming `list`. Sorting by `'NONE'` returns the unsorted list; sorting by `'POINT'` returns a list and its items sorted by the `points` property.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const SORTS = {
@@ -182,7 +182,7 @@ const List = ({ list, onRemoveItem }) => {
 
 With the `sort`  (`sortKey`) state and all possible sort variations with `SORTS` at our disposal, we can sort the list before mapping it over each Item component:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const List = ({ list, onRemoveItem }) => {
   const [sort, setSort] = React.useState('NONE');
@@ -238,7 +238,7 @@ Second we rendered more HTML buttons to give our users interaction. Then, we add
 
 The initial sort direction works for strings, as well as numeric sorts like the reverse sort for JavaScript numbers that arranges them from high to low. Now we need another state to track whether the sort is reversed or normal, to make it more complex:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const List = ({ list, onRemoveItem }) => {
 # leanpub-start-insert
@@ -254,7 +254,7 @@ const List = ({ list, onRemoveItem }) => {
 
 Next, give the sort handler logic to see if the incoming `sortKey` triggers are a normal or reverse sort. If the `sortKey` is the same as the one in the state, it could be a reverse sort, but only if the sort state wasn't already reversed:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const List = ({ list, onRemoveItem }) => {
   const [sort, setSort] = React.useState({
@@ -283,7 +283,7 @@ const List = ({ list, onRemoveItem }) => {
 
 Lastly, depending on the new `isReverse` state, apply the sort function from the dictionary with or without the built-in JavaScript reverse method for arrays:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const List = ({ list, onRemoveItem }) => {
   const [sort, setSort] = React.useState({
@@ -315,7 +315,7 @@ const List = ({ list, onRemoveItem }) => {
 
 The reverse sort is now operational. For the object passed to the state updater function, we use what is called a **shorthand object initializer notation**:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const firstName = 'Robin';
 
@@ -329,7 +329,7 @@ console.log(user);
 
 When the property name in your object is the same as your variable name, you can omit the key/value pair and just write the name:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const firstName = 'Robin';
 
@@ -361,7 +361,7 @@ If necessary, read more about [JavaScript Object Initializers](https://developer
 
 First, we will refactor all `url` to `urls` state and all `setUrl` to `setUrls` state updater functions. Instead of initializing the state with a `url` as a string, make it an array with the initial `url` as its only entry:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -380,7 +380,7 @@ const App = () => {
 
 Second, instead of using the current `url` state for data fetching, use the last `url` entry from the `urls` array. If another `url` is added to the list of `urls`, it is used to fetch data instead:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
 
@@ -410,7 +410,7 @@ const App = () => {
 
 And third, instead of storing `url` string as state with the state updater function, concat the new `url` with the previous `urls` in an array for the new state:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -430,7 +430,7 @@ const App = () => {
 
 With each search, another URL is stored in our state of `urls`. Next, render a button for each of the last five URLs. We'll include a new universal handler for these buttons, and each passes a specific `url` with a more specific inline handler:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const getLastSearches = urls => urls.slice(-5);
@@ -477,7 +477,7 @@ const App = () => {
 
 Next, instead of showing the whole URL of the last search in the button as button text, show only the search term by replacing the API's endpoint with an empty string:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const extractSearchTerm = url => url.replace(API_ENDPOINT, '');
@@ -523,7 +523,7 @@ const App = () => {
 
 The `getLastSearches` function now returns search terms instead of URLs. The actual `searchTerm`is passed to the inline handler instead of the `url`. By mapping over the list of `urls` in `getLastSearches`, we can extract the search term for each `url` within the array's map method. Making it more concise, it can also look like this:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const getLastSearches = urls =>
 # leanpub-start-insert
@@ -533,7 +533,7 @@ const getLastSearches = urls =>
 
 Now we'll provide functionality for the new handler used by every button, since clicking one of these buttons should trigger another search. Since we use the `urls` state for fetching data, and since we know the last URL is always used for data fetching, concat a new `url` to the list of `urls` to trigger another search request:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -551,7 +551,7 @@ const App = () => {
 
 If you compare this new handler's implementation logic to the `handleSearchSubmit`, you may see some common functionality. Extract this common functionality to a new handler and a new extracted utility function:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const getUrl = searchTerm => `${API_ENDPOINT}${searchTerm}`;
@@ -589,7 +589,7 @@ const App = () => {
 
 The new utility function can be used somewhere else in the App component. If you extract functionality that can be used by two parties, always check to see if it can be used by a third party.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -605,7 +605,7 @@ const App = () => {
 
 The functionality should work, but it complains or breaks if the same search term is used more than once, because `searchTerm` is used for each button element as `key` attribute. Make the key more specific by concatenating it with the `index` of the mapped array.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -644,7 +644,7 @@ It's not the perfect solution, because the `index` isn't a stable key (especiall
 
 The source of the five rendered buttons is the `getLastSearches` function. There, we take the array of `urls` and return the last five entries from it. Now we'll change this utility function to return the last six entries instead of five, removing the last one. Afterward, only the five *previous* searches are displayed as buttons.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const getLastSearches = urls =>
   urls
@@ -657,7 +657,7 @@ const getLastSearches = urls =>
 
 If the same search is executed twice or more times in a row,  duplicate buttons appear, which is likely not your desired behavior. It would be acceptable to group identical searches into one button if they followed each other. We will solve this problem in the utility function as well. Before separating the array into the five previous searches, group the identical searches:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const getLastSearches = urls =>
   urls
@@ -686,7 +686,7 @@ The reduce function starts with an empty array as its `result`. The first iterat
 
 Lastly, the SearchForm's input field should be set with the new `searchTerm` if one of the last search buttons is clicked. We can solve this using the state updater function for the specific value used in the SearchForm component.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -705,7 +705,7 @@ const App = () => {
 
 Last, extract the feature's new rendered content from this section as a standalone component, to keep the App component lightweight:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -773,7 +773,7 @@ In contrast, we will implement the feature as **infinite pagination**. Instead o
 
 First, extend the API constant so it can deal with paginated data later. We will turn this one constant:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const API_ENDPOINT = 'https://hn.algolia.com/api/v1/search?query=';
 
@@ -782,7 +782,7 @@ const getUrl = searchTerm => `${API_ENDPOINT}${searchTerm}`;
 
 Into a composable API constant with its parameters:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const API_BASE = 'https://hn.algolia.com/api/v1';
@@ -799,14 +799,14 @@ const getUrl = searchTerm =>
 
 Fortunately, we don't need to adjust the API endpoint, because we extracted a common `getUrl` function for it. However, there is one spot where we must address this logic for the future:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const extractSearchTerm = url => url.replace(API_ENDPOINT, '');
 ~~~~~~~
 
 In the next steps, it won't be sufficient to replace the base of our API endpoint, which is no longer in our code. With more parameters for the API endpoint, the URL becomes more complex. It will change from X to Y:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 // X
 https://hn.algolia.com/api/v1/search?query=react
@@ -817,7 +817,7 @@ https://hn.algolia.com/api/v1/search?query=react&page=0
 
 It's better to extract the search term by extracting everything between `?` and `&`. Also consider that the `query` parameter is directly after the `?` and all other parameters like `page` follow it.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const extractSearchTerm = url =>
@@ -828,7 +828,7 @@ const extractSearchTerm = url =>
 
 The key ( `query=`) also needs to be replaced, leaving only the value (`searchTerm`):
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const extractSearchTerm = url =>
   url
@@ -840,7 +840,7 @@ const extractSearchTerm = url =>
 
 Essentially, we'll trim the string until we leave only the search term:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 // url
 https://hn.algolia.com/api/v1/search?query=react&page=0
@@ -854,7 +854,7 @@ react
 
 The returned result from the Hacker News API delivers us the `page` data:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -886,7 +886,7 @@ const App = () => {
 
 We need to store this data to make paginated fetches later:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const storiesReducer = (state, action) => {
   switch (action.type) {
@@ -927,7 +927,7 @@ const App = () => {
 
 Extend the API endpoint with the new `page` parameter. This change was covered by our premature optimizations earlier, when we extracted the search term from the URL.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const API_BASE = 'https://hn.algolia.com/api/v1';
 const API_SEARCH = '/search';
@@ -945,7 +945,7 @@ const getUrl = (searchTerm, page) =>
 
 Next, we must adjust all `getUrl` invocations by passing the `page` argument. Since the initial search and last search always fetch the first page (`0`), we pass this page as an argument to the function for retrieving the appropriate URL:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -985,7 +985,7 @@ const App = () => {
 
 To fetch the next page when a button is clicked, we'll need to increment the `page` argument in this new handler:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -1024,7 +1024,7 @@ We've implemented data fetching with the dynamic `page` argument. The initial an
 
 We solve this in the reducer by avoiding the replacement of current `data` with new `data`, concatenating the paginated lists:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const storiesReducer = (state, action) => {
   switch (action.type) {
@@ -1057,7 +1057,7 @@ The displayed list grows after fetching more data with the new button. However, 
 
 The desired behavior is to render the list--which is an empty list in the beginning--and replace the "More" button with the loading indicator only for pending requests. This is a common UI refactoring for conditional rendering when the task evolves from a single list to paginated lists.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...

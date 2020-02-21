@@ -12,7 +12,7 @@ The following styling approaches and SVGs are pre-configured in `create-react-ap
 
 Common CSS in React is similar to the standard CSS you may have already learned. Each web application gives HTML elements a `class` (in React it's `className`) attribute that is styled in a CSS file later.
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -43,7 +43,7 @@ const App = () => {
 
 The `<hr />` was removed because the CSS handles the border in the next steps. We'll import the CSS file, which is done with the help of the create-react-app configuration:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 import React from 'react';
 import axios from 'axios';
@@ -55,7 +55,7 @@ import './App.css';
 
 This CSS file will define the two (and more) CSS classes we used in the App component. In your *src/App.css* file, define them like the following:
 
-{title="",lang="css"}
+{title="src/App.css",lang="css"}
 ~~~~~~~
 .container {
   height: 100vw;
@@ -76,7 +76,7 @@ This CSS file will define the two (and more) CSS classes we used in the App comp
 
 You should see the first stylings taking effect in your application when you start it again. Next, we will head over to the Item component. Some of its elements receive the `className` attribute too, however, we are also using a new styling technique here:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
 # leanpub-start-insert
@@ -109,7 +109,7 @@ As you can see, we can also use the native `style` attribute for HTML elements. 
 
 In your *src/App.css* file, define the new CSS classes. Basic CSS features are used. Advanced CSS features (e.g. nesting) from CSS extensions (e.g. Sass) are not included in this example, as they are [optional configurations](https://create-react-app.dev/docs/adding-a-sass-stylesheet/).
 
-{title="",lang="css"}
+{title="src/App.css",lang="css"}
 ~~~~~~~
 .item {
   display: flex;
@@ -132,7 +132,7 @@ In your *src/App.css* file, define the new CSS classes. Basic CSS features are u
 
 The button style from the previous component is still missing, so we'll define a base button style and two more specific specific button styles (small and large). One of the button specifications has been used, the other will be used in the next steps.
 
-{title="",lang="css"}
+{title="src/App.css",lang="css"}
 ~~~~~~~
 .button {
   background: transparent;
@@ -159,7 +159,7 @@ The button style from the previous component is still missing, so we'll define a
 
 Apart from styling approaches in React, naming conventions ([CSS guidelines](https://developer.mozilla.org/en-US/docs/MDN/Contribute/Guidelines/Code_guidelines/CSS)) are a whole other topic. The last CSS snippet followed BEM rules by defining modifications of a class with an underscore (`_`). Choose whatever naming convention suits you and your team. Without further ado, we will style the next React component:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const SearchForm = ({ ... }) => (
 # leanpub-start-insert
@@ -184,7 +184,7 @@ const SearchForm = ({ ... }) => (
 
 We can also pass the `className` attribute as a prop to React components. For instance, we can use this option to pass the SearchForm component a flexible style with a `className` prop from a range of predefined classes from a CSS file. Lastly, style the InputWithLabel component:
 
-{title="",lang="javascript"}
+{title="src/App.js",lang="javascript"}
 ~~~~~~~
 const InputWithLabel = ({ ... }) => {
   ...
@@ -214,7 +214,7 @@ const InputWithLabel = ({ ... }) => {
 
 In your *src/App.css* file, add the remaining classes:
 
-{title="",lang="css"}
+{title="src/App.css",lang="css"}
 ~~~~~~~
 .search-form {
   padding: 10px 0 20px 0;
