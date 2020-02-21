@@ -1,23 +1,26 @@
 {frontmatter}
 
-foreword.md
+intro.md
 
 {mainmatter}
 
 react-modern.md
-
 react-legacy.md
 
-react-styling.md
+react-styling/css.md
+react-styling/css-modules.md
+react-styling/styled-components.md
+react-styling/svg.md
 
-react-maintainance.md
-react-typescript.md
-react-testing.md
-react-folder-structure.md
+react-maintenance/performance.md
+react-maintenance/typescript.md
+react-maintenance/testing.md
+react-maintenance/project-structure.md
 
 react-modern-advanced.md
 
-react-deploy.md
+react-deploy/build.md
+react-deploy/firebase.md
 
 {backmatter}
 
