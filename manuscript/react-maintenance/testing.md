@@ -89,7 +89,9 @@ Also, before you can test your first components, you have to export them from yo
 
 export default App;
 
+# leanpub-start-insert
 export { SearchForm, InputWithLabel, List, Item };
+# leanpub-end-insert
 ~~~~~~~
 
 Import them along with the previously installed utility library in the *src/App.test.js* file:
@@ -264,9 +266,7 @@ A common setup (or teardown) function in tests removes duplicated code. Since th
 ...
 
 describe('Item', () => {
-# leanpub-start-insert
   ...
-# leanpub-end-insert
 });
 
 # leanpub-start-insert
@@ -381,8 +381,8 @@ describe('SearchForm', () => {
       pseudoEvent
     );
   });
-});
 # leanpub-end-insert
+});
 ~~~~~~~
 
 Like the Item component, the last two tests asserted the component's callback handler(s). All input (non function props) and output (callback handler function) props are tested for the SearchForm component's interface and integration with the InputWithLabel component.

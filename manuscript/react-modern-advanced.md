@@ -133,10 +133,8 @@ const List = ({ list, onRemoveItem }) => {
 
       {list.map(item => ... )}
     </div>
-# leanpub-start-insert
   );
 };
-# leanpub-end-insert
 ~~~~~~~
 
 State management for the new feature is implemented, but we don't see anything when our buttons are clicked yet. This happens because the sorting mechanism hasn't been applied to the actual `list`.
@@ -392,8 +390,8 @@ const App = () => {
     try {
 # leanpub-start-insert
       const lastUrl = urls[urls.length - 1];
-# leanpub-end-insert
       const result = await axios.get(lastUrl);
+# leanpub-end-insert
 
       dispatchStories({
         type: 'STORIES_FETCH_SUCCESS',
@@ -402,7 +400,9 @@ const App = () => {
     } catch {
       dispatchStories({ type: 'STORIES_FETCH_FAILURE' });
     }
+# leanpub-start-insert
   }, [urls]);
+# leanpub-end-insert
 
   ...
 };

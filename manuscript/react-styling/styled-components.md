@@ -65,7 +65,9 @@ const App = () => {
       ) : (
         <List list={stories.data} onRemoveItem={handleRemoveStory} />
       )}
+# leanpub-start-insert
     </StyledContainer>
+# leanpub-end-insert
   );
 };
 ~~~~~~~

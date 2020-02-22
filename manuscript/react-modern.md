@@ -561,9 +561,9 @@ function App() {
           </div>
         );
       })}
+# leanpub-end-insert
     </div>
   );
-# leanpub-end-insert
 }
 ~~~~~~~
 
@@ -574,7 +574,6 @@ The map function is inlined concisely in your JSX. Within the map function, we h
 * Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/Lists-in-React).
   * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/React-JSX...hs/Lists-in-React?expand=1).
 * Read more about why React's key attribute is needed ([0](https://dev.to/jtonzing/the-significance-of-react-keys---a-visual-explanation--56l7), [1](https://www.robinwieruch.de/react-list-key), [2](https://reactjs.org/docs/lists-and-keys.html)). Don't worry if you don't understand the implementation yet, just focus on what problem it causes for dynamic lists.
-  * There is more to read about [lists and keys in React](https://reactjs.org/docs/lists-and-keys.html).
 * Recap the [standard built-in array methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/) -- especially *map*, *filter*, and *reduce* -- which are available in native JavaScript.
 * What happens if your return `null` instead of the JSX?
 * Extend the list with some more items to make the example more realistic.

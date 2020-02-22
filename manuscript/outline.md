@@ -2,7 +2,7 @@
 
 We've reached the end of the road to React, and I hope you enjoyed reading it, and that it helped you gain some traction in React. If you liked the book, share it with your friends who are interested in learning more about React. Also, a review on [Amazon](https://amzn.to/2JHlP42) or [Goodreads](https://www.goodreads.com/book/show/37503118-the-road-to-learn-react) would help me provide better content in the future based on your feedback.
 
-From here, I recommend you extend the application to create your own React projects before engaging another book, course or tutorial. Try it for a week, take it to production by deploying it, and reach out to me [me](https://twitter.com/rwieruch) or others to showcase it. I am always interested in seeing what my readers built, and learning how I can help them along.
+From here, I recommend you extend the application to create your own React projects before engaging another book, course or tutorial. Try it for a week, take it to production by deploying it, and reach out to me or others to showcase it. I am always interested in seeing what my readers built, and learning how I can help them along.
 
 If you're looking for extensions for your application, I recommend several learning paths after you've mastered the basics:
 

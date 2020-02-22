@@ -37,11 +37,11 @@ Next, choose the Hosting option. If you're interested in using another tool next
 {title="Command Line",lang="javascript"}
 ~~~~~~~
 ? Which Firebase CLI features do you want to set up for this folder? Press Space to select features, then Enter to confirm your choices.
- ◯ Database: Deploy Firebase Realtime Database Rules
- ◯ Firestore: Deploy rules and create indexes for Firestore
- ◯ Functions: Configure and deploy Cloud Functions
-❯◯ Hosting: Configure and deploy Firebase Hosting sites
- ◯ Storage: Deploy Cloud Storage security rules
+ ? Database: Deploy Firebase Realtime Database Rules
+ ? Firestore: Deploy rules and create indexes for Firestore
+ ? Functions: Configure and deploy Cloud Functions
+-> Hosting: Configure and deploy Firebase Hosting sites
+ ? Storage: Deploy Cloud Storage security rules
 ~~~~~~~
 
 Google becomes aware of all Firebase projects associated with an account after login, and we can select one from the Firebase platform:
