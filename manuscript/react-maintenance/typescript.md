@@ -334,7 +334,7 @@ const SearchForm = ({
 );
 ~~~~~~~
 
-Often using `React.SyntheticEvent` instead of `React.ChangeEvent<HTMLInputElement>` or `React.FormEvent<HTMLFormElement>` is usually enough. Going up to the App component again, we apply the same type for the callback handler there:
+Often using `React.SyntheticEvent` instead of `React.ChangeEvent` or `React.FormEvent` is usually enough. Going up to the App component again, we apply the same type for the callback handler there:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
