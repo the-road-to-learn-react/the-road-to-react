@@ -4,8 +4,44 @@ intro.md
 
 {mainmatter}
 
-react-modern.md
-react-legacy.md
+react-modern/hello-react.md
+react-modern/requirements.md
+react-modern/meet-the-react-component.md
+react-modern/jsx.md
+react-modern/lists.md
+react-modern/meet-another-react-component.md
+react-modern/component-instantiation.md
+react-modern/react-dom.md
+react-modern/component-definition.md
+react-modern/handler-function.md
+react-modern/props.md
+react-modern/state.md
+react-modern/callback-handlers.md
+react-modern/lifting-state.md
+react-modern/controlled-components.md
+react-modern/props-handling.md
+react-modern/side-effects.md
+react-modern/custom-hooks.md
+react-modern/fragments.md
+react-modern/reusable-components.md
+react-modern/component-composition.md
+react-modern/imperative.md
+react-modern/inline-handler.md
+react-modern/asynchronous-data.md
+react-modern/conditional-rendering.md
+react-modern/advanced-state.md
+react-modern/impossible-state.md
+react-modern/data-fetching.md
+react-modern/data-re-fetching.md
+react-modern/memoized-handler.md
+react-modern/explicit-data-fetching.md
+react-modern/third-party-libraries.md
+react-modern/async-await.md
+react-modern/forms.md
+
+react-legacy/class-components.md
+react-legacy/class-components-sate.md
+react-legacy/imperative-react.md
 
 react-styling/css.md
 react-styling/css-modules.md
@@ -17,7 +53,10 @@ react-maintenance/typescript.md
 react-maintenance/testing.md
 react-maintenance/project-structure.md
 
-react-modern-advanced.md
+react-modern-advanced/sorting.md
+react-modern-advanced/reverse-sort.md
+react-modern-advanced/remember-last-searches.md
+react-modern-advanced/paginated-fetch.md
 
 react-deploy/build.md
 react-deploy/firebase.md
