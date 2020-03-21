@@ -6,6 +6,7 @@ intro.md
 
 react-modern/hello-react.md
 react-modern/requirements.md
+react-modern/setup.md
 react-modern/meet-the-react-component.md
 react-modern/jsx.md
 react-modern/lists.md
