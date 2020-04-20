@@ -4,7 +4,7 @@ Props are passed from parent to child down the component tree. Since we use prop
 
 *Note: The following refactorings are recommended for you to learn different JavaScript/React patterns, though you can still build complete React applications without them. Consider this advanced React techniques that will make your source code more concise.*
 
-React props are a JavaScript object, else we couldn't access `props.list` or `props.onSearch` in React components. Since `props` is an object, we can apply a couple JavaScript tricks to it. For instance, accessing its properties:
+React props are a JavaScript object, else we couldn't access `props.list` or `props.onSearch` in React components. Since `props` is an object, we can apply a couple JavaScript tricks to it. For example, accessing its properties:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~

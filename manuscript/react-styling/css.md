@@ -182,7 +182,7 @@ const SearchForm = ({ ... }) => (
 );
 ~~~~~~~
 
-We can also pass the `className` attribute as a prop to React components. For instance, we can use this option to pass the SearchForm component a flexible style with a `className` prop from a range of predefined classes from a CSS file. Lastly, style the InputWithLabel component:
+We can also pass the `className` attribute as a prop to React components. For example, we can use this option to pass the SearchForm component a flexible style with a `className` prop from a range of predefined classes from a CSS file. Lastly, style the InputWithLabel component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

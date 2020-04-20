@@ -14,7 +14,7 @@ cd src
 touch List.js InputWithLabel.js SearchForm.js
 ~~~~~~~
 
-Move every component from the *src/App.js* file in its own file, except for the List component which has to share its place with the Item component in the *src/List.js* file. Then in every file make sure to import React and to export the component which needs to be used from the file. For instance, in *src/List.js* file:
+Move every component from the *src/App.js* file in its own file, except for the List component which has to share its place with the Item component in the *src/List.js* file. Then in every file make sure to import React and to export the component which needs to be used from the file. For example, in *src/List.js* file:
 
 {title="src/List.js",lang="javascript"}
 ~~~~~~~
