@@ -27,7 +27,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Instead of using the `label` prop from before, we inserted the text "Search:" between the component's element's tags. In the InputWithLabel component, you have access to this information via **React's children** prop. Instead of using the`label` prop, use the children`prop to render everything that has been passed down from above where you want it:
+Instead of using the `label` prop from before, we inserted the text "Search:" between the component's element's tags. In the InputWithLabel component, you have access to this information via **React's children** prop. Instead of using the `label` prop, use the `children` prop to render everything that has been passed down from above where you want it:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -55,7 +55,7 @@ const InputWithLabel = ({
 );
 ~~~~~~~
 
-Now the React component's elements behave similar to native HTML. Everything that's passed between a component's elements can be accessed as children`in the component and be rendered somewhere. Sometimes when using a React component, you want to have more freedom from the outside what to render in the inside of a component:
+Now the React component's elements behave similar to native HTML. Everything that's passed between a component's elements can be accessed as `children` in the component and be rendered somewhere. Sometimes when using a React component, you want to have more freedom from the outside what to render in the inside of a component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

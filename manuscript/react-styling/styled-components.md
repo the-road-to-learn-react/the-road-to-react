@@ -165,7 +165,7 @@ const StyledSearchForm = styled.form`
 `;
 ~~~~~~~
 
-When we use a styled component like StyledSearchForm, its underlying elements ( `form`, `button`) are used in the real HTML output. We can continue using the native HTML attributes ( `onSubmit`, `type`, `disabled`) there:
+When we use a styled component like StyledSearchForm, its underlying elements (`form`, `button`) are used in the real HTML output. We can continue using the native HTML attributes (`onSubmit`, `type`, `disabled`) there:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

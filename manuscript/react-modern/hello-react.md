@@ -19,5 +19,5 @@ With the rise of React, the concept of components became popular. Every componen
 * Read more about [why I moved from Angular to React](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/).
 * Read more about [how to learn a framework](https://www.robinwieruch.de/how-to-learn-framework/).
 * Read more about [how to learn React](https://www.robinwieruch.de/learn-react-js).
-* Read more about [why framworks matter](https://www.robinwieruch.de/why-frameworks-matter).
+* Read more about [why frameworks matter](https://www.robinwieruch.de/why-frameworks-matter).
 * Scan through [JavaScript fundamentals needed for React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements) -- without worrying too much about the React -- to test yourself about several JavaScript features used in React.

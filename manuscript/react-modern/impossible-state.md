@@ -125,7 +125,7 @@ const storiesReducer = (state, action) => {
 };
 ~~~~~~~
 
-For every state transition, we return a *new state* object which contains all the key/value pairs from the *current state* object (via JavaScript's spread operator) and the new overwriting properties. For instance, `STORIES_FETCH_FAILURE` resets the `isLoading`, but sets the `isError` boolean flags yet keeps all the other state instact (e.g. `stories`). That's how we get around the bug introduced earlier, since an error should remove the loading state.
+For every state transition, we return a *new state* object which contains all the key/value pairs from the *current state* object (via JavaScript's spread operator) and the new overwriting properties. For example, `STORIES_FETCH_FAILURE` resets the `isLoading`, but sets the `isError` boolean flags yet keeps all the other state intact (e.g. `stories`). That's how we get around the bug introduced earlier, since an error should remove the loading state.
 
 Observe how the `REMOVE_STORY` action changed as well. It operates on the `state.data` , not longer just the plain `state`. The state is a complex object with data, loading and error states rather than just a list of stories. This has to be solved in the remaining code too:
 

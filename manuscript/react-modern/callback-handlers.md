@@ -1,6 +1,6 @@
 ## Callback Handlers in JSX
 
-Next we'll focus on the input field and label, by separating a standalone Search component and creating an instance of it in the App component. Through this process, the Search component becomes a sibling of the List component, and vice versa. We'll also move the handler and the state into the Search component to keep our functionality intact.
+Next we'll focus on the input field and label, by separating a standalone Search component and creating an component instance of it in the App component. Through this process, the Search component becomes a sibling of the List component, and vice versa. We'll also move the handler and the state into the Search component to keep our functionality intact.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -94,7 +94,7 @@ const Search = props => {
 };
 ~~~~~~~
 
-Use comments in your source code to omit A, B, and C, as these are reminders which task each block of code is to perform. Consider the concept of the callback handler: We pass a function from one component (App) to another component (Search); we use it in the second component (Search); but use the actual callback of the function call in the first component (App). This way, we can communicate up the component tree. A handler function used in one component becomes a callback handler, which is passed down to components via React props. React props are always passed down as information the component tree, and callback handlers passed as functions in props can be used to communicate up the component hierarchy.
+Consider the concept of the callback handler: We pass a function from one component (App) to another component (Search); we call it in the second component (Search); but have the actual implementation of the function call in the first component (App). This way, we can communicate up the component tree. A handler function used in one component becomes a callback handler, which is passed down to components via React props. React props are always passed down as information the component tree, and callback handlers passed as functions in props can be used to communicate up the component hierarchy.
 
 ### Exercises:
 

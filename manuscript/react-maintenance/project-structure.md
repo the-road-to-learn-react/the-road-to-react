@@ -14,7 +14,7 @@ cd src
 touch List.js InputWithLabel.js SearchForm.js
 ~~~~~~~
 
-Move every component from the *src/App.js* file in its own file, except for the List component which has to share its place with the Item component in the *src/List.js* file. Then in every file make sure to import React and to export the component which needs to be used from the file. For instance, in *src/List.js* file:
+Move every component from the *src/App.js* file in its own file, except for the List component which has to share its place with the Item component in the *src/List.js* file. Then in every file make sure to import React and to export the component which needs to be used from the file. For example, in *src/List.js* file:
 
 {title="src/List.js",lang="javascript"}
 ~~~~~~~
@@ -194,4 +194,5 @@ A project's requirements evolve over time and so should its structure. If keepin
 * Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/React-Folder-Structure).
   * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/react-modern-final...hs/React-Folder-Structure?expand=1).
 * Read more about [JavaScript's import and export statements](https://www.robinwieruch.de/javascript-import-export).
+* Read more about [React Folder Structures](https://www.robinwieruch.de/react-folder-structure).
 * Keep the current folder structure if you feel confident. The ongoing sections will omit it, only using the *src/App.js* file.

@@ -71,7 +71,7 @@ const [value, setValue] = React.useState('React');
 // setValue only takes a string as argument
 ~~~~~~~
 
-If adding type safety becomes an aftermath for a React application and its components, there are multiple ways on how to approach it. We will start with the props and state for the leaf components of our application. For instance, the Item component receives a story (here `item`) and a callback handler function (here `onRemoveItem`). Starting out very verbose, we could add the inlined types for both function arguments as we did before:
+If adding type safety becomes an aftermath for a React application and its components, there are multiple ways on how to approach it. We will start with the props and state for the leaf components of our application. For example, the Item component receives a story (here `item`) and a callback handler function (here `onRemoveItem`). Starting out very verbose, we could add the inlined types for both function arguments as we did before:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -286,7 +286,7 @@ const storiesReducer = (
 };
 ~~~~~~~
 
-The stories state, the current state, and the action are types; the return new state (inferred) are type safe now. For instance, if you would dispatch an action to the reducer with an action type that's not defined, you would get an type error. Or if you would pass something else than a story to the action which removes a story, you would get a type error as well.
+The stories state, the current state, and the action are types; the return new state (inferred) are type safe now. For example, if you would dispatch an action to the reducer with an action type that's not defined, you would get an type error. Or if you would pass something else than a story to the action which removes a story, you would get a type error as well.
 
 There is still a type safety issue in the App component's return statement for the returned List component. It can be fixed by giving the List component a wrapping HTML `div` element or a React fragment:
 
@@ -381,7 +381,7 @@ const InputWithLabel = ({ ... }) => {
 
 We made the returned `ref` type safe, and typed it as read-only because we only execute the `focus` method on it (read). React takes over for us there, setting the DOM element to the `current` property.
 
-Lastly, we will apply type safety checks for the InputWithLabel component's props. Note the`children` prop with its React specific type and the **optional types**  signaled with a question mark:
+Lastly, we will apply type safety checks for the InputWithLabel component's props. Note the `children` prop with its React specific type and the **optional types**  signaled with a question mark:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~

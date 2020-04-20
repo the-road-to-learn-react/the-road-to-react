@@ -1,6 +1,6 @@
 ## React Component Instantiation
 
-Next, I'll briefly explain JavaScript classes, to help clarify React components. Technically they are not related, but it is a fitting analogy for you to understand the concept of a component.
+Next, I'll briefly explain JavaScript classes, to help clarify React components. Technically they are not related, which is important to note, but it is a fitting analogy for you to understand the concept of a component.
 
 Classes are most often used in object-oriented programming languages. JavaScript, always flexible in its programming paradigms, allows functional programming and object-oriented programming to co-exist side-by-side. To recap JavaScript classes for object-oriented programming, consider the following *Developer* class:
 
@@ -40,7 +40,7 @@ console.log(dennis.getName());
 // "Dennis Wieruch"
 ~~~~~~~
 
-If a JavaScript class definition exists, one can create *multiple* instances of it. It is similar to a React component, which has only *one* component definition, but can have *multiple* instances:
+If a JavaScript class definition exists, one can create *multiple* instances of it. It is similar to a React component, which has only *one* component definition, but can have *multiple* component instances:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -67,10 +67,10 @@ function App() {
 function List() { ... }
 ~~~~~~~
 
-Once we've defined a **component**, we can use it like an HTML **element** anywhere in our JSX. The element produces an **instance** of your component, or in other words, the component gets instantiated. It's not much different from a JavaScript class definition and usage.
+Once we've defined a **component**, we can use it like an HTML **element** anywhere in our JSX. The element produces an **component instance** of your component, or in other words, the component gets instantiated. You can create as many component instances as you want. It's not much different from a JavaScript class definition and usage.
 
 ### Exercises:
 
-* Familiarize yourself with the terms *component declaration*, *instance*, and *element*.
-* Experiment by creating multiple instances of a List component.
+* Familiarize yourself with the terms *component definition*, *component instance*, and *element*.
+* Experiment by creating multiple component instances of a List component.
 * Think about how it could be possible to give each List component its own `list`.

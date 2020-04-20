@@ -32,7 +32,7 @@ const InputWithLabel = ({ ... }) => (
 );
 ~~~~~~~
 
-This works, but only if one of the reusable components is rendered once. For instance, if the App component renders two InputWithLabel components, only the last rendered component receives the auto-focus on its render. However, since we have a reusable React component here, we can pass a dedicated prop and let the developer decide whether its input field should have an autofocus or not:
+This works, but only if one of the reusable components is rendered once. For example, if the App component renders two InputWithLabel components, only the last rendered component receives the auto-focus on its render. However, since we have a reusable React component here, we can pass a dedicated prop and let the developer decide whether its input field should have an autofocus or not:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -145,7 +145,7 @@ All the essential steps are marked with comments that are explained step by step
 * (C) Third, opt into React's lifecycle with React's useEffect Hook, performing the focus on the input field when the component renders (or its dependencies change).
 * (D) And fourth, since the `ref` is passed to the input field's `ref` attribute, its `current` property gives access to the element. Execute its focus programmatically as a side-effect, but only if `isFocused` is set and the `current` property is existent.
 
-This was an example of how to move from declarative to imperative programming in React. It's now always possible to go the declarative way, so the imperative approach is necessary. This lesson is for the sake of learning about the DOM API in React.
+This was an example of how to move from declarative to imperative programming in React. It's not always possible to go the declarative way, so the imperative approach can be whenever it's necessary. This lesson is for the sake of learning about the DOM API in React.
 
 ### Exercises:
 

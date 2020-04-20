@@ -1,8 +1,8 @@
 ## Data Re-Fetching in React
 
-So far, the App component fetches a list of stories once with a predefined query ('react'). After that, users can search for stories on the client-side. Now we'll move this feature from client-side to server-side searching, using the actual `searchTerm` as a dynamic query for the API request.
+So far, the App component fetches a list of stories once with a predefined query (`react`). After that, users can search for stories on the client-side. Now we'll move this feature from client-side to server-side searching, using the actual `searchTerm` as a dynamic query for the API request.
 
-First, remove`searchedStories`, because we will receive the stories searched from the API. Pass only the regular stories to the List component:
+First, remove `searchedStories`, because we will receive the stories searched from the API. Pass only the regular stories to the List component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
