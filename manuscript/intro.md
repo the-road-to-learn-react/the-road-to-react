@@ -34,11 +34,15 @@ Also, if you have purchased a print book, make sure to take notes in the book. I
 
 **How can I get help while reading the book?**
 
-The book has a [Slack Community](https://slack-the-road-to-learn-react.wieruch.com/) for people who are reading along. You can join the channel to get help, or to help others, as helping others may help you internalize your own understanding.
+The book has a community of learners who help each other and for people who are reading along. You can join the community to get help, or to help others, as helping others may help you internalize your own understanding. Just follow the navigation to my courses on my [website](https://www.robinwieruch.de/), sign up there, and navigate to joining the community.
 
 **Can I help to improve the content?**
 
-If you have feedback, shoot me an email and I will take your suggestions into consideration. Don't expect any replies for bug tracking or troubleshoots though, because that's what's the Slack Community for.
+If you have feedback, shoot me an email and I will take your suggestions into consideration. Don't expect any replies for bug tracking or troubleshoots though, because that's what's the community for.
+
+**WHat do I do if I encounter a bug?**
+
+If you encounter any bug in the code, you should find a URL to the current GitHub project at the end of each section. Feel free to open a GitHub issue there. Your help is very much appreciated!
 
 **How to support the project?**
 
@@ -50,14 +54,26 @@ I want to teach about this topic consistently. I often find materials online tha
 
 ## Who is this book for?
 
-* JavaScript beginners with knowledge in fundamental JS, CSS, and HTML: If you just started out with web development, and have a basic grasp about JS, CSS, and HTML, this book should give you everything that's needed to learn React. However, if you feel there is a gap in your JavaScript knowledge, don't hesitate to read up on this topic before continuing with the book. You will have lots of references to this fundamental knowledge in the book though.
+**JavaScript Beginners**
 
-* JavaScript veterans coming from jQuery: If you have used JavaScript with jQuery, MooTools, and Dojo extensively back in the days, the new JavaScript era may seem overwhelming for someone getting back on track with it. However, most of the fundamental knowledge didn't change, it's still JavaScript and HTML under the hood, so this book should give you the right start into React.
+JavaScript beginners with knowledge in fundamental JS, CSS, and HTML: If you just started out with web development, and have a basic grasp about JS, CSS, and HTML, this book should give you everything that's needed to learn React. However, if you feel there is a gap in your JavaScript knowledge, don't hesitate to read up on this topic before continuing with the book. You will have lots of references to this fundamental knowledge in the book though.
 
-* JavaScript enthusiasts with knowledge in other modern SPA frameworks: If you are coming from Angular or Vue, there may be lots of differences in how to write applications with React, however, all these frameworks share the same fundamentals of JavaScript and HTML. After a mindset shift to get comfortable with React, you should be doing just fine adopting React.
+**JavaScript Veterans**
 
-* If you are coming from another programming language, you should be more familiar than others about the different aspects of programming. After picking up the fundamentals about JavaScript and HTML, you should have a good time learning React with me.
+JavaScript veterans coming from jQuery: If you have used JavaScript with jQuery, MooTools, and Dojo extensively back in the days, the new JavaScript era may seem overwhelming for someone getting back on track with it. However, most of the fundamental knowledge didn't change, it's still JavaScript and HTML under the hood, so this book should give you the right start into React.
 
-* If your main profession is in design, user interaction or user experience, don't hesitate to pick up this book. You may be already quite familiar with HTML and CSS which is a plus. After going through some more JavaScript fundamentals, you should be good to get through this book. These days UI/UX are moving closer to the implementation details which are often taken care of with React. It would be your perfect asset to know how things work in code.
+**JavaScript Enthusiasts**
 
-* If you are a Product Owner or Product Manager of your development department, this book should give you a good breakdown of all the essential parts in a React application. Every section explains one React concept/pattern/technique to add another feature or to improve the overall architecture. It's a well rounded reference guide for React.
+JavaScript enthusiasts with knowledge in other modern SPA frameworks: If you are coming from Angular or Vue, there may be lots of differences in how to write applications with React, however, all these frameworks share the same fundamentals of JavaScript and HTML. After a mindset shift to get comfortable with React, you should be doing just fine adopting React.
+
+**Non JavaScript Developers**
+
+If you are coming from another programming language, you should be more familiar than others about the different aspects of programming. After picking up the fundamentals about JavaScript and HTML, you should have a good time learning React with me.
+
+**Designers and UI/UX Enthusiasts**
+
+If your main profession is in design, user interaction or user experience, don't hesitate to pick up this book. You may be already quite familiar with HTML and CSS which is a plus. After going through some more JavaScript fundamentals, you should be good to get through this book. These days UI/UX are moving closer to the implementation details which are often taken care of with React. It would be your perfect asset to know how things work in code.
+
+**Team Leads, Product Owners, or Product Managers**
+
+If you are a team lead, product owner or product manager of your development department, this book should give you a good breakdown of all the essential parts in a React application. Every section explains one React concept/pattern/technique to add another feature or to improve the overall architecture. It's a well rounded reference guide for React.
