@@ -1,6 +1,6 @@
 # The Road to React [Book]
 
-Official repository for [The Road to React](http://roadtoreact.com/). If you want to leave a review, please do it on [Amazon](https://www.amazon.com/dp/B077HJFCQX?tag=21moves-20) or [Goodreads](https://www.goodreads.com/book/show/37503118-the-road-to-learn-react).
+Official repository for [The Road to React](http://roadtoreact.com/). If you want to leave a review, please do it on [Amazon](https://amzn.to/2LHjxRB) or [Goodreads](https://www.goodreads.com/book/show/37503118-the-road-to-learn-react).
 
 ## Updates, Help and Support
 
