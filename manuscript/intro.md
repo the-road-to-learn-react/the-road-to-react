@@ -40,7 +40,7 @@ The book has a community of learners who help each other and for people who are 
 
 If you have feedback, shoot me an email and I will take your suggestions into consideration. Don't expect any replies for bug tracking or troubleshoots though, because that's what's the community for.
 
-**WHat do I do if I encounter a bug?**
+**What do I do if I encounter a bug?**
 
 If you encounter any bug in the code, you should find a URL to the current GitHub project at the end of each section. Feel free to open a GitHub issue there. Your help is very much appreciated!
 
