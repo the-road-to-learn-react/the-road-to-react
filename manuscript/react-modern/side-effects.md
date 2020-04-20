@@ -7,23 +7,23 @@ First, use the local storage of the browser to store the `searchTerm` accompanie
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
- ...
+  ...
 
- const [searchTerm, setSearchTerm] = React.useState(
+  const [searchTerm, setSearchTerm] = React.useState(
 # leanpub-start-insert
-   localStorage.getItem('search') || 'React'
+    localStorage.getItem('search') || 'React'
 # leanpub-end-insert
- );
+  );
 
- const handleSearch = event => {
-   setSearchTerm(event.target.value);
+  const handleSearch = event => {
+    setSearchTerm(event.target.value);
 
 # leanpub-start-insert
-   localStorage.setItem('search', event.target.value);
+    localStorage.setItem('search', event.target.value);
 # leanpub-end-insert
- };
+  };
 
- ...
+  ...
 );
 ~~~~~~~
 
@@ -34,25 +34,25 @@ There is one flaw, though. The handler function should mostly be concerned about
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
- ...
+  ...
 
- const [searchTerm, setSearchTerm] = React.useState(
-   localStorage.getItem('search') || 'React'
- );
+  const [searchTerm, setSearchTerm] = React.useState(
+    localStorage.getItem('search') || 'React'
+  );
 
 # leanpub-start-insert
- React.useEffect(() => {
-   localStorage.setItem('search', searchTerm);
- }, [searchTerm]);
+  React.useEffect(() => {
+    localStorage.setItem('search', searchTerm);
+  }, [searchTerm]);
 # leanpub-end-insert
 
 # leanpub-start-insert
- const handleSearch = event => {
-   setSearchTerm(event.target.value);
- };
+  const handleSearch = event => {
+    setSearchTerm(event.target.value);
+  };
 # leanpub-end-insert
 
- ...
+  ...
 );
 ~~~~~~~
 
@@ -65,6 +65,6 @@ Using React `useEffect` instead of managing the side-effect in the handler has m
 ### Exercises:
 
 * Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/React-Side-Effects).
- * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/Props-Handling...hs/React-Side-Effects?expand=1).
+  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/Props-Handling...hs/React-Side-Effects?expand=1).
 * Read more about React's useEffect Hook ([0](https://reactjs.org/docs/hooks-effect.html), [1](https://reactjs.org/docs/hooks-reference.html#useeffect)).
 * Give the first argument's function a `console.log()` and experiment with React's useEffect Hook's dependency array. Check the logs for an empty dependency array too.

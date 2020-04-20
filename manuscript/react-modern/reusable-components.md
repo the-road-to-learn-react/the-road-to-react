@@ -7,47 +7,47 @@ Since the Search component doesn't have any actual "search" functionality, it ta
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
- ...
+  ...
 
- return (
-   <div>
-     <h1>My Hacker Stories</h1>
+  return (
+    <div>
+      <h1>My Hacker Stories</h1>
 
 # leanpub-start-insert
-     <InputWithLabel
-       id="search"
-       label="Search"
+      <InputWithLabel
+        id="search"
+        label="Search"
 # leanpub-end-insert
-       value={searchTerm}
+        value={searchTerm}
 # leanpub-start-insert
-       onInputChange={handleSearch}
+        onInputChange={handleSearch}
 # leanpub-end-insert
-     />
+      />
 
-     ...
-   </div>
- );
+      ...
+    </div>
+  );
 };
 
 # leanpub-start-insert
 const InputWithLabel = ({ id, label, value, onInputChange }) => (
 # leanpub-end-insert
- <>
+  <>
 # leanpub-start-insert
-   <label htmlFor={id}>{label}</label>
-   &nbsp;
+    <label htmlFor={id}>{label}</label>
+    &nbsp;
 # leanpub-end-insert
-   <input
+    <input
 # leanpub-start-insert
-     id={id}
+      id={id}
 # leanpub-end-insert
-     type="text"
-     value={value}
+      type="text"
+      value={value}
 # leanpub-start-insert
-     onChange={onInputChange}
+      onChange={onInputChange}
 # leanpub-end-insert
-   />
- </>
+    />
+  </>
 );
 ~~~~~~~
 
@@ -56,26 +56,26 @@ It's not fully reusable yet. If we want an input field for data like a number (`
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const InputWithLabel = ({
- id,
- label,
- value,
+  id,
+  label,
+  value,
 # leanpub-start-insert
- type = 'text',
+  type = 'text',
 # leanpub-end-insert
- onInputChange,
+  onInputChange,
 }) => (
- <>
-   <label htmlFor={id}>{label}</label>
-   &nbsp;
-   <input
-     id={id}
+  <>
+    <label htmlFor={id}>{label}</label>
+    &nbsp;
+    <input
+      id={id}
 # leanpub-start-insert
-     type={type}
+      type={type}
 # leanpub-end-insert
-     value={value}
-     onChange={onInputChange}
-   />
- </>
+      value={value}
+      onChange={onInputChange}
+    />
+  </>
 );
 ~~~~~~~
 
@@ -86,6 +86,6 @@ With just a few changes we turned a specialized Search component into a more reu
 ### Exercises:
 
 * Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/Reusable-React-Component).
- * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/React-Fragments...hs/Reusable-React-Component?expand=1).
+  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/React-Fragments...hs/Reusable-React-Component?expand=1).
 * Read more about [Reusable React Components](https://www.robinwieruch.de/react-reusable-components).
 * Before we used the text "Search:" with a ":". How would you deal with it now? Would you pass it with `label="Search:"` as prop to the InputWithLabel component or hardcode it after the `<label htmlFor={id}>{label}:</label>` usage in the InputWithLabel component? We will see how to cope with this later.

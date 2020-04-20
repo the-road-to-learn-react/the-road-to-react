@@ -7,10 +7,10 @@ Let's go through a scenario that shows  why we should follow the concept of cont
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
- const stories = [ ... ];
+  const stories = [ ... ];
 
 # leanpub-start-insert
- const [searchTerm, setSearchTerm] = React.useState('React');
+  const [searchTerm, setSearchTerm] = React.useState('React');
 # leanpub-end-insert
 
  ...
@@ -24,37 +24,37 @@ We need to convert the Search component with its input field into a controlled c
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
- const stories = [ ... ];
+  const stories = [ ... ];
 
- const [searchTerm, setSearchTerm] = React.useState('React');
+  const [searchTerm, setSearchTerm] = React.useState('React');
 
- ...
+  ...
 
- return (
-   <div>
-     <h1>My Hacker Stories</h1>
+  return (
+    <div>
+      <h1>My Hacker Stories</h1>
 
 # leanpub-start-insert
-     <Search search={searchTerm} onSearch={handleSearch} />
+      <Search search={searchTerm} onSearch={handleSearch} />
 # leanpub-end-insert
 
-     ...
-   </div>
- );
+      ...
+    </div>
+  );
 };
 
 const Search = props => (
- <div>
-   <label htmlFor="search">Search: </label>
-   <input
-     id="search"
-     type="text"
+  <div>
+    <label htmlFor="search">Search: </label>
+    <input
+      id="search"
+      type="text"
 # leanpub-start-insert
-     value={props.search}
+      value={props.search}
 # leanpub-end-insert
-     onChange={props.onSearch}
-   />
- </div>
+      onChange={props.onSearch}
+    />
+  </div>
 );
 ~~~~~~~
 
@@ -76,6 +76,6 @@ Every run through a component's function takes the *recent value* (e.g. current 
 ### Exercises:
 
 * Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/React-Controlled-Components).
- * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/Lifting-State-in-React...hs/React-Controlled-Components?expand=1).
+  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/Lifting-State-in-React...hs/React-Controlled-Components?expand=1).
 * Read more about [controlled components in React](https://www.robinwieruch.de/react-controlled-components/).
 * Experiment with `console.log()` in your React components and observe how your changes render, both initially and after the input field changes.

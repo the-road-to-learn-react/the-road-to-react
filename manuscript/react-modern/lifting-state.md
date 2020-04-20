@@ -7,38 +7,38 @@ The search term is needed in the App to filter the list before passing it to the
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
- const stories = [ ... ];
+  const stories = [ ... ];
 
 # leanpub-start-insert
- const [searchTerm, setSearchTerm] = React.useState('');
+  const [searchTerm, setSearchTerm] = React.useState('');
 # leanpub-end-insert
 
- const handleSearch = event => {
+  const handleSearch = event => {
 # leanpub-start-insert
-   setSearchTerm(event.target.value);
+    setSearchTerm(event.target.value);
 # leanpub-end-insert
- };
+  };
 
- return (
-   <div>
-     <h1>My Hacker Stories</h1>
+  return (
+    <div>
+      <h1>My Hacker Stories</h1>
 
-     <Search onSearch={handleSearch} />
+      <Search onSearch={handleSearch} />
 
-     <hr />
+      <hr />
 
-     <List list={stories} />
-   </div>
- );
+      <List list={stories} />
+    </div>
+  );
 };
 
 const Search = props => (
- <div>
-   <label htmlFor="search">Search: </label>
+  <div>
+    <label htmlFor="search">Search: </label>
 # leanpub-start-insert
-   <input id="search" type="text" onChange={props.onSearch} />
+    <input id="search" type="text" onChange={props.onSearch} />
 # leanpub-end-insert
- </div>
+  </div>
 );
 ~~~~~~~
 
@@ -51,33 +51,33 @@ By managing the search feature state in the App component, we can finally filter
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
- const stories = [ ... ];
+  const stories = [ ... ];
 
- const [searchTerm, setSearchTerm] = React.useState('');
+  const [searchTerm, setSearchTerm] = React.useState('');
 
- const handleSearch = event => {
-   setSearchTerm(event.target.value);
- };
-
-# leanpub-start-insert
- const searchedStories = stories.filter(function(story) {
-   return story.title.includes(searchTerm);
- });
-# leanpub-end-insert
-
- return (
-   <div>
-     <h1>My Hacker Stories</h1>
-
-     <Search onSearch={handleSearch} />
-
-     <hr />
+  const handleSearch = event => {
+    setSearchTerm(event.target.value);
+  };
 
 # leanpub-start-insert
-     <List list={searchedStories} />
+  const searchedStories = stories.filter(function(story) {
+    return story.title.includes(searchTerm);
+  });
 # leanpub-end-insert
-   </div>
- );
+
+  return (
+    <div>
+      <h1>My Hacker Stories</h1>
+
+      <Search onSearch={handleSearch} />
+
+      <hr />
+
+# leanpub-start-insert
+      <List list={searchedStories} />
+# leanpub-end-insert
+    </div>
+  );
 };
 ~~~~~~~
 
@@ -86,16 +86,16 @@ Here, the [JavaScript array's built-in filter function](https://developer.mozill
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
 const words = [
- 'spray',
- 'limit',
- 'elite',
- 'exuberant',
- 'destruction',
- 'present'
+  'spray',
+  'limit',
+  'elite',
+  'exuberant',
+  'destruction',
+  'present'
 ];
 
 const filteredWords = words.filter(function(word) {
- return word.length > 6;
+  return word.length > 6;
 });
 
 console.log(filteredWords);
@@ -107,17 +107,17 @@ The filter function checks whether the `searchTerm` is present in our story item
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
- ...
+  ...
 
- const searchedStories = stories.filter(function(story) {
+  const searchedStories = stories.filter(function(story) {
 # leanpub-start-insert
-   return story.title
-     .toLowerCase()
-     .includes(searchTerm.toLowerCase());
+    return story.title
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
 # leanpub-end-insert
- });
+  });
 
- ...
+  ...
 };
 ~~~~~~~
 
@@ -128,17 +128,17 @@ The remaining section shows a couple of refactoring steps. We will be using the 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
- ...
+  ...
 
 # leanpub-start-insert
- const searchedStories = stories.filter(story => {
+  const searchedStories = stories.filter(story => {
 # leanpub-end-insert
-   return story.title
-     .toLowerCase()
-     .includes(searchTerm.toLowerCase());
+    return story.title
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
  });
 
- ...
+  ...
 };
 ~~~~~~~
 
@@ -147,15 +147,15 @@ In addition, we could turn the return statement into an immediate return, becaus
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
- ...
+  ...
 
 # leanpub-start-insert
- const searchedStories = stories.filter(story =>
-   story.title.toLowerCase().includes(searchTerm.toLowerCase())
- );
+  const searchedStories = stories.filter(story =>
+    story.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 # leanpub-end-insert
 
- ...
+  ...
 };
 ~~~~~~~
 
@@ -166,4 +166,4 @@ Now we can manipulate state in React, using the Search component's callback hand
 ### Exercises:
 
 * Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/Lifting-State-in-React).
- * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/Callback-Handler-in-JSX...hs/Lifting-State-in-React?expand=1).
+  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/Callback-Handler-in-JSX...hs/Lifting-State-in-React?expand=1).

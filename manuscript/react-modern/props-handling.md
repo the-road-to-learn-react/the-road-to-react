@@ -9,8 +9,8 @@ React props are a JavaScript object, else we couldn't access `props.list` or `pr
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
 const user = {
- firstName: 'Robin',
- lastName: 'Wieruch',
+  firstName: 'Robin',
+  lastName: 'Wieruch',
 };
 
 // without object destructuring
@@ -33,19 +33,19 @@ If we need to access multiple properties of an object, using one line of code in
 ~~~~~~~
 # leanpub-start-insert
 const Search = props => {
- return (
+  return (
 # leanpub-end-insert
-   <div>
-     <label htmlFor="search">Search: </label>
-     <input
-       id="search"
-       type="text"
-       value={props.search}
-       onChange={props.onSearch}
-     />
-   </div>
+    <div>
+      <label htmlFor="search">Search: </label>
+      <input
+        id="search"
+        type="text"
+        value={props.search}
+        onChange={props.onSearch}
+      />
+    </div>
 # leanpub-start-insert
- );
+  );
 };
 # leanpub-end-insert
 ~~~~~~~
@@ -56,22 +56,22 @@ And second, we can apply the destructuring of the `props` object in the componen
 ~~~~~~~
 const Search = props => {
 # leanpub-start-insert
- const { search, onSearch } = props;
+  const { search, onSearch } = props;
 # leanpub-end-insert
 
- return (
-   <div>
-     <label htmlFor="search">Search: </label>
-     <input
-       id="search"
-       type="text"
+  return (
+    <div>
+      <label htmlFor="search">Search: </label>
+      <input
+        id="search"
+        type="text"
 # leanpub-start-insert
-       value={search}
-       onChange={onSearch}
+        value={search}
+        onChange={onSearch}
 # leanpub-end-insert
-     />
-   </div>
- );
+      />
+    </div>
+  );
 };
 ~~~~~~~
 
@@ -82,15 +82,15 @@ That's a basic destructuring of the `props` object in a React component, so that
 # leanpub-start-insert
 const Search = ({ search, onSearch }) => (
 # leanpub-end-insert
- <div>
-   <label htmlFor="search">Search: </label>
-   <input
-     id="search"
-     type="text"
-     value={search}
-     onChange={onSearch}
-   />
- </div>
+  <div>
+    <label htmlFor="search">Search: </label>
+    <input
+      id="search"
+      type="text"
+      value={search}
+      onChange={onSearch}
+    />
+  </div>
  # leanpub-start-insert
 );
 # leanpub-end-insert
@@ -104,19 +104,19 @@ Let's check out another scenario to dive deeper into advanced props handling in 
 ~~~~~~~
 # leanpub-start-insert
 const List = ({ list }) =>
- list.map(item => <Item key={item.objectID} item={item} />);
+  list.map(item => <Item key={item.objectID} item={item} />);
 # leanpub-end-insert
 
 # leanpub-start-insert
 const Item = ({ item }) => (
- <div>
-   <span>
-     <a href={item.url}>{item.title}</a>
-   </span>
-   <span>{item.author}</span>
-   <span>{item.num_comments}</span>
-   <span>{item.points}</span>
- </div>
+  <div>
+    <span>
+      <a href={item.url}>{item.title}</a>
+    </span>
+    <span>{item.author}</span>
+    <span>{item.num_comments}</span>
+    <span>{item.points}</span>
+  </div>
 );
 # leanpub-end-insert
 ~~~~~~~
@@ -161,27 +161,27 @@ Nested destructuring helps us to access properties from objects which are deeply
 
 const Item = ({
 # leanpub-start-insert
- item: {
-   title,
-   url,
-   author,
-   num_comments,
-   points,
- },
+  item: {
+    title,
+    url,
+    author,
+    num_comments,
+    points,
+  },
 # leanpub-end-insert
 }) => (
- <div>
-   <span>
+  <div>
+    <span>
 # leanpub-start-insert
-     <a href={url}>{title}</a>
+      <a href={url}>{title}</a>
 # leanpub-end-insert
-   </span>
+    </span>
 # leanpub-start-insert
-   <span>{author}</span>
-   <span>{num_comments}</span>
-   <span>{points}</span>
+    <span>{author}</span>
+    <span>{num_comments}</span>
+    <span>{points}</span>
 # leanpub-end-insert
- </div>
+  </div>
 );
 ~~~~~~~
 
@@ -195,30 +195,30 @@ Let's take another approach with JavaScript's spread and rest operators. In orde
 // 1. Iteration
 
 const List = ({ list }) =>
- list.map(item => (
-   <Item
-     key={item.objectID}
+  list.map(item => (
+    <Item
+      key={item.objectID}
 # leanpub-start-insert
-     title={item.title}
-     url={item.url}
-     author={item.author}
-     num_comments={item.num_comments}
-     points={item.points}
+      title={item.title}
+      url={item.url}
+      author={item.author}
+      num_comments={item.num_comments}
+      points={item.points}
 # leanpub-end-insert
-   />
- ));
+    />
+  ));
 
 # leanpub-start-insert
 const Item = ({ title, url, author, num_comments, points }) => (
 # leanpub-end-insert
- <div>
-   <span>
-     <a href={url}>{title}</a>
-   </span>
-   <span>{author}</span>
-   <span>{num_comments}</span>
-   <span>{points}</span>
- </div>
+  <div>
+    <span>
+      <a href={url}>{title}</a>
+    </span>
+    <span>{author}</span>
+    <span>{num_comments}</span>
+    <span>{points}</span>
+  </div>
 );
 ~~~~~~~
 
@@ -227,14 +227,14 @@ Now, even though the Item component's function signature is more concise, the cl
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
 const profile = {
- firstName: 'Robin',
- lastName: 'Wieruch',
+  firstName: 'Robin',
+  lastName: 'Wieruch',
 };
 
 const address = {
- country: 'Germany',
- city: 'Berlin',
- code: '10439',
+  country: 'Germany',
+  city: 'Berlin',
+  code: '10439',
 };
 
 const user = {
@@ -263,18 +263,18 @@ JavaScript's spread operator allows us to literally spread all key/value pairs o
 
 const List = ({ list }) =>
 # leanpub-start-insert
- list.map(item => <Item key={item.objectID} {...item} />);
+  list.map(item => <Item key={item.objectID} {...item} />);
 # leanpub-end-insert
 
 const Item = ({ title, url, author, num_comments, points }) => (
- <div>
-   <span>
-     <a href={url}>{title}</a>
-   </span>
-   <span>{author}</span>
-   <span>{num_comments}</span>
-   <span>{points}</span>
- </div>
+  <div>
+    <span>
+      <a href={url}>{title}</a>
+    </span>
+    <span>{author}</span>
+    <span>{num_comments}</span>
+    <span>{points}</span>
+  </div>
 );
 ~~~~~~~
 
@@ -283,11 +283,11 @@ This refactoring made the process of passing the information from List to Item c
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
 const user = {
- id: '1',
- firstName: 'Robin',
- lastName: 'Wieruch',
- country: 'Germany',
- city: 'Berlin',
+  id: '1',
+  firstName: 'Robin',
+  lastName: 'Wieruch',
+  country: 'Germany',
+  city: 'Berlin',
 };
 
 const { id, country, city, ...userWithoutAddress } = user;
@@ -319,14 +319,14 @@ const List = ({ list }) =>
 # leanpub-end-insert
 
 const Item = ({ title, url, author, num_comments, points }) => (
- <div>
-   <span>
-     <a href={url}>{title}</a>
-   </span>
-   <span>{author}</span>
-   <span>{num_comments}</span>
-   <span>{points}</span>
- </div>
+  <div>
+    <span>
+      <a href={url}>{title}</a>
+    </span>
+    <span>{author}</span>
+    <span>{num_comments}</span>
+    <span>{points}</span>
+  </div>
 );
 ~~~~~~~
 
@@ -337,17 +337,17 @@ In this section, we have learned about JavaScript object destructuring which can
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const List = ({ list }) =>
- list.map(item => <Item key={item.objectID} item={item} />);
+  list.map(item => <Item key={item.objectID} item={item} />);
 
 const Item = ({ item }) => (
- <div>
-   <span>
-     <a href={item.url}>{item.title}</a>
-   </span>
-   <span>{item.author}</span>
-   <span>{item.num_comments}</span>
-   <span>{item.points}</span>
- </div>
+  <div>
+    <span>
+      <a href={item.url}>{item.title}</a>
+    </span>
+    <span>{item.author}</span>
+    <span>{item.num_comments}</span>
+    <span>{item.points}</span>
+  </div>
 );
 ~~~~~~~
 
@@ -356,7 +356,7 @@ It may not be the most concise, but it is the easiest to reason about. Variation
 ### Exercises:
 
 * Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/Props-Handling).
- * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/React-Controlled-Components...hs/Props-Handling?expand=1).
+  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/React-Controlled-Components...hs/Props-Handling?expand=1).
 * Read more about [JavaScript's destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
 * Think about the difference between  JavaScript array destructuring -- which we used for React's `useState` hook -- and object destructuring.
 * Read more about [JavaScript's spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax).

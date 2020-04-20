@@ -10,13 +10,13 @@ We will use the two hooks we already possess to create a new custom hook called 
 ~~~~~~~
 # leanpub-start-insert
 const useSemiPersistentState = () => {
- const [searchTerm, setSearchTerm] = React.useState(
-   localStorage.getItem('search') || ''
- );
+  const [searchTerm, setSearchTerm] = React.useState(
+    localStorage.getItem('search') || ''
+  );
 
- React.useEffect(() => {
-   localStorage.setItem('search', searchTerm);
- }, [searchTerm]);
+  React.useEffect(() => {
+    localStorage.setItem('search', searchTerm);
+  }, [searchTerm]);
 };
 # leanpub-end-insert
 
@@ -30,16 +30,16 @@ So far, it's just a function around our previously in the App component used `us
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const useSemiPersistentState = () => {
- const [searchTerm, setSearchTerm] = React.useState(
-   localStorage.getItem('search') || ''
- );
+  const [searchTerm, setSearchTerm] = React.useState(
+    localStorage.getItem('search') || ''
+  );
 
- React.useEffect(() => {
-   localStorage.setItem('search', searchTerm);
- }, [searchTerm]);
+  React.useEffect(() => {
+    localStorage.setItem('search', searchTerm);
+  }, [searchTerm]);
 
 # leanpub-start-insert
- return [searchTerm, setSearchTerm];
+  return [searchTerm, setSearchTerm];
 # leanpub-end-insert
 };
 ~~~~~~~
@@ -49,23 +49,23 @@ We are following two conventions of React's built-in hooks here. First, the nami
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
- const stories = [ ... ];
+  const stories = [ ... ];
 
 # leanpub-start-insert
- const [searchTerm, setSearchTerm] = useSemiPersistentState();
+  const [searchTerm, setSearchTerm] = useSemiPersistentState();
 # leanpub-end-insert
 
- const handleSearch = event => {
-   setSearchTerm(event.target.value);
- };
+  const handleSearch = event => {
+    setSearchTerm(event.target.value);
+  };
 
- const searchedStories = stories.filter(story =>
-   story.title.toLowerCase().includes(searchTerm.toLowerCase())
- );
+  const searchedStories = stories.filter(story =>
+    story.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
- return (
-   ...
- );
+  return (
+    ...
+  );
 };
 ~~~~~~~
 
@@ -75,19 +75,19 @@ Another goal of a custom hook should be reusability. All of this custom hook's i
 ~~~~~~~
 const useSemiPersistentState = () => {
 # leanpub-start-insert
- const [value, setValue] = React.useState(
-   localStorage.getItem('value') || ''
+  const [value, setValue] = React.useState(
+    localStorage.getItem('value') || ''
 # leanpub-end-insert
  );
 
- React.useEffect(() => {
+  React.useEffect(() => {
 # leanpub-start-insert
-   localStorage.setItem('value', value);
- }, [value]);
+    localStorage.setItem('value', value);
+  }, [value]);
 # leanpub-end-insert
 
 # leanpub-start-insert
- return [value, setValue];
+  return [value, setValue];
 # leanpub-end-insert
 };
 ~~~~~~~
@@ -101,31 +101,31 @@ There is still one problem with this custom hook. Using the custom hook more tha
 # leanpub-start-insert
 const useSemiPersistentState = key => {
 # leanpub-end-insert
- const [value, setValue] = React.useState(
+  const [value, setValue] = React.useState(
 # leanpub-start-insert
-   localStorage.getItem(key) || ''
+    localStorage.getItem(key) || ''
 # leanpub-end-insert
  );
 
- React.useEffect(() => {
+  React.useEffect(() => {
 # leanpub-start-insert
-   localStorage.setItem(key, value);
- }, [value, key]);
+    localStorage.setItem(key, value);
+  }, [value, key]);
 # leanpub-end-insert
 
- return [value, setValue];
+  return [value, setValue];
 };
 
 const App = () => {
- ...
+  ...
 
- const [searchTerm, setSearchTerm] = useSemiPersistentState(
+  const [searchTerm, setSearchTerm] = useSemiPersistentState(
 # leanpub-start-insert
-   'search'
+    'search'
 # leanpub-end-insert
- );
+  );
 
- ...
+  ...
 };
 ~~~~~~~
 
@@ -138,26 +138,26 @@ Another improvement is to give the custom hook the initial state we had from the
 # leanpub-start-insert
 const useSemiPersistentState = (key, initialState) => {
 # leanpub-end-insert
- const [value, setValue] = React.useState(
+  const [value, setValue] = React.useState(
 # leanpub-start-insert
-   localStorage.getItem(key) || initialState
+    localStorage.getItem(key) || initialState
 # leanpub-end-insert
- );
+  );
 
- ...
+  ...
 };
 
 const App = () => {
- ...
+  ...
 
- const [searchTerm, setSearchTerm] = useSemiPersistentState(
+  const [searchTerm, setSearchTerm] = useSemiPersistentState(
 # leanpub-start-insert
-   'search',
-   'React'
+    'search',
+    'React'
 # leanpub-end-insert
- );
+  );
 
- ...
+  ...
 };
 ~~~~~~~
 
@@ -168,5 +168,5 @@ However, knowing more about custom hooks gives you lots of new options. A custom
 ### Exercises:
 
 * Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/React-Custom-Hooks).
- * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/React-Side-Effects...hs/React-Custom-Hooks?expand=1).
+  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/React-Side-Effects...hs/React-Custom-Hooks?expand=1).
 * Read more about [React Hooks](https://www.robinwieruch.de/react-hooks) to get a good understanding of them. They are the bread and butter in React function components, so it's important to really understand them ([0](https://reactjs.org/docs/hooks-overview.html), [1](https://reactjs.org/docs/hooks-custom.html)).

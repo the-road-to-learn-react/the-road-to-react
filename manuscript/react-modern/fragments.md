@@ -6,17 +6,17 @@ One caveat with JSX, especially when we create a dedicated Search component, is 
 ~~~~~~~
 const Search = ({ search, onSearch }) => (
 # leanpub-start-insert
- <div>
+  <div>
 # leanpub-end-insert
-   <label htmlFor="search">Search: </label>
-   <input
-     id="search"
-     type="text"
-     value={search}
-     onChange={onSearch}
-   />
+    <label htmlFor="search">Search: </label>
+    <input
+      id="search"
+      type="text"
+      value={search}
+      onChange={onSearch}
+    />
 # leanpub-start-insert
- </div>
+  </div>
 # leanpub-end-insert
 );
 ~~~~~~~
@@ -26,16 +26,16 @@ Normally the JSX returned by a React component needs only one wrapping top-level
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const Search = ({ search, onSearch }) => [
- <label key="1" htmlFor="search">
-   Search:{' '}
- </label>,
- <input
-   key="2"
-   id="search"
-   type="text"
-   value={search}
-   onChange={onSearch}
- />,
+  <label key="1" htmlFor="search">
+    Search:{' '}
+  </label>,
+  <input
+    key="2"
+    id="search"
+    type="text"
+    value={search}
+    onChange={onSearch}
+  />,
 ];
 ~~~~~~~
 
@@ -45,17 +45,17 @@ This is one way to have multiple top-level elements in your JSX. It doesn't turn
 ~~~~~~~
 const Search = ({ search, onSearch }) => (
 # leanpub-start-insert
- <>
+  <>
 # leanpub-end-insert
-   <label htmlFor="search">Search: </label>
-   <input
-     id="search"
-     type="text"
-     value={search}
-     onChange={onSearch}
-   />
+    <label htmlFor="search">Search: </label>
+    <input
+      id="search"
+      type="text"
+      value={search}
+      onChange={onSearch}
+    />
 # leanpub-start-insert
- </>
+  </>
 # leanpub-end-insert
 );
 ~~~~~~~
@@ -65,5 +65,5 @@ A fragment wraps other elements into a single top-level element without adding t
 ### Exercises:
 
 * Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/React-Fragments).
- * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/React-Custom-Hooks...hs/React-Fragments?expand=1).
+  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/React-Custom-Hooks...hs/React-Fragments?expand=1).
 * Read more about [React fragments](https://reactjs.org/docs/fragments.html).
