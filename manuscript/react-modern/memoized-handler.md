@@ -9,7 +9,7 @@ const App = () => {
 
   // A
 # leanpub-start-insert
-  const handleFetchStories = React.useCallback(() => {
+  const handleFetchStories = React.useCallback(() => { // B
 # leanpub-end-insert
     if (!searchTerm) return;
 
