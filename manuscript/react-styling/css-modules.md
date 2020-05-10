@@ -40,7 +40,7 @@ import styles from './App.module.css';
 # leanpub-end-insert
 ~~~~~~~
 
-Instead of defining the `className` as a string mapped to a CSS file, access the CSS class directly from the `styles` object, and assigns it with a JavaScript in JSX expression to your elements.
+Instead of defining the `className` as a string mapped to a CSS file, access the CSS class directly from the `styles` object, and assign it with a JavaScript in JSX expression to your elements.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
