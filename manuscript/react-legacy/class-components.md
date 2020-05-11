@@ -10,6 +10,8 @@ Throughout this section we will compare a [modern React application](https://cod
 
 React components have undergone many changes, from **createClass components** over **class components**, to **function components**. Going through a React application today, it's likely that we'll see class components next to the modern function components.
 
+A typical class component is a JavaScript class with a mandatory **render method** that returns the JSX. The class extends from a `React.Component` to inherit ([class inheritance](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming))) all React's component features (e.g. state management for state, lifecycle methods for side-effects). React props are accessed via the class instance (`this`):
+
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
 class InputWithLabel extends React.Component {
@@ -37,8 +39,6 @@ class InputWithLabel extends React.Component {
   }
 }
 ~~~~~~~
-
-A typical class component is a JavaScript class with a mandatory **render method** that returns the JSX. The class extends from a `React.Component` to inherit ([class inheritance](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming))) all React's component features (e.g. state management for state, lifecycle methods for side-effects). React props are accessed via the class instance (`this`).
 
 For a while class components were the popular choice for writing React applications. Eventually, function components were added, and both co-existed with their distinct purposes side by side:
 
