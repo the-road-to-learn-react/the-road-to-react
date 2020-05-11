@@ -7,7 +7,7 @@ In a React function component, React's useRef Hook is used mostly for imperative
 * createRef Refs (exclusive for Class Components)
 * useRef Hook Refs (exclusive for Function Components)
 
-Recently, the React team introduced **React's createRef** as the  latest equivalent to a function component's useRef hook:
+The React team introduced **React's createRef** with version 16.3 as the latest equivalent to a function component's useRef hook which has been integrated with React Hooks in 16.8:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
