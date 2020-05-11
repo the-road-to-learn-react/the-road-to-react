@@ -177,7 +177,7 @@ const SearchForm = ({ ... }) => (
 );
 ~~~~~~~
 
-The SearchForm component receives the styles as well. It has to use string interpolation for using two styles in one element via JavaScript's template literals. One alternative way is the [classnames](https://github.com/JedWatson/classnames) library, which is installed via the command line as project dependency:
+The SearchForm component receives the styles as well. It has to use string interpolation for using two styles in one element via JavaScript's template literals. One alternative way is the [classnames](https://github.com/JedWatson/classnames) library. The library offers conditional styling as well and is installed via the command line as project dependency:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -189,7 +189,7 @@ import cs from 'classnames';
 className={cs(styles.button, styles.buttonLarge)}
 ~~~~~~~
 
-The library offers conditional styling as well. Finally, continue with the InputWithLabel component:
+Finally, continue with the InputWithLabel component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
