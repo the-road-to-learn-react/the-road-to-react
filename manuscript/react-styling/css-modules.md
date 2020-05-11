@@ -189,7 +189,7 @@ import cs from 'classnames';
 className={cs(styles.button, styles.buttonLarge)}
 ~~~~~~~
 
-The library offers conditional stylings as well. Finally, continue with the InputWithLabel component:
+The library offers conditional styling as well. Finally, continue with the InputWithLabel component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
