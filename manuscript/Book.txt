@@ -52,6 +52,7 @@ react-styling/svg.md
 react-maintenance/performance.md
 react-maintenance/typescript.md
 react-maintenance/testing.md
+react-maintenance/testing-advanced.md
 react-maintenance/project-structure.md
 
 react-modern-advanced/sorting.md

@@ -2,7 +2,7 @@
 
 Testing source code is essential to programming, and should be seen as a mandatory exercise for serious developers. We want to verify our source code's quality and functionality before using it in production. The [testing pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) will serve as our guide.
 
-The testing pyramid includes end-to-end tests, integration tests, and unit tests. Unit tests are used for small, isolated blocks of code, such as a single function or component. Integration tests help us figure out if these units work well together. An end-to-end test simulates a real-life scenario, such as the login flow in a web application. Unit tests are quick and easy to write and maintain; end-to-end tests are the opposite.
+The testing pyramid includes end-to-end tests, integration tests, and unit tests. Unit tests are used for small, isolated blocks of code, such as a single function or component. Integration tests help us figure out if these units work well together. An end-to-end test simulates a real-life scenario, such as the login of a user in a web application. Unit tests are quick and easy to write and maintain; end-to-end tests are the opposite.
 
 We want to have many unit tests covering our functions and components. After that, we can use several integration tests to make sure the most important functions and components work together as expected. Finally, we may need a few end-to-end tests to simulate critical scenarios. In this learning experience, we will cover **unit and integration tests**, along with a component specific testing technique called **snapshot tests**. **E2E tests** will be part of the exercise.
 
@@ -361,7 +361,7 @@ describe('SearchForm', () => {
 
 # leanpub-start-insert
   it('changes the input field', () => {
-    const pseudoEvent = { target: 'Redux' };
+    const pseudoEvent = { target: { value: 'Redux' } };
 
     component.root.findByType('input').props.onChange(pseudoEvent);
 
