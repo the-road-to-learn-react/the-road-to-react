@@ -82,3 +82,4 @@ The create-react-app project makes using SVGs straightforward, with no extra con
 * Read more about [SVGs in create-react-app](https://create-react-app.dev/docs/adding-images-fonts-and-files).
 * Read more about [SVG background patterns in React](https://www.robinwieruch.de/react-svg-patterns).
 * Add another SVG icon in your application.
+* Integrate the third-party library [react-fontawesome](https://github.com/FortAwesome/react-fontawesome) into your application and use its SVG symbols.
