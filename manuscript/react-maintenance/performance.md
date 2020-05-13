@@ -182,7 +182,7 @@ B:App
 B:List
 ~~~~~~~
 
-The `list` passed to the List component is the same, but the `onRemoveItem` callback handler isn't. If the App component re-renders, it always creates a new version of this callback handler. Earlier, we used React's useCallacbk Hook to prevent this behavior, by creating a function only on a re-render (if one of its dependencies has changed).
+The `list` passed to the List component is the same, but the `onRemoveItem` callback handler isn't. If the App component re-renders, it always creates a new version of this callback handler. Earlier, we used React's useCallback Hook to prevent this behavior, by creating a function only on a re-render (if one of its dependencies has changed).
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
