@@ -104,7 +104,7 @@ const Item = ({
 );
 ~~~~~~~
 
-There are two problems: the code is verbose, and it has duplications. Let's get rid of both problems by defining a custom `Story` type outside the component, at the top of *src/App.js*:
+There are two problems: the code is verbose, and it has duplicates. Let's get rid of both problems by defining a custom `Story` type outside the component, at the top of *src/App.js*:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
