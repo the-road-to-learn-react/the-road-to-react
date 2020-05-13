@@ -288,7 +288,11 @@ const storiesReducer = (
 
 The stories state, the current state, and the action are types; the return new state (inferred) are type safe now. For example, if you would dispatch an action to the reducer with an action type that's not defined, you would get an type error. Or if you would pass something else than a story to the action which removes a story, you would get a type error as well.
 
-There is still a type safety issue in the App component's return statement for the returned List component. It can be fixed by giving the List component a wrapping HTML `div` element or a React fragment:
+There is still a type safety issue in the App component's return statement for the returned List component. 
+
+According to a TypeScript with React issue on [GitHub](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/57): *"This is because due to limitations in the compiler, function components cannot return anything other than a JSX expression or null, otherwise it complains with a cryptic error message saying that the other type is not assignable to Element."*
+
+It can be fixed by giving the List component a wrapping HTML `div` element or a React fragment:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -308,8 +312,6 @@ const List = ({ list, onRemoveItem }: ListProps) => (
 # leanpub-end-insert
 );
 ~~~~~~~
-
-According to a TypeScript with React issue on GitHub: *"This is because due to limitations in the compiler, function components cannot return anything other than a JSX expression or null, otherwise it complains with a cryptic error message saying that the other type is not assignable to Element."*
 
 Let's shift our focus to the SearchForm component, which has callback handlers with events:
 
