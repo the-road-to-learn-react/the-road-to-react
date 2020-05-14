@@ -1,4 +1,4 @@
-## Advanced Testing in React
+## Testing in React
 
 Testing source code is essential to programming, and should be seen as a mandatory exercise for serious developers. We want to verify our source code's quality and functionality before using it in production. The [testing pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) will serve as our guide.
 
