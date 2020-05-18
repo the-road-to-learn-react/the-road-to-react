@@ -30,6 +30,8 @@ hacker-stories/
 ----index.css
 ----index.js
 ----logo.svg
+----serviceWorker.js
+----setupTests.js
 --.gitignore
 --package-lock.json
 --package.json
