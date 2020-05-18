@@ -87,7 +87,7 @@ Another command from the previous npm scripts called `eject` shouldn't be used f
 * Read a bit more through React's [create-react-app documentation](https://github.com/facebook/create-react-app) and [getting started guide](https://create-react-app.dev/docs/getting-started).
   * Read more about [the supported JavaScript features in create-react-app](https://create-react-app.dev/docs/supported-browsers-features).
 * Read more about [the folder structure in create-react-app](https://create-react-app.dev/docs/folder-structure).
-  * Go through all of your React project's folders and files one by one.
+  * Go through all of your React project folders and files one by one.
 * Read more about [the scripts in create-react-app](https://create-react-app.dev/docs/available-scripts).
   * Start your React application with `npm start` on the command line and check it out in the browser.
     * Exit the command on the command line by pressing `Control + C`.
