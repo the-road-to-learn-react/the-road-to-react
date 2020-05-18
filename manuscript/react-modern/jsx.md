@@ -1,6 +1,6 @@
 ## React JSX
 
-Recall that I mentioned the returned output of the App component resembles HTML. This output is called JSX, which mixes HTML and JavaScript. Let's see how this works for displaying the variable:
+Recall that I mentioned the returned output of the App component resembles HTML. This output is called JSX (JavaScript XML), which mixes HTML and JavaScript. Let's see how this works for displaying the variable:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -47,7 +47,7 @@ function App() {
 export default App;
 ~~~~~~~
 
-We specified three HTML attributes here: `htmlFor`, `id`, and `type`. Where `id` and `type` should be familiar from native HTML, `htmlFor` might be new. The `htmlFor` reflects the `for` attribute in HTML. JSX replaces a handful of internal HTML attributes, but you can find all the [supported HTML attributes](https://reactjs.org/docs/dom-elements.html#all-supported-html-attributes) in React's documentation, which follow the camelCase naming convention. Expect to come across more JSX-specific attributes like `className` and `onClick` instead of `class` and `onclick`, as you learn more about React.
+We specified three HTML attributes here: `htmlFor`, `id`, and `type`. Where `id` and `type` should be familiar from native HTML, `htmlFor` might be new. The `htmlFor` reflects the `for` attribute in HTML. JSX replaces a handful of internal HTML attributes, but you can find all the [supported HTML attributes](https://reactjs.org/docs/dom-elements.html#all-supported-html-attributes) in React's documentation, which follow the [Camel case](https://en.wikipedia.org/wiki/Camel_case) naming convention. Expect to come across more JSX-specific attributes like `className` and `onClick` instead of `class` and `onclick`, as you learn more about React.
 
 We will revisit the HTML input field for implementation details later; for now, let's return to JavaScript in JSX. We have defined a string primitive to be displayed in the App component, and the same can be done with a JavaScript object:
 
