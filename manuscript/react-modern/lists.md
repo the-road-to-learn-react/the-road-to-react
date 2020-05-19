@@ -97,6 +97,8 @@ function App() {
 
 Actually, one of my first React "Aha" moments was using barebones JavaScript to map a list of JavaScript objects to HTML elements without any other HTML templating syntax. It's just JavaScript in HTML.
 
+![](images/jsx-mapping.png)
+
 React will display each item now, but you can still improve your code so React handles advanced dynamic lists more gracefully. By assigning a key attribute to each list item's element, React can identify modified items if the list changes (e.g. re-ordering). Fortunately, our list items come with an identifier:
 
 {title="src/App.js",lang="javascript"}

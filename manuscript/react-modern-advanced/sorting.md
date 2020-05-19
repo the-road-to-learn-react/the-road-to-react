@@ -13,6 +13,8 @@ We've covered most of React's fundamentals, its legacy features, and techniques 
 * Use the sort state to apply an appropriate sort function on the `list`.
 * Using a utility library like [Lodash](https://lodash.com/) for its `sortBy` function is encouraged.
 
+![](images/sort.png)
+
 We will treat the list of data like a table. Each row represents an item of the list and each column represents one property of the item. Headers provide the user more guidance about each column:
 
 {title="src/App.js",lang="javascript"}
