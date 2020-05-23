@@ -72,7 +72,7 @@ const extractSearchTerm = url =>
 # leanpub-end-insert
 ~~~~~~~
 
-The key ( `query=`) also needs to be replaced, leaving only the value (`searchTerm`):
+The key (`query=`) also needs to be replaced, leaving only the value (`searchTerm`):
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
