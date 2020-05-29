@@ -17,7 +17,7 @@ const App = () => {
         onInputChange={handleSearch}
 # leanpub-start-insert
       >
-        Search
+        Search:
       </InputWithLabel>
 # leanpub-end-insert
 
