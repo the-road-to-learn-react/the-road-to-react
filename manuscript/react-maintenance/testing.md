@@ -430,7 +430,7 @@ describe('Item', () => {
 });
 ~~~~~~~
 
-For the two assertions, we use two new assertive functions called `toBeInTheDocument` and `toHaveAttribute`. These are to verify an element with the text "Jordan Walke" is in the document, and the presence of an element with the text "React" with a specific `href` attribute value. Over time, you will see more of these assertive functions being used.
+For the two assertions, we use the two assertive functions `toBeInTheDocument` and `toHaveAttribute`. These are to verify an element with the text "Jordan Walke" is in the document, and the presence of an element with the text "React" with a specific `href` attribute value. Over time, you will see more of these assertive functions being used.
 
 RTL's `getByText` search function finds the one element with the visible texts "Jordan Walke" and "React". We can use the `getAllByText` equivalent to find more than one element. Similar equivalents exist for other search functions.
 
@@ -994,7 +994,7 @@ describe('SearchForm', () => {
 });
 ~~~~~~~
 
-Run these tests with `npm test` and you'll see a new *src/__snapshots__* folder has been created in your project folder. Similar to RTL's `debug` function, there's a snapshot of your rendered SearchForm component as an HTML element structure in the file. Next, head to *src/App.js* file and change the HTML. For example, try removing the bold text from the SearchForm component:
+Run these tests with `npm test` and you'll see a new *src/_snapshots_* folder has been created in your project folder. Similar to RTL's `debug` function, there's a snapshot of your rendered SearchForm component as an HTML element structure in the file. Next, head to *src/App.js* file and change the HTML. For example, try removing the bold text from the SearchForm component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -1039,7 +1039,7 @@ After the next test, the command line should look similar to the following:
     </label>
 ~~~~~~~
 
-This is a typical case for a breaking snapshot test. When a component's HTML structure is changed unintentionally, the snapshot test informs us in the command line. To fix it, we'd go into the *src/App.js* file and edit the SearchForm component . For intentional changes, press "u" on the command line for interactive tests and a new snapshot will be created. Try it and see how the snapshot file in your *src/__snapshots__* folder changes.
+This is a typical case for a breaking snapshot test. When a component's HTML structure is changed unintentionally, the snapshot test informs us in the command line. To fix it, we'd go into the *src/App.js* file and edit the SearchForm component . For intentional changes, press "u" on the command line for interactive tests and a new snapshot will be created. Try it and see how the snapshot file in your *src/_snapshots_* folder changes.
 
 Jest stores snapshots in a folder so it can validate the difference against future snapshot tests. Users can share these snapshots across teams using version control platforms like git.  This is how we make sure the DOM stays the same.
 
@@ -1049,4 +1049,4 @@ Snapshot tests are useful for setting up tests quickly in React, though it's bes
 
 * Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/react-snapshot).
   * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/react-testing-integration...hs/react-snapshot?expand=1).
-* Add one snapshot test for each of all the other components and check the content of your *__snapshots__* folder.
+* Add one snapshot test for each of all the other components and check the content of your *_snapshots_* folder.
