@@ -4,9 +4,15 @@ Searching for popular stories via Hacker News API is only one step towards a ful
 
 Specifically, it returns a paginated list. The page property, which is `0` in the first response, can be used to fetch more paginated lists as results. You only need to pass the next page with the same search term to the API.
 
+![](images/paginated-list.png)
+
 The following shows how to implement a paginated fetch with the Hacker News data structure. If you are used to **pagination** from other applications, you may have a row of buttons from 1-10 in your mind -- where the currently selected page is highlighted 1-[3]-10 and where clicking one of the buttons leads to fetching and displaying this subset of data.
 
+![](images/pagination.png)
+
 In contrast, we will implement the feature as **infinite pagination**. Instead of rendering a single paginated list on a button click, we will render *all paginated lists as one list* with *one* button to fetch the next page. Every additional *paginated list* is concatenated at the end of the *one list*.
+
+![](images/infinite-pagination.png)
 
 **Task:** Rather than fetching only the first page of a list, extend the functionality for fetching succeeding pages. Implement this as an infinite pagination on button click.
 
@@ -266,7 +272,9 @@ const App = () => {
 };
 ~~~~~~~
 
-We've implemented data fetching with the dynamic `page` argument. The initial and last searches always use the first page, and every fetch with the new "More" button uses an incremented page. There is one crucial bug when trying the feature, though: the new  fetches don't extend the previous list, but completely replace it.
+We've implemented data fetching with the dynamic `page` argument. The initial and last searches always use the first page, and every fetch with the new "More" button uses an incremented page. There is one crucial bug when trying the feature, though: the new fetches don't extend the previous list, but completely replace it.
+
+![](images/concat.png)
 
 We solve this in the reducer by avoiding the replacement of current `data` with new `data`, concatenating the paginated lists:
 
@@ -300,6 +308,8 @@ const storiesReducer = (state, action) => {
 ~~~~~~~
 
 The displayed list grows after fetching more data with the new button. However, there is still a flicker straining the UX. When fetching paginated data, the list disappears for a moment because the loading indicator appears and reappears after the request resolves.
+
+![](images/flicker.png)
 
 The desired behavior is to render the list--which is an empty list in the beginning--and replace the "More" button with the loading indicator only for pending requests. This is a common UI refactoring for conditional rendering when the task evolves from a single list to paginated lists.
 

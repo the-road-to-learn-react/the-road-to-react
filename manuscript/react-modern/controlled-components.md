@@ -60,6 +60,8 @@ const Search = props => (
 
 Now the input field starts with the correct initial value, using the `searchTerm` from the React state. Also, when we change the `searchTerm`, we force the input field to use the value from React's state (via props). Before, the input field managed its own internal state natively with just HTML.
 
+![](images/controlled-component.png)
+
 We learned about controlled components in this section, and, taking all the previous sections as learning steps into consideration, discovered another concept called **unidirectional data flow**:
 
 {title="Visualization",lang="javascript"}
