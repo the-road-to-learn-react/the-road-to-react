@@ -78,5 +78,5 @@ Larger React applications have **component hierarchies** (also called **componen
 * Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/Meet-another-React-Component).
   * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/Lists-in-React...hs/Meet-another-React-Component?expand=1).
 * Extend the component tree at the end of this chapter with other possible components. Try to figure out which other parts can be extracted as standalone components.
-* If a Search component is used in the App component, would the Search component be a sibling, parent, or child component for the List component?
+* If a Search component is used in the App component, what are the advantages of being a sibling component of the List component and not a parent or child component?
 * Ask yourself what problems could arise if we keep treating the `list` variable as global variable. We will cover how to handle these problems in the upcoming sections.
