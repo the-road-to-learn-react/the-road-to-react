@@ -350,7 +350,7 @@ import {
 ...
 ~~~~~~~
 
-Start with the Item component, where we assert whether it renders all expected properties based on its given props. Based on the input (props), we are asserting an output (rendered HTML):
+Start with the Item component, where we assert whether it renders all expected properties based on its given props. Based on the input (props), we are asserting an output (rendered HTML). We'll use RTL's `render` function in each test to render a React component. In this case, we render the Item component as an element and pass it an `item` object -- one of our previously defined stories -- as props:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -363,7 +363,7 @@ describe('Item', () => {
 # leanpub-end-insert
 ~~~~~~~
 
-We'll use RTL's `render` function in each test to render a React component. In this case, we render the Item component as an element and pass it an `item` object -- one of our previously defined stories -- as props. After rendering it, we can use the `debug` function from RTL's `screen` object:
+After rendering it, we can use the `debug` function from RTL's `screen` object:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
