@@ -4,12 +4,12 @@ Thus far we've covered the two most popular hooks in React: useState and useEffe
 
 We'll eventually cover more hooks that come with React -- in this volume and in other resources -- though we won't cover all of them here. Next we'll tackle **React custom Hooks**; that is, building a hook yourself.
 
-We will use the two hooks we already possess to create a new custom hook called `useSemiPersistentState`, named as such because it manages state yet synchronizes with the local storage. It's not fully persistent because clearing the local storage of the browser deletes relevant data for this application. Start by extracting all relevant implementation details from the App component into this new custom hook:
+We will use the two hooks we already possess to create a new custom hook called `UseSemiPersistentState`, named as such because it manages state yet synchronizes with the local storage. It's not fully persistent because clearing the local storage of the browser deletes relevant data for this application. Start by extracting all relevant implementation details from the App component into this new custom hook:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
-const useSemiPersistentState = () => {
+const UseSemiPersistentState = () => {
   const [searchTerm, setSearchTerm] = React.useState(
     localStorage.getItem('search') || ''
   );
@@ -29,7 +29,7 @@ So far, it's just a function around our previously in the App component used `us
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
-const useSemiPersistentState = () => {
+const UseSemiPersistentState = () => {
   const [searchTerm, setSearchTerm] = React.useState(
     localStorage.getItem('search') || ''
   );
@@ -52,7 +52,7 @@ const App = () => {
   const stories = [ ... ];
 
 # leanpub-start-insert
-  const [searchTerm, setSearchTerm] = useSemiPersistentState();
+  const [searchTerm, setSearchTerm] = UseSemiPersistentState();
 # leanpub-end-insert
 
   const handleSearch = event => {
@@ -73,7 +73,7 @@ Another goal of a custom hook should be reusability. All of this custom hook's i
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
-const useSemiPersistentState = () => {
+const UseSemiPersistentState = () => {
 # leanpub-start-insert
   const [value, setValue] = React.useState(
     localStorage.getItem('value') || ''
@@ -99,7 +99,7 @@ There is still one problem with this custom hook. Using the custom hook more tha
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
-const useSemiPersistentState = key => {
+const UseSemiPersistentState = key => {
 # leanpub-end-insert
   const [value, setValue] = React.useState(
 # leanpub-start-insert
@@ -119,7 +119,7 @@ const useSemiPersistentState = key => {
 const App = () => {
   ...
 
-  const [searchTerm, setSearchTerm] = useSemiPersistentState(
+  const [searchTerm, setSearchTerm] = UseSemiPersistentState(
 # leanpub-start-insert
     'search'
 # leanpub-end-insert
@@ -136,7 +136,7 @@ Another improvement is to give the custom hook the initial state we had from the
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
-const useSemiPersistentState = (key, initialState) => {
+const UseSemiPersistentState = (key, initialState) => {
 # leanpub-end-insert
   const [value, setValue] = React.useState(
 # leanpub-start-insert
@@ -150,7 +150,7 @@ const useSemiPersistentState = (key, initialState) => {
 const App = () => {
   ...
 
-  const [searchTerm, setSearchTerm] = useSemiPersistentState(
+  const [searchTerm, setSearchTerm] = UseSemiPersistentState(
 # leanpub-start-insert
     'search',
     'React'
