@@ -378,7 +378,7 @@ describe('Item', () => {
 });
 ~~~~~~~
 
-Run the tests with `npm test`, and you'll see the output from the `debug` function. It prints all your component's and child component's HTML elements. The output should be similar to the following:
+Run the tests with `npm test`, and you'll see the output from the `debug` function. It prints all your component's and child component's HTML elements. Note: Update the [versions of RTL](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/react-testing-unit-function...hs/react- testing-unit-component? expand = 1) in the `package.json` file and run `npm install` if you encounter a problem. The output should be similar to the following:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
