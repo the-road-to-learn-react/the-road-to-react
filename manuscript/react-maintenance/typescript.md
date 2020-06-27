@@ -18,7 +18,7 @@ mv src/index.js src/index.tsx
 mv src/App.js src/App.tsx
 ~~~~~~~
 
-Restart your development server in the command line. You may encounter compile errors in the browser and IDE. If the latter doesn't work, try installing a TypeScript plugin for your editor, or extension for your IDE. After the initial TypeScript in React setup, we'll add type safety for the entire *src/App.tsx* file, starting with typing the arguments of the custom hook:
+Restart your development server in the command line. You may encounter compile errors in the browser and IDE. If the latter doesn't work, try installing a TypeScript plugin for your editor, or extension for your IDE. After the initial TypeScript in React setup, we'll add [type safety](https://en.wikipedia.org/wiki/Type_safety) for the entire *src/App.tsx* file, starting with typing the arguments of the custom hook:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
