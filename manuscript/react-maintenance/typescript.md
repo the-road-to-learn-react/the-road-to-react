@@ -286,7 +286,7 @@ const storiesReducer = (
 };
 ~~~~~~~
 
-The stories state, the current state, and the action are types; the return new state (inferred) are type safe now. For example, if you would dispatch an action to the reducer with an action type that's not defined, you would get an type error. Or if you would pass something else than a story to the action which removes a story, you would get a type error as well.
+The stories state, the current state, and the action are types; the return new state (inferred) are type safe now. For example, if you would dispatch an action to the reducer with an action type that's not defined, you would get an type error. Or if you would pass something else than a `Story` to the action which removes a story, you would get a type error as well.
 
 There is still a type safety issue in the App component's return statement for the returned List component. 
 
