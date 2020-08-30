@@ -1,6 +1,6 @@
 ## Lists in React
 
-So far we've rendered a few primitive variables in JSX; next we'll render a list of items. We'll experiment with sample data at first, then we'll apply that to fetch data from a remote API. First, let's define the array as a variable. As before, we can define a variable outside or inside the component. The following defines it outside:
+So far we've rendered a few primitive variables in JSX; next we'll render a list of items. We'll experiment with sample data first, then we'll apply that to fetch data from a remote API. First, let's define the array as a variable. As before, we can define a variable outside or inside the component. The following defines it outside:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -32,7 +32,7 @@ function App() { ... }
 export default App;
 ~~~~~~~
 
-I used a `...` here as a placeholder, to keep my code snippet small (without App component implementation details) and focused on the essential parts (the `list` variable outside of the App component). I will use the `...` throughout the rest of this learning experience as placeholder for code blocks that I have established previous exercises. If you get lost, you can always verify your code using the CodeSandbox links I provide at the end of most sections.
+I used a `...` here as a placeholder, to keep my code snippet small (without App component implementation details) and focused on the essential parts (the `list` variable outside of the App component). I will use the `...` throughout the rest of this learning experience as placeholder for code blocks that I have established in previous exercises. If you get lost, you can always verify your code using the CodeSandbox links I provide at the end of most sections.
 
 Each item in the list has a title, a url, an author, an identifier (`objectID`), points -- which indicate the popularity of an item -- and a count of comments. Next, we'll render the list within our JSX dynamically:
 

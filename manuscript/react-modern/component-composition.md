@@ -55,7 +55,7 @@ const InputWithLabel = ({
 );
 ~~~~~~~
 
-Now the React component's elements behave similar to native HTML. Everything that's passed between a component's elements can be accessed as `children` in the component and be rendered somewhere. Sometimes when using a React component, you want to have more freedom from the outside what to render in the inside of a component:
+Now the React component's elements behave similar to native HTML. Everything that's passed between a component's elements can be accessed as `children` in the component and be rendered somewhere. Sometimes when using a React component, you want to have more freedom from the outside regarding what to render pn the inside of a component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

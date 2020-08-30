@@ -51,7 +51,7 @@ Let's explore  why React's `useCallback` Hook is needed here. This hook creates 
 3. run: side-effect
 ~~~~~~~
 
-If we didn't create a memoized function with React's `useCallback` Hook, a new `handleFetchStories` function would be created with each App component is rendered. The `handleFetchStories` function would be created each time, and would be executed in the `useEffect` hook to fetch data. The fetched data is then stored as state in the component. Because the state of the component changed, the component re-renders and creates a new `handleFetchStories` function. The side-effect would be triggered to fetch data, and we'd be stuck in an endless loop:
+If we didn't create a memoized function with React's `useCallback` Hook, a new `handleFetchStories` function would be created with each App component that is rendered. The `handleFetchStories` function would be created each time, and would be executed in the `useEffect` hook to fetch data. The fetched data is then stored as state in the component. Because the state of the component changed, the component re-renders and creates a new `handleFetchStories` function. The side-effect would be triggered to fetch data, and we'd be stuck in an endless loop:
 
 {title="Visualization",lang="javascript"}
 ~~~~~~~

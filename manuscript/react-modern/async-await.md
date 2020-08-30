@@ -28,7 +28,7 @@ const App = () => {
 };
 ~~~~~~~
 
-To use async/await, our function requires the `async` keyword. Once you start using the `await` keyword, everything reads like synchronous code. Actions after the `await` keyword are not executed until promise resolves, meaning the code will wait.
+To use async/await, our function requires the `async` keyword. Once you start using the `await` keyword, everything reads like synchronous code. Actions after the `await` keyword are not executed until the promise resolves, meaning the code will wait.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
