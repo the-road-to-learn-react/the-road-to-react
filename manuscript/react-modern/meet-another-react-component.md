@@ -26,7 +26,7 @@ function List() {
 # leanpub-end-insert
 ~~~~~~~
 
-Optional: If this component looks odd, because the outermost part of the returned JSX starts with JavaScript. We could use it with a wrapping HTML element as well, but we'll continue with the previous version.
+Optional: If this component looks odd, because the outermost part of the returned JSX starts with JavaScript, then we could use it with a wrapping HTML element as well, but we'll continue with the previous version.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

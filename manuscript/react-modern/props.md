@@ -79,7 +79,7 @@ const List = props =>
   ));
 ~~~~~~~
 
-Using this operation, we've prevented the list/stories variable from polluting the global scope in the App component. Since `stories` is not used in the App component directly, but in one of its child components, we passed them as props to the List component. There, we can access it through the first function signature's argument, called `props`.
+Using this operation, we've prevented the list/stories variable from polluting the global scope in the App component. Since `stories` is not used in the App component directly, but in one of its child components, we passed it as props to the List component. There, we can access it through the first function signature's argument, called `props`.
 
 ### Exercises:
 

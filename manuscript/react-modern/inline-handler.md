@@ -120,7 +120,7 @@ const Item = ({ item, onRemoveItem }) => {
 
 We could have passed only the item's `objectID`, since that's all we need  in the App component's callback handler, but we aren't sure what  information the handler might need later. It may need more than an identifier to remove an item. If we call the handler `onRemoveItem`, it should be the item being passed, not just its identifier.
 
-We have made the list of stories stateful with React's useState Hook; passed the still searched stories down as props to the List component; and implemented a callback handler (`handleRemoveStory`) and handler (`handleRemoveItem`) to be used in their respective components. Since a handler is just a function, and in this case it doesn't return anything, we could remove the block body for it for the sake of completeness.
+We have made the list of stories stateful with React's useState Hook; passed the still searched stories down as props to the List component; and implemented a callback handler (`handleRemoveStory`) and handler (`handleRemoveItem`) to be used in their respective components. Since a handler is just a function, and in this case it doesn't return anything, we could remove its block body for the sake of completeness.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

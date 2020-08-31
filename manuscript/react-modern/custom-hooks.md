@@ -25,7 +25,7 @@ const App = () => {
 };
 ~~~~~~~
 
-So far, it's just a function around our previously in the App component used `useState` and `useEffect` hooks. Before we can use it, let's return the values that are needed in our App component from this custom hook:
+So far, it's just a function around the `useState` and `useEffect` hooks we previously used in the App component. Before we can use it, let's return the values that are needed in our App component from this custom hook:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

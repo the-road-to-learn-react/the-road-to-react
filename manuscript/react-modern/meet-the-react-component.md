@@ -53,7 +53,7 @@ export default App;
 
 First, this React component, called App component, is just a JavaScript function. It's commonly called **function component**, because there are other variations of React components  (see **component types** later). Second, the App component doesn't receive any parameters in its function signature yet (see **props** later). And third, the App component returns code that resembles HTML which is called JSX (see **JSX** later).
 
-The function component possess implementation details like any other JavaScript function. You will see this in practice in action throughout your React journey:
+The function component possesses implementation details like any other JavaScript function. You will see this in practice in action throughout your React journey:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

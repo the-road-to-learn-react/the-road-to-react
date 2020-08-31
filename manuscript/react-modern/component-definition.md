@@ -2,7 +2,7 @@
 
 The following refactorings are optional recommendations to explain the different JavaScript/React patterns. You can build complete React applications without these advanced patterns, so don't be discouraged if they seem too complicated.
 
-All components in the *src/App.js* file are function component. JavaScript has multiple ways to declare functions. So far, we have used the function statement, though arrow functions can be used more concisely:
+All components in the *src/App.js* file are function components. JavaScript has multiple ways to declare functions. So far, we have used the function statement, though arrow functions can be used more concisely:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -99,7 +99,7 @@ count =>
   count + 1;
 ~~~~~~~
 
-This can be done for the App and List component as well, because they only return JSX and don't perform any task in between. Again it also applies for the arrow function that's used in the map function:
+This can be done for the App and List components as well, because they only return JSX and don't perform any task in between. Again it also applies for the arrow function that's used in the map function:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
