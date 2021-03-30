@@ -305,7 +305,7 @@ console.log(city);
 // "Berlin"
 ~~~~~~~
 
-Even though both have the same syntax (three dots), the rest operator shouldn't be mistaken with the spread operator. Whereas the rest operator happens on the right side of an assignment, the spread operator happens on the left side. The rest operator is always used to separate an object from some of its properties.
+Even though both have the same syntax (three dots), the rest operator shouldn't be mistaken with the spread operator. Whereas the rest operator happens on the left side of an assignment, the spread operator happens on the right side. The rest operator is always used to separate an object from some of its properties.
 
 Now it can be used in our List component to separate the `objectID` from the item, because the `objectID` is only used as `key` and isn't used in the Item component. Only the remaining (rest) item gets spread as attribute/value pairs into the Item component (as before):
 
