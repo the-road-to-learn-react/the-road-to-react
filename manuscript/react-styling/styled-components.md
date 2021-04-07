@@ -106,7 +106,7 @@ The flexible `width` prop is accessible in the styled component's template liter
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
-const StyledItem = styled.div`
+const StyledItem = styled.li`
   display: flex;
   align-items: center;
   padding-bottom: 5px;

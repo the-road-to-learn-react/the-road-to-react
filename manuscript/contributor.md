@@ -4,4 +4,6 @@
 
 * Proofreading/Editing:
 
+* Translation:
+
 {pagebreak}
