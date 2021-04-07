@@ -8,7 +8,7 @@ Many unit tests are required to cover all the functions and components in a work
 
 ![](images/testing-pyramid.png)
 
-Choosing a testing library can be a challenge for React beginners, as there are many similar options. To keep things simple, we'll employ the most popular tools: [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/) (RTL). Jest is a full-blown testing framework with test runners, test suites, test cases, and assertions. RTL is used for rendering React components, triggering events like mouse clicks, and selecting HTML elements from the DOM to perform assertions. We'll explore both tools step-by-step, from setup to unit testing to integration testing.
+Choosing a testing library can be a challenge for React beginners, as there are many options. To keep things simple, we'll employ the most popular tools: [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/) (RTL). Jest is a full-blown testing framework with test runners, test suites, test cases, and assertions. RTL is used for rendering React components, triggering events like mouse clicks, and selecting HTML elements from the DOM to perform assertions. We'll explore both tools step-by-step, from setup to unit testing to integration testing.
 
 ### Test Suites, Test Cases, and Assertions
 
@@ -150,9 +150,7 @@ Ran all test suites related to changed files.
 Watch Usage: Press w to show more.
 ~~~~~~~
 
-Familiarize yourself with this test output, because it shows all failed tests, as well as information on why they failed. Using this information, you can fix certain parts of your code until all tests run green.
-
-Next, we'll cover *test assertions*, two of which we've already used with Jest's `expect` function. An assertion works by expecting value on the left side (`expect`) to match a value on the right side (`toBe`). The assertive function `toBe` is one of many available with Jest:
+Familiarize yourself with this test output, because it shows all failed tests, as well as information on why they failed. Using this information, you can fix certain parts of your code until all tests run green. Next, we'll cover *test assertions*, two of which we've already used with Jest's `expect` function. An assertion works by expecting value on the left side (`expect`) to match a value on the right side (`toBe`). The assertive function `toBe` is one of many available with Jest:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -171,15 +169,13 @@ Once you start testing, it's a good practice to keep two command line interfaces
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/react-testing-setup).
-  * Confirm any [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/react-modern-final...hs/react-testing-setup?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/react-testing-setup).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-modern-final...2021/react-testing-setup).
 * Read more about [Jest](https://jestjs.io/).
 
 ### Unit Testing: Functions
 
-A unit test is generally used to test components or functions in isolation. For functions, unit tests are for input and output; for components, we test props or the callback handlers communicating to the outside.
-
-Before we can test our *src/App.js* file, we must export components and functions like the reducer from our *src/App.js* file with a named export:
+A unit test is generally used to test components or functions in isolation. For functions, unit tests are for input and output; for components, we test props or the callback handlers communicating to the outside. Before we can unit test our *src/App.js* file, we must export components and functions like the reducer from our *src/App.js* file with a named export:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -196,7 +192,7 @@ The exercises at the end of this chapter will cover all the remaining tests you 
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
-import React from 'react';
+import * as React from 'react';
 
 import App, {
   storiesReducer,
@@ -211,7 +207,7 @@ Before we unit test our first React component, we'll cover how to test just a Ja
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
-import React from 'react';
+import * as React from 'react';
 
 ...
 
@@ -318,26 +314,26 @@ describe('storiesReducer', () => {
 
 There is always the decision to make for JavaScript objects whether you want to make a strict comparison or just content comparison. Most often you only want to have a content comparison here, hence use `toStrictEqual`. For JavaScript primitives though, like strings or booleans, you can still use `toBe`. Also note that there is a `toEqual` function [which works slightly different](https://twitter.com/rwieruch/status/1260866850080067584) than `toStrictEqual`.
 
-We continue to make adjustments until the reducer test turns green, which is really testing a JavaScript function with a certain input and expecting a certain output. We haven't connected these testing methods to React yet.
+We continue to make adjustments until the reducer test turns green, which is really testing a JavaScript function with a certain input and expecting a certain output. We haven't done any testing methods regarding React yet.
 
 Remember, a reducer function will always follow the same test pattern: given a state and action, we expect the following new state. Every action of the reducer could be another test case in our reducer's test suite, so consider using the exercises as a way to move through your entire source code.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/react-testing-unit-function).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/react-testing-setup...hs/react-testing-unit-function?expand=1).
-* Continue to write a test case for every reducer action.
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/react-testing-unit-function).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-testing-setup...2021/react-testing-unit-function).
+* Continue to write a test case for every reducer action and its state transition.
 * Read more about Jest's assertive functions like `toBe` and `toStrictEqual`.
 
 ### Unit Testing: Components
 
-We tested our first function in JavaScript with Jest in the previous chapters. Next we'll test our first isolated React component with a unit test. Since we are using create-react-app, we don't need to set up the React Testing Library (RTL), which is necessary for our component tests because it is the default testing library. If you are using a custom React setup like React with Webpack, RTL as a library would need to be installed.
+We tested our first function in JavaScript with Jest in the previous sections. Next we'll test our first isolated React component with a unit test. Since we are using create-react-app, we don't need to set up the React Testing Library (RTL), which is necessary for our component tests because it is the default testing library. If you are using a custom React setup like React with Webpack, RTL as a library would need to be installed.
 
 The following functions from React Testing Library are used for component tests:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
-import React from 'react';
+import * as React from 'react';
 # leanpub-start-insert
 import {
   render,
@@ -384,7 +380,7 @@ Run the tests with `npm test`, and you'll see the output from the `debug` functi
 ~~~~~~~
 <body>
   <div>
-    <div>
+    <li>
       <span>
         <a
           href="https://reactjs.org/"
@@ -408,7 +404,7 @@ Run the tests with `npm test`, and you'll see the output from the `debug` functi
           Dismiss
         </button>
       </span>
-    </div>
+    </li>
   </div>
 </body>
 ~~~~~~~
@@ -436,7 +432,7 @@ For the two assertions, we use the two assertive functions `toBeInTheDocument` a
 
 RTL's `getByText` search function finds the one element with the visible texts "Jordan Walke" and "React". We can use the `getAllByText` equivalent to find more than one element. Similar equivalents exist for other search functions.
 
-The `getByText` function returns the element with a text that users can see, which relates to the real-world use of the application. Note that  `getByText` is not the only search function, though. Another highly-used search function is the `getByRole` or `getAllByRole` function:
+The `getByText` function returns the element with a text that users can see, which relates to the real-world use of the application. Note that `getByText` is not the only search function, though. Another highly-used search function is the `getByRole` or `getAllByRole` function:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -588,14 +584,14 @@ describe('SearchForm', () => {
 });
 ~~~~~~~
 
-Similar to the Item component, we tested input (props) and output (callback handler) for the SearchForm component. The difference is that the SearchForm component renders a child component called `InputWithLabel`. If you check the debug output, you'll likely notice that the React Testing Library doesn't bother with this child component. This happens because the end user wouldn't care about the component either, so the React Testing Library only outputs the HTML that matters for the test.
+Similar to the Item component, we tested input (props) and output (callback handler) for the SearchForm component. The difference is that the SearchForm component renders a child component called `InputWithLabel`. If you check the debug output, you'll likely notice that the React Testing Library doesn't bother with this child component. This happens because the end user wouldn't care about the component either, so the React Testing Library outputs all the HTML that matters for the test.
 
-All the callback handler tests for Item and SearchForm component test only whether the functions have been called. No React re-rendering occurs, because all the components are tested in isolation without state management, which solely happens in the App component. Real testing with RTL starts further up the component tree, where state changes and side-effects can be evaluated
+All the callback handler tests for Item and SearchForm component test only whether the functions have been called. No React re-rendering occurs, because all the components are tested in isolation without state management, which solely happens in the App component. Real testing with RTL starts further up the component tree, where state changes and side-effects can be evaluated. Therefore, let me introduce integration testing next.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/react-testing-unit-component).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/react-testing-unit-function...hs/react-testing-unit-component?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/react-testing-unit-component).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-testing-unit-function...2021/react-testing-unit-component).
 * Read more about [React Testing Library](https://testing-library.com/docs/react-testing-library/intro).
   * Read more about [search functions](https://testing-library.com/docs/guide-which-query).
 * Add tests for your List and InputWithLabel components.
@@ -646,7 +642,7 @@ describe('App', () => {
 # leanpub-end-insert
 ~~~~~~~
 
-We use React Testing Library's `act` helper function to wait until the promise resolves after the component's initial render. With async/await, we can implement this like synchronous code. The `debug` function from RTL is useful because it outputs the App component's elements before and after the request:
+Now we'll use React Testing Library's `act` helper function to wait until the promise resolves after the component's initial render. With async/await, we can implement this like synchronous code. The `debug` function from RTL is useful because it outputs the App component's elements before and after the request:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -771,7 +767,7 @@ describe('App', () => {
 
 There may be some confusion about when to use `getBy` or the `queryBy` search variants. As a rule of thumb, use `getBy` for single elements, and `getAllBy` for multiple elements. If you are checking for elements that aren't present, use `queryBy` (or `queryAllBy`). In this code, I preferred using `queryBy` for the sake of alignment and readability.
 
-Now we know the initial data fetching works for our App component, so we can move to testing user interactions. We have only tested user actions  in the child components thus far, by firing events without any state and side-effect. Next, we'll remove an item from the list after the data has been fetched successfully. Since the item with "Jordan Walke" is the first rendered item in the list, it gets removed if we click the first "Dismiss" button:
+Now we know the initial data fetching works for our App component, so we can move to testing user interactions. We have only tested user actions in the child components thus far, by firing events without any state and side-effect. Next, we'll remove an item from the list after the data has been fetched successfully. Since the item with "Jordan Walke" is the first rendered item in the list, it gets removed if we click the first "Dismiss" button:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -836,7 +832,7 @@ describe('App', () => {
       },
     });
 
-    axios.get.mockImplementation(url => {
+    axios.get.mockImplementation((url) => {
       if (url.includes('React')) {
         return reactPromise;
       }
@@ -963,21 +959,21 @@ describe('App', () => {
 });
 ~~~~~~~
 
-Brendan Eich is rendered as the creator of JavaScript, while the creators of React and Redux are removed. This test depicts an entire test scenario in one test case. We can move through each step--initial fetching, changing the input field value, submitting the form, and retrieving new data from the API--with the tools we've used.
+Brendan Eich is rendered as the creator of JavaScript, while the creators of React and Redux are removed. This test depicts an entire test scenario in one test case. We can move through each step -- initial fetching, changing the input field value, submitting the form, and retrieving new data from the API -- with the tools we've used.
 
 React Testing Library with Jest is the most popular library combination for React testing. RTL provides relevant testing tools, while Jest has a general testing framework for test suites, test cases, assertions, and mocking capabilities. If you need an alternative to RTL, consider trying  [Enzyme](https://www.robinwieruch.de/react-testing-jest-enzyme) by Airbnb.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/react-testing-integration).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/react-testing-unit-component...hs/react-testing-integration?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/react-testing-integration).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-testing-unit-component...2021/react-testing-integration).
 * Read more about [React Testing Library in React](https://www.robinwieruch.de/react-testing-library).
 * Read more about [E2E tests in React](https://www.robinwieruch.de/react-testing-cypress).
 * While you continue with the upcoming sections, keep your tests green and add new tests when needed.
 
 ### Snapshot Testing
 
-Facebook created snapshot tests as a more lightweight way to test React components and their structure. A snapshot test creates an instance of your rendered component's output as HTML elements and their structure. This snapshot is compared to the same point in the next text to give more output on how the rendered component changed and show why any tests failed in the difference. You can accept or deny any differences in your source code until the component functions as intended.
+Facebook created snapshot tests as a more lightweight way to test React components and their structure. A snapshot test creates an instance of your rendered component's output as HTML elements and their structure. This snapshot is compared to the same snapshot in the next test to give more output on how the rendered component changed and show why any tests failed in the difference. You can accept or deny any differences in your source code until the component functions as intended.
 
 Snapshot tests are lightweight, with less focus on the implementation details of the component. Let's perform a snapshot test for our SearchForm component:
 
@@ -1049,6 +1045,6 @@ Snapshot tests are useful for setting up tests quickly in React, though it's bes
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/react-snapshot).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/react-testing-integration...hs/react-snapshot?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/react-snapshot).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-testing-integration...2021/react-snapshot).
 * Add one snapshot test for each of all the other components and check the content of your *_snapshots_* folder.

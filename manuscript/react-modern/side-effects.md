@@ -1,8 +1,27 @@
 ## React Side-Effects
 
-Next we'll add a feature to our Search component in the form of another React hook. We'll make the Search component remember the most recent search interaction, so the application opens it in the browser whenever it restarts.
+A React component's returned output is defined by its props and state. In contrast, side-effects don't change this output directly (but can change it indirectly). They are used to interact with APIs outside of the component (e.g. browser's localStorage API, remote APIs for data fetching), measuring HTML element's width and height, or setting timers in JavaScript. These are only a few examples of side-effects in React components and we will get to know one of them in this section.
 
-First, use the local storage of the browser to store the `searchTerm` accompanied by an identifier. Next, use the stored value, if there a value exists, to set the initial state of the `searchTerm`. Otherwise, the initial state defaults to our initial state (here "React") as before:
+Wouldn't it be great if our Search component could remember the most recent search, so that the application opens it in the browser whenever it restarts. Let's implement this feature by using a side-effect to store the recent search from the browser's local storage and load it upon component initialization. First, use the local storage to store the `searchTerm` accompanied by an identifier whenever a user types into the HTML input field:
+
+{title="src/App.js",lang="javascript"}
+~~~~~~~
+const App = () => {
+  ...
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+
+# leanpub-start-insert
+    localStorage.setItem('search', event.target.value);
+# leanpub-end-insert
+  };
+
+  ...
+);
+~~~~~~~
+
+Second, use the stored value, if a value exists, to set the initial state of the `searchTerm` in React's useState Hook. Otherwise, default to our initial state (here "React") as before:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -15,21 +34,27 @@ const App = () => {
 # leanpub-end-insert
   );
 
-  const handleSearch = event => {
-    setSearchTerm(event.target.value);
-
-# leanpub-start-insert
-    localStorage.setItem('search', event.target.value);
-# leanpub-end-insert
-  };
-
   ...
 );
 ~~~~~~~
 
-When using the input field and refreshing the browser tab, the browser should remember the latest search term. Using the local storage in React can be seen as a **side-effect** because we interact outside of React's domain by using the browser's API.
+[JavaScript's logical OR operator ||](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR) returns the truthy operand in this expression and is short-circuited if `localStorage.getItem('search')` returns a truthy value. It's used as a shorthand for the following implementation:
 
-There is one flaw, though. The handler function should mostly be concerned with updating the state, but now it has a side-effect. If we use the `setSearchTerm` function elsewhere in our application, we will break the feature we implemented because we can't be sure the local storage will also get updated. Let's fix this by handling the side-effect at a dedicated place. We'll use **React's useEffect Hook** to trigger the side-effect each time the `searchTerm` changes:
+{title="Code Playground",lang="javascript"}
+~~~~~~~
+let hasStored;
+if (localStorage.getItem('search')) {
+  hasStored = true;
+} else {
+  hasStored = false;
+}
+
+const initialState = hasStored
+  ? localStorage.getItem('search')
+  : 'React';
+~~~~~~~
+
+When using the input field and refreshing the browser tab, the browser should remember the latest search term now. The feature is complete, but there is one flaw which may introduce bugs in the long run: The handler function should mostly be concerned with updating the state, but now it has this side-effect. If we use the `setSearchTerm` function elsewhere in our application, we may break the feature we implemented because we cannot enforce that the local storage will also get updated. Let's fix this by handling the side-effect at a centralized place. We'll use **React's useEffect Hook** to trigger the side-effect each time the `searchTerm` changes:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -47,7 +72,7 @@ const App = () => {
 # leanpub-end-insert
 
 # leanpub-start-insert
-  const handleSearch = event => {
+  const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 # leanpub-end-insert
@@ -56,15 +81,17 @@ const App = () => {
 );
 ~~~~~~~
 
-React's useEffect Hook takes two arguments: The first argument is a function where the side-effect occurs. In our case, the side-effect is when the user types the `searchTerm` into the browser's local storage. The optional second argument is a dependency array of variables. If one of theses variables changes, the function for the side-effect is called. In our case, the function is called every time the `searchTerm` changes; and it's also called initially when the component renders for the first time.
+React's useEffect Hook takes two arguments: The first argument is a function that runs our side-effect. In our case, the side-effect stores `searchTerm` into the browser's local storage. The second argument is a dependency array of variables. If one of theses variables changes, the function for the side-effect is called. In our case, the function is called every time the `searchTerm` changes (e.g. when a user types into the HTML input field); and it's also called initially when the component renders for the first time.
 
-Leaving out the second argument (the dependency array) would make the function for the side-effect run on every render (initial render and update renders) of the component. If the dependency array of React's useEffect is an empty array, the function for the side-effect is only called once, after the component renders for the first time. The hook lets us opt into React's component lifecycle. It can be triggered when the component is first mounted, but also one of its dependencies are updated.
+Leaving out the second argument (the dependency array) would make the function for the side-effect run on every render (initial render and update renders) of the component. If the dependency array of React's useEffect is an empty array, the function for the side-effect is only called once, after the component renders for the first time. After all, the hook lets us opt into React's component lifecycle. It can be triggered when the component is first mounted, but also if one of its dependencies are updated.
 
-Using React `useEffect` instead of managing the side-effect in the handler has made the application more robust. *Whenever* and *wherever* `searchTerm` is updated via `setSearchTerm`, local storage will always be in sync with it.
+In conclusion, using React `useEffect` Hook instead of managing the side-effect in the (event) handler has made the application more robust. *Whenever* and *wherever* the `searchTerm` state is updated via `setSearchTerm`, the browser's local storage will always be in sync with it.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/React-Side-Effects).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/Props-Handling...hs/React-Side-Effects?expand=1).
-* Read more about React's useEffect Hook ([0](https://reactjs.org/docs/hooks-effect.html), [1](https://reactjs.org/docs/hooks-reference.html#useeffect)).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-Side-Effects).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Props-Handling...2021/React-Side-Effects).
+* Read more about [React's useEffect Hook](https://www.robinwieruch.de/react-useeffect-hook).
+* Read more about [using local storage with React](https://www.robinwieruch.de/local-storage-react).
 * Give the first argument's function a `console.log()` and experiment with React's useEffect Hook's dependency array. Check the logs for an empty dependency array too.
+* Try the following scenario: In your browser, backspace the search term from the input field until nothing is left there. Internally, it should be set to an empty string now. Next refresh the browser and check what it displays. You may be wondering why it does show "React" instead of "", because "" should be the recent search. That's because JavaScript's logical OR evaluates "" to false and thus takes "React" as the true value. If you want to prevent this and evaluate "" as true instead, you may want to exchange JavaScript's logical OR operator || with [JavaScript's nullish coalescing operator ??](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator).

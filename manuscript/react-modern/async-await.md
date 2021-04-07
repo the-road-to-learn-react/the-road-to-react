@@ -1,6 +1,6 @@
 ## Async/Await in React (Advanced)
 
-You'll work with asynchronous data often in React, so it's good to know alternative syntax for handling promises: async/await. The following refactoring of the `handleFetchStories` function without error handling shows how:
+You'll work with asynchronous data often in React, so it's good to know an alternative syntax for handling promises: async/await. The following refactoring of the `handleFetchStories` function (without error handling) shows how:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -28,7 +28,7 @@ const App = () => {
 };
 ~~~~~~~
 
-To use async/await, our function requires the `async` keyword. Once you start using the `await` keyword, everything reads like synchronous code. Actions after the `await` keyword are not executed until the promise resolves, meaning the code will wait.
+To use async/await, our function requires the `async` keyword. Once you start using the `await` keyword on returned promises, everything reads like synchronous code. Actions after the `await` keyword are not executed until the promise resolves, meaning the code will wait. To include error handling as before, the `try` and `catch` blocks are there to help. If something goes wrong in the `try` block, the code will jump into the `catch` block to handle the error. `then`/`catch` blocks and async/await with `try`/`catch` blocks are both valid for handling asynchronous data in JavaScript and React.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -58,11 +58,11 @@ const App = () => {
 };
 ~~~~~~~
 
-To include error handling as before, the `try` and `catch` blocks are there to help. If something goes wrong in the `try` block,  the code will jump into the `catch` block to handle the error. `then`/`catch` blocks and async/await with `try`/`catch` blocks are both valid for handling asynchronous data in JavaScript and React.
+After all, using async/await with try/catch over then/catch make it often more readable, because we avoid using callback functions and instead try to make our code more readable in a synchronous way.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/Async-Await-in-React).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/Third-Party-Libraries-in-React...hs/Async-Await-in-React?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Async-Await-in-React).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Third-Party-Libraries-in-React...2021/Async-Await-in-React).
 * Read more about [data fetching in React](https://www.robinwieruch.de/react-hooks-fetch-data).
 * Read more about [async/await in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function).

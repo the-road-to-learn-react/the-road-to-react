@@ -87,7 +87,7 @@ Visit both pages to observe the results. The first link navigates to your Fireba
 
 If you see a blank page for your deployed React application, make sure the `public` key/value pair in the *firebase.json* is set to `build`, or whichever name you chose for this folder. Second, verify you've run the build script for your React app with `npm run build`. Finally, check out the [official troubleshoot area for deploying create-react-app applications to Firebase](https://create-react-app.dev/docs/deployment). Try another deployment with `firebase deploy`.
 
-### Exercises
+### Exercises:
 
 * Read more about [Firebase Hosting](https://firebase.google.com/docs/hosting/).
 * [Connect your domain to your Firebase deployed application](https://firebase.google.com/docs/hosting/custom-domain).

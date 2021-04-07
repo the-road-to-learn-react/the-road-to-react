@@ -10,11 +10,15 @@ If you don't want to build common UI components (e.g. button, dialog, dropdown) 
 
 ![](images/ui-library.png)
 
-The following styling approaches and SVGs are pre-configured in `create-react-app`. If you're in control of the build tools (e.g. Webpack), they might need to be configured to import CSS or SVG files. Since we are using create-react-app, we can use these files as assets right away.
+The following styling approaches and SVGs are pre-configured in `create-react-app`. If you're in control of the build tools (e.g. Webpack) by having a custom setup, they might need to be configured to enable importing CSS or SVG files. Since we are using create-react-app, we can use these files as assets right away.
+
+### Exercises:
+
+* Read more about [the different styling strategies and approaches in React](https://www.robinwieruch.de/react-css-styling).
 
 ## CSS in React
 
-Common CSS in React is similar to the standard CSS you may have already learned. Each web application gives HTML elements a `class` (in React it's `className`) attribute that is styled in a CSS file later.
+Common CSS in React is similar to the standard CSS you may have already learned. Each web application gives HTML elements a `class` (in React it's `className`) attribute that is styled via a CSS file:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -49,7 +53,7 @@ The `<hr />` was removed because the CSS handles the border in the next steps. W
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
-import React from 'react';
+import * as React from 'react';
 import axios from 'axios';
 
 # leanpub-start-insert
@@ -57,7 +61,7 @@ import './App.css';
 # leanpub-end-insert
 ~~~~~~~
 
-This CSS file will define the two (and more) CSS classes we used in the App component. In your *src/App.css* file, define them like the following:
+This CSS file will define the two (and more) CSS classes we used (and will use) in the App component. In your *src/App.css* file, define them like the following:
 
 {title="src/App.css",lang="css"}
 ~~~~~~~
@@ -84,7 +88,7 @@ You should see the first stylings taking effect in your application when you sta
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
 # leanpub-start-insert
-  <div className="item">
+  <li className="item">
     <span style={{ width: '40%' }}>
 # leanpub-end-insert
       <a href={item.url}>{item.title}</a>
@@ -105,13 +109,13 @@ const Item = ({ item, onRemoveItem }) => (
         Dismiss
       </button>
     </span>
-  </div>
+  </li>
 );
 ~~~~~~~
 
-As you can see, we can also use the native `style` attribute for HTML elements. In JSX, style can be passed as an inline JavaScript object to these attributes. This way we can define dynamic style properties in JavaScript files rather than mostly static CSS files. This approach is called **inline style**, which is useful for quick prototyping and dynamic style definitions. Inline style should be used sparingly, however, as a separate style definition keeps the JSX more concise.
+As you can see, we can also use the `style` attribute for HTML elements. In JSX, style can be passed as an inline JavaScript object to these attributes. This way we can define dynamic style properties in JavaScript files rather than mostly static CSS files. This approach is called **inline style**, which is useful for quick prototyping and dynamic style definitions. Inline style should be used sparingly, however, as a separate style definition with a CSS file keeps the JSX more concise.
 
-In your *src/App.css* file, define the new CSS classes. Basic CSS features are used. Advanced CSS features (e.g. nesting) from CSS extensions (e.g. Sass) are not included in this example, as they are [optional configurations](https://create-react-app.dev/docs/adding-a-sass-stylesheet/).
+In your *src/App.css* file, define the new CSS classes. Basic CSS features are used here, because advanced CSS features (e.g. nesting) from CSS extensions (e.g. Sass) are not included in this example, as they are [optional configurations](https://create-react-app.dev/docs/adding-a-sass-stylesheet/):
 
 {title="src/App.css",lang="css"}
 ~~~~~~~
@@ -134,7 +138,7 @@ In your *src/App.css* file, define the new CSS classes. Basic CSS features are u
 }
 ~~~~~~~
 
-The button style from the previous component is still missing, so we'll define a base button style and two more specific specific button styles (small and large). One of the button specifications has been used, the other will be used in the next steps.
+The button style from the previous component is still missing, so we'll define a base button style and two more specific button styles (small and large). One of the button specifications has been already used, the other will be used in the next steps:
 
 {title="src/App.css",lang="css"}
 ~~~~~~~
@@ -186,7 +190,7 @@ const SearchForm = ({ ... }) => (
 );
 ~~~~~~~
 
-We can also pass the `className` attribute as a prop to React components. For example, we can use this option to pass the SearchForm component a flexible style with a `className` prop from a range of predefined classes from a CSS file. Lastly, style the InputWithLabel component:
+We can also pass the `className` attribute as a prop to React components. For example, we can use this option to pass the SearchForm component a flexible style with a `className` prop from a range of predefined classes (e.g. `button_large` or `button_small`) from a CSS file. Lastly, style the InputWithLabel component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -242,14 +246,13 @@ In your *src/App.css* file, add the remaining classes:
 }
 ~~~~~~~
 
-For simplicity, we styled elements like label and input individually in the *src/App.css* file. However, in a real application it may be better to define these elements once in the *src/index.css* file globally. As React components are split into multiple files, sharing style becomes a necessity.
-
-This is the basic CSS most of us have already learned, written with an inline style that is more dynamic. Without CSS extensions like Sass (Syntactically Awesome Style Sheets) inline styles can become burdensome, though, because features like CSS nesting are not available in native CSS.
+For simplicity, we styled elements like label and input individually in the *src/App.css* file. However, in a real application it may be better to define these elements once in the *src/index.css* file globally. As React components are split into multiple files, sharing style becomes a necessity. After all, this is the basic usage of CSS in React. Without CSS extensions like Sass (Syntactically Awesome Style Sheets), styling can become more burdensome, though, because features like CSS nesting are not available in native CSS.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/CSS-in-React).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/react-modern-final...hs/CSS-in-React?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/CSS-in-React).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-modern-final...2021/CSS-in-React).
 * Read more about [CSS stylesheets in create-react-app](https://create-react-app.dev/docs/adding-a-stylesheet).
+  * Try to pass `className` prop from App to SearchForm component, either with the value `button_small` or `button_large` and use this as `className` for the button element.
 * Read more about [Sass in create-react-app](https://create-react-app.dev/docs/adding-a-sass-stylesheet) for taking advantage of more advanced CSS features like nesting.
-* Try to pass `className` prop from App to SearchForm component, either with the value `button_small` or `button_large` and use this as `className` for the button element.
+* Enable Sass in your create-react-app and start to use its features (e.g. nesting) in your CSS file.

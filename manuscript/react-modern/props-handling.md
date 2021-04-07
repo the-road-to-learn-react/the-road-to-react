@@ -1,10 +1,10 @@
 ## Props Handling (Advanced)
 
-Props are passed from parent to child down the component tree. Since we use props to transport information from component to component frequently, and sometimes via other components which are in between, it is useful to know a few tricks to make passing props more convenient.
+Props are passed from parent to child down the component tree. Since we use props to transport information from component to component frequently, and sometimes via other components which are in between, it is useful to know a few tricks to make passing props more convenient. Note that the following refactorings are recommended for you to learn different JavaScript/React patterns, though you can still build complete React applications without them. Consider these advanced React techniques that will make your source code more concise.
 
-*Note: The following refactorings are recommended for you to learn different JavaScript/React patterns, though you can still build complete React applications without them. Consider these advanced React techniques that will make your source code more concise.*
+### Object Destructuring
 
-React props are a JavaScript object, else we couldn't access `props.list` or `props.onSearch` in React components. Since `props` is an object which just passes information from one component to another component, we can apply a couple JavaScript tricks to it. For example, accessing an object's properties with modern [JavaScript object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment):
+Ater all, React props are a JavaScript object, else we couldn't access `props.list` or `props.onSearch` in our React components. Since `props` is an object which just passes information from one component to another component, we can apply a couple JavaScript tricks to it. For example, accessing an object's properties with modern [JavaScript object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment):
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -32,7 +32,7 @@ If we need to access multiple properties of an object, using one line of code in
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
-const Search = props => {
+const Search = (props) => {
   return (
 # leanpub-end-insert
     <div>
@@ -54,7 +54,7 @@ And second, we can apply the destructuring of the `props` object in the componen
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
-const Search = props => {
+const Search = (props) => {
 # leanpub-start-insert
   const { search, onSearch } = props;
 # leanpub-end-insert
@@ -96,34 +96,45 @@ const Search = ({ search, onSearch }) => (
 # leanpub-end-insert
 ~~~~~~~
 
-React's `props` are rarely used in components by themselves; rather, all the information that is contained in the `props` object is used. By destructuring the `props` object right away in the function signature, we can conveniently access all information without dealing with its `props` container. This should be the basic lesson learned from this section, however, we can take this one step further with the following advanced lessons.
-
-Let's check out another scenario to dive deeper into advanced props handling in React: In order to prepare for this scenario, we will extract a new Item component from the List component with the previous lesson learned about object destructuring for React's `props` object:
+React's `props` are rarely used in components by themselves; rather, all the information that is contained in the `props` object is used. By destructuring the `props` object right away in the component's function signature, we can conveniently access all information without dealing with its `props` container. The List and Item components can perform the same props destructuring:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
-const List = ({ list }) =>
-  list.map(item => <Item key={item.objectID} item={item} />);
+const List = ({ list }) => (
 # leanpub-end-insert
+  <ul>
+# leanpub-start-insert
+    {list.map((item) => (
+# leanpub-end-insert
+      <Item key={item.objectID} item={item} />
+    ))}
+  </ul>
+);
 
 # leanpub-start-insert
 const Item = ({ item }) => (
-  <div>
+# leanpub-end-insert
+  <li>
     <span>
+# leanpub-start-insert
       <a href={item.url}>{item.title}</a>
+# leanpub-end-insert
     </span>
+# leanpub-start-insert
     <span>{item.author}</span>
     <span>{item.num_comments}</span>
     <span>{item.points}</span>
-  </div>
-);
 # leanpub-end-insert
+  </li>
+);
 ~~~~~~~
 
-Now, the incoming `item` in the Item component has something in common with the previously discussed `props`: they are both JavaScript objects. Also, even though the `item` object has already been destructured from the `props` in the Item component's function signature, it isn't directly used in the Item component. The `item` object only passes its information (object properties) to the elements.
+This should be the basic lesson learned from this section, however, we can take this one step further with the following advanced lessons. The incoming `item` parameter in the Item component has something in common with the previously discussed `props` parameter: they are both JavaScript objects. Also, even though the `item` object has already been destructured from the `props` in the Item component's function signature, it isn't directly used in the Item component. The `item` object only passes its information (object properties) to the elements.
 
-The shown solution is fine as you will see in the ongoing discussion. However, I want to show you two more variations of it, because there are many things to learn about JavaScript objects here. Let's get started with *nested destructuring* and how it works:
+### Nested Destructuring
+
+The current solution is fine as you will see in the ongoing discussion. However, I want to show you two more variations of it, because there are many things to learn about JavaScript objects in React here. Let's get started with *nested destructuring* and how it works:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -153,7 +164,7 @@ console.log(firstName + ' has a pet called ' + name);
 // "Robin has a pet called Trixi"
 ~~~~~~~
 
-Nested destructuring helps us to access properties from objects which are deeply nested (e.g. the pet's name of a user). Now, in our Item components, because the `item` object is never directly used in the Item component's JSX elements, we can perform a *nested destructuring* in the component's function signature too:
+Nested destructuring helps us to access properties from objects which are deeply nested (e.g. the pet's name of a user). Now, in our Item component, because the `item` object is never directly used in the Item component's JSX elements, we can perform a **nested destructuring** in the component's function signature too:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -170,7 +181,7 @@ const Item = ({
   },
 # leanpub-end-insert
 }) => (
-  <div>
+  <li>
     <span>
 # leanpub-start-insert
       <a href={url}>{title}</a>
@@ -181,44 +192,49 @@ const Item = ({
     <span>{num_comments}</span>
     <span>{points}</span>
 # leanpub-end-insert
-  </div>
+  </li>
 );
 ~~~~~~~
 
 The nested destructuring helps us to gather all the needed information of the `item` object in the function signature for its immediate usage in the component's elements. However, nested destructuring introduces lots of clutter through indentations in the function signature. While it's here not the most readable option, it can be useful in other scenarios though.
+
+### Spread and Rest Operators
 
 Let's take another approach with JavaScript's spread and rest operators. In order to prepare for it, we will refactor our List and Item components to the following implementation. Rather than passing the item as object from List to Item component, we are passing every property of the `item` object:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 // Variation 2: Spread and Rest Operators
-// 1. Iteration
+// 1. Step
 
-const List = ({ list }) =>
-  list.map(item => (
-    <Item
-      key={item.objectID}
+const List = ({ list }) => (
+  <ul>
+    {list.map((item) => (
+      <Item
+        key={item.objectID}
 # leanpub-start-insert
-      title={item.title}
-      url={item.url}
-      author={item.author}
-      num_comments={item.num_comments}
-      points={item.points}
+        title={item.title}
+        url={item.url}
+        author={item.author}
+        num_comments={item.num_comments}
+        points={item.points}
 # leanpub-end-insert
-    />
-  ));
+      />
+    ))}
+  </ul>
+);
 
 # leanpub-start-insert
 const Item = ({ title, url, author, num_comments, points }) => (
 # leanpub-end-insert
-  <div>
+  <li>
     <span>
       <a href={url}>{title}</a>
     </span>
     <span>{author}</span>
     <span>{num_comments}</span>
     <span>{points}</span>
-  </div>
+  </li>
 );
 ~~~~~~~
 
@@ -234,7 +250,6 @@ const profile = {
 const address = {
   country: 'Germany',
   city: 'Berlin',
-  code: '10439',
 };
 
 const user = {
@@ -250,7 +265,6 @@ console.log(user);
 //   gender: "male"
 //   country: "Germany,
 //   city: "Berlin",
-//   code: "10439"
 // }
 ~~~~~~~
 
@@ -259,22 +273,27 @@ JavaScript's spread operator allows us to literally spread all key/value pairs o
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 // Variation 2: Spread and Rest Operators
-// 2. Iteration
+// 2. Step
 
-const List = ({ list }) =>
+const List = ({ list }) => (
+  <ul>
+    {list.map((item) => (
 # leanpub-start-insert
-  list.map(item => <Item key={item.objectID} {...item} />);
+      <Item key={item.objectID} {...item} />
 # leanpub-end-insert
+    ))}
+  </ul>
+);
 
 const Item = ({ title, url, author, num_comments, points }) => (
-  <div>
+  <li>
     <span>
       <a href={url}>{title}</a>
     </span>
     <span>{author}</span>
     <span>{num_comments}</span>
     <span>{points}</span>
-  </div>
+  </li>
 );
 ~~~~~~~
 
@@ -305,49 +324,60 @@ console.log(city);
 // "Berlin"
 ~~~~~~~
 
-Even though both have the same syntax (three dots), the rest operator shouldn't be mistaken with the spread operator. Whereas the rest operator happens on the right side of an assignment, the spread operator happens on the left side. The rest operator is always used to separate an object from some of its properties.
+Even though both have the same syntax (three dots), the rest operator shouldn't be mistaken with the spread operator. Whereas the rest operator happens on the left side of an assignment, the spread operator happens on the right side. The rest operator is always used to separate an object from some of its properties.
 
 Now it can be used in our List component to separate the `objectID` from the item, because the `objectID` is only used as `key` and isn't used in the Item component. Only the remaining (rest) item gets spread as attribute/value pairs into the Item component (as before):
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
-// Variation 2: Spread and Rest Operators (final)
+// Variation 2: Spread and Rest Operators
+// Final Step
 
-const List = ({ list }) =>
+const List = ({ list }) => (
+  <ul>
 # leanpub-start-insert
-  list.map(({ objectID, ...item }) => <Item key={objectID} {...item} />);
+    {list.map(({ objectID, ...item }) => (
+      <Item key={objectID} {...item} />
 # leanpub-end-insert
+    ))}
+  </ul>
+);
 
 const Item = ({ title, url, author, num_comments, points }) => (
-  <div>
+  <li>
     <span>
       <a href={url}>{title}</a>
     </span>
     <span>{author}</span>
     <span>{num_comments}</span>
     <span>{points}</span>
-  </div>
+  </li>
 );
 ~~~~~~~
 
-In this final variation, the rest operator is used to destructure the `objectID` from the rest of the `item` object. Afterward, the `item` is spread with its key/values pairs into the Item component. While this final variation is very concise, it comes with  advanced JavaScript features that may be unknown to some.
+In this final variation, the rest operator is used to destructure the `objectID` from the rest of the `item` object. Afterward, the `item` is spread with its key/values pairs into the Item component. While this final variation is very concise, it comes with advanced JavaScript features that may be unknown to some.
 
-In this section, we have learned about JavaScript object destructuring which can be used commonly for the `props` object, but also for other objects like the `item` object. We have also seen how nested destructuring can be used (Variation 1), but also how it didn't add any benefits in our case, because it just made the component bigger. In the future you will find more likely use cases for nested destructuring which are beneficial. Last but not least, you have learned about JavaScript's spread and rest operators, which shouldn't be confused with each other, to perform operations on JavaScript objects and to pass the `props` object from one component to another component in the most concise way. In the end, I want to point out the initial version again which we will keep over the next chapters:
+In this section, we have learned about JavaScript object destructuring which can be used commonly for the `props` object, but also for other objects like the `item` object. We have also seen how nested destructuring can be used (Variation 1), but also how it didn't add any benefits in our case, because it just made the component bigger. In the future you will find more likely use cases for nested destructuring which are beneficial. Last but not least, you have learned about JavaScript's spread and rest operators, which shouldn't be confused with each other, to perform operations on JavaScript objects and to pass the `props` object from one component to another component in the most concise way. In the end, I want to point out the initial version again which we will keep over the next sections:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
-const List = ({ list }) =>
-  list.map(item => <Item key={item.objectID} item={item} />);
+const List = ({ list }) => (
+  <ul>
+    {list.map((item) => (
+      <Item key={item.objectID} item={item} />
+    ))}
+  </ul>
+);
 
 const Item = ({ item }) => (
-  <div>
+  <li>
     <span>
       <a href={item.url}>{item.title}</a>
     </span>
     <span>{item.author}</span>
     <span>{item.num_comments}</span>
     <span>{item.points}</span>
-  </div>
+  </li>
 );
 ~~~~~~~
 
@@ -355,11 +385,11 @@ It may not be the most concise, but it is the easiest to reason about. Variation
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/Props-Handling).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/React-Controlled-Components...hs/Props-Handling?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Props-Handling).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-Controlled-Components...2021/Props-Handling).
 * Read more about [JavaScript's destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
-* Think about the difference between  JavaScript array destructuring -- which we used for React's `useState` hook -- and object destructuring.
+* Think about the difference between JavaScript array destructuring -- which we used for React's `useState` hook -- and object destructuring.
 * Read more about [JavaScript's spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax).
 * Read more about [JavaScript's rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters).
-* Get a good sense about JavaScript (e.g. spread operator, rest parameters, destructuring) and what's related to React (e.g. props) from the last lessons.
+* Get a good sense about JavaScript (e.g. destructuring, spread operator, rest parameters) and what's related to React (e.g. props) from the last lessons.
 * Continue to use your favorite way to handle React's props. If you're still undecided, consider the variation used in the previous section.

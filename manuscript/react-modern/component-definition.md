@@ -2,7 +2,7 @@
 
 The following refactorings are optional recommendations to explain the different JavaScript/React patterns. You can build complete React applications without these advanced patterns, so don't be discouraged if they seem too complicated.
 
-All components in the *src/App.js* file are function components. JavaScript has multiple ways to declare functions. So far, we have used the function statement, though arrow functions can be used more concisely:
+JavaScript has multiple ways to declare functions. So far, we have used the function statement, though arrow functions can be used more concisely:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -20,13 +20,13 @@ You can remove the parentheses in an arrow function expression if it has only on
 // allowed
 const item => { ... }
 
-// allowed
+// allowed (recommended)
 const (item) => { ... }
 
 // not allowed
 const item, index => { ... }
 
-// allowed
+// allowed (recommended)
 const (item, index) => { ... }
 ~~~~~~~
 
@@ -47,15 +47,26 @@ const App = () => {
 # leanpub-end-insert
 
 # leanpub-start-insert
+const Search = () => {
+# leanpub-end-insert
+  return (
+    <div>
+      <label htmlFor="search">Search: </label>
+      <input id="search" type="text" />
+    </div>
+  );
+# leanpub-start-insert
+};
+# leanpub-end-insert
+
+# leanpub-start-insert
 const List = () => {
 # leanpub-end-insert
-  return list.map(function(item) {
-    return (
-      <div key={item.objectID}>
-        ...
-      </div>
-    );
-  });
+  return (
+    <ul>
+      ...
+    </ul>
+  );
 # leanpub-start-insert
 };
 # leanpub-end-insert
@@ -66,40 +77,47 @@ This holds also true for other functions, like the one we used in our JavaScript
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const List = () => {
+  return (
+    <ul>
 # leanpub-start-insert
-  return list.map(item => {
+      {list.map((item) => {
 # leanpub-end-insert
-    return (
-      <div key={item.objectID}>
-        <span>
-          <a href={item.url}>{item.title}</a>
-        </span>
-        <span>{item.author}</span>
-        <span>{item.num_comments}</span>
-        <span>{item.points}</span>
-      </div>
-    );
-  });
+        return (
+          <li key={item.objectID}>
+            <span>
+              <a href={item.url}>{item.title}</a>
+            </span>
+            <span>{item.author}</span>
+            <span>{item.num_comments}</span>
+            <span>{item.points}</span>
+          </li>
+        );
+      })}
+    </ul>
+  );
 };
 ~~~~~~~
 
-If an arrow function doesn't do *anything* in between, but only returns *something*, -- in other words, if an arrow function doesn't perform any task, but only returns information --, you can remove the **block body** (curly braces) of the function. In a **concise body**, an **implicit return statement** is attached, so you can remove the return statement:
+If an arrow function doesn't do *anything* in between, but only returns *something*, -- in other words, if an arrow function doesn't have business logic in between, but only returns --, you can remove the **block body** (curly braces) of the function. In a **concise body**, an **implicit return statement** is attached, so you can remove the return statement:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
 // with block body
-count => {
+const countPlusOne = (count) => {
   // perform any task in between
 
   return count + 1;
-}
+};
 
 // with concise body
-count =>
+const countPlusOne = (count) =>
   count + 1;
+
+// with concise body as one line
+const countPlusOne = (count) => count + 1;
 ~~~~~~~
 
-This can be done for the App and List components as well, because they only return JSX and don't perform any task in between. Again it also applies for the arrow function that's used in the map function:
+This can be done for the App, List and Search components as well, because they only return JSX and don't perform any task in between. Again it also applies for the arrow function that's used in the map function:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -114,19 +132,37 @@ const App = () => (
 # leanpub-end-insert
 
 # leanpub-start-insert
-const List = () =>
-  list.map(item => (
+const Search = () => (
 # leanpub-end-insert
-    <div key={item.objectID}>
-      <span>
-        <a href={item.url}>{item.title}</a>
-      </span>
-      <span>{item.author}</span>
-      <span>{item.num_comments}</span>
-      <span>{item.points}</span>
-    </div>
+  <div>
+    <label htmlFor="search">Search: </label>
+    <input id="search" type="text" />
+  </div>
 # leanpub-start-insert
-  ));
+);
+# leanpub-end-insert
+
+# leanpub-start-insert
+const List = () => (
+# leanpub-end-insert
+  <ul>
+# leanpub-start-insert
+    {list.map((item) => (
+# leanpub-end-insert
+      <li key={item.objectID}>
+        <span>
+          <a href={item.url}>{item.title}</a>
+        </span>
+        <span>{item.author}</span>
+        <span>{item.num_comments}</span>
+        <span>{item.points}</span>
+      </li>
+# leanpub-start-insert
+    ))}
+# leanpub-end-insert
+  </ul>
+# leanpub-start-insert
+);
 # leanpub-end-insert
 ~~~~~~~
 
@@ -149,7 +185,7 @@ Be sure to understand this refactoring concept, because we'll move quickly from 
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/React-Component-Definition).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/Meet-another-React-Component...hs/React-Component-Definition?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-Component-Definition).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Meet-another-React-Component...2021/React-Component-Definition).
 * Read more about [JavaScript arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
 * Familiarize yourself with arrow functions with block body and return, and concise body without return.

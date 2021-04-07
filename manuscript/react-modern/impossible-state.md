@@ -30,7 +30,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Merge them into one `useReducer` hook for a unified state management and a more complex state object:
+And merge them into one `useReducer` hook for a unified state management and a more complex state object:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -48,7 +48,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Everything related to asynchronous data fetching must use the new dispatch function for state transitions:
+Now everything related to asynchronous data fetching must use the new dispatch function for state transitions:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -66,13 +66,13 @@ const App = () => {
 # leanpub-end-insert
 
     getAsyncStories()
-      .then(result => {
-        dispatchStories({
+      .then((result) => {
 # leanpub-start-insert
+        dispatchStories({
           type: 'STORIES_FETCH_SUCCESS',
-# leanpub-end-insert
           payload: result.data.stories,
         });
+# leanpub-end-insert
       })
       .catch(() =>
 # leanpub-start-insert
@@ -85,7 +85,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Since we introduced new types for state transitions, we must handle them in the `storiesReducer` reducer function:
+Since we introduced new types for state transitions, and a new state structure, we must add these types and change the structure in the `storiesReducer` reducer function:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -115,7 +115,7 @@ const storiesReducer = (state, action) => {
       return {
         ...state,
         data: state.data.filter(
-          story => action.payload.objectID !== story.objectID
+          (story) => action.payload.objectID !== story.objectID
         ),
       };
 # leanpub-end-insert
@@ -125,9 +125,9 @@ const storiesReducer = (state, action) => {
 };
 ~~~~~~~
 
-For every state transition, we return a *new state* object which contains all the key/value pairs from the *current state* object (via JavaScript's spread operator) and the new overwriting properties. For example, `STORIES_FETCH_FAILURE` resets the `isLoading`, but sets the `isError` boolean flags yet keeps all the other state intact (e.g. `stories`). That's how we get around the bug introduced earlier, since an error should remove the loading state.
+For every state transition, we return a *new state* object which contains all the key/value pairs from the *current state* object (via JavaScript's spread operator) and the new overwriting properties. For example, `STORIES_FETCH_FAILURE` resets the `isLoading`, but sets the `isError` boolean flags yet keeps all the other state intact (e.g. `stories`). That's how we get around the bug introduced earlier as impossible state, since an error should remove the loading state.
 
-Observe how the `REMOVE_STORY` action changed as well. It operates on the `state.data` , and no longer just on the plain `state`. The state is a complex object with data, loading and error states rather than just a list of stories. This has to be solved in the remaining code too:
+Observe how the `REMOVE_STORY` action changed as well. It operates on the `state.data`, and no longer just on the plain `state`. The state is a complex object with data, loading and error states rather than just a list of stories. This has to be solved in the remaining code too:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -142,7 +142,7 @@ const App = () => {
   ...
 
 # leanpub-start-insert
-  const searchedStories = stories.data.filter(story =>
+  const searchedStories = stories.data.filter((story) =>
 # leanpub-end-insert
     story.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -182,7 +182,8 @@ We moved from unreliable state transitions with multiple `useState` hooks to pre
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/React-Impossible-States).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/React-Advanced-State...hs/React-Impossible-States?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-Impossible-States).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-Advanced-State...2021/React-Impossible-States).
 * Read over the previously linked tutorials about reducers in JavaScript and React.
 * Read more about [when to use useState or useReducer in React](https://www.robinwieruch.de/react-usereducer-vs-usestate).
+* Read more about [deriving state from props in React](https://www.robinwieruch.de/react-derive-state-props).

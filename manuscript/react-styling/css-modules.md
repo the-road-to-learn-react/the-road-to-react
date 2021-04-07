@@ -32,7 +32,7 @@ Import the *src/App.module.css* file with a relative path again. This time, impo
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
-import React from 'react';
+import * as React from 'react';
 import axios from 'axios';
 
 # leanpub-start-insert
@@ -77,7 +77,7 @@ There are various ways to add multiple CSS classes via the `styles` object to th
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
 # leanpub-start-insert
-  <div className={styles.item}>
+  <li className={styles.item}>
     <span style={{ width: '40%' }}>
 # leanpub-end-insert
       <a href={item.url}>{item.title}</a>
@@ -98,11 +98,11 @@ const Item = ({ item, onRemoveItem }) => (
         Dismiss
       </button>
     </span>
-  </div>
+  </li>
 );
 ~~~~~~~
 
-We can also add inline styles as more dynamic styles in JSX again. It's also possible to add a CSS extension like Sass to enable advanced features like CSS nesting. We will stick to native CSS features though:
+We can also add inline styles as more dynamic styles in JSX again. It's also possible to add a CSS extension like Sass to enable advanced features like CSS nesting (see previous section). We will stick to native CSS features though:
 
 {title="src/App.module.css",lang="css"}
 ~~~~~~~
@@ -257,12 +257,12 @@ And finish up the remaining style in the *src/App.module.css* file:
 }
 ~~~~~~~
 
-The same caution applies as  the last section: some of these styles like `input` and `label` might be more efficient in a global *src/index.css* file without CSS modules.
+The same caution applies as the last section: some of these styles like `input` and `label` might be more efficient in a global *src/index.css* file without CSS modules.
 
-Again, CSS Modules--like any other CSS-in-CSS approach--can use Sass for more advanced CSS features like nesting. The advantage of CSS modules is that we receive an error in the  JavaScript each time a style isn't defined. In the standard CSS approach, unmatched styles in the JavaScript and CSS files might go unnoticed.
+Again, CSS Modules -- like any other CSS-in-CSS approach -- can use Sass for more advanced CSS features like nesting. The advantage of CSS modules is that we receive an error in  JavaScript each time a style isn't defined. In the standard CSS approach, unmatched styles in JavaScript and CSS files might go unnoticed.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/CSS-Modules-in-React).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/react-modern-final...hs/CSS-Modules-in-React?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/CSS-Modules-in-React).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-modern-final...2021/CSS-Modules-in-React).
 * Read more about [CSS Modules in create-react-app](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet).

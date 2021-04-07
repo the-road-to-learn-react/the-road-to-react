@@ -1,17 +1,14 @@
 ## React Project Structure
 
-With multiple React components in one file, you might wonder why we didn't put components into different files for the *src/App.js* file from the start. We already have multiple components in the file that can be defined in their own files/folders (also called modules). For learning, it's more practical to keep these components in one place. Once our application grows, we'll consider splitting these components into multiple modules so it scales properly.
+With multiple React components in one file, you might wonder why we didn't put components into different files from the start. We already have multiple components in the *src/App.js* file that can be defined in their own files/folders (sometimes also called modules). For learning, it's more practical to keep these components in one place. Once your application grows, consider splitting these components into multiple files/folders/modules so it scales properly.
 
-Before we restructure our React project, recap [JavaScript's import and export statements](https://www.robinwieruch.de/javascript-import-export). Importing and exporting files are two fundamental concepts in JavaScript you must learn before React. There's no right way to structure a React application, as they evolve naturally along with the project's structure.
-
-We'll complete a simple refactoring for the project's folder/file structure for the sake of learning about the process. Afterward, there will be a few additional options about restructuring this project or React projects in general. You can continue with the restructured project, though we'll continue developing with the *src/App.js* file to keep things simple.
+Before we restructure our React project, recap [JavaScript's import and export statements](https://www.robinwieruch.de/javascript-import-export). Importing and exporting files are two fundamental concepts in JavaScript you must learn before React. There's no right way to structure a React application, as they evolve naturally along with the project's structure. We'll complete a simple refactoring for the project's folder/file structure for the sake of learning about the process. Afterward, there will be a few additional options about restructuring this project or React projects in general. You can continue with the restructured project, though we'll continue developing with the *src/App.js* file to keep things simple.
 
 On the command line in your project's folder, navigate into the *src/* folder and create the following component dedicated files:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
-cd src
-touch List.js InputWithLabel.js SearchForm.js
+touch src/List.js src/InputWithLabel.js src/SearchForm.js
 ~~~~~~~
 
 Move every component from the *src/App.js* file in its own file, except for the List component which has to share its place with the Item component in the *src/List.js* file. Then in every file make sure to import React and to export the component which needs to be used from the file. For example, in *src/List.js* file:
@@ -19,20 +16,23 @@ Move every component from the *src/App.js* file in its own file, except for the 
 {title="src/List.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
-import React from 'react';
+import * as React from 'react';
 # leanpub-end-insert
 
-const List = ({ list, onRemoveItem }) =>
-  list.map(item => (
-    <Item
-      key={item.objectID}
-      item={item}
-      onRemoveItem={onRemoveItem}
-    />
-  ));
+const List = ({ list, onRemoveItem }) => (
+  <ul>
+    {list.map((item) => (
+      <Item
+        key={item.objectID}
+        item={item}
+        onRemoveItem={onRemoveItem}
+      />
+    ))}
+  </ul>
+);
 
 const Item = ({ item, onRemoveItem }) => (
-  <div>
+  <li>
     <span>
       <a href={item.url}>{item.title}</a>
     </span>
@@ -44,24 +44,24 @@ const Item = ({ item, onRemoveItem }) => (
         Dismiss
       </button>
     </span>
-  </div>
+  </li>
 );
 
 # leanpub-start-insert
-export default List;
+export { List };
 # leanpub-end-insert
 ~~~~~~~
 
-Since only the List component uses the Item component, we can keep it in the same file. If this changes because the Item component is used elsewhere, we can give the Item component its own file. The SearchForm component in the *src/SearchForm.js* file must import the InputWithLabel component. Like the Item component, we could have left the InputWithLabel component next to the SearchForm; but our goal is to make InputWithLabel component reusable with other components. We'll probably import it eventually.
+Since only the List component uses the Item component, we can keep it in the same file. If this changes because the Item component is used elsewhere, we can give the Item component its own file. The SearchForm component in the *src/SearchForm.js* file must import the InputWithLabel component. Like the Item component, we could have left the InputWithLabel component next to the SearchForm; but our goal is to make InputWithLabel component reusable with other components:
 
 {title="src/SearchForm.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
-import React from 'react';
+import * as React from 'react';
 # leanpub-end-insert
 
 # leanpub-start-insert
-import InputWithLabel from './InputWithLabel';
+import { InputWithLabel } from './InputWithLabel';
 # leanpub-end-insert
 
 const SearchForm = ({
@@ -86,7 +86,7 @@ const SearchForm = ({
 );
 
 # leanpub-start-insert
-export default SearchForm;
+export { SearchForm };
 # leanpub-end-insert
 ~~~~~~~
 
@@ -94,12 +94,12 @@ The App component has to import all the components it needs to render. It doesn'
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
-import React from 'react';
+import * as React from 'react';
 import axios from 'axios';
 
 # leanpub-start-insert
-import SearchForm from './SearchForm';
-import List from './List';
+import { SearchForm } from './SearchForm';
+import { List } from './List';
 # leanpub-end-insert
 
 ...
@@ -185,14 +185,12 @@ If you scale this to the deeper level folder structure, each component will have
 --- types.js
 ~~~~~~~
 
-There are many ways on how to structure your React project from small to large project: simple to complex folder structure; one-level nested to two-level nested folder nesting; dedicated folders for styling, types and testing next to implementation logic. There is no right way for folder/file structures.
-
-A project's requirements evolve over time and so should its structure. If keeping all assets in one file feels right, then there is no rule against it. Just try to keep the nesting level shallow, otherwise you could get lost deep in folders.
+There are many ways on how to structure your React project from small to large project: simple to complex folder structure; one-level nested to two-level nested folder nesting; dedicated folders for styling, types and testing next to implementation logic. There is no right way for folder/file structures. However, in the exercises you will find my 5 steps approach to structure a React project. After all, a project's requirements evolve over time and so should its structure. If keeping all assets in one file feels right, then there is no rule against it.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/React-Folder-Structure).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/react-modern-final...hs/React-Folder-Structure?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-Folder-Structure).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-modern-final...2021/React-Folder-Structure).
 * Read more about [JavaScript's import and export statements](https://www.robinwieruch.de/javascript-import-export).
 * Read more about [React Folder Structures](https://www.robinwieruch.de/react-folder-structure).
 * Keep the current folder structure if you feel confident. The ongoing sections will omit it, only using the *src/App.js* file.

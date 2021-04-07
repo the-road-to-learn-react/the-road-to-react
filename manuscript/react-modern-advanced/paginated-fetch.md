@@ -1,8 +1,6 @@
 ## Paginated Fetch
 
-Searching for popular stories via Hacker News API is only one step towards a fully-functional search engine, and there are many ways to fine-tune the search. Take a closer look at the data structure and observe how [the Hacker News API](https://hn.algolia.com/api) returns more than a list of `hits`.
-
-Specifically, it returns a paginated list. The page property, which is `0` in the first response, can be used to fetch more paginated lists as results. You only need to pass the next page with the same search term to the API.
+Searching for popular stories via Hacker News API is only one step towards a fully-functional search engine, and there are many ways to fine-tune the search. Take a closer look at the data structure and observe how [the Hacker News API](https://hn.algolia.com/api) returns more than a list of `hits`. Specifically, it returns a paginated list. The page property, which is `0` in the first response, can be used to fetch more paginated lists as results. You only need to pass the next page with the same search term to the API.
 
 ![](images/paginated-list.png)
 
@@ -21,15 +19,15 @@ In contrast, we will implement the feature as **infinite pagination**. Instead o
 * Extend the `API_ENDPOINT` with the parameters needed for the paginated fetch.
 * Store the `page` from the `result` as state after fetching the data.
 * Fetch the first page (`0`) of data with every search.
-* Fetch the succeeding page ( `page + 1`) for every additional request triggered with a new HTML button.
+* Fetch the succeeding page (`page + 1`) for every additional request triggered with a new HTML button.
 
-First, extend the API constant so it can deal with paginated data later. We will turn this one constant:
+Let's do this! First, extend the API constant so it can deal with paginated data later. We will turn this one constant:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const API_ENDPOINT = 'https://hn.algolia.com/api/v1/search?query=';
 
-const getUrl = searchTerm => `${API_ENDPOINT}${searchTerm}`;
+const getUrl = (searchTerm) => `${API_ENDPOINT}${searchTerm}`;
 ~~~~~~~
 
 Into a composable API constant with its parameters:
@@ -44,12 +42,12 @@ const PARAM_SEARCH = 'query=';
 
 // careful: notice the ? in between
 # leanpub-start-insert
-const getUrl = searchTerm =>
+const getUrl = (searchTerm) =>
   `${API_BASE}${API_SEARCH}?${PARAM_SEARCH}${searchTerm}`;
 # leanpub-end-insert
 ~~~~~~~
 
-Fortunately, we don't need to adjust the API endpoint, because we extracted a common `getUrl` function for it. However, there is one spot where we must address this logic for the future:
+Fortunately, we don't need to adjust the API endpoints at other places of the application, because we extracted a common `getUrl` function for it. However, there is one spot where we must address this logic for the future:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -67,14 +65,13 @@ https://hn.algolia.com/api/v1/search?query=react
 https://hn.algolia.com/api/v1/search?query=react&page=0
 ~~~~~~~
 
-It's better to extract the search term by extracting everything between `?` and `&`. Also consider that the `query` parameter is directly after the `?` and all other parameters like `page` follow it.
+It's better to extract the search term by extracting everything between `?` and `&`. Also consider that the `query` parameter is directly after the `?` and all other parameters like `page` follow it:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
-const extractSearchTerm = url =>
-  url
-    .substring(url.lastIndexOf('?') + 1, url.lastIndexOf('&'));
+const extractSearchTerm = (url) =>
+  url.substring(url.lastIndexOf('?') + 1, url.lastIndexOf('&'));
 # leanpub-end-insert
 ~~~~~~~
 
@@ -82,9 +79,9 @@ The key (`query=`) also needs to be replaced, leaving only the value (`searchTer
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
-const extractSearchTerm = url =>
+const extractSearchTerm = (url) =>
   url
-    .substring(url.lastIndexOf('?') + 1, url.lastIndexOf('&'));
+    .substring(url.lastIndexOf('?') + 1, url.lastIndexOf('&'))
 # leanpub-start-insert
     .replace(PARAM_SEARCH, '');
 # leanpub-end-insert
@@ -97,14 +94,14 @@ Essentially, we'll trim the string until we leave only the search term:
 // url
 https://hn.algolia.com/api/v1/search?query=react&page=0
 
-// url after  substring
+// url after substring
 query=react
 
 // url after replace
 react
 ~~~~~~~
 
-The returned result from the Hacker News API delivers us the `page` data:
+Next, the returned result from the Hacker News API delivers us the `page` data:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -177,7 +174,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Extend the API endpoint with the new `page` parameter. This change was covered by our premature optimizations earlier, when we extracted the search term from the URL.
+Extend the API endpoint with the new `page` parameter. This change was supported by our premature optimizations earlier, when we extracted the search term from the URL:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -208,7 +205,7 @@ const App = () => {
 
   ...
 
-  const handleSearchSubmit = event => {
+  const handleSearchSubmit = (event) => {
 # leanpub-start-insert
     handleSearch(searchTerm, 0);
 # leanpub-end-insert
@@ -216,7 +213,7 @@ const App = () => {
     event.preventDefault();
   };
 
-  const handleLastSearch = searchTerm => {
+  const handleLastSearch = (searchTerm) => {
     setSearchTerm(searchTerm);
 
 # leanpub-start-insert
@@ -311,7 +308,7 @@ The displayed list grows after fetching more data with the new button. However, 
 
 ![](images/flicker.png)
 
-The desired behavior is to render the list--which is an empty list in the beginning--and replace the "More" button with the loading indicator only for pending requests. This is a common UI refactoring for conditional rendering when the task evolves from a single list to paginated lists.
+The desired behavior is to render the list -- which is an empty list in the beginning -- and replace the "More" button with the loading indicator only for the next requests. This is a common UI refactoring for conditional rendering when the task evolves from a single list to paginated lists:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -340,12 +337,12 @@ const App = () => {
 };
 ~~~~~~~
 
-It's possible to fetch ongoing data for popular stories now. When working with third-party APIs, it's always a good idea to explore its boundaries. Every remote API returns different data structures, so its features may vary, and can be used in applications that consume the API.
+It's possible to fetch ongoing data for popular stories now. When working with third-party APIs, it's always a good idea to explore its API surface. Every remote API returns different data structures, so its features may vary.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/Paginated-Fetch).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/Remember-Last-Searches...hs/Paginated-Fetch?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Paginated-Fetch).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Remember-Last-Searches...2021/Paginated-Fetch).
 * Revisit the [Hacker News API documentation](https://hn.algolia.com/api): Is there a way to fetch more items in a list for a page by just adding further parameters to the API endpoint?
 * Revisit the beginning of this section which speaks about pagination and infinite pagination. How would you implement a normal pagination component with buttons from 1-[3]-10, where each button fetches and displays only one page of the list.
 * Instead of having one "More" button, how would you implement an infinite pagination with an infinite scroll technique? Rather than clicking a button for fetching the next page explicitly, the infinite scroll could fetch the next page once the viewport of the browser hits the bottom of the displayed list.

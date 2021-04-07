@@ -1,8 +1,8 @@
 ## Reusable React Component
 
-Have a closer look at the Search component. The label element has the text "Search: "; the id/htmlFor attributes have the `search` identifier; the value is called `search`; and the callback handler is called `onSearch`. The component is very much tied to the search feature, which makes it less reusable for the rest of the application and non search-related tasks. It also risks introducing bugs if two of these Search components are rendered side by side, because the htmlFor/id combination is duplicated, breaking the focus when one of the labels is clicked by the user.
+Have a closer look at the Search component. The label element has the text "Search: "; the id/htmlFor attributes have the `search` identifier; the value is called `search`; and the callback handler is called `onSearch`. The component is very much tied to the search feature, which makes it less reusable for the rest of the application and non search-related tasks which would need the same label and input field. In addition, it also risks introducing bugs if two of these Search components are rendered side by side, because the htmlFor/id combination is duplicated, breaking the focus when one of the labels is clicked by the user. Let's fix these underlying issues by making the Search component reusable.
 
-Since the Search component doesn't have any actual "search" functionality, it takes little effort to generalize other search domain properties to make the component reusable for the rest of the application. Let's pass an additional `id` and `label` prop to the Search component, rename the actual value and callback handler to something more abstract, and rename the component accordingly:
+Since the Search component doesn't have any actual "search" functionality, it takes little effort to generalize the search domain specific properties to make the component reusable for the rest of the application. Let's pass a dynamic `id` and `label` prop to the Search component, rename the actual value and callback handler to something more generic, and rename the component accordingly:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -17,9 +17,7 @@ const App = () => {
       <InputWithLabel
         id="search"
         label="Search"
-# leanpub-end-insert
         value={searchTerm}
-# leanpub-start-insert
         onInputChange={handleSearch}
 # leanpub-end-insert
       />
@@ -42,8 +40,8 @@ const InputWithLabel = ({ id, label, value, onInputChange }) => (
       id={id}
 # leanpub-end-insert
       type="text"
-      value={value}
 # leanpub-start-insert
+      value={value}
       onChange={onInputChange}
 # leanpub-end-insert
     />
@@ -79,13 +77,13 @@ const InputWithLabel = ({
 );
 ~~~~~~~
 
-From the App component, no `type` prop is passed to the InputWithLabel component, so it is not specified from the outside. The [default parameter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters) from the function signature takes over for the input field.
+Because we don't pass a `type` prop from the App component to the InputWithLabel component, the [default parameter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters) from the function signature takes over for the type. Thus, every time the InputWithLabel component is used without a `type` prop, the default type will be `text`.
 
-With just a few changes we turned a specialized Search component into a more reusable component. We generalized the naming of the internal implementation details and gave the new component a larger API surface to provide all the necessary information from the outside. We aren't using the component elsewhere, but we increased its ability to handle the task if we do.
+In conclusion, with just a few changes we turned a specialized Search component into a more reusable component. We generalized the naming of the internal implementation details and gave the new component a larger API surface to provide all the necessary information from the outside. We aren't using the component elsewhere, but we increased its ability to handle the task if we do.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/Reusable-React-Component).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/React-Fragments...hs/Reusable-React-Component?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Reusable-React-Component).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-Fragments...2021/Reusable-React-Component).
 * Read more about [Reusable React Components](https://www.robinwieruch.de/react-reusable-components).
 * Before we used the text "Search:" with a ":". How would you deal with it now? Would you pass it with `label="Search:"` as prop to the InputWithLabel component or hardcode it after the `<label htmlFor={id}>{label}:</label>` usage in the InputWithLabel component? We will see how to cope with this later.

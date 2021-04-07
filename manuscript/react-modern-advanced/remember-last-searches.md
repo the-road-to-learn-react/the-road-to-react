@@ -1,6 +1,6 @@
 ## Remember Last Searches
 
-**Task:** Remember the last five search terms to hit the API, and provide a button to move quickly between searches. When the buttons are clicked,  stories for the search term are fetched again.
+**Task:** Remember the last five search terms which hit the API, and provide a button to move quickly between searches. When the buttons are clicked, stories for the search term should be fetched again.
 
 **Optional Hints:**
 
@@ -8,7 +8,7 @@
 
 ![](images/last-searches.png)
 
-First, we will refactor all `url` to `urls` state and all `setUrl` to `setUrls` state updater functions. Instead of initializing the state with a `url` as a string, make it an array with the initial `url` as its only entry:
+Let's get to it. First, we will refactor all `url` to `urls` state and all `setUrl` to `setUrls` state updater functions. Instead of initializing the state with a `url` as a string, make it an array with the initial `url` as its only entry:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -59,14 +59,14 @@ const App = () => {
 };
 ~~~~~~~
 
-And third, instead of storing `url` string as state with the state updater function, concat the new `url` with the previous `urls` in an array for the new state:
+And third, instead of storing the `url` string as state with the state updater function, concat the new `url` with the previous `urls` in an array for the new state:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
 
-  const handleSearchSubmit = event => {
+  const handleSearchSubmit = (event) => {
 # leanpub-start-insert
     const url = `${API_ENDPOINT}${searchTerm}`;
     setUrls(urls.concat(url));
@@ -84,7 +84,7 @@ With each search, another URL is stored in our state of `urls`. Next, render a b
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
-const getLastSearches = urls => urls.slice(-5);
+const getLastSearches = (urls) => urls.slice(-5);
 # leanpub-end-insert
 
 ...
@@ -93,7 +93,7 @@ const App = () => {
   ...
 
 # leanpub-start-insert
-  const handleLastSearch = url => {
+  const handleLastSearch = (url) => {
     // do something
   };
 # leanpub-end-insert
@@ -109,7 +109,7 @@ const App = () => {
       <SearchForm ... />
 
 # leanpub-start-insert
-      {lastSearches.map(url => (
+      {lastSearches.map((url) => (
         <button
           key={url}
           type="button"
@@ -131,12 +131,10 @@ Next, instead of showing the whole URL of the last search in the button as butto
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
-const extractSearchTerm = url => url.replace(API_ENDPOINT, '');
-# leanpub-end-insert
+const extractSearchTerm = (url) => url.replace(API_ENDPOINT, '');
 
-# leanpub-start-insert
-const getLastSearches = urls =>
-  urls.slice(-5).map(url => extractSearchTerm(url));
+const getLastSearches = (urls) =>
+  urls.slice(-5).map((url) => extractSearchTerm(url));
 # leanpub-end-insert
 
 ...
@@ -150,7 +148,9 @@ const App = () => {
     <div>
       ...
 
-      {lastSearches.map(searchTerm => (
+# leanpub-start-insert
+      {lastSearches.map((searchTerm) => (
+  # leanpub-end-insert
         <button
 # leanpub-start-insert
           key={searchTerm}
@@ -176,7 +176,7 @@ The `getLastSearches` function now returns search terms instead of URLs. The act
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
-const getLastSearches = urls =>
+const getLastSearches = (urls) =>
 # leanpub-start-insert
   urls.slice(-5).map(extractSearchTerm);
 # leanpub-end-insert
@@ -190,7 +190,7 @@ const App = () => {
   ...
 
 # leanpub-start-insert
-  const handleLastSearch = searchTerm => {
+  const handleLastSearch = (searchTerm) => {
     const url = `${API_ENDPOINT}${searchTerm}`;
     setUrls(urls.concat(url));
   };
@@ -205,7 +205,7 @@ If you compare this new handler's implementation logic to the `handleSearchSubmi
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
-const getUrl = searchTerm => `${API_ENDPOINT}${searchTerm}`;
+const getUrl = (searchTerm) => `${API_ENDPOINT}${searchTerm}`;
 # leanpub-end-insert
 
 ...
@@ -213,7 +213,7 @@ const getUrl = searchTerm => `${API_ENDPOINT}${searchTerm}`;
 const App = () => {
   ...
 
-  const handleSearchSubmit = event => {
+  const handleSearchSubmit = (event) => {
 # leanpub-start-insert
     handleSearch(searchTerm);
 # leanpub-end-insert
@@ -221,14 +221,14 @@ const App = () => {
     event.preventDefault();
   };
 
-  const handleLastSearch = searchTerm => {
+  const handleLastSearch = (searchTerm) => {
 # leanpub-start-insert
     handleSearch(searchTerm);
 # leanpub-end-insert
   };
 
 # leanpub-start-insert
-  const handleSearch = searchTerm => {
+  const handleSearch = (searchTerm) => {
     const url = getUrl(searchTerm);
     setUrls(urls.concat(url));
   };
@@ -238,7 +238,7 @@ const App = () => {
 };
 ~~~~~~~
 
-The new utility function can be used somewhere else in the App component. If you extract functionality that can be used by two parties, always check to see if it can be used by a third party.
+The new utility function can be used somewhere else in the App component. If you extract functionality that can be used by two parties, always check to see if it can be used by a third party:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -293,11 +293,11 @@ It's not the perfect solution, because the `index` isn't a stable key (especiall
 * (2) Don't show duplicated searches. Searching twice for "React" shouldn't create two different buttons. Hint: Adapt the `getLastSearches` function.
 * (3) Set the SearchForm component's input field value with the last search term if one of the buttons is clicked.
 
-The source of the five rendered buttons is the `getLastSearches` function. There, we take the array of `urls` and return the last five entries from it. Now we'll change this utility function to return the last six entries instead of five, removing the last one. Afterward, only the five *previous* searches are displayed as buttons.
+The source of the five rendered buttons is the `getLastSearches` function. There, we take the array of `urls` and return the last five entries from it. Now we'll change this utility function to return the last six entries instead of five, removing the last one, in order to not show the current search as button. Afterward, only the five *previous* searches are displayed as buttons:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
-const getLastSearches = urls =>
+const getLastSearches = (urls) =>
   urls
 # leanpub-start-insert
     .slice(-6)
@@ -306,11 +306,11 @@ const getLastSearches = urls =>
     .map(extractSearchTerm);
 ~~~~~~~
 
-If the same search is executed twice or more times in a row,  duplicate buttons appear, which is likely not your desired behavior. It would be acceptable to group identical searches into one button if they followed each other. We will solve this problem in the utility function as well. Before separating the array into the five previous searches, group the identical searches:
+If the same search is executed twice or more times in a row, duplicate buttons appear, which is likely not your desired behavior. It would be acceptable to group identical searches into one button if they followed each other. We will solve this problem in the utility function as well. Before separating the array into the five previous searches, group the identical searches:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
-const getLastSearches = urls =>
+const getLastSearches = (urls) =>
   urls
 # leanpub-start-insert
     .reduce((result, url, index) => {
@@ -342,7 +342,7 @@ Lastly, the SearchForm's input field should be set with the new `searchTerm` if 
 const App = () => {
   ...
 
-  const handleLastSearch = searchTerm => {
+  const handleLastSearch = (searchTerm) => {
 # leanpub-start-insert
     setSearchTerm(searchTerm);
 # leanpub-end-insert
@@ -367,12 +367,16 @@ const App = () => {
     <div>
       ...
 
+      <SearchForm ... />
+
 # leanpub-start-insert
       <LastSearches
         lastSearches={lastSearches}
         onLastSearch={handleLastSearch}
       />
 # leanpub-end-insert
+
+      <hr />
 
       ...
     </div>
@@ -400,5 +404,6 @@ This feature wasn't an easy one. Lots of fundamental React but also JavaScript k
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/Remember-Last-Searches).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/Reverse-Sort...hs/Remember-Last-Searches?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Remember-Last-Searches).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Reverse-Sort...2021/Remember-Last-Searches).
+* Read more about [grouping in JavaScript](https://www.robinwieruch.de/javascript-groupby/).

@@ -1,8 +1,8 @@
 ## React Conditional Rendering
 
-Handling asynchronous data in React leaves us with conditional states: with data and without data. This case is already covered, though, because our initial state is an empty list rather than `null`. If it was null, we'd have to handle this issue in our JSX. However, since it's `[]`, we `filter()` over an empty array for the search feature, which leaves us with an empty array. This leads to rendering nothing in the List component's `map()` function.
+A **conditional rendering** in React always happens if we have to render different JSX based on state or props. Dealing with asynchronous data is a good use case for dealing with these conditional states. For example, when the application initializes for the first time, there is no data to start with. Next we are loading data and eventually we have the data at our disposal to display it. Sometimes the data fetching fails and we receive an error instead. So there are lots of things to cover for us as developers.
 
-In a real world application, there are more than two conditional states for asynchronous data, though. Consider showing users a loading indicator when data loading is delayed:
+Fortunately a few of these cases are already taken care of. For instance, because our initial state is an empty list rather than `null`, we don't have to worry that this breaks the application when we filter and map over this list. However, some things are still missing. For example, let's introduce one more state for a loading indicator which gives our users feedback about the pending data request:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -19,7 +19,7 @@ const App = () => {
     setIsLoading(true);
 # leanpub-end-insert
 
-    getAsyncStories().then(result => {
+    getAsyncStories().then((result) => {
       setStories(result.data.stories);
 # leanpub-start-insert
       setIsLoading(false);
@@ -61,7 +61,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Asynchronous data comes with error handling, too. It doesn't happen in our simulated environment, but there could be errors if we start fetching data from another third-party API. Introduce another state for error handling and solve it in the promise's `catch()` block when resolving the promise:
+Asynchronous data comes with error handling, too. It doesn't happen in our simulated environment, but there could be errors if we start fetching data from another third-party API. Introduce another state for error handling and handle it in the promise's `catch()` block when resolving the promise:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -78,7 +78,7 @@ const App = () => {
     setIsLoading(true);
 
     getAsyncStories()
-      .then(result => {
+      .then((result) => {
         setStories(result.data.stories);
         setIsLoading(false);
       })
@@ -120,12 +120,10 @@ const App = () => {
 
 In JavaScript, a `true && 'Hello World'` always evaluates to 'Hello World'. A `false && 'Hello World'` always evaluates to false. In React, we can use this behaviour to our advantage. If the condition is true, the expression after the logical `&&` operator will be the output. If the condition is false, React ignores it and skips the expression.
 
-Conditional rendering is not just for asynchronous data though. The simplest example of conditional rendering is a boolean flag state that's toggled with a button. If the boolean flag is true, render something, if it is false, don't render anything.
-
-This feature can be quite powerful, because it gives you the ability to conditionally render JSX. It's yet another tool in React to make your UI more dynamic. And as we've discovered, it's often necessary for more complex control flows like asynchronous data.
+Conditional rendering is not just for asynchronous data though. The simplest example of conditional rendering is a boolean flag state that's toggled with a button. If the boolean flag is true, render something, if it is false, don't render anything. Knowing about this feature in React can be quite powerful, because it gives you the ability to conditionally render JSX. It's yet another tool in React to make your UI more dynamic. And as we've discovered, it's often necessary for more complex control flows like asynchronous data.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/React-Conditional-Rendering).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/React-Asynchronous-Data...hs/React-Conditional-Rendering?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-Conditional-Rendering).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-Asynchronous-Data...2021/React-Conditional-Rendering).
 * Read more about [conditional rendering in React](https://www.robinwieruch.de/conditional-rendering-react/).

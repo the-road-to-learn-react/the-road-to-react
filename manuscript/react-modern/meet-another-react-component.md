@@ -1,6 +1,6 @@
 ## Meet another React Component
 
-So far we've only been using the App component to create our applications. We used the App component in the last section to express everything needed to render our list in JSX, and it should scale with your needs and eventually handle more complex tasks. To help with this, we'll split some of its responsibilities into a standalone List component:
+Components are the foundation of every React application. So far we've only been using the App component. This will not end up well, because components should scale with your application's size. So instead of making one component larger and more complex, we we'll split one component into multiple components eventually. We'll start with a new List component which extracts functionalities from the App component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -10,42 +10,27 @@ function App() { ... }
 
 # leanpub-start-insert
 function List() {
-  return list.map(function(item) {
-    return (
-      <div key={item.objectID}>
-        <span>
-          <a href={item.url}>{item.title}</a>
-        </span>
-        <span>{item.author}</span>
-        <span>{item.num_comments}</span>
-        <span>{item.points}</span>
-      </div>
-    );
-  });
-}
-# leanpub-end-insert
-~~~~~~~
-
-Optional: If this component looks odd, because the outermost part of the returned JSX starts with JavaScript, then we could use it with a wrapping HTML element as well, but we'll continue with the previous version.
-
-{title="src/App.js",lang="javascript"}
-~~~~~~~
-function List() {
-# leanpub-start-insert
   return (
-    <div>
-      {list.map(function(item) {
-# leanpub-end-insert
-        return (... );
-# leanpub-start-insert
+    <ul>
+      {list.map(function (item) {
+        return (
+          <li key={item.objectID}>
+            <span>
+              <a href={item.url}>{item.title}</a>
+            </span>
+            <span>{item.author}</span>
+            <span>{item.num_comments}</span>
+            <span>{item.points}</span>
+          </li>
+        );
       })}
-    </div>
+    </ul>
   );
-# leanpub-end-insert
 }
+# leanpub-end-insert
 ~~~~~~~
 
-Now the new List component can be used in the App component:
+Then the new List component can be used in the App component where we have been using the inlined functionality previously:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -67,16 +52,48 @@ function App() {
 }
 ~~~~~~~
 
-You've just created your first React component! With this example, we can see how components that encapsulate meaningful tasks can work for larger React applications.
+You've just created your first React component! With this example in mind, we can see how components -- that encapsulate meaningful tasks -- can contribute to the greater good of a larger React application. Extracting a component is a task that you will perform very often as a React developer, because it's always the case that a component will grow in size and complexity. Let's do this extraction of a component one more time for a so called Search component:
+
+{title="src/App.js",lang="javascript"}
+~~~~~~~
+function App() {
+  return (
+    <div>
+      <h1>My Hacker Stories</h1>
+
+# leanpub-start-insert
+      <Search />
+# leanpub-end-insert
+
+      <hr />
+
+      <List />
+    </div>
+  );
+}
+
+# leanpub-start-insert
+function Search() {
+  return (
+    <div>
+      <label htmlFor="search">Search: </label>
+      <input id="search" type="text" />
+    </div>
+  );
+}
+# leanpub-end-insert
+~~~~~~~
+
+Finally we have three components in our application: App, List and Search. Generally speaking, a React application consists of many hierarchical components; which we can put into the following categories:
 
 ![](images/component-tree.png)
 
-Larger React applications have **component hierarchies** (also called **component trees**). There is usually one uppermost **entry point component** (e.g. App) that spans a tree of components below it. The App is the **parent component** of the List, so the List is a **child component** of the App. In a component tree, the App is the **root component**, and the components that don't render any other components are called **leaf components** (e.g. Item). The App can have multiple children, as can the List. If the App has another child component, the additional child component is called a **sibling component** of the List.
+React applications have **component hierarchies** (also called **component trees**). There is usually one uppermost **entry point component** (e.g. App) that spans a tree of components below it. The App is the **parent component** of the List and Search, so the List and Search are **child components** of the App component and **sibling components** to each other. The illustration takes it one step further where the Item component is a child component of the List. In a component tree, there is always a **root component** (e.g. App) and the components that don't render any other components are called **leaf components** (e.g. List/Search component in our current source code or Item/Search component from the illustration). All components can have zero, one, or many child components.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/Meet-another-React-Component).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/Lists-in-React...hs/Meet-another-React-Component?expand=1).
-* Extend the component tree at the end of this chapter with other possible components. Try to figure out which other parts can be extracted as standalone components.
-* If a Search component is used in the App component, what are the advantages of being a sibling component of the List component and not a parent or child component?
-* Ask yourself what problems could arise if we keep treating the `list` variable as global variable. We will cover how to handle these problems in the upcoming sections.
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Meet-another-React-Component).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Lists-in-React...2021/Meet-another-React-Component).
+* Ask yourself:
+  * What problem could arise if we keep treating the `list` variable as global variable. Think about a way how to prevent it.
+  * We can't extract an Item component from the List component (like in the illustration) yet, because we don't know how to pass individual items from the list to each Item component. Think about a way to do it.

@@ -1,8 +1,6 @@
 ## Inline Handler in JSX
 
-The list of stories we have so far is only an unstateful variable. We can filter the rendered list with the search feature, but the list itself stays intact if we remove the filter. The filter is just a temporary change through a third party, but we can't manipulate the real list yet.
-
-To gain control over the list, make it stateful by using it as initial state in React's useState Hook. The returned values are the current state (`stories`) and the state updater function (`setStories`). We aren't using the custom `useSemiPersistentState` hook yet, because we don't want to open the browser with the cached list each time. Instead, we always want to start with the initial list.
+The list of stories we have in our App component is only an unstateful variable. We can filter the rendered list with the search feature, but the list itself stays intact if we apply or remove the filter. The filtered list is just a derived state through a third party (here `searchTerm`), but we can't manipulate the real list yet. To gain control over the list, make it stateful by using it as initial state in React's useState Hook. The returned values from the array are the current state (`stories`) and the state updater function (`setStories`):
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -19,7 +17,7 @@ const initialStories = [
 ];
 # leanpub-end-insert
 
-const useSemiPersistentState = (key, initialState) => { ... };
+...
 
 const App = () => {
   const [searchTerm, setSearchTerm] = ...
@@ -32,7 +30,7 @@ const App = () => {
 };
 ~~~~~~~
 
-The application behaves the same because the `stories`, now returned from `useState`, are still filtered into `searchedStories` and displayed in the List. Next we'll manipulate the list by removing an item from it:
+The application behaves the same because the `stories`, now returned as stateful list from React's `useState` Hook, is still filtered into `searchedStories` and displayed in the List component. Just the origin where the stories are coming from changed. Next we'll manipulate the list by removing an item from it:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -42,9 +40,9 @@ const App = () => {
   const [stories, setStories] = React.useState(initialStories);
 
 # leanpub-start-insert
-  const handleRemoveStory = item => {
+  const handleRemoveStory = (item) => {
     const newStories = stories.filter(
-      story => item.objectID !== story.objectID
+      (story) => item.objectID !== story.objectID
     );
 
     setStories(newStories);
@@ -69,25 +67,30 @@ const App = () => {
 };
 ~~~~~~~
 
-The callback handler in the App component receives an item to be removed as an argument, and filters the current stories based on this information by removing all items that don't meet its condition(s). The returned stories are then set as new state, and the List component passes the function to its child component. It's not using this new information; it's just passing it on:
+The callback handler in the App component -- which will be used in the List/Item components eventually -- receives the item as an argument which should be removed from the list. Based on this information, the function filters the current stories by removing all items that don't meet its condition. The returned stories -- where the desired item (story) has been removed -- are then set as new state and passed to the List component. Since a new state is set, the App component and all components below (e.g. List/Item components) will render again and thus display the new state of stories.
+
+However, what's missing is how the List and Item components are using this new functionality which modifies the state in the App component. The List component itself does not use this new callback handler, but passes it on to the Item component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
-const List = ({ list, onRemoveItem }) =>
+const List = ({ list, onRemoveItem }) => (
 # leanpub-end-insert
-  list.map(item => (
-    <Item
-      key={item.objectID}
-      item={item}
+  <ul>
+    {list.map((item) => (
+      <Item
+        key={item.objectID}
+        item={item}
 # leanpub-start-insert
-      onRemoveItem={onRemoveItem}
+        onRemoveItem={onRemoveItem}
 # leanpub-end-insert
-    />
-  ));
+      />
+    ))}
+  </ul>
+);
 ~~~~~~~
 
-Finally, we can use the incoming function in another handler in the Item component to pass the `item` to it. A button element is used to trigger the actual event:
+Finally the Item component uses the incoming callback handler as a function in a a new handler. In this handler, we will pass the specific item to it. Moreover, an additional button element is needed to trigger the actual event:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -96,10 +99,10 @@ const Item = ({ item, onRemoveItem }) => {
   const handleRemoveItem = () => {
     onRemoveItem(item);
   };
-# leanpub-end-insert
 
   return (
-    <div>
+# leanpub-end-insert
+    <li>
       <span>
         <a href={item.url}>{item.title}</a>
       </span>
@@ -113,48 +116,21 @@ const Item = ({ item, onRemoveItem }) => {
         </button>
       </span>
 # leanpub-end-insert
-    </div>
+    </li>
+# leanpub-start-insert
   );
 };
-~~~~~~~
-
-We could have passed only the item's `objectID`, since that's all we need  in the App component's callback handler, but we aren't sure what  information the handler might need later. It may need more than an identifier to remove an item. If we call the handler `onRemoveItem`, it should be the item being passed, not just its identifier.
-
-We have made the list of stories stateful with React's useState Hook; passed the still searched stories down as props to the List component; and implemented a callback handler (`handleRemoveStory`) and handler (`handleRemoveItem`) to be used in their respective components. Since a handler is just a function, and in this case it doesn't return anything, we could remove its block body for the sake of completeness.
-
-{title="src/App.js",lang="javascript"}
-~~~~~~~
-const Item = ({ item, onRemoveItem }) => {
-# leanpub-start-insert
-  const handleRemoveItem = () =>
-    onRemoveItem(item);
 # leanpub-end-insert
-
-  ...
-};
 ~~~~~~~
 
-This change makes our source code less readable as we accumulate handlers in the function component. Sometimes I refactor handlers in a function component from an arrow function back to a normal function statement, just to make the component more explorable:
+So far in this section, we have made the list of stories stateful with React's useState Hook; passed the still searched stories down as props to the List component; and implemented a callback handler (`handleRemoveStory`) and handler (`handleRemoveItem`) to be used in their respective components to remove a story by clicking on a button. In order to implement this feature, we applied many lessons learned from before: state, props, handlers, and callback handlers.
 
-{title="src/App.js",lang="javascript"}
-~~~~~~~
-const Item = ({ item, onRemoveItem }) => {
-# leanpub-start-insert
-  function handleRemoveItem() {
-    onRemoveItem(item);
-  }
-# leanpub-end-insert
-
-  ...
-};
-~~~~~~~
-
-In this section we applied props, handlers, callback handlers, and state. That are all lessons learned from before. Now we'll tackle **inline handlers**, which allow us to execute the function right in the JSX. There are two solutions using the incoming function in the Item component as an inline handler. First, using JavaScript's bind method:
+You may have noticed that we had to introduce an additional `handleRemoveItem` handler in the Item component which is in charge to execute the incoming `onRemoveItem` callback handler. If you want to make this more elegant, you can use an **inline handler** which would allow you to execute the callback handler function in the Item component right in the JSX. There are two solutions using the incoming `onRemoveItem` function in the Item component as an inline handler. First, using JavaScript's bind method:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
-  <div>
+  <li>
     <span>
       <a href={item.url}>{item.title}</a>
     </span>
@@ -168,18 +144,16 @@ const Item = ({ item, onRemoveItem }) => (
         Dismiss
       </button>
     </span>
-  </div>
+  </li>
 );
 ~~~~~~~
 
-Using [JavaScript's bind method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) on a function allows us to bind arguments directly to that function that should be used when executing it. The bind method returns a new function with the bound argument attached.
-
-The second and more popular solution is to use a wrapping arrow function, which allows us to sneak in arguments like `item`:
+Using [JavaScript's bind method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) on a function allows us to bind arguments directly to that function that should be used when executing it. The bind method returns a new function with the bound argument attached. In contrast, the second and more popular solution is to use a wrapping arrow function, which allows us to sneak in arguments like `item`:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
-  <div>
+  <li>
     <span>
       <a href={item.url}>{item.title}</a>
     </span>
@@ -193,7 +167,7 @@ const Item = ({ item, onRemoveItem }) => (
         Dismiss
       </button>
     </span>
-  </div>
+  </li>
 );
 ~~~~~~~
 
@@ -202,7 +176,7 @@ This is a quick solution, because sometimes we don't want to refactor a function
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
-  <div>
+  <li>
     ...
     <span>
       <button
@@ -218,14 +192,16 @@ const Item = ({ item, onRemoveItem }) => (
         Dismiss
       </button>
     </span>
-  </div>
+  </li>
 );
 ~~~~~~~
 
-All three handler versions, two of which are inline and the normal handler, are acceptable. The non-inlined handler moves the implementation details into the function component's block body; the inline handler move the implementation details into the JSX.
+All three handler versions, two of which are inline and the normal handler, are acceptable. The non-inlined handler moves the implementation details into the function component's block body; both inline handler versions move the implementation details into the JSX.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/Inline-Handler-in-JSX).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/Imperative-React...hs/Inline-Handler-in-JSX?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Inline-Handler-in-JSX).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Imperative-React...2021/Inline-Handler-in-JSX).
+* Read more about how to [add](https://www.robinwieruch.de/react-add-item-to-list), [update](https://www.robinwieruch.de/react-update-item-in-list), [remove](https://www.robinwieruch.de/react-remove-item-from-list) items in a list.
+* Read more about [computed properties in React](https://www.robinwieruch.de/react-computed-properties).
 * Review handlers, callback handlers, and inline handlers.

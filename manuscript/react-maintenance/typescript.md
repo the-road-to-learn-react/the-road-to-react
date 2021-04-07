@@ -1,6 +1,6 @@
 ## TypeScript in React
 
-TypeScript for JavaScript and React have many benefits for developing robust applications. Instead of getting type errors on runtime in the command line or browser, TypeScript integration presents them during compile time inside the IDE. It shortens the feedback loop of JavaScript development. While it improves the developer experience, the code also becomes more self-documenting and readable, because every variable is defined with a type. Also moving code blocks or performing a larger refactoring of a code base becomes much more efficient. Statically typed languages like TypeScript are trending because of their benefits over dynamically typed languages like JavaScript. It's useful to learn more [about TypeScript](https://www.typescriptlang.org/index.html) whenever possible.
+TypeScript for JavaScript and React has many benefits for developing robust applications. Instead of getting type errors on runtime in the command line or browser, TypeScript integration presents them during compile time inside the IDE. It shortens the feedback loop for a developer, while it improves the developer experience. The code becomes more self-documenting and readable, because every variable is defined with a type. Also moving code blocks or performing a larger refactoring of a code base becomes much more efficient. Statically typed languages like TypeScript are trending because of their benefits over dynamically typed languages like JavaScript. It's useful to learn more [about TypeScript](https://www.typescriptlang.org/index.html) whenever possible.
 
 To use TypeScript in React, install TypeScript and its dependencies into your application using the command line. If you run into obstacles, follow the official TypeScript installation instructions for [create-react-app](https://create-react-app.dev/docs/adding-typescript/):
 
@@ -98,9 +98,9 @@ const Item = ({
   }) => void;
 }) => (
 # leanpub-end-insert
-  <div>
+  <li>
     ...
-  </div>
+  </li>
 );
 ~~~~~~~
 
@@ -130,9 +130,9 @@ const Item = ({
   onRemoveItem: (item: Story) => void;
 }) => (
 # leanpub-end-insert
-  <div>
+  <li>
     ...
-  </div>
+  </li>
 );
 ~~~~~~~
 
@@ -150,13 +150,13 @@ type ItemProps = {
 # leanpub-start-insert
 const Item = ({ item, onRemoveItem }: ItemProps) => (
 # leanpub-end-insert
-  <div>
+  <li>
     ...
-  </div>
+  </li>
 );
 ~~~~~~~
 
-That's the most popular way to type React component's props with TypeScript. From here, we can navigate up the component tree into the List component and apply the same type definitions for the props:
+That's the most popular way to type React component's props with TypeScript. Fortunately the return type of the function component is inferred. However, if you want to explicitly use it, you can do so with `JSX.Element`. From here, we can navigate up the component tree into the List component and apply the same type definitions for the props:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -178,20 +178,21 @@ type ListProps = {
 # leanpub-end-insert
 
 # leanpub-start-insert
-const List = ({ list, onRemoveItem }: ListProps) =>
+const List = ({ list, onRemoveItem }: ListProps) => (
 # leanpub-end-insert
-  list.map(item => (
-    <Item
-      key={item.objectID}
-      item={item}
-      onRemoveItem={onRemoveItem}
-    />
-  ));
+  <ul>
+    {list.map((item) => (
+      <Item
+        key={item.objectID}
+        item={item}
+        onRemoveItem={onRemoveItem}
+      />
+    ))}
+  </ul>
+);
 ~~~~~~~
 
-The `onRemoveItem` function is typed twice for the `ItemProps` and `ListProps`. To be more accurate, you *could* extract this to a standalone defined `OnRemoveItem` TypeScript type and reuse it for both `onRemoveItem` prop type definitions. Note, however, that development becomes increasingly difficult as components are split up into different files. That's why we will keep the duplication here.
-
-Since we already have the `Story` and `Stories` types, we can repurpose them for other components. Add the `Story` type to the callback handler in the `App` component:
+The `onRemoveItem` function is typed twice for the `ItemProps` and `ListProps`. To be more accurate, you *could* extract this to a standalone defined `OnRemoveItem` TypeScript type and reuse it for both `onRemoveItem` prop type definitions. Note, however, that development becomes increasingly difficult as components are split up into different files. That's why we will keep the duplication here. Now, since we already have the `Story` and `Stories` types, we can repurpose them for other components. Add the `Story` type to the callback handler in the `App` component:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -211,7 +212,7 @@ const App = () => {
 };
 ~~~~~~~
 
-The reducer function manages the `Story` type as well, except without looking into the `state` and `action` types. As the application's developer, we know both objects and their shapes passed to this reducer function:
+The reducer function manages the `Story` type as well, without really touching it due to `state` and `action` types. As the application's developer, we know both objects and their shapes passed to this reducer function:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -248,29 +249,21 @@ The `Action` type with its `string` and `any` (TypeScript **wildcard**) type def
 interface StoriesFetchInitAction {
   type: 'STORIES_FETCH_INIT';
 }
-# leanpub-end-insert
 
-# leanpub-start-insert
 interface StoriesFetchSuccessAction {
   type: 'STORIES_FETCH_SUCCESS';
   payload: Stories;
 }
-# leanpub-end-insert
 
-# leanpub-start-insert
 interface StoriesFetchFailureAction {
   type: 'STORIES_FETCH_FAILURE';
 }
-# leanpub-end-insert
 
-# leanpub-start-insert
 interface StoriesRemoveAction {
   type: 'REMOVE_STORY';
   payload: Story;
 }
-# leanpub-end-insert
 
-# leanpub-start-insert
 type StoriesAction =
   | StoriesFetchInitAction
   | StoriesFetchSuccessAction
@@ -286,32 +279,7 @@ const storiesReducer = (
 };
 ~~~~~~~
 
-The stories state, the current state, and the action are types; the return new state (inferred) are type safe now. For example, if you would dispatch an action to the reducer with an action type that's not defined, you would get an type error. Or if you would pass something else than a story to the action which removes a story, you would get a type error as well.
-
-There is still a type safety issue in the App component's return statement for the returned List component. 
-
-According to a TypeScript with React issue on [GitHub](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/57): *"This is because due to limitations in the compiler, function components cannot return anything other than a JSX expression or null, otherwise it complains with a cryptic error message saying that the other type is not assignable to Element."*
-
-It can be fixed by giving the List component a wrapping HTML `div` element or a React fragment:
-
-{title="src/App.tsx",lang="javascript"}
-~~~~~~~
-const List = ({ list, onRemoveItem }: ListProps) => (
-# leanpub-start-insert
-  <>
-    {list.map(item => (
-# leanpub-end-insert
-      <Item
-        key={item.objectID}
-        item={item}
-        onRemoveItem={onRemoveItem}
-      />
-# leanpub-start-insert
-    ))}
-  </>
-# leanpub-end-insert
-);
-~~~~~~~
+The reducer's current state, action, and returned state (inferred) are type safe now. For example, if you would dispatch an action to the reducer with an action type that's not defined, you would get an type error. Or if you would pass something else than a story to the action which removes a story, you would get a type error as well.
 
 Let's shift our focus to the SearchForm component, which has callback handlers with events:
 
@@ -418,7 +386,7 @@ Our entire React application is finally typed by TypeScript, making it easy to s
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/TypeScript-in-React).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/react-modern-final...hs/TypeScript-in-React?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/TypeScript-in-React).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-modern-final...2021/TypeScript-in-React).
 * Dig into the [React + TypeScript Cheatsheet](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets), because most common use cases we faced in this section are covered there as well. There is no need to know everything from the top off your head.
 * While you continue with the learning experience in the following sections, remove or keep your types with TypeScript. If you do the latter, add new types whenever you get a compile error.

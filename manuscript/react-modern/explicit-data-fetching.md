@@ -1,8 +1,8 @@
 ## Explicit Data Fetching with React
 
-Re-fetching all data each time someone types in the input field isn't optimal. Since we're using a third-party API to fetch the data, its internals are out of our reach. Eventually, we will incur [rate limiting](https://en.wikipedia.org/wiki/Rate_limiting), which returns an error instead of data.
+Re-fetching all data each time someone types in the input field isn't optimal. Since we're using a third-party API to fetch the data, its internals are out of our reach. Eventually, we will incur [rate limiting](https://en.wikipedia.org/wiki/Rate_limiting), which returns an error instead of data. To solve this problem, change the implementation details from implicit to explicit data (re-)fetching. In other words, the application will refetch data only if someone clicks a confirmation button.
 
-To solve this problem, change the implementation details from implicit to explicit data (re-)fetching. In other words, the application will refetch data only if someone clicks a confirmation button. First, add a button element for the confirmation to the JSX:
+First, add a button element for the confirmation to the JSX:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -59,7 +59,7 @@ const App = () => {
   ...
 
 # leanpub-start-insert
-  const handleSearchInput = event => {
+  const handleSearchInput = (event) => {
 # leanpub-end-insert
     setSearchTerm(event.target.value);
   };
@@ -87,8 +87,8 @@ const App = () => {
 # leanpub-start-insert
     fetch(url)
 # leanpub-end-insert
-      .then(response => response.json())
-      .then(result => {
+      .then((response) => response.json())
+      .then((result) => {
         dispatchStories({
           type: 'STORIES_FETCH_SUCCESS',
           payload: result.hits,
@@ -109,11 +109,11 @@ const App = () => {
 };
 ~~~~~~~
 
-Before the `searchTerm` was used for two cases: updating the input field's state and activating the side-effect for fetching data. Too many responsibilities one may would have said. Now it's only used for the former. A second state called `url` got introduced for triggering the side-effect for fetching data which only happens when a user clicks the confirmation button.
+Before the `searchTerm` was used for two cases: updating the input field's state and activating the side-effect for fetching data. One may consider this too many responsibilities for the `searchTerm`. Now it's only used for the former. A second state called `url` got introduced for triggering the side-effect for fetching data which only happens when a user clicks the confirmation button.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/Explicit-Data-Fetching-with-React).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/Memoized-Handler-in-React...hs/Explicit-Data-Fetching-with-React?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Explicit-Data-Fetching-with-React).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Memoized-Handler-in-React...2021/Explicit-Data-Fetching-with-React).
 * Why is `useState` instead of `useSemiPersistentState` used for the `url` state management?
 * Why is there no check for an empty `searchTerm` in the `handleFetchStories` function anymore?

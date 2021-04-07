@@ -21,7 +21,7 @@ const Search = ({ search, onSearch }) => (
 );
 ~~~~~~~
 
-Normally the JSX returned by a React component needs only one wrapping top-level element. To render multiple top-level elements side-by-side, we have to wrap them into an array instead. Since we're working with a list of elements, we have to give every sibling element React's `key` attribute:
+Normally the JSX returned by a React component needs only one wrapping top-level element. To render multiple top-level elements side-by-side, we have to wrap them into an array instead. Since we're working with a list of elements, we would have to give every sibling element React's `key` attribute:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -60,10 +60,10 @@ const Search = ({ search, onSearch }) => (
 );
 ~~~~~~~
 
-A fragment wraps other elements into a single top-level element without adding to the rendered output. Both Search elements should be visible in your browser now, with input field and label. So if you prefer to omit the wrapping `<div>` or `<span>` elements, substitute them with an empty tag that is allowed in JSX, and doesn't introduce intermediate elements in our rendered HTML.
+A fragment wraps other elements into a single top-level element without adding to the rendered output. As alternative, you can also use `<React.Fragment></React.Fragment>` instead of the shorthand `<></>` Both Search elements, input field and label, should be visible in your browser now. So if you prefer to omit the wrapping `<div>` or `<span>` elements, substitute them with an empty tag that is allowed in JSX, and doesn't introduce intermediate elements in your rendered HTML.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/React-Fragments).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/React-Custom-Hooks...hs/React-Fragments?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-Fragments).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-Custom-Hooks...2021/React-Fragments).
 * Read more about [React fragments](https://reactjs.org/docs/fragments.html).

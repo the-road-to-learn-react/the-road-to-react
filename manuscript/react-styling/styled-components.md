@@ -11,7 +11,7 @@ Then import it in your *src/App.js* file:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
-import React from 'react';
+import * as React from 'react';
 import axios from 'axios';
 # leanpub-start-insert
 import styled from 'styled-components';
@@ -123,7 +123,7 @@ const StyledColumn = styled.span`
     color: inherit;
   }
 
-  width: ${props => props.width};
+  width: ${(props) => props.width};
 `;
 ~~~~~~~
 
@@ -165,7 +165,7 @@ const StyledSearchForm = styled.form`
 `;
 ~~~~~~~
 
-When we use a styled component like StyledSearchForm, its underlying elements (`form`, `button`) are used in the real HTML output. We can continue using the native HTML attributes (`onSubmit`, `type`, `disabled`) there:
+When we use a styled component like StyledSearchForm, its underlying form element is used in the real HTML output. We can continue using the native HTML attributes (`onSubmit`, `type`, `disabled`) there:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -244,7 +244,7 @@ CSS-in-JS with styled components shifts the focus of defining styles to actual R
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/Styled-Components-in-React).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/react-modern-final...hs/Styled-Components-in-React?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Styled-Components-in-React).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-modern-final...2021/Styled-Components-in-React).
 * Read more about [Styled Components in React](https://www.robinwieruch.de/react-styled-components).
   * Usually there is no *src/index.css* file for global styles when using Styled Components. Find out how to use global styles when using Styled Components.

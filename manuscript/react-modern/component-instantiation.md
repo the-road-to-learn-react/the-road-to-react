@@ -20,7 +20,7 @@ class Developer {
 
 Each class has a constructor that takes arguments and assigns them to the class instance. A class can also define functions that are associated with a subject (e.g. `getName`), called **methods** or **class methods**.
 
-Defining the Developer class once is just one part; instantiating it is the other. The class definition is the blueprint of its capabilities, and usage occurs when an instance is created with the `new` statement.
+Defining the Developer class once is just one part; instantiating it is the other. The class definition is the blueprint of its capabilities, and usage occurs when an instance is created with the `new` statement. If a JavaScript class definition exists, one can create *multiple* instances of it:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -40,7 +40,7 @@ console.log(dennis.getName());
 // "Dennis Wieruch"
 ~~~~~~~
 
-If a JavaScript class definition exists, one can create *multiple* instances of it. It is similar to a React component, which has only *one* component definition, but can have *multiple* component instances:
+The concept of a class with definition and instantiation is similar to a React component, which also has only *one* component definition, but can have *multiple* component instances:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -50,8 +50,7 @@ function App() {
     <div>
       <h1>My Hacker Stories</h1>
 
-      <label htmlFor="search">Search: </label>
-      <input id="search" type="text" />
+      <Search />
 
       <hr />
 
@@ -67,10 +66,11 @@ function App() {
 function List() { ... }
 ~~~~~~~
 
-Once we've defined a **component**, we can use it like an HTML **element** anywhere in our JSX. The element produces an **component instance** of your component, or in other words, the component gets instantiated. You can create as many component instances as you want. It's not much different from a JavaScript class definition and usage.
+Once we've defined a **component**, we can use it like an HTML **element** anywhere in our JSX. The element produces a **component instance** of your component, or in other words, the component gets instantiated. You can create as many component instances as you want. It's not much different from a JavaScript class definition and usage. However, technically a JavaScript class and React component are not the same, just their usage makes it convenient to demonstrate their similarities.
 
 ### Exercises:
 
 * Familiarize yourself with the terms *component definition*, *component instance*, and *element*.
 * Experiment by creating multiple component instances of a List component.
-* Think about how it could be possible to give each List component its own `list`.
+* From the previous section: Ask yourself again what problems could arise if we keep treating the `list` variable as global variable.
+  * Think about how it could be possible to give each List component its own `list` variable.

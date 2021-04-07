@@ -4,7 +4,7 @@ Now that we've learned about component definitions and their instantiation, we c
 
 {title="src/index.js",lang="javascript"}
 ~~~~~~~
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
@@ -15,7 +15,7 @@ ReactDOM.render(
 );
 ~~~~~~~
 
-Next to React, there is another imported library called `react-dom`, in which a `ReactDOM.render()` function uses an HTML node to replace it with JSX. The process integrates React into HTML. `ReactDOM.render()` expects two arguments; the first is to render the JSX. It creates an instance of your App component, though it can also pass simple JSX without any component instantiation.
+Next to React which is imported from `react`, there is another imported library called `react-dom`, in which a `ReactDOM.render()` function uses an HTML node to replace it with JSX. Essentially that's everything needed to integrate React into any application which uses HTML. In more detail, `ReactDOM.render()` expects two arguments; the first is to render the JSX. It creates an instance of your App component, though it can also pass simple JSX without any component instantiation:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -30,5 +30,4 @@ The second argument specifies where the React application enters your HTML. It e
 ### Exercises:
 
 * Open the *public/index.html* to see where the React application enters your HTML.
-* Consider how we can include a React application in an external web application that uses HTML.
 * Read more about [rendering elements in React](https://reactjs.org/docs/rendering-elements.html).

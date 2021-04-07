@@ -23,11 +23,11 @@ This icon as SVG is taken from [Flaticon's Freepick](https://www.flaticon.com/au
 </svg>
 ~~~~~~~
 
-Because we're using create-react-app again , we can  import SVGs (similar to CSS) as React components right away. In *src/App.js*, use the following syntax for importing the SVG:
+Because we're using create-react-app again , we can import SVGs (similar to CSS) as React components right away. In *src/App.js*, use the following syntax for importing the SVG:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
-import React from 'react';
+import * as React from 'react';
 import axios from 'axios';
 
 import './App.css';
@@ -41,7 +41,7 @@ We are importing an SVG, and this works for many different uses for SVGs (e.g. l
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
-  <div className="item">
+  <li className="item">
     <span style={{ width: '40%' }}>
       <a href={item.url}>{item.title}</a>
     </span>
@@ -59,7 +59,7 @@ const Item = ({ item, onRemoveItem }) => (
 # leanpub-end-insert
       </button>
     </span>
-  </div>
+  </li>
 );
 ~~~~~~~
 
@@ -77,9 +77,9 @@ The create-react-app project makes using SVGs straightforward, with no extra con
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/CSS-in-React-SVG).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/CSS-in-React...hs/CSS-in-React-SVG?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/CSS-in-React-SVG).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/CSS-in-React...2021/CSS-in-React-SVG).
 * Read more about [SVGs in create-react-app](https://create-react-app.dev/docs/adding-images-fonts-and-files).
 * Read more about [SVG background patterns in React](https://www.robinwieruch.de/react-svg-patterns).
 * Add another SVG icon in your application.
-* Integrate the third-party library [react-fontawesome](https://github.com/FortAwesome/react-fontawesome) into your application and use its SVG symbols.
+* Integrate the third-party library [react-fontawesome](https://github.com/FortAwesome/react-fontawesome) or [react-icons](https://github.com/react-icons/react-icons) into your application and use its SVG symbols.

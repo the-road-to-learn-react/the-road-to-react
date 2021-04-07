@@ -42,8 +42,8 @@ const App = () => {
 # leanpub-start-insert
     fetch(`${API_ENDPOINT}${searchTerm}`)
 # leanpub-end-insert
-      .then(response => response.json())
-      .then(result => {
+      .then((response) => response.json())
+      .then((result) => {
         dispatchStories({
           type: 'STORIES_FETCH_SUCCESS',
           payload: result.hits,
@@ -58,7 +58,7 @@ const App = () => {
 };
 ~~~~~~~
 
-The initial search respects the search term now, so we'll implement data refetching. If the `searchTerm` changes, run the side-effect for the data fetching again. If `searchTerm` is not present (e.g. null, empty string, undefined), do nothing (as a more generalized condition):
+The initial search respects the search term now. If the `searchTerm` changes however, we need to run the side-effect for the data fetching again. In addition, if `searchTerm` is not present (e.g. null, empty string, undefined), do nothing (as a more generalized condition):
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -73,8 +73,8 @@ const App = () => {
     dispatchStories({ type: 'STORIES_FETCH_INIT' });
 
     fetch(`${API_ENDPOINT}${searchTerm}`)
-      .then(response => response.json())
-      .then(result => {
+      .then((response) => response.json())
+      .then((result) => {
         dispatchStories({
           type: 'STORIES_FETCH_SUCCESS',
           payload: result.hits,
@@ -91,11 +91,9 @@ const App = () => {
 };
 ~~~~~~~
 
-We changed the feature from a client-side to server-side search. Instead of filtering a predefined list of stories on the client, the `searchTerm` is used to fetch a server-side filtered list. The server-side search happens for the initial data fetching, but also for data fetching if the `searchTerm` changes. The feature is fully server-side now.
-
-Re-fetching data each time someone types into the input field isn't optimal, so we'll correct that soon. Because this implementation stresses the API, you might experience errors if you use requests too often.
+We changed the feature from a client-side to server-side search. Instead of filtering a predefined list of stories on the client, the `searchTerm` is used to fetch a server-side filtered list. The server-side search happens for the initial data fetching, but also for data fetching if the `searchTerm` changes. The feature is fully server-side now. Re-fetching data each time someone types into the input field isn't optimal though, so we'll correct that soon. Because this implementation stresses the API, you might experience errors if you use requests too often.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/hs/Data-Re-Fetching-in-React).
-  * Confirm the [changes from the last section](https://github.com/the-road-to-learn-react/hacker-stories/compare/hs/Data-Fetching-with-React...hs/Data-Re-Fetching-in-React?expand=1).
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Data-Re-Fetching-in-React).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Data-Fetching-with-React...2021/Data-Re-Fetching-in-React).
