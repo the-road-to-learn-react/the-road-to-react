@@ -14,31 +14,32 @@ Currently, I am a self-employed developer helping companies creatings their MVPs
 
 **How to get updates?**
 
-I have two channels where I share updates about my content. You can [subscribe to updates by email](https://www.getrevue.co/profile/rwieruch) or [follow me on Twitter](https://twitter.com/rwieruch). Regardless of the channel, my objective is to only share quality content. Once you receive a notification about an update, you can download a new version of the book from my website.
+I have two channels where I share updates about my content. You can [subscribe to updates by email](https://www.getrevue.co/profile/rwieruch) or [follow me on Twitter](https://twitter.com/rwieruch). Regardless of the channel, my objective is to share quality content. Once you receive a notification about an update, you can download a new version of the book from my [website].(https://www.robinwieruch.de/about)
 
 **Is the learning material up-to-date?**
 
-Programming books are usually outdated soon after their release, but since this book is self-published, I can update it as needed whenever a new version of something related to this book gets released.
+Programming books are usually outdated soon after they are released. But since this book is self-published, I can update it as needed whenever a new version of something related to this book gets released.
 
 **Can I get a digital copy of the book if I bought it on Amazon?**
 
-If you have bought the book on Amazon, you may have seen that the book is available on my website too. Since I use Amazon as one way to monetize my often free content, I honestly thank you for your support and invite you to sign up for my courses on [my website](https://www.robinwieruch.de). After creating an account there, write me an email about your purchase with a receipt from Amazon, so that I can unlock the content for you. With an account on my platform, you always have access to the latest version of the book.
+If you have bought the book on Amazon, you may have seen that the book is also available on my website. Since I use Amazon as one way to monetize my often free content, I honestly thank you for your support. And for that, I am inviting you to sign up for my courses on [my website](https://www.robinwieruch.de). After creating an account write me an e-mail regarding your purchase attached with the receipt from Amazon so that I can unlock the content for you. With an account on my platform, you will always have access to the latest version of the book.
 
 **Why is the print copy so large in size?**
 
-If you have purchased the print version of the book, make sure to take notes in the book. It was my intention to keep the printed book extra large, for the sake of giving larger code snippets enough space, but also for giving you enough space to work with it.
+If you have purchased the print version of the book, make sure to take notes in the book. It was my intention to keep the printed book extra large. This is for the sake of giving larger code snippets enough space and also giving you enough space to work with.
 
 **How can I get help while reading the book?**
 
-The book has a community of learners who help each other and for people who are reading along. You can join the community to get help, or to help others, as helping others may help you internalize your own understanding. Just follow the navigation to my courses on my [website](https://www.robinwieruch.de), sign up there, and navigate to joining the community.
+The book has a community of learners who help each other and for people who are reading along. You can join the community ask for help or to help others as helping help you to internalize your own understanding. Just follow the navigation from my [website](https://www.robinwieruch.de), sign up, and navigate to join the community.
 
 **Can I help to improve the content?**
 
-If you have feedback, shoot me an email and I will take your suggestions into consideration. Don't expect many replies for bug tracking or troubleshoots though, because that's what's the community for.
+If you have feedback, shoot me an email and I will take your suggestions into consideration. Don't expect many replies for bug tracking or troubleshooting though because that's why the community is for.
 
 **What do I do if I encounter a bug?**
 
-If you encounter any bug in the code, you should find a URL to the current GitHub project at the end of each section. Feel free to open a GitHub issue there. Your help is very much appreciated!
+If you encountered any bug in the code, feel free to open a GitHub issue. A URL of the GitHub project is present at the
+end of each section. Your help will be very much appreciated!
 
 **How to support the project?**
 
