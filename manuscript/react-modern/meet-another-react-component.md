@@ -1,6 +1,6 @@
 ## Meet another React Component
 
-Components are the foundation of every React application. So far we've only been using the App component. This will not end up well, because components should scale with your application's size. So instead of making one component larger and more complex, we we'll split one component into multiple components eventually. We'll start with a new List component which extracts functionalities from the App component:
+Components are the foundation of every React application. So far, we've only been using the App component. This will not end up well because components should scale with your application's size. So instead of making one component larger and more complex, we we'll split one component into multiple components eventually. We'll start with a new List component which extracts functionalities from the App component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
