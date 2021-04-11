@@ -1,6 +1,6 @@
 ## React State
 
-In contrast to React props, **React state** is used to make applications interactive. Both concepts, props and state, have clear defined purposes: Props are used to pass information down the component tree, state is used to alter information over time. Both can work hand in hand as well. We will see what this means in the following sections.
+In contrast to React props, **React state** is used to make applications interactive. Both concepts, props and state, have clear defined purposes. Props are used to pass information down the component tree. State is used to alter information over time. Both can work hand in hand as well. We will see what this means in the following sections.
 
 Let's start with state in React with the following use case: Whenever a user types something into an HTML input field, the user may want to see this typed information (state) displayed somewhere else in the application. Therefore we need some way to change information over time and, what's more important, to notify React to re-render its component(s) again. A naive (but wrong) approach would be the following:
 
