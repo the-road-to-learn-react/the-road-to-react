@@ -1,6 +1,6 @@
 ## Lists in React
 
-So far we've rendered a few variables in JSX, however, most often you will deal with arrays. Thus we'll render a list of items next. We'll experiment with sample data first, and later we'll apply that knowledge to fetched data from a remote API.
+So far we’ve rendered a few variables in JSX. However, you will often deal with arrays. Thus, we’ll render a list of items next. We’ll experiment with sample data first, and later we’ll apply that knowledge to fetched data from a remote API.
 
 First, let's define the array as a variable. As before, we can define a variable outside or inside the component. The following defines it outside:
 
