@@ -1,6 +1,6 @@
 ## React Component Instantiation
 
-Next, I'll briefly explain JavaScript classes, to help clarify React components. Technically they are not related, which is important to note, but it is a fitting analogy for you to understand the concept of a component.
+Next, I'll briefly explain JavaScript classes to help clarify React components. Technically, they are not related which is important to note. However, it is a fitting analogy for you to understand the concept of a component.
 
 Classes are most often used in object-oriented programming languages. JavaScript, always flexible in its programming paradigms, allows functional programming and object-oriented programming to co-exist side-by-side. To recap JavaScript classes for object-oriented programming, consider the following *Developer* class:
 
