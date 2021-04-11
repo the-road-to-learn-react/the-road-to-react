@@ -83,7 +83,7 @@ Everything that we pass from a parent component to a child component via a compo
 
 Using this mechanism of passing information from one component down to another with React props, we've prevented the list variable from polluting the global scope in our *src/App.js* file when we defined it outside of the component. Now, the list is defined as `stories` in our App component. However, since `stories` is not used in the App component directly, but in one of its child components, we passed it as props to the List component. We could also define `stories` directly in the List component and would not need to use props in the first place, however, in the future we will make use of the `stories` in the App component and thus will keep it there.
 
-Another use case for React props is the List component and its potential child component. Previously, we couldn't extract an Item component from the List component, because we didn't know how to pass each individual item to the extracted Item component. With the new knowledge about React props, we can perform the component extraction and pass each item along to the List component's new child component:
+Another use case for React props is the List component and its potential child component. Previously, we couldn't extract an Item component from the List component. This is because we didn't know how to pass each individual item to the extracted Item component. With the new knowledge about React props, we can perform the component extraction and pass each item along to the List component's new child component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -111,7 +111,7 @@ const Item = (props) => (
 # leanpub-end-insert
 ~~~~~~~
 
-In conclusion, one can see how props are used to pass information down the component tree. Following this explanation, information (props) can only be passed from a parent to a child component and not vice versa. We will learn how to overcome this limitation later.
+In conclusion, you can see how props are used to pass information down the component tree. Following this explanation, information (props) can only be passed from a parent to a child component and not vice versa. We will learn how to overcome this limitation later.
 
 ### Exercises:
 
