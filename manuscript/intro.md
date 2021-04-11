@@ -6,9 +6,9 @@ The Road to React teaches the fundamentals of React. You will build a real-world
 
 I am a German software and web developer dedicated to learning and teaching JavaScript. After obtaining my Master's Degree in computer science, I gained experience from the startup world where I used JavaScript intensively during both my professional life and spare time. For a few years, I worked closely with an exceptional team of engineers at a company in Berlin, developing large scale JavaScript applications, which eventually led to a desire to teach others about these topics.
 
-During my time as a developer in Berlin, I regularly wrote articles about web development on my website. I received great feedback from people learning from my articles which allowed me to improve my writing and teaching style. Article after article, I grew my ability to teach others. I find it a fulfilling seeing students thrive by giving them clear objectives and short feedback loops.
+During my time as a developer in Berlin, I regularly wrote articles about web development on my website. I received great feedback from people learning from my articles which allowed me to improve my writing and teaching style. Article after article, I grew my ability to teach others. I find it fulfilling to see students thrive by giving them clear objectives and short feedback loops.
 
-Currently, I am a self-employed developer helping companies creatings their MVPs, conducting workshops and code audits/review, and creating large scale JavaScript applications. You can find more information about me and ways to support and work with me on my [website](https://www.robinwieruch.de/about).
+Currently, I am a self-employed developer helping companies in creating their MVPs, conducting workshops and code audits/review, and creating large scale JavaScript applications. You can find more information about me, ways to support me, and how to work with me on my [website](https://www.robinwieruch.de/about).
 
 ## FAQ
 
@@ -52,7 +52,7 @@ I want to teach about this topic consistently. I often find materials online tha
 
 **JavaScript Beginners**
 
-JavaScript beginners with knowledge in fundamental JS, CSS, and HTML: If you just started out with web development, and have a basic grasp about JS, CSS, and HTML, this book should give you everything that's needed to learn React. However, if you feel there is a gap in your JavaScript knowledge, don't hesitate to read up on this topic before continuing with the book. You will have lots of references to this fundamental knowledge in the book though.
+JavaScript beginners with knowledge in fundamental JS, CSS, and HTML: If you just started out with web development, and have a basic grasp about JS, CSS, and HTML, this book should give you everything that's needed to learn React. However, if you feel there is a gap in your JavaScript knowledge, don't hesitate to read up on that topic before continuing with the book. You will have lots of references to fundamental JavaScript knowledge in the book though.
 
 **JavaScript Veterans**
 
