@@ -1,14 +1,13 @@
 ## Props Handling (Advanced)
 
-Props are passed from parent to child down the component tree. Since we use props to transport information from component to component frequently, and sometimes via other components which are in between, it is useful to know a few tricks to make passing props more convenient. Note that while the following refactorings are recommended for you to learn different JavaScript/React patterns, you can still build complete React applications without them. Consider these advanced React techniques that will make your source code more concise.
+Props are passed from parent to child down the component tree. Since we use props to transport information from component to component frequently, and sometimes via other components which are in between, it is useful to know a few tricks to make passing props more convenient. Note that the following refactorings are recommended for you to learn different JavaScript/React patterns, though you can still build complete React applications without them. Consider these advanced React techniques that will make your source code more concise.
 
 ### Object Destructuring
 
-After all, React props are a JavaScript object, else we couldn't access `props.list` or `props.onSearch` in our React components. Since `props` is an object which just passes information from one component to another component, we can apply a couple JavaScript tricks to it. For example, accessing an object's properties with modern [JavaScript object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment):
+Ater all, React props are a JavaScript object, else we couldn't access `props.list` or `props.onSearch` in our React components. Since `props` is an object which just passes information from one component to another component, we can apply a couple JavaScript tricks to it. For example, accessing an object's properties with modern [JavaScript object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment):
 
 {title="Code Playground",lang="javascript"}
-
-```
+~~~~~~~
 const user = {
   firstName: 'Robin',
   lastName: 'Wieruch',
@@ -26,13 +25,12 @@ const { firstName, lastName } = user;
 
 console.log(firstName + ' ' + lastName);
 // "Robin Wieruch"
-```
+~~~~~~~
 
 If we need to access multiple properties of an object, using one line of code instead of multiple lines is often simpler and more elegant. That's why object destructuring is already widely used in JavaScript. Let's transfer this knowledge to the React props in our Search component. First, we have to refactor the Search component's arrow function from concise body into block body:
 
 {title="src/App.js",lang="javascript"}
-
-```
+~~~~~~~
 # leanpub-start-insert
 const Search = (props) => {
   return (
@@ -50,13 +48,12 @@ const Search = (props) => {
   );
 };
 # leanpub-end-insert
-```
+~~~~~~~
 
 And second, we can apply the destructuring of the `props` object in the component's function body:
 
 {title="src/App.js",lang="javascript"}
-
-```
+~~~~~~~
 const Search = (props) => {
 # leanpub-start-insert
   const { search, onSearch } = props;
@@ -76,13 +73,12 @@ const Search = (props) => {
     </div>
   );
 };
-```
+~~~~~~~
 
 That's a basic destructuring of the `props` object in a React component, so that the object's properties can be used conveniently in the component. However, we also had to refactor the Search component's arrow function from concise body into block body to access the properties of `props` with the object destructuring in the function's body. This would happen quite often if we followed this pattern, and it wouldn't make things easier for us, because we would constantly have to refactor our components. We can take all this one step further by destructuring the `props` object right away in the function signature of our component, omitting the function's block body of the component again:
 
 {title="src/App.js",lang="javascript"}
-
-```
+~~~~~~~
 # leanpub-start-insert
 const Search = ({ search, onSearch }) => (
 # leanpub-end-insert
@@ -98,13 +94,12 @@ const Search = ({ search, onSearch }) => (
  # leanpub-start-insert
 );
 # leanpub-end-insert
-```
+~~~~~~~
 
 React's `props` are rarely used in components by themselves; rather, all the information that is contained in the `props` object is used. By destructuring the `props` object right away in the component's function signature, we can conveniently access all information without dealing with its `props` container. The List and Item components can perform the same props destructuring:
 
 {title="src/App.js",lang="javascript"}
-
-```
+~~~~~~~
 # leanpub-start-insert
 const List = ({ list }) => (
 # leanpub-end-insert
@@ -133,17 +128,16 @@ const Item = ({ item }) => (
 # leanpub-end-insert
   </li>
 );
-```
+~~~~~~~
 
 This should be the basic lesson learned from this section, however, we can take this one step further with the following advanced lessons. The incoming `item` parameter in the Item component has something in common with the previously discussed `props` parameter: they are both JavaScript objects. Also, even though the `item` object has already been destructured from the `props` in the Item component's function signature, it isn't directly used in the Item component. The `item` object only passes its information (object properties) to the elements.
 
 ### Nested Destructuring
 
-The current solution is fine as you will see in the ongoing discussion. However, I want to show you two more variations of it, because there are many things to learn about JavaScript objects in React here. Let's get started with _nested destructuring_ and how it works:
+The current solution is fine as you will see in the ongoing discussion. However, I want to show you two more variations of it, because there are many things to learn about JavaScript objects in React here. Let's get started with *nested destructuring* and how it works:
 
 {title="Code Playground",lang="javascript"}
-
-```
+~~~~~~~
 const user = {
   firstName: 'Robin',
   pet: {
@@ -168,13 +162,12 @@ const {
 
 console.log(firstName + ' has a pet called ' + name);
 // "Robin has a pet called Trixi"
-```
+~~~~~~~
 
 Nested destructuring helps us to access properties from objects which are deeply nested (e.g. the pet's name of a user). Now, in our Item component, because the `item` object is never directly used in the Item component's JSX elements, we can perform a **nested destructuring** in the component's function signature too:
 
 {title="src/App.js",lang="javascript"}
-
-```
+~~~~~~~
 // Variation 1: Nested Destructuring
 
 const Item = ({
@@ -201,17 +194,16 @@ const Item = ({
 # leanpub-end-insert
   </li>
 );
-```
+~~~~~~~
 
-The nested destructuring helps us to gather all the needed information of the `item` object in the function signature for its immediate usage in the component's elements. However, nested destructuring introduces lots of clutter through indentations in the function signature. While it's not the most readable option here, it still can be useful in other scenarios.
+The nested destructuring helps us to gather all the needed information of the `item` object in the function signature for its immediate usage in the component's elements. However, nested destructuring introduces lots of clutter through indentations in the function signature. While it's here not the most readable option, it can be useful in other scenarios though.
 
 ### Spread and Rest Operators
 
 Let's take another approach with JavaScript's spread and rest operators. In order to prepare for it, we will refactor our List and Item components to the following implementation. Rather than passing the item as object from List to Item component, we are passing every property of the `item` object:
 
 {title="src/App.js",lang="javascript"}
-
-```
+~~~~~~~
 // Variation 2: Spread and Rest Operators
 // 1. Step
 
@@ -244,13 +236,12 @@ const Item = ({ title, url, author, num_comments, points }) => (
     <span>{points}</span>
   </li>
 );
-```
+~~~~~~~
 
 Now, even though the Item component's function signature is more concise, the clutter ended up in the List component instead, because every property is passed to the Item component individually. We can improve this approach using [JavaScript's spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax):
 
 {title="Code Playground",lang="javascript"}
-
-```
+~~~~~~~
 const profile = {
   firstName: 'Robin',
   lastName: 'Wieruch',
@@ -275,13 +266,12 @@ console.log(user);
 //   country: "Germany,
 //   city: "Berlin",
 // }
-```
+~~~~~~~
 
 JavaScript's spread operator allows us to literally spread all key/value pairs of an object to another object. This can also be done in React's JSX. Instead of passing each property one at a time via props from List to Item component as before, we can use JavaScript's spread operator to pass all the object's key/value pairs as attribute/value pairs to a JSX element:
 
 {title="src/App.js",lang="javascript"}
-
-```
+~~~~~~~
 // Variation 2: Spread and Rest Operators
 // 2. Step
 
@@ -305,13 +295,12 @@ const Item = ({ title, url, author, num_comments, points }) => (
     <span>{points}</span>
   </li>
 );
-```
+~~~~~~~
 
 This refactoring made the process of passing the information from List to Item component more concise. Finally, we'll use [JavaScript's rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) as the icing on the cake. The JavaScript rest operator happens always as the last part of an object destructuring:
 
 {title="Code Playground",lang="javascript"}
-
-```
+~~~~~~~
 const user = {
   id: '1',
   firstName: 'Robin',
@@ -333,15 +322,14 @@ console.log(id);
 
 console.log(city);
 // "Berlin"
-```
+~~~~~~~
 
 Even though both have the same syntax (three dots), the rest operator shouldn't be mistaken with the spread operator. Whereas the rest operator happens on the left side of an assignment, the spread operator happens on the right side. The rest operator is always used to separate an object from some of its properties.
 
 Now it can be used in our List component to separate the `objectID` from the item, because the `objectID` is only used as `key` and isn't used in the Item component. Only the remaining (rest) item gets spread as attribute/value pairs into the Item component (as before):
 
 {title="src/App.js",lang="javascript"}
-
-```
+~~~~~~~
 // Variation 2: Spread and Rest Operators
 // Final Step
 
@@ -365,15 +353,14 @@ const Item = ({ title, url, author, num_comments, points }) => (
     <span>{points}</span>
   </li>
 );
-```
+~~~~~~~
 
 In this final variation, the rest operator is used to destructure the `objectID` from the rest of the `item` object. Afterward, the `item` is spread with its key/values pairs into the Item component. While this final variation is very concise, it comes with advanced JavaScript features that may be unknown to some.
 
-In this section, we have learned about JavaScript object destructuring which can be commonly used not only for the `props` object, but also for other objects like the `item` object. We have also seen how nested destructuring can be used (Variation 1), but also how it didn't add any benefits in our case, because it just made the component bigger. In the future you are more likely to find use cases for nested destructuring which are beneficial. Last but not least, you have learned about JavaScript's spread and rest operators, which shouldn't be confused with each other, to perform operations on JavaScript objects and to pass the `props` object from one component to another component in the most concise way. In the end, I want to point out the initial version again which we will keep over for the next sections:
+In this section, we have learned about JavaScript object destructuring which can be used commonly for the `props` object, but also for other objects like the `item` object. We have also seen how nested destructuring can be used (Variation 1), but also how it didn't add any benefits in our case, because it just made the component bigger. In the future you will find more likely use cases for nested destructuring which are beneficial. Last but not least, you have learned about JavaScript's spread and rest operators, which shouldn't be confused with each other, to perform operations on JavaScript objects and to pass the `props` object from one component to another component in the most concise way. In the end, I want to point out the initial version again which we will keep over the next sections:
 
 {title="src/App.js",lang="javascript"}
-
-```
+~~~~~~~
 const List = ({ list }) => (
   <ul>
     {list.map((item) => (
@@ -392,17 +379,17 @@ const Item = ({ item }) => (
     <span>{item.points}</span>
   </li>
 );
-```
+~~~~~~~
 
 It may not be the most concise, but it is the easiest to reason about. Variation 1 with its nested destructuring didn't add much benefit and variation 2 may add too many advanced JavaScript features (spread operator, rest operator) which are not familiar to everyone. After all, all these variations have their pros and cons. When refactoring a component, always aim for readability, especially when working in a team of people, and make sure they're using a common React code style.
 
 ### Exercises:
 
-- Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Props-Handling).
-  - Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-Controlled-Components...2021/Props-Handling).
-- Read more about [JavaScript's destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
-- Think about the difference between JavaScript array destructuring -- which we used for React's `useState` hook -- and object destructuring.
-- Read more about [JavaScript's spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax).
-- Read more about [JavaScript's rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters).
-- Get a good sense about JavaScript (e.g. destructuring, spread operator, rest parameters) and what's related to React (e.g. props) from the last lessons.
-- Continue to use your favorite way to handle React's props. If you're still undecided, consider the variation used in the previous section.
+* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Props-Handling).
+  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-Controlled-Components...2021/Props-Handling).
+* Read more about [JavaScript's destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
+* Think about the difference between JavaScript array destructuring -- which we used for React's `useState` hook -- and object destructuring.
+* Read more about [JavaScript's spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax).
+* Read more about [JavaScript's rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters).
+* Get a good sense about JavaScript (e.g. destructuring, spread operator, rest parameters) and what's related to React (e.g. props) from the last lessons.
+* Continue to use your favorite way to handle React's props. If you're still undecided, consider the variation used in the previous section.
