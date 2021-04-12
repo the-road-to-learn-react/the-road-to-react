@@ -79,7 +79,7 @@ const List = (props) => (
 );
 ~~~~~~~
 
-Everything that we pass from a parent component to a child component via a component element's HTML attribute can be accessed in the child component. The child component receives as parameter an object (`props`) which includes all the passed attributes as properties (props).
+Everything that we pass from a parent component to a child component via a component element's HTML attribute can be accessed in the child component. The child component receives an object parameter (`props`) which includes all the passed attributes as properties (props).
 
 Using this mechanism of passing information from one component down to another with React props, we've prevented the list variable from polluting the global scope in our *src/App.js* file when we defined it outside of the component. Now, the list is defined as `stories` in our App component. However, since `stories` is not used in the App component directly, but in one of its child components, we passed it as props to the List component. We could also define `stories` directly in the List component and would not need to use props in the first place, however, in the future we will make use of the `stories` in the App component and thus will keep it there.
 
