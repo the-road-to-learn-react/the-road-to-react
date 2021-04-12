@@ -1,6 +1,6 @@
 ## React JSX
 
-Everything returned from a React component will be displayed in the browser. Until now, we only returned HTML from the App component. However, recall that I mentioned the returned output of the App component only resembles HTML, but can be mixed with JavaScript. In fact, this output is called JSX (JavaScript XML), which combines HTML and JavaScript in a powerful way. Let's see how this works for displaying the variable from the previous section:
+Everything returned from a React component will be displayed in the browser. Until now, we only returned HTML from the App component. However, recall that I mentioned the returned output of the App component not only resembles HTML, but it can also be mixed with JavaScript. In fact, this output is called JSX (JavaScript XML), which combines HTML and JavaScript in a powerful way. Let's see how this works for displaying the variable from the previous section:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
