@@ -1,6 +1,6 @@
 ## Meet the React Component
 
-Every React application is build on the foundation of React components. In this section, you will get to know your first React component which is located in the _src/App.js_ file and which should look similar to the example below. Depending on your create-react-app version, the content of the file might differ slightly:
+Every React application is built on the foundation of React components. In this section, you will get to know your first React component which is located in the _src/App.js_ file and which should look similar to the example below. Depending on your create-react-app version, the content of the file might differ slightly:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -99,7 +99,7 @@ function App() {
 export default App;
 ~~~~~~~
 
-The function of a function component will either run when a component is rendered for the first time or re-rendered when it updates. The act of rendering means that the component displays itself in the browser. Since we don't need anything from within the App component used to define this variable from the last code snippet -- for example parameters coming from the component's function signature -- we can define the variable outside of the App component as well. Thus it will be defined only once and not every time the function is called:
+The function of a function component will either run when a component is rendered for the first time or re-rendered when it updates. The act of rendering means that the component displays itself in the browser. Since we don't need anything from within the App component that will be used to define this variable from the last code snippet -- for example parameters coming from the component's function signature -- we can define the variable outside of the App component as well. Thus it will be defined only once and not every time the function is called:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
