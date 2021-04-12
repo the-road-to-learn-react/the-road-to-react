@@ -1,6 +1,6 @@
 ## Imperative React
 
-React is inherently declarative, starting with JSX and ending with hooks. In JSX, we tell React *what* to render and not *how* to render it. In a React side-effect Hook (useEffect), we express when to achieve *what* instead of *how* to achieve it. Sometimes, however, we'll want to access the rendered elements of JSX imperatively, most often as a side-effect, in cases such as these:
+React is inherently declarative starting with JSX and ending with hooks. In JSX, we tell React *what* to render and not *how* to render it. In a React side-effect Hook (useEffect), we express when to achieve *what* instead of *how* to achieve it. Sometimes, we want to access the rendered elements of JSX imperatively most often as a side effect just like cases such as these.
 
 * read/write access to elements via the DOM API:
   * measuring (read) an element's width or height
@@ -11,7 +11,7 @@ React is inherently declarative, starting with JSX and ending with hooks. In JSX
 * integration of third-party libraries:
   * [D3](https://d3js.org/) is a popular imperative chart library
 
-Because imperative programming in React is often verbose and counterintuitive, we'll walk only through a small example for setting the focus of an input field imperatively. For the declarative way, simply set the input field's autofocus attribute:
+Because imperative programming in React is often verbose and counterintuitive, we'll walk through a small example only for setting the focus of an input field imperatively. For the declarative way, we'll simply set the input field's autofocus attribute:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -32,7 +32,7 @@ const InputWithLabel = ({ ... }) => (
 );
 ~~~~~~~
 
-This works, but only if one of the reusable components is rendered once. For example, if the App component renders two InputWithLabel components, only the last rendered component receives the autofocus on its render. However, since we have a reusable React component here, we can pass a dedicated prop and let the developer decide whether its input field should have an autofocus or not:
+This works but only if one of the reusable components is rendered once. For example, if the App component renders two InputWithLabel components, only the last rendered component receives the autofocus on its render. However, since we have a reusable React component here, we can pass a dedicated prop and let the developer decide whether its input field should have an autofocus or not:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -140,12 +140,12 @@ const InputWithLabel = ({
 
 All the essential steps are marked with comments that are explained step by step:
 
-* (A) First, create a `ref` with **React's useRef Hook**. This `ref` object is a persistent value which stays intact over the lifetime of a React component. It comes with a property called `current`, which, in contrast to the `ref` object, can be changed.
+* (A) First, create a `ref` with **React's useRef Hook**. This `ref` object is a persistent value which stays intact over the lifetime of a React component. It comes with a property called `current`, which in contrast to the `ref` object, can be changed.
 * (B) Second, the `ref` is passed to the input field's JSX-reserved `ref` attribute and the element instance is assigned to the changeable `current` property.
 * (C) Third, opt into React's lifecycle with React's useEffect Hook, performing the focus on the input field when the component renders (or its dependencies change).
 * (D) And fourth, since the `ref` is passed to the input field's `ref` attribute, its `current` property gives access to the element. Execute its focus programmatically as a side-effect, but only if `isFocused` is set and the `current` property is existent.
 
-This was an example of how to move from declarative to imperative programming in React. It's not always possible to go the declarative way, so the imperative approach can be performed whenever it's necessary. However, if you can, you should definetly take the declarative approach.
+This was an example of how to move from declarative to imperative programming in React. It's not always possible to go the declarative way so the imperative approach can be performed whenever it's necessary. However, if you can, you should definetly take the declarative approach.
 
 ### Exercises:
 
