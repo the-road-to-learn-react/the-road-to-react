@@ -1,6 +1,6 @@
 ## React Custom Hooks (Advanced)
 
-Thus far we've covered the two most popular hooks in React: useState and useEffect. useState is used for variables that change over time; useEffect is used to opt into the lifecycle of your components to introduce side-effects. We'll eventually cover more hooks that come with React, but next we'll tackle **React custom Hooks**; that is, building a hook yourself.
+So far we've covered the two most popular hooks in React: useState and useEffect. useState is used for variables that change over time; useEffect is used to opt into the lifecycle of your components to introduce side-effects. We'll eventually cover more hooks that come with React. But next, we'll tackle **React custom Hooks**, which is building a hook yourself.
 
 We will use the two hooks we already possess to create a new custom hook called `useSemiPersistentState`, named as such because it manages state yet synchronizes with the local storage. It's not fully persistent because clearing the local storage of the browser deletes relevant data for this application. We will start with how we want to use the hook in our App component:
 
@@ -94,7 +94,7 @@ const useSemiPersistentState = (initialState) => {
 };
 ~~~~~~~
 
-We handle an abstracted "value" within the custom hook. Using it in the App component, we can name the returned current state and state updater function anything domain-related (e.g. `searchTerm` and `setSearchTerm`) with array destructuring. There is still one problem with this custom hook. Using the custom hook more than once in a React application leads to an overwrite of the "value"-allocated item in the local storage, because it uses the same key in the local storage. To fix this, pass in flexible key. Since the key comes from outside, the custom hook assumes that it could change, so it needs to be included in the dependency array of the `useEffect` hook as well. Without it, the side-effect may run with an outdated key (also called *stale*) if the key changed between renders:
+We handle an abstracted "value" within the custom hook. Using it in the App component, we can name the returned current state and state updater function anything domain-related (e.g. `searchTerm` and `setSearchTerm`) with array destructuring. There is still one problem with this custom hook. Using the custom hook more than once in a React application leads to an overwrite of the "value"-allocated item in the local storage because it uses the same key in the local storage. To fix this, pass in flexible key. Since the key comes from outside, the custom hook assumes that it could change, so it needs to be included in the dependency array of the `useEffect` hook as well. Without it, the side-effect may run with an outdated key (also called *stale*) if the key changed between renders:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -130,10 +130,10 @@ const App = () => {
 };
 ~~~~~~~
 
-You've just created your first custom hook. If you're not comfortable with custom hooks, you can revert the changes and use the `useState` and `useEffect` hook as before, in the App component. However, knowing more about custom hooks gives you lots of new options. A custom hook can encapsulate non-trivial implementation details that should be kept away from a component; can be used in more than one React component; can be a composition of other hooks; and can even be open-sourced as an external library. Using your favorite search engine, you'll notice there are hundreds of React hooks that could be used in your application without worry over implementation details.
+You've just created your first custom hook. If you're not comfortable with custom hooks, you can revert the changes and use the `useState` and `useEffect` hook as before in the App component. However, knowing more about custom hooks gives you lots of new options. A custom hook can encapsulate non-trivial implementation details that should be kept away from a component; it can be used in more than one React component; it can be a composition of other hooks; and can even be open-sourced as an external library. Using your favorite search engine, you'll notice there are hundreds of React hooks that could be used in your application without worry over implementation details.
 
 ### Exercises:
 
 * Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-Custom-Hooks).
   * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-Side-Effects...2021/React-Custom-Hooks).
-* Read more about [React Hooks](https://www.robinwieruch.de/react-hooks) to get a good understanding of them, because they are the bread and butter in React function components.
+* Read more about [React Hooks](https://www.robinwieruch.de/react-hooks) to get a good understanding of them because they are the bread and butter in React function components.
