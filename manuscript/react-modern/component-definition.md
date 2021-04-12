@@ -1,6 +1,6 @@
 ## React Component Definition (Advanced)
 
-The following refactorings are optional recommendations to explain the different JavaScript/React patterns. You can build complete React applications without these advanced patterns, so don't be discouraged if they seem too complicated.
+The following refactoring recommendations are optional to explain the different JavaScript/React patterns. You can build complete React applications without these advanced patterns, so don't be discouraged if they seem too complicated.
 
 JavaScript has multiple ways to declare functions. So far, we have used the function statement, though arrow functions can be used more concisely:
 
@@ -72,7 +72,7 @@ const List = () => {
 # leanpub-end-insert
 ~~~~~~~
 
-This holds also true for other functions, like the one we used in our JavaScript array's map method:
+This also holds true for other functions, like the one we used in our JavaScript array's map method:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -98,7 +98,7 @@ const List = () => {
 };
 ~~~~~~~
 
-If an arrow function doesn't do *anything* in between, but only returns *something*, -- in other words, if an arrow function doesn't have business logic in between, but only returns --, you can remove the **block body** (curly braces) of the function. In a **concise body**, an **implicit return statement** is attached, so you can remove the return statement:
+If an arrow function’s only purpose is to return a value and it doesn’t have any business logic in between, you can remove the **block body** (curly braces) of the function. In a **concise body**, an **implicit return statement** is attached, so you can remove the return statement:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
