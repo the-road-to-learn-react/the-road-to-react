@@ -1,6 +1,6 @@
 ## React Component Composition
 
-The concept of component composition is one of React's more powerful features. Essentially we'll discover how to use a React element in the same fashion as an HTML element, with an opening and closing tag:
+The concept of component composition is one of React's more powerful features. Essentially we'll discover how to use a React element in the same fashion as an HTML element with an opening and closing tag:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -82,7 +82,7 @@ const App = () => {
 };
 ~~~~~~~
 
-With this React feature, we can compose React components into each other. We've used it with a JavaScript string and with a string wrapped in an HTML `<strong>` element, but it doesn't end here. You can pass components via React children as well; which you should definitely explore more as an exercise.
+With this React feature, we can compose React components into each other. We've used it with a JavaScript string and with a string wrapped in an HTML `<strong>` element. But it doesn't end here. You can pass components via React children as well which you should definitely explore more as an exercise.
 
 ### Exercises:
 
