@@ -58,7 +58,7 @@ Now the input field uses the correct initial value when displaying it in the bro
 
 ![](images/controlled-component.png)
 
-We learned about controlled components in this section, and, taking all the previous sections as learning steps into consideration, discovered another concept called **unidirectional data flow**:
+We learned about controlled components in this section. Taking all the previous sections as learning steps into consideration, we discovered another concept called **unidirectional data flow**:
 
 {title="Visualization",lang="javascript"}
 ~~~~~~~
