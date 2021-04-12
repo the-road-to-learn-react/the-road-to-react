@@ -1,6 +1,6 @@
 ## Reusable React Component
 
-Have a closer look at the Search component. The label element has the text "Search: "; the id/htmlFor attributes have the `search` identifier; the value is called `search`; and the callback handler is called `onSearch`. The component is very much tied to the search feature, which makes it less reusable for the rest of the application and non search-related tasks which would need the same label and input field. In addition, it also risks introducing bugs if two of these Search components are rendered side by side, because the htmlFor/id combination is duplicated, breaking the focus when one of the labels is clicked by the user. Let's fix these underlying issues by making the Search component reusable.
+Have a closer look at the Search component. The label element has the text "Search: "; the id/htmlFor attributes have the `search` identifier; the value is called `search`; and the callback handler is called `onSearch`. The component is very much tied to the search feature which makes it less reusable for the rest of the application and non search-related tasks which would need the same label and input field. In addition, it also risks introducing bugs if two of these Search components are rendered side by side because the htmlFor/id combination is duplicated, breaking the focus when one of the labels is clicked by the user. Let's fix these underlying issues by making the Search component reusable.
 
 Since the Search component doesn't have any actual "search" functionality, it takes little effort to generalize the search domain specific properties to make the component reusable for the rest of the application. Let's pass a dynamic `id` and `label` prop to the Search component, rename the actual value and callback handler to something more generic, and rename the component accordingly:
 
@@ -79,7 +79,7 @@ const InputWithLabel = ({
 
 Because we don't pass a `type` prop from the App component to the InputWithLabel component, the [default parameter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters) from the function signature takes over for the type. Thus, every time the InputWithLabel component is used without a `type` prop, the default type will be `text`.
 
-In conclusion, with just a few changes we turned a specialized Search component into a more reusable component. We generalized the naming of the internal implementation details and gave the new component a larger API surface to provide all the necessary information from the outside. We aren't using the component elsewhere, but we increased its ability to handle the task if we do.
+In conclusion, with just a few changes we turned a specialized Search component into a more reusable component. We generalized the naming of the internal implementation details and gave the new component a larger API surface to provide all the necessary information from the outside. We aren't using the component elsewhere but we increased its ability to handle the task if we do.
 
 ### Exercises:
 
