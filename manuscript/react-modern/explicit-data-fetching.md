@@ -40,7 +40,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Second, the handler, input, and button handler receive implementation logic to update the component's state. The input field handler still updates the `searchTerm`; the button handler sets the `url` derived from the *current* `searchTerm` and the static API URL as a new state:
+Second, the handler (input and button handler) receives an implementation logic to update the component's state. The input field handler will still updates the `searchTerm`; the button handler sets the `url` derived from the *current* `searchTerm` and the static API URL as a new state:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
