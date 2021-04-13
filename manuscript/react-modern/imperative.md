@@ -11,7 +11,7 @@ React is inherently declarative, starting with JSX and ending with hooks. In JSX
 * integration of third-party libraries:
   * [D3](https://d3js.org/) is a popular imperative chart library
 
-Because imperative programming in React is often verbose and counterintuitive, we'll walk only through a small example for setting the focus of an input field imperatively. For the declarative way, simply set the input field's autofocus attribute:
+Because imperative programming in React is often verbose and counterintuitive, we'll walk through only a small example for setting the focus of an input field imperatively. For the declarative way, simply set the input field's autofocus attribute:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
