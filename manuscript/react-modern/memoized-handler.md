@@ -1,6 +1,6 @@
 ## Memoized Handler in React (Advanced)
 
-The previous sections have taught you about handlers, callback handlers, and inline handlers. Now we'll introduce a **memoized handler**, which can be applied on top of handlers and callback handlers. For the sake of learning, we will move all the data fetching logic into a standalone function outside the side-effect (A); wrap it into a `useCallback` hook (B); and then invoke it in the `useEffect` hook (C):
+The previous sections have taught you about handlers, callback handlers, and inline handlers. Now, we'll introduce a **memoized handler** which can be applied on top of handlers and callback handlers. For the sake of learning, we will move all the data fetching logic into a standalone function outside the side-effect (A); wrap it into a `useCallback` hook (B); and then invoke it in the `useEffect` hook (C):
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -49,7 +49,7 @@ The application behaves the same; only the implementation logic has been refacto
 3. run: side-effect
 ~~~~~~~
 
-If we didn't create a memoized function with React's `useCallback` Hook, a new `handleFetchStories` function would be created each time the App component re-renders. The `handleFetchStories` function would be created each time, and would be executed in the `useEffect` hook to fetch data. The fetched data is then stored as state in the component. Because the state of the component changed, the component re-renders and creates a new `handleFetchStories` function. The side-effect would be triggered to fetch data, and we'd be stuck in an endless loop:
+If we didn't create a memoized function with React's `useCallback` Hook, a new `handleFetchStories` function would be created each time the App component re-renders. The `handleFetchStories` function would be created each time, and would be executed in the `useEffect` hook to fetch data. The fetched data is then stored as state in the component. Because the state of the component changed, the component re-renders and creates a new `handleFetchStories` function. The side-effect would be triggered to fetch data and we'd be stuck in an endless loop:
 
 {title="Visualization",lang="javascript"}
 ~~~~~~~
@@ -62,9 +62,9 @@ If we didn't create a memoized function with React's `useCallback` Hook, a new `
 ...
 ~~~~~~~
 
-React's `useCallback` hook changes the function only when the search term changes. That's when we want to trigger a re-fetch of the data, because the input field has new input and we want to see the new data displayed in our list.
+React's `useCallback` hook changes the function only when the search term changes. That's when we want to trigger a re-fetch on the data because the input field has new input and we want to see the new data displayed in our list.
 
-By moving the data fetching function outside the `useEffect` hook, it becomes reusable for other parts of the application. We won't use it just yet, but it is a way to understand the `useCallback` hook. Now the `useEffect` hook runs implicitly when the `searchTerm` changes, because the `handleFetchStories` is re-defined each time the `searchTerm` changes. Since the `useEffect` hook depends on the `handleFetchStories`, the side-effect for data fetching runs again.
+By moving the data fetching function outside the `useEffect` hook, it becomes reusable for other parts of the application. We won't use it just yet but it is a way to understand the `useCallback` hook. Now the `useEffect` hook runs implicitly when the `searchTerm` changes, because the `handleFetchStories` is re-defined each time the `searchTerm` changes. Since the `useEffect` hook depends on the `handleFetchStories`, the side-effect for data fetching runs again.
 
 ### Exercises:
 
