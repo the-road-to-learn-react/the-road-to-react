@@ -1,6 +1,6 @@
 ## Inline Handler in JSX
 
-The list of stories we have in our App component is only an unstateful variable. We can filter the rendered list with the search feature, but the list itself stays intact if we apply or remove the filter. The filtered list is just a derived state through a third party (here `searchTerm`), but we can't manipulate the real list yet. To gain control over the list, make it stateful by using it as initial state in React's useState Hook. The returned values from the array are the current state (`stories`) and the state updater function (`setStories`):
+The list of stories we have in our App component is only an unstateful variable. We can filter the rendered list with the search feature, but the list itself stays intact even if we apply or remove the filter. The filtered list is just a derived state through a third party (here `searchTerm`), but we can't manipulate the real list yet. To gain control over the list, make it stateful by using it as initial state in React's useState Hook. The returned values from the array are the current state (`stories`) and the state updater function (`setStories`):
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -30,7 +30,7 @@ const App = () => {
 };
 ~~~~~~~
 
-The application behaves the same because the `stories`, now returned as stateful list from React's `useState` Hook, is still filtered into `searchedStories` and displayed in the List component. Just the origin where the stories are coming from changed. Next we'll manipulate the list by removing an item from it:
+The application behaves the same because the `stories`, now returned as stateful list from React's `useState` Hook, is still filtered into `searchedStories` and displayed in the List component. It's just the origin where the stories are coming from have changed. Next, we'll manipulate the list by removing an item from it:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -69,7 +69,7 @@ const App = () => {
 
 The callback handler in the App component -- which will be used in the List/Item components eventually -- receives the item as an argument which should be removed from the list. Based on this information, the function filters the current stories by removing all items that don't meet its condition. The returned stories -- where the desired item (story) has been removed -- are then set as new state and passed to the List component. Since a new state is set, the App component and all components below (e.g. List/Item components) will render again and thus display the new state of stories.
 
-However, what's missing is how the List and Item components are using this new functionality which modifies the state in the App component. The List component itself does not use this new callback handler, but passes it on to the Item component:
+However, what's missing is how the List and Item components are using this new functionality which modifies the state in the App component. The List component itself does not use this new callback handler, but only passes it on to the Item component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -90,7 +90,7 @@ const List = ({ list, onRemoveItem }) => (
 );
 ~~~~~~~
 
-Finally the Item component uses the incoming callback handler as a function in a a new handler. In this handler, we will pass the specific item to it. Moreover, an additional button element is needed to trigger the actual event:
+Finally the Item component uses the incoming callback handler as a function in a new handler. In this handler, we will pass the specific item to it. Moreover, an additional button element is needed to trigger the actual event:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
