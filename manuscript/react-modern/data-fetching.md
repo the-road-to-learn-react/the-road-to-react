@@ -1,6 +1,6 @@
 ## Data Fetching with React
 
-We are currently fetching data, but it's still pseudo data coming from a promise we set up ourselves. The lessons up to now about asynchronous React and advanced state management were preparing us to fetch data from a real remote third-party API. We will use the reliable and informative [Hacker News API](https://hn.algolia.com/api) to request popular tech stories.
+We are currently fetching data but it's still pseudo data coming from a promise we set up ourselves. The lessons up to now about asynchronous React and advanced state management were preparing us to fetch data from a real remote third-party API. We will use the reliable and informative [Hacker News API](https://hn.algolia.com/api) to request popular tech stories.
 
 Instead of using the `initialStories` array and `getAsyncStories` function (you can remove these), we will fetch the data directly from the API:
 
@@ -57,7 +57,7 @@ console.log(anotherWelcome);
 // Hello React
 ~~~~~~~
 
-Check your browser to see stories related to the initial query fetched from the Hacker News API. Since we used the same data structure for a story for the sample stories, we didn't need to change anything, and it's still possible to filter the stories after fetching them with the search feature. We will change this behavior in one of the next sections though.
+Check your browser to see stories related to the initial query fetched from the Hacker News API. Since we used the same data structure for a story for the sample stories, we didn't need to change anything and it's still possible to filter the stories after fetching them with the search feature. We will change this behavior in one of the next sections though.
 
 ### Exercises:
 
