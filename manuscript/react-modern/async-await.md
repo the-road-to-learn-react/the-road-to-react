@@ -1,6 +1,6 @@
 ## Async/Await in React (Advanced)
 
-You'll work with asynchronous data often in React, so it's good to know an alternative syntax for handling promises: async/await. The following refactoring of the `handleFetchStories` function (without error handling) shows how:
+You'll work with asynchronous data often in React. So it's good to know an alternative syntax for handling promises: async/await. The following refactoring of the `handleFetchStories` function (without error handling) shows you how:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -28,7 +28,7 @@ const App = () => {
 };
 ~~~~~~~
 
-To use async/await, our function requires the `async` keyword. Once you start using the `await` keyword on returned promises, everything reads like synchronous code. Actions after the `await` keyword are not executed until the promise resolves, meaning the code will wait. To include error handling as before, the `try` and `catch` blocks are there to help. If something goes wrong in the `try` block, the code will jump into the `catch` block to handle the error. `then`/`catch` blocks and async/await with `try`/`catch` blocks are both valid for handling asynchronous data in JavaScript and React.
+To use async/await, our function requires the `async` keyword. Once you start using the `await` keyword on returned promises, everything reads like synchronous code. Actions after the `await` keyword are not executed until the promise resolves which means that the code will wait. To include error handling as before, the `try` and `catch` blocks are there to help. If something goes wrong in the `try` block, the code will jump into the `catch` block to handle the error. `then`/`catch` blocks and async/await with `try`/`catch` blocks are both valid for handling asynchronous data in JavaScript and React.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -58,7 +58,7 @@ const App = () => {
 };
 ~~~~~~~
 
-After all, using async/await with try/catch over then/catch make it often more readable, because we avoid using callback functions and instead try to make our code more readable in a synchronous way.
+After all, using async/await with try/catch over then/catch make it often more readable because we avoid using callback functions and instead try to make our code more readable in a synchronous way.
 
 ### Exercises:
 
