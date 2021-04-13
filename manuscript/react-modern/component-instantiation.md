@@ -66,11 +66,11 @@ function App() {
 function List() { ... }
 ~~~~~~~
 
-Once we've defined a **component**, we can use it like an HTML **element** anywhere in our JSX. The element produces a **component instance** of your component, or in other words, the component gets instantiated. You can create as many component instances as you want. It's not much different from a JavaScript class definition and usage. However, technically a JavaScript class and React component are not the same, just their usage makes it convenient to demonstrate their similarities.
+Once we've defined a **component**, we can use it as an HTML **element** anywhere in our JSX. The element produces a **component instance** of your component, or in other words, the component gets instantiated. You can create as many component instances as you want. It's not much different from a JavaScript class definition and usage. However, technically a JavaScript class and React component are not the same, just their usage makes it convenient to demonstrate their similarities.
 
 ### Exercises:
 
 * Familiarize yourself with the terms *component definition*, *component instance*, and *element*.
 * Experiment by creating multiple component instances of a List component.
-* From the previous section: Ask yourself again what problems could arise if we keep treating the `list` variable as global variable.
+* From the previous section: Ask yourself again what problems could arise if we keep treating the `list` variable as a global variable.
   * Think about how it could be possible to give each List component its own `list` variable.

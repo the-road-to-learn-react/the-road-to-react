@@ -71,7 +71,7 @@ const useSemiPersistentState = (initialState) => {
 };
 ~~~~~~~
 
-We are following two conventions of React's built-in hooks here. First, the naming convention which puts the "use" prefix in front of every hook name; second, the returned values are returned as an array. Another goal of a custom hook should be reusability. All of this custom hook's internals are about a value of a certain search domain, but the hook should be for a generic value. Let's refactor the naming therefore:
+We are following two conventions of React's built-in hooks here. First, the naming convention that puts the "use" prefix in front of every hook name; second, the returned values are returned as an array. Another goal of a custom hook should be reusability. All of this custom hook's internals are about a value of a certain search domain, but the hook should be for a generic value. Let's refactor the naming therefore:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -94,7 +94,7 @@ const useSemiPersistentState = (initialState) => {
 };
 ~~~~~~~
 
-We handle an abstracted "value" within the custom hook. Using it in the App component, we can name the returned current state and state updater function anything domain-related (e.g. `searchTerm` and `setSearchTerm`) with array destructuring. There is still one problem with this custom hook. Using the custom hook more than once in a React application leads to an overwrite of the "value"-allocated item in the local storage, because it uses the same key in the local storage. To fix this, pass in flexible key. Since the key comes from outside, the custom hook assumes that it could change, so it needs to be included in the dependency array of the `useEffect` hook as well. Without it, the side-effect may run with an outdated key (also called *stale*) if the key changed between renders:
+We handle an abstracted "value" within the custom hook. Using it in the App component, we can name the returned current state and state updater function anything domain-related (e.g. `searchTerm` and `setSearchTerm`) with array destructuring. There is still one problem with this custom hook. Using the custom hook more than once in a React application leads to an overwrite of the "value"-allocated item in the local storage, because it uses the same key in the local storage. To fix this, pass in an flexible key. Since the key comes from outside, the custom hook assumes that it could change, so it needs to be included in the dependency array of the `useEffect` hook as well. Without it, the side-effect may run with an outdated key (also called *stale*) if the key changed between renders:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

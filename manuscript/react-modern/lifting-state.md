@@ -1,6 +1,6 @@
 ## Lifting State in React
 
-In this section, we are confronted with the following task: Use the `searchTerm` from the Search component to filter the `stories` by title in the App component before they reach the List component. In the last section, we established a callback handler to pass information from the Search component up to the App component. However, if you check the code, it's seems somehow difficult to access the value coming from the callback handler's event in the App component in order to filter the list. The incoming value is only accessible in the callback handler's function. We need to figure out how to share the Search component's state across multiple components (App, List) who are interested in it. Therefore, we'll need to **lift state up** from Search to App component to share the state with more components:
+In this section, we are confronted with the following task: Use the `searchTerm` from the Search component to filter the `stories` by title in the App component before they reach the List component. In the last section, we established a callback handler to pass information from the Search component up to the App component. However, if you check the code, it seems somehow difficult to access the value coming from the callback handler's event in the App component in order to filter the list. The incoming value is only accessible in the callback handler's function. We need to figure out how to share the Search component's state across multiple components (App, List) who are interested in it. Therefore, we'll need to **lift state up** from Search to App component to share the state with more components:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -40,7 +40,7 @@ const Search = (props) => (
 );
 ~~~~~~~
 
-We learned about the callback handler previously, because it helps us to keep an open communication channel from Search to App component. Now the Search component doesn't manage the state anymore, but only passes up the event to the App component via a callback handler after text is entered into the HTML input field. You could also display the `searchTerm` again in the App component (from state, when using `searchTerm` directly) or Search component (from props, when passing the `searchTerm` state down as props).
+We learned about the callback handler previously, because it helps us to keep an open communication channel from Search to App component. Now the Search component doesn't manage the state anymore, but only passes up the event to the App component via a callback handler after the text is entered into the HTML input field. You could also display the `searchTerm` again in the App component (from state, when using `searchTerm` directly) or Search component (from props, when passing the `searchTerm` state down as props).
 
 Rule of thumb: Always manage state at a component level where every component that's interested in it is one that either manages the state (using information directly from state, e.g. App component) or a component below the managing component (using information from props, e.g. List or Search). If a component below needs to update the state (e.g. Search), pass a callback handler down to it which allows it to update it. If a component needs to use the state (e.g. displaying it), pass it down as props.
 

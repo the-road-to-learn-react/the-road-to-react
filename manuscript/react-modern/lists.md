@@ -34,7 +34,7 @@ function App() { ... }
 export default App;
 ~~~~~~~
 
-*Note: I used a `...` here as a placeholder, to keep my code snippet small (without the App component's implementation details) and focused on the essential parts (the `list` variable outside of the App component). I will use the `...` throughout the rest of this learning experience as placeholder for code blocks that I have established in previous sections. If you get lost, you can always verify your code using the CodeSandbox links I provide at the end of most sections.*
+*Note: I used a `...` here as a placeholder, to keep my code snippet small (without the App component's implementation details) and focused on the essential parts (the `list` variable outside of the App component). I will use the `...` throughout the rest of this learning experience as a placeholder for code blocks that I have established in previous sections. If you get lost, you can always verify your code using the CodeSandbox links I provide at the end of most sections.*
 
 Each item in the list has a title, a url, an author, an identifier (`objectID`), points -- which indicate the popularity of an item -- and a count of comments (`num_comments`). Next, we'll render the list within our JSX dynamically:
 
@@ -183,7 +183,7 @@ The map function is inlined concisely in your JSX. Within the map function, we h
   * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-JSX...2021/Lists-in-React).
 * Read more about why React's key attribute is needed ([0](https://dev.to/jtonzing/the-significance-of-react-keys---a-visual-explanation--56l7), [1](https://www.robinwieruch.de/react-list-key), [2](https://reactjs.org/docs/lists-and-keys.html)). Don't worry if you don't understand the implementation yet, just focus on what problem it causes for dynamic lists.
 * Recap the [standard built-in array methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/) -- especially *map*, *filter*, and *reduce* -- which are available in native JavaScript.
-* What happens if your return `null` instead of the JSX? Try it first, then read the answer:
+* What happens if you return `null` instead of the JSX? Try it first, then read the answer:
   * Returning `null` in JSX is allowed. It's always used if you want to render nothing.
 * Extend the list with some more items to make the example more realistic.
 * Practice using different JavaScript expressions in JSX.

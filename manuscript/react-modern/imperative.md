@@ -32,7 +32,7 @@ const InputWithLabel = ({ ... }) => (
 );
 ~~~~~~~
 
-This works, but only if one of the reusable components is rendered once. For example, if the App component renders two InputWithLabel components, only the last rendered component receives the autofocus on its render. However, since we have a reusable React component here, we can pass a dedicated prop and let the developer decide whether its input field should have an autofocus or not:
+This works, but only if one of the reusable components is rendered once. For example, if the App component renders two InputWithLabel components, only the last rendered component receives the autofocus on its render. However, since we have a reusable React component here, we can pass a dedicated prop and let the developer decide whether its input field should have autofocus or not:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -140,7 +140,7 @@ const InputWithLabel = ({
 
 All the essential steps are marked with comments that are explained step by step:
 
-* (A) First, create a `ref` with **React's useRef Hook**. This `ref` object is a persistent value which stays intact over the lifetime of a React component. It comes with a property called `current`, which, in contrast to the `ref` object, can be changed.
+* (A) First, create a `ref` with **React's useRef Hook**. This `ref` object is a persistent value that stays intact over the lifetime of a React component. It comes with a property called `current`, which, in contrast to the `ref` object, can be changed.
 * (B) Second, the `ref` is passed to the input field's JSX-reserved `ref` attribute and the element instance is assigned to the changeable `current` property.
 * (C) Third, opt into React's lifecycle with React's useEffect Hook, performing the focus on the input field when the component renders (or its dependencies change).
 * (D) And fourth, since the `ref` is passed to the input field's `ref` attribute, its `current` property gives access to the element. Execute its focus programmatically as a side-effect, but only if `isFocused` is set and the `current` property is existent.

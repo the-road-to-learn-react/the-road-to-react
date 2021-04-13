@@ -1,6 +1,6 @@
 ## Meet another React Component
 
-Components are the foundation of every React application. So far we've only been using the App component. This will not end up well, because components should scale with your application's size. So instead of making one component larger and more complex, we we'll split one component into multiple components eventually. We'll start with a new List component which extracts functionalities from the App component:
+Components are the foundation of every React application. So far we've only been using the App component. This will not end up well, because components should scale with your application's size. So instead of making one component larger and more complex, we'll split one component into multiple components eventually. We'll start with a new List component that extracts functionalities from the App component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -52,7 +52,7 @@ function App() {
 }
 ~~~~~~~
 
-You've just created your first React component! With this example in mind, we can see how components -- that encapsulate meaningful tasks -- can contribute to the greater good of a larger React application. Extracting a component is a task that you will perform very often as a React developer, because it's always the case that a component will grow in size and complexity. Let's do this extraction of a component one more time for a so called Search component:
+You've just created your first React component! With this example in mind, we can see how components -- that encapsulate meaningful tasks -- can contribute to the greater good of a larger React application. Extracting a component is a task that you will perform very often as a React developer, because it's always the case that a component will grow in size and complexity. Let's do this extraction of a component one more time for a so-called Search component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -84,7 +84,7 @@ function Search() {
 # leanpub-end-insert
 ~~~~~~~
 
-Finally we have three components in our application: App, List and Search. Generally speaking, a React application consists of many hierarchical components; which we can put into the following categories:
+Finally, we have three components in our application: App, List, and Search. Generally speaking, a React application consists of many hierarchical components; which we can put into the following categories:
 
 ![](images/component-tree.png)
 

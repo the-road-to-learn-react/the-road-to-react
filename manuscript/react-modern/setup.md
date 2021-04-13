@@ -49,7 +49,7 @@ In the beginning, everything you need is located in the *src/* folder. The main 
 
 Additionally, you will find a *src/App.test.js* file for your tests, and a *src/index.js* as an entry point to the React world. You will get to know both files intimately in later sections. There is also a *src/index.css* and a *src/App.css* file to style your overall application and components, which comes with the default style when you open them. You will modify them later as well.
 
-After you have learned about the folder and file structure of your React project, let's go through the available commands to get it started. All your project specific commands can be found in your *package.json* under the `scripts` property. They may look similar to these:
+After you have learned about the folder and file structure of your React project, let's go through the available commands to get it started. All your project-specific commands can be found in your *package.json* under the `scripts` property. They may look similar to these:
 
 {title="package.json",lang="javascript"}
 ~~~~~~~
@@ -66,7 +66,7 @@ After you have learned about the folder and file structure of your React project
 }
 ~~~~~~~
 
-These scripts are executed with the `npm run <script>` command in an IDE-integrated terminal or your standalone command line tool. The `run` can be omitted for the `start` and `test` scripts. The commands are as follows:
+These scripts are executed with the `npm run <script>` command in an IDE-integrated terminal or your standalone command-line tool. The `run` can be omitted for the `start` and `test` scripts. The commands are as follows:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
@@ -80,7 +80,7 @@ npm test
 npm run build
 ~~~~~~~
 
-Another command from the previous npm scripts called `eject` shouldn't be used for this learning experience. It's a one way operation, because once you eject, you can't go back. Essentially this command is only there to make all the tooling and configuration from create-react-app accessible if you are not satisfied with the choices or if you want to change something. Here we will keep all the defaults though.
+Another command from the previous npm scripts called `eject` shouldn't be used for this learning experience. It's a one-way operation, because once you eject, you can't go back. Essentially this command is only there to make all the tooling and configuration from create-react-app accessible if you are not satisfied with the choices or if you want to change something. Here we will keep all the defaults though.
 
 ### Exercises:
 
