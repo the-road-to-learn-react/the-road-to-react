@@ -91,7 +91,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Next, give the user feedback in case something went wrong with another conditional rendering. This time, it's either rendering something or nothing. So instead of having a ternary operator where one side returns `null`, use the logical `&&` operator as shorthand:
+Next, give the user feedback in case something goes wrong with another conditional rendering. This time, it's either rendering something or nothing. So instead of having a ternary operator where one side returns `null`, use the logical `&&` operator as shorthand:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
