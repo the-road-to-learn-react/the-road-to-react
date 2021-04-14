@@ -62,7 +62,7 @@ const InputWithLabel = ({
 );
 ~~~~~~~
 
-If no side-effects and no state were used in legacy apps, we'd use a function component instead of a class component. Before 2018 -- before React Hooks were introduced -- React's function components couldn't handle side-effects (`useEffect` hooks) or state (`useState`/`useReducer` hooks). As a result, these components were known as **functional stateless components**, there only to input props and output JSX. To use state or side-effects, it was necessary to refactor from a function component to a class component. When neither state nor side-effects were used, we used class components or more commonly the more lightweight function component.
+If no side-effects and no state were used in legacy apps, we'd use a function component instead of a class component. Before 2018 -- before React Hooks were introduced -- React's function components couldn't handle side-effects (`useEffect` hooks) or state (`useState`/`useReducer` hooks). As a result, these components were known as **functional stateless components**, there only to input props and output JSX. To use state or side-effects, it was necessary to refactor from a function component to a class component. When neither state nor side-effects were used, we used class components or the more commonly lightweight function component.
 
 With the addition of React Hooks, function components were granted the same features as class components, with state and side-effects. And since there was no longer any practical difference between them, the community chose function components over class components since they are more lightweight.
 
@@ -70,6 +70,6 @@ With the addition of React Hooks, function components were granted the same feat
 
 * Read more about [JavaScript Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes).
 * Read more about [how to refactor from a class component to a function component](https://www.robinwieruch.de/react-hooks-migration).
-* Learn more about a different [class component syntax](https://github.com/the-road-to-learn-react/react-alternative-class-component-syntax) which wasn't popular but more effective.
+* Learn more about the different [class component syntax](https://github.com/the-road-to-learn-react/react-alternative-class-component-syntax) which isn't popular but more effective.
 * Read more about [class components in depth](https://reactjs.org/docs/react-component.html).
 * Read more about [other legacy and modern component types in React](https://www.robinwieruch.de/react-component-types).
