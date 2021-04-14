@@ -58,7 +58,7 @@ const App = () => {
 };
 ~~~~~~~
 
-After all, using async/await with try/catch over then/catch make it often more readable, because we avoid using callback functions and instead try to make our code more readable in a synchronous way.
+After all, using async/await with try/catch over then/catch makes it often more readable, because we avoid using callback functions and instead try to make our code more readable in a synchronous way.
 
 ### Exercises:
 

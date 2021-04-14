@@ -37,7 +37,7 @@ const App = () => {
 };
 ~~~~~~~
 
-The new dispatch function can be used instead of the `setStories` function, which was previously returned from `useState`. Instead of setting state explicitly with the state updater function from `useState`, the `useReducer` state updater function dispatches an action for the reducer. The action comes with a `type` and an optional payload:
+The new dispatch function can be used instead of the `setStories` function, which was previously returned from `useState`. Instead of setting the state explicitly with the state updater function from `useState`, the `useReducer` state updater function dispatches an action for the reducer. The action comes with a `type` and an optional payload:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
