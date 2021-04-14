@@ -73,7 +73,7 @@ The above was only about preventing the invocation of one simple function for a 
 
 ### Don't re-render if not needed
 
-Earlier, we explored React's re-rendering mechanism. We'll repeat this exercise for the App and List components. For both components, add a logging statement:
+Earlier, we have explored React's re-rendering mechanism. We'll repeat this exercise for the App and List components. For both components, add a logging statement:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -103,7 +103,7 @@ const List = ({ list, onRemoveItem }) =>
   );
 ~~~~~~~
 
-Because the List component has no function body, and developers are lazy folks who don't want to refactor the component for a simple logging statement, the List component uses the `||` operator instead. This is a neat trick for adding a logging statement to a function component without a function body. Since the `console.log()` on the left hand side of the operator always evaluates to false, the right hand side of the operator gets always executed.
+Because the List component has no function body, and developers are lazy folks who don't want to refactor the component for a simple logging statement, the List component uses the `||` operator instead. This is a neat trick for adding a logging statement to a function component without a function body. Since the `console.log()` on the left-hand side of the operator always evaluates to false, the right-hand side of the operator gets always executed.
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -157,9 +157,9 @@ B:App
 B:List
 ~~~~~~~
 
-What's striking is that the List component shouldn't re-render, but it does. The search feature isn't executed via its button, so the `list` passed to the List component remains the same for every keystroke. This is React's default behavior, re-rendering everything below a component with a state change, which surprises many people. In other words, if a parent component re-renders, its child components re-render as well. React does this by default, because preventing a re-render of child components could lead to bugs, and the re-rendering mechanism of React is often by default fast enough.
+What's striking is that the List component shouldn't re-render, but it does. The search feature isn't executed via its button, so the `list` passed to the List component remains the same for every keystroke. This is React's default behavior, re-rendering everything below a component with a state change, which surprises many people. In other words, if a parent component re-renders, its child components will re-render as well. React does this by default, because preventing the re-render of child components could lead to bugs, and the re-rendering mechanism of React is often fast enough by default.
 
-Sometimes we want to prevent re-rendering, however. For example, huge data sets displayed in a table shouldn't re-render if they are not affected by an update. It's more efficient to perform an equality check if something changed for the component. Therefore, we can use React's memo API to make this equality check for the props:
+However, sometimes we want to prevent re-rendering. For example, huge data sets displayed in a table shouldn't re-render if they are not affected by an update. It's more efficient to perform an equality check if something changed for the component. Therefore, we can use React's memo API to make this equality check for the props:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -221,7 +221,7 @@ Since the callback handler gets the `item` passed as an argument in its function
 
 ![](images/memo.png)
 
-While all props passed to a component stay the same, the component renders again if its parent component is forced to re-render. That's React's default behavior, which works most of the time because the re-rendering mechanism is pretty fast. However, if re-rendering decreases the performance of a React application, React's `memo` API helps prevent re-rendering. As we have seen, sometimes `memo` alone doesn't help, though. Callback handlers are re-defined each time in the parent component and passed as *changed* props to the component, which causes another re-render. In that case, `useCallback` is used for making the callback handler only change when its dependencies change.
+While all props passed to a component stay the same, the component renders again if its parent component is forced to re-render. That's React's default behavior, which works most of the time because the re-rendering mechanism is pretty fast. However, if re-rendering decreases the performance of a React application, React's `memo` API helps prevent re-rendering. As we have seen, sometimes `memo` alone doesn't help. Callback handlers are re-defined each time in the parent component and passed as *changed* props to the component, which causes another re-render. In that case, `useCallback` is used for making the callback handler only when its dependencies change.
 
 ### Exercises:
 
