@@ -115,5 +115,5 @@ Before the `searchTerm` was used for two cases: updating the input field's state
 
 * Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Explicit-Data-Fetching-with-React).
   * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Memoized-Handler-in-React...2021/Explicit-Data-Fetching-with-React).
-* Why is `useState` instead of `useSemiPersistentState` used for the `url` state management?
+* Why is `useState` used instead of `useSemiPersistentState` for the `url` state management?
 * Why is there no check for an empty `searchTerm` in the `handleFetchStories` function anymore?
