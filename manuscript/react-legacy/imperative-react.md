@@ -49,9 +49,10 @@ class InputWithLabel extends React.Component {
 }
 ~~~~~~~
 
-With the helper function, the ref is created in the class' constructor, applied in the JSX for the `ref` attributed, and here used in a class component's lifecycle method (equivalent to a function component's useEffect Hook). The ref can also be used elsewhere, like focusing the input field on a button click.
 
-Where createRef is used in React's class components, React's useRef Hook is used in React function components. As React shifts towards function components, today it's common practice to use the useRef hook exclusively to manage refs and apply imperative programming principles.
+With the helper function, the ref is created in the class constructor in JSX. It is applied for the `ref` attribute and it is used in a class component's life cycle method which is equivalent to a function component's useEffect Hook. The ref can also be used elsewhere like focusing the input field with a button click.
+
+While createRef is used in React's class components, React's useRef Hook is used in React's function components. As React shifts towards function components today, it's a common practice to use the useRef hook exclusively to manage refs and apply imperative programming principles.
 
 ### Exercises:
 
