@@ -2,7 +2,7 @@
 
 To create a modern React application, we'll likely need to use SVGs. Instead of giving every button element text, for example, we might want to make it lightweight with an icon. In this section, we'll use a scalable vector graphic (SVG) as an icon in one of our React components.
 
-This section builds on the "CSS in React" we covered earlier, to give the SVG icon a good look and feel right away. It's acceptable to use a different styling approach, or no styling at all, though the SVG might look off without it.
+This section builds on the "CSS in React" we covered earlier to give the SVG icon a good look and feel right away. It's acceptable to use a different styling approach or no styling at all. However, the SVG might look off without it.
 
 This icon as SVG is taken from [Flaticon's Freepick](https://www.flaticon.com/authors/freepik). Many of the SVGs on this website are free to use, though they require you to mention the author. You can download the icon from [here](https://www.flaticon.com/free-icon/check_109748) as SVG and put it in your project as *src/check.svg*. Downloading the file is the recommended way, however, for the sake of completion, this is the verbose SVG definition:
 
@@ -23,7 +23,7 @@ This icon as SVG is taken from [Flaticon's Freepick](https://www.flaticon.com/au
 </svg>
 ~~~~~~~
 
-Because we're using create-react-app again , we can import SVGs (similar to CSS) as React components right away. In *src/App.js*, use the following syntax for importing the SVG:
+Because we're using create-react-app again, we can import SVGs (similar to CSS) as React components right away. In *src/App.js*, use the following syntax for importing the SVG:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -73,7 +73,7 @@ Regardless of the styling approach you are using, you can give your SVG icon in 
 }
 ~~~~~~~
 
-The create-react-app project makes using SVGs straightforward, with no extra configuration needed. This is different if you create a React project from scratch with build tools like Webpack, because you have to take care of it yourself. Anyway, SVGs make your application more approachable, so use them whenever it suits you.
+The create-react-app project makes using SVGs straightforward with no extra configuration needed. This is different if you create a React project from scratch with build tools like Webpack, because you have to take care of it yourself. Anyway, SVGs make your application more approachable so use them whenever it suits you.
 
 ### Exercises:
 
