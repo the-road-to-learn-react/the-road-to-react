@@ -150,7 +150,7 @@ Ran all test suites related to changed files.
 Watch Usage: Press w to show more.
 ~~~~~~~
 
-Familiarize yourself with this test output, because it shows all failed tests, as well as information on why they failed. Using this information, you can fix certain parts of your code until all tests run green. Next, we'll cover *test assertions*, two of which we've already used with Jest's `expect` function. An assertion works by expecting value on the left side (`expect`) to match a value on the right side (`toBe`). The assertive function `toBe` is one of many available with Jest:
+Familiarize yourself with this test output, because it shows all failed tests, as well as information on why they failed. Using this information, you can fix certain parts of your code until all tests run green. Next, we'll cover *test assertions*, two of which we've already used with Jest's `expect` function. An assertion works by expecting value on the left side (`expect`) to match a value on the right side (`toBe`). `toBe` is only one of many available assertive functions provided by Jest.
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -175,7 +175,7 @@ Once you start testing, it's a good practice to keep two command line interfaces
 
 ### Unit Testing: Functions
 
-A unit test is generally used to test components or functions in isolation. For functions, unit tests are for input and output; for components, we test props or the callback handlers communicating to the outside. Before we can unit test our *src/App.js* file, we must export components and functions like the reducer from our *src/App.js* file with a named export:
+A unit test is generally used to test components or functions in isolation. For functions, unit tests are for input and output; for components, we test props or the callback handlers communicating to the outside. Before we can perform a unit test on our *src/App.js* file, we must export components and functions like the reducer from our *src/App.js* file with a named export:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -188,7 +188,7 @@ export { storiesReducer, SearchForm, InputWithLabel, List, Item };
 # leanpub-end-insert
 ~~~~~~~
 
-The exercises at the end of this chapter will cover all the remaining tests you should consider performing. For now, we can import all the components and reducers in our *src/App.test.js* file and will focus on the reducer test first. We are also importing React here, because we have to include it whenever we test React components:
+The exercises at the end of this chapter will cover all the remaining tests you should consider performing. For now, we can import all the components and reducers in our *src/App.test.js* file and we will focus on the reducer test first. We are also importing React here, because we have to include it whenever we test React components:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -288,7 +288,7 @@ describe('storiesReducer', () => {
 });
 ~~~~~~~
 
-This test still fails because we are using `toBe` instead of `toStrictEqual`. The `toBe` assertive function makes a strict comparison like `newState === expectedState`. The object reference is not the same, however; it's just the content of the object. We use `toStrictEqual` instead of `toBe` to limit our comparison to the object's content:
+This test still fails because we are using `toBe` instead of `toStrictEqual`. The `toBe` assertive function makes a strict comparison like `newState === expectedState`. The object reference is not the same, however, it's just the content of the object. We use `toStrictEqual` instead of `toBe` to limit our comparison to the object's content:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -451,7 +451,7 @@ describe('Item', () => {
 });
 ~~~~~~~
 
-The `getByRole` function is usually used to retrieve elements by [aria-label attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute). However, there are also [implicit roles on HTML elements](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) -- like button for a button element. Thus you can select elements not only by visible text, but also by their (implicit) accessibility role with React Testing Library. A neat feature of `getRoleBy` is that [it suggests roles if you provide a role that's not available](https://twitter.com/rwieruch/status/1260912349978013696). Both, `getByText` and `getByRole` are RTL's most widely used search functions.
+The `getByRole` function is usually used to retrieve elements by [aria-label attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute). However, there are also [implicit roles on HTML elements](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) -- like button for a button element. Thus you can select elements not only by visible text, but also by their (implicit) accessibility role with React Testing Library. A neat feature of `getRoleBy` is that [it suggests roles if you provide a role that's not available](https://twitter.com/rwieruch/status/1260912349978013696). Both `getByText` and `getByRole` are RTL's most widely used search functions.
 
 We can continue here by asserting not only that everything is *in the document*, but also by asserting whether our events work as expected. For example, the Item component's button element can be clicked and we want to verify that the callback handler gets called. Therefore, we are using Jest for creating a mocked function which we provide as a callback handler to the Item component. Then, after firing a click event with React Testing Library on the button, we want to assert that the callback handler function has been called:
 
@@ -480,7 +480,7 @@ describe('Item', () => {
 });
 ~~~~~~~
 
-Jest lets us pass a test-specific function to the Item component as prop. These test specific functions are called **spy**, **stub**, or **mock**; each is used for different test scenarios. The `jest.fn()` returns us a *mock* for the actual function, which lets us capture when it's called. As a result, we can use Jest assertions like `toHaveBeenCalledTimes`, which lets us assert a number of times the function has been called; and `toHaveBeenCalledWith`, to verify arguments that are passed to it.
+Jest lets us pass a test-specific function to the Item component as a prop. These test specific functions are called **spy**, **stub**, or **mock**; each is used for different test scenarios. The `jest.fn()` returns us a *mock* for the actual function, which lets us capture when it's called. As a result, we can use Jest assertions like `toHaveBeenCalledTimes`, which lets us assert a number of times the function has been called; and `toHaveBeenCalledWith`, to verify arguments that are passed to it.
 
 Every time we want to spy a JavaScript function, whether it has been called or whether it received certain arguments, we can use Jest's helper function to create a mocked function. Then, after invoking this function implicitly with RTL's `fireEvent` object's function, we can assert that the provided callback handler -- which is the mocked function -- has been called one time.
 
@@ -700,7 +700,7 @@ describe('App', () => {
 });
 ~~~~~~~
 
-Because we're testing for a returned element that is absent, this time we use RTL's `queryByText` instead of the `getByText` function. Using `getByText` in this instance would produce an error, because the element can't be found; but with `queryByText` the value just returns `null`.
+Because we're testing for a returned element that is absent, this time we use RTL's `queryByText` instead of the `getByText` function. Using `getByText` in this instance would produce an error because the element can't be found; but with `queryByText` the value just returns `null`.
 
 Again, we're using a regular expression `/Loading/` instead of a string `'Loading'`. To use a string, we'd have to explicitly use `'Loading ...'` instead of `'Loading'`. With a regular expression, we don't need to provide the whole string, we just need to match a part of it.
 
@@ -1037,7 +1037,7 @@ After the next test, the command line should look similar to the following:
     </label>
 ~~~~~~~
 
-This is a typical case for a breaking snapshot test. When a component's HTML structure is changed unintentionally, the snapshot test informs us in the command line. To fix it, we'd go into the *src/App.js* file and edit the SearchForm component . For intentional changes, press "u" on the command line for interactive tests and a new snapshot will be created. Try it and see how the snapshot file in your *src/_snapshots_* folder changes.
+This is a typical case for a breaking snapshot test. When a component's HTML structure is changed unintentionally, the snapshot test informs us in the command line. To fix it, we'd go into the *src/App.js* file and edit the SearchForm component. For intentional changes, press "u" on the command line for interactive tests and a new snapshot will be created. Try it and see how the snapshot file in your *src/_snapshots_* folder changes.
 
 Jest stores snapshots in a folder so it can validate the difference against future snapshot tests. Users can share these snapshots across teams using version control platforms like git.  This is how we make sure the DOM stays the same.
 
