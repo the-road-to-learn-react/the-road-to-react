@@ -1,6 +1,6 @@
 ## CSS Modules in React
 
-CSS Modules are an advanced **CSS-in-CSS** approach. The CSS file stays the same, where you could apply CSS extensions like Sass, but its use in React components changes. To enable CSS modules in create-react-app, rename the *src/App.css* file to *src/App.module.css*. This action is performed in the command line from your project's directory:
+CSS Modules are advanced **CSS-in-CSS** approaches. The CSS file stays the same where you could apply CSS extensions like Sass but its use in React components changes. To enable CSS modules in create-react-app, rename the *src/App.css* file to *src/App.module.css*. This action is performed in the command line from your project's directory:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
@@ -28,7 +28,7 @@ In the renamed *src/App.module.css*, start with the first CSS class definitions,
 }
 ~~~~~~~
 
-Import the *src/App.module.css* file with a relative path again. This time, import it as a JavaScript object where the name of the object (here `styles`) is up to you:
+Import the *src/App.module.css* file with a relative path again. This time, import it as a JavaScript object where the name of the object (in our case `styles`) is up to you:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -40,7 +40,7 @@ import styles from './App.module.css';
 # leanpub-end-insert
 ~~~~~~~
 
-Instead of defining the `className` as a string mapped to a CSS file, access the CSS class directly from the `styles` object, and assign it with a JavaScript in JSX expression to your elements.
+Instead of defining the `className` as a string mapped to a CSS file, access the CSS class directly from the `styles` object and assign it with a JavaScript in JSX expression to your elements.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -102,7 +102,7 @@ const Item = ({ item, onRemoveItem }) => (
 );
 ~~~~~~~
 
-We can also add inline styles as more dynamic styles in JSX again. It's also possible to add a CSS extension like Sass to enable advanced features like CSS nesting (see previous section). We will stick to native CSS features though:
+We can also add inline styles as more dynamic styles in JSX, as usual. It's also possible to add a CSS extension like Sass to enable advanced features like CSS nesting (see previous section). We will stick to native CSS features though:
 
 {title="src/App.module.css",lang="css"}
 ~~~~~~~
@@ -152,7 +152,7 @@ Then the button CSS classes in the *src/App.module.css* file:
 }
 ~~~~~~~
 
-There is a shift toward pseudo BEM naming conventions here, in contrast to `button_small` and `button_large` from the previous section. If the previous naming convention holds true, we can only access the style with `styles['button_small']` which makes it more verbose because of  JavaScript's limitation with object underscores. The same shortcomings would apply for classes defined with a dash (`-`). In contrast, now we can use `styles.buttonSmall` instead (see: Item component):
+There is a shift toward pseudo BEM naming conventions in contrast to `button_small` and `button_large` from the previous section. If the previous naming convention holds true, we can only access the style with `styles['button_small']` which makes it more verbose because of  JavaScript's limitation with object underscores. The same shortcomings would apply for classes defined with a dash (`-`). In contrast, now we can use `styles.buttonSmall` instead (see: Item component):
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
