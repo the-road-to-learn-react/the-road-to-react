@@ -1,6 +1,6 @@
 ## Styled Components in React
 
-With the previous approaches from CSS-in-CSS, Styled Components is one of several approaches for **CSS-in-JS**. I picked Styled Components because it's the most popular. It comes as a JavaScript dependency, so we must install it on the command line:
+With the previous approaches from CSS-in-CSS, Styled Components is one of several approaches for **CSS-in-JS**. I picked Styled Components because it's the most popular. It comes as a JavaScript dependency so we must install it on the command line:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
@@ -72,7 +72,7 @@ const App = () => {
 };
 ~~~~~~~
 
-This kind of React component follows the same rules as a common React component. Everything passed between its element tags is passed automatically as React `children` prop. For the Item component, we are not using inline styles this time, but defining a dedicated styled component for it. `StyledColumn` receives its styles dynamically using a React prop:
+This kind of React component follows the same rules as a common React component. Everything passed between its element tags is passed automatically as React `children` prop. For the Item component, we are not using inline styles this time but defining a dedicated styled component for it. `StyledColumn` receives its styles dynamically using a React prop:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -240,7 +240,7 @@ const StyledInput = styled.input`
 `;
 ~~~~~~~
 
-CSS-in-JS with styled components shifts the focus of defining styles to actual React components. Styled Components are style defined as React components without the intermediate CSS file. If a styled component isn't used in a JavaScript, your IDE/editor will tell you. Styled Components are bundled next to other JavaScript assets in JavaScript files for a production-ready application. There are no extra CSS files, but only JavaScript when using the CSS-in-JS strategy. Both strategies, CSS-in-JS and CSS-in-CSS, and their approaches (e.g. Styled Components and CSS Modules) are popular among React developers. Use what suits you and your team best.
+CSS-in-JS with styled components shifts the focus of defining styles to actual React components. Styled Components are style defined as React components without the intermediate CSS file. If a styled component isn't used in a JavaScript, your IDE/editor will tell you. Styled Components are bundled next to other JavaScript assets in JavaScript files for a production-ready application. There are no extra CSS files but only JavaScript when using the CSS-in-JS strategy. Both strategies, CSS-in-JS and CSS-in-CSS, and their approaches (e.g. Styled Components and CSS Modules) are popular among React developers. Use what suits you and your team best.
 
 ### Exercises:
 
