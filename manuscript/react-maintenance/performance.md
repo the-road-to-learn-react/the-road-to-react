@@ -2,7 +2,7 @@
 
 Once a React application grows, maintenance becomes a priority. To prepare for this eventuality, we'll cover performance optimization, type safety, testing, and project structure. Each of these topics will strengthen your app to take on more functionality without losing quality.
 
-Performance optimization prevents applications from slowing down by assuring efficient use of available resource. Typed programming languages like TypeScript detect bugs earlier in the feedback loop.  Testing gives us more explicit feedback than typed programming, and provides a way to understand which actions can break the application. Lastly, a project structure supports the organized management of assets into folders and files, which is especially useful in scenarios where team members work in different domains.
+Performance optimization prevents applications from slowing down by assuring efficient use of available resources. Typed programming languages like TypeScript detect bugs earlier in the feedback loop.  Testing gives us more explicit feedback than typed programming, and provides a way to understand which actions can break the application. Lastly, a project structure supports the organized management of assets into folders and files, which is especially useful in scenarios where team members work in different domains.
 
 ## Performance in React (Advanced)
 
@@ -10,7 +10,7 @@ This section is just here for the sake of learning about performance improvement
 
 ### Don't run on first render
 
-Previously we covered React's useEffect Hook, which is used for side-effects. It runs the first time a component renders (mounting), and then every re-render (updating). By passing an empty dependency array to it as a second argument, we can tell the hook to run on the first render only. Out of the box, there is no way to tell the hook to run only on every re-render (update) and not on the first render (mount). For example, examine our custom hook for state management with React's useState Hook and its semi persistent state with local storage using React's useEffect Hook:
+Previously we covered React's useEffect Hook, which is used for side-effects. It runs the first time a component renders (mounting), and then every re-render (updating). By passing an empty dependency array to it as a second argument, we can tell the hook to run on the first render only. Out of the box, there is no way to tell the hook to run only on every re-render (update) and not on the first render (mount). For example, examine our custom hook for state management with React's useState Hook and its semi-persistent state with local storage using React's useEffect Hook:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -103,7 +103,7 @@ const List = ({ list, onRemoveItem }) =>
   );
 ~~~~~~~
 
-Because the List component has no function body, and developers are lazy folks who don't want to refactor the component for a simple logging statement, the List component uses the `||` operator instead. This is a neat trick for adding a logging statement to a function component without a function body. Since the `console.log()` on the left hand side of the operator always evaluates to false, the right hand side of the operator gets always executed.
+Because the List component has no function body, and developers are lazy folks who don't want to refactor the component for a simple logging statement, the List component uses the `||` operator instead. This is a neat trick for adding a logging statement to a function component without a function body. Since the `console.log()` on the left-hand side of the operator always evaluates to false, the right-hand side of the operator gets always executed.
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -120,7 +120,7 @@ console.log(getTheTruth());
 // false
 ~~~~~~~
 
-Let's focus on the actual logging in the browser's developer tools. You should see a similar output. First the App component renders, followed by its child components (e.g. List component).
+Let's focus on the actual logging in the browser's developer tools. You should see a similar output. First, the App component renders, followed by its child components (e.g. List component).
 
 {title="Visualization",lang="text"}
 ~~~~~~~
@@ -131,7 +131,7 @@ B:App
 B:List
 ~~~~~~~
 
-*Note: If you are seeing more than these loggings, check whether your *src/index.js* file uses `<React.StrictMode>` as wrapper for your App component. If it's the case, remove the strict mode and check your logging again. Explanation: In development mode, React's StrictMode renders a component twice to detect problems with your implementation in order to warn you about these. This StrictMode is automatically excluded for applications in production. However, if you don't want to be confused by the multiple renders, remove StrictMode from the *src/index.js* file.*
+*Note: If you are seeing more than these loggings, check whether your *src/index.js* file uses `<React.StrictMode>` as a wrapper for your App component. If it's the case, remove the strict mode and check your logging again. Explanation: In development mode, React's StrictMode renders a component twice to detect problems with your implementation in order to warn you about these. This StrictMode is automatically excluded for applications in production. However, if you don't want to be confused by the multiple renders, remove StrictMode from the *src/index.js* file.*
 
 Since a side-effect triggers data fetching after the first render, only the App component renders, because the List component is replaced by a loading indicator in a conditional rendering. Once the data arrives, both components render again.
 

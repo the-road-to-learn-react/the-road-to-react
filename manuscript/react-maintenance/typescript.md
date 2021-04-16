@@ -1,6 +1,6 @@
 ## TypeScript in React
 
-TypeScript for JavaScript and React has many benefits for developing robust applications. Instead of getting type errors on runtime in the command line or browser, TypeScript integration presents them during compile time inside the IDE. It shortens the feedback loop for a developer, while it improves the developer experience. The code becomes more self-documenting and readable, because every variable is defined with a type. Also moving code blocks or performing a larger refactoring of a code base becomes much more efficient. Statically typed languages like TypeScript are trending because of their benefits over dynamically typed languages like JavaScript. It's useful to learn more [about TypeScript](https://www.typescriptlang.org/index.html) whenever possible.
+TypeScript for JavaScript and React has many benefits for developing robust applications. Instead of getting type errors on runtime in the command line or browser, TypeScript integration presents them during compile time inside the IDE. It shortens the feedback loop for a developer, while it improves the developer experience. The code becomes more self-documenting and readable, because every variable is defined with a type. Also moving code blocks or performing a larger refactoring of a codebase becomes much more efficient. Statically typed languages like TypeScript are trending because of their benefits over dynamically typed languages like JavaScript. It's useful to learn more [about TypeScript](https://www.typescriptlang.org/index.html) whenever possible.
 
 To use TypeScript in React, install TypeScript and its dependencies into your application using the command line. If you run into obstacles, follow the official TypeScript installation instructions for [create-react-app](https://create-react-app.dev/docs/adding-typescript/):
 
@@ -40,7 +40,7 @@ const useSemiPersistentState = (
 };
 ~~~~~~~
 
-Adding types to the function's arguments is more about Javascript than React. We are telling the function to expect two arguments, which are JavaScript string primitives. Also, we can tell the function to return an array (`[]`) with a `string` (state), and tell functions like `state updater function` that take a `value` to return nothing (`void`):
+Adding types to the function's arguments is more about Javascript than React. We are telling the function to expect two arguments, which are JavaScript string primitives. Also, we can tell the function to return an array (`[]`) with a `string` (state), and tell functions like the `state updater function` that takes a `value` to return nothing (`void`):
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -62,7 +62,7 @@ const useSemiPersistentState = (
 };
 ~~~~~~~
 
-Related to React though, considering the previous type safety improvements for the custom hook, we hadn't to add types to the internal React hooks in the function's body. That's because **type inference** works most of the time for React hooks out of the box. If the *initial state* of a React useState Hook is a JavaScript string primitive, then the returned *current state* will be inferred as a string and the returned *state updater function* will only take a string as argument and return nothing:
+Related to React though, considering the previous type safety improvements for the custom hook, we hadn't to add types to the internal React hooks in the function's body. That's because **type inference** works most of the time for React hooks out of the box. If the *initial state* of a React useState Hook is a JavaScript string primitive, then the returned *current state* will be inferred as a string and the returned *state updater function* will only take a string as an argument and return nothing:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -156,7 +156,7 @@ const Item = ({ item, onRemoveItem }: ItemProps) => (
 );
 ~~~~~~~
 
-That's the most popular way to type React component's props with TypeScript. Fortunately the return type of the function component is inferred. However, if you want to explicitly use it, you can do so with `JSX.Element`. From here, we can navigate up the component tree into the List component and apply the same type definitions for the props:
+That's the most popular way to type React component's props with TypeScript. Fortunately, the return type of the function component is inferred. However, if you want to explicitly use it, you can do so with `JSX.Element`. From here, we can navigate up the component tree into the List component and apply the same type definitions for the props:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -279,7 +279,7 @@ const storiesReducer = (
 };
 ~~~~~~~
 
-The reducer's current state, action, and returned state (inferred) are type safe now. For example, if you would dispatch an action to the reducer with an action type that's not defined, you would get an type error. Or if you would pass something else than a story to the action which removes a story, you would get a type error as well.
+The reducer's current state, action, and returned state (inferred) are type safe now. For example, if you would dispatch an action to the reducer with an action type that's not defined, you would get a type error. Or if you would pass something else than a story to the action which removes a story, you would get a type error as well.
 
 Let's shift our focus to the SearchForm component, which has callback handlers with events:
 

@@ -4,7 +4,7 @@ Testing source code is an essential part of programming, and should be seen as a
 
 The testing pyramid includes end-to-end tests, integration tests, and unit tests. Unit tests are for small, isolated blocks of code, such as a single function or component. Integration tests help us figure out how well these blocks of code work together. An end-to-end test simulates a real-life scenario, like a user logging into a web application. Unit tests are quick and easy to write and maintain; end-to-end tests are the opposite.
 
-Many unit tests are required to cover all the functions and components in a working application, after which several integration tests make sure that the most important units work together. Finally, a few end-to-end tests to simulate critical user scenario. In this learning experience, we will cover **unit and integration tests**, in addition to a useful component-specific testing technique called **snapshot tests**. **E2E tests** will be part of the exercise.
+Many unit tests are required to cover all the functions and components in a working application, after which several integration tests make sure that the most important units work together. Finally, a few end-to-end tests to simulate critical user scenarios. In this learning experience, we will cover **unit and integration tests**, in addition to a useful component-specific testing technique called **snapshot tests**. **E2E tests** will be part of the exercise.
 
 ![](images/testing-pyramid.png)
 
@@ -312,7 +312,7 @@ describe('storiesReducer', () => {
 });
 ~~~~~~~
 
-There is always the decision to make for JavaScript objects whether you want to make a strict comparison or just content comparison. Most often you only want to have a content comparison here, hence use `toStrictEqual`. For JavaScript primitives though, like strings or booleans, you can still use `toBe`. Also note that there is a `toEqual` function [which works slightly different](https://twitter.com/rwieruch/status/1260866850080067584) than `toStrictEqual`.
+There is always the decision to make for JavaScript objects whether you want to make a strict comparison or just a content comparison. Most often you only want to have a content comparison here, hence use `toStrictEqual`. For JavaScript primitives though, like strings or booleans, you can still use `toBe`. Also, note that there is a `toEqual` function [that works slightly different](https://twitter.com/rwieruch/status/1260866850080067584) than `toStrictEqual`.
 
 We continue to make adjustments until the reducer test turns green, which is really testing a JavaScript function with a certain input and expecting a certain output. We haven't done any testing methods regarding React yet.
 
@@ -327,7 +327,7 @@ Remember, a reducer function will always follow the same test pattern: given a s
 
 ### Unit Testing: Components
 
-We tested our first function in JavaScript with Jest in the previous sections. Next we'll test our first isolated React component with a unit test. Since we are using create-react-app, we don't need to set up the React Testing Library (RTL), which is necessary for our component tests because it is the default testing library. If you are using a custom React setup like React with Webpack, RTL as a library would need to be installed.
+We tested our first function in JavaScript with Jest in the previous sections. Next, we'll test our first isolated React component with a unit test. Since we are using create-react-app, we don't need to set up the React Testing Library (RTL), which is necessary for our component tests because it is the default testing library. If you are using a custom React setup like React with Webpack, RTL as a library would need to be installed.
 
 The following functions from React Testing Library are used for component tests:
 
@@ -484,7 +484,7 @@ Jest lets us pass a test-specific function to the Item component as prop. These 
 
 Every time we want to spy a JavaScript function, whether it has been called or whether it received certain arguments, we can use Jest's helper function to create a mocked function. Then, after invoking this function implicitly with RTL's `fireEvent` object's function, we can assert that the provided callback handler -- which is the mocked function -- has been called one time.
 
-In the last exercise we tested the Item component's input and output via rendering assertions and callback handler assertions. We are not testing real state changes yet, however, as there is no actual item removed from the DOM after clicking the "Dismiss" button. The logic to remove the item from the list is in the App component, but we are only testing the Item component in isolation. Sometimes it's just useful to test whether a single block works, before testing everything altogether. We will test the actual implementation logic for removing an Item when we cover the App component later.
+In the last exercise, we tested the Item component's input and output via rendering assertions and callback handler assertions. We are not testing real state changes yet, however, as there is no actual item removed from the DOM after clicking the "Dismiss" button. The logic to remove the item from the list is in the App component, but we are only testing the Item component in isolation. Sometimes it's just useful to test whether a single block works, before testing everything all together. We will test the actual implementation logic for removing an Item when we cover the App component later.
 
 For now, the SearchForm component will use the InputWithLabel component as a child component. As before, we will start by rendering the component and providing all the essential props:
 
@@ -547,7 +547,7 @@ describe('SearchForm', () => {
 });
 ~~~~~~~
 
-The `getByLabelText` search function allows us to find an element by label in a form. This is useful for components that render multiple labels and HTML controls. However, you may have noticed we used a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) here. If we used a string instead, the colon for "Search:" must be included. By using a regular expression, we are matching strings that include the "Search" string, which makes finding elements much more efficient. For this reason, you may find yourself using regular expressions instead of strings quite often.
+The `getByLabelText` search function allows us to find an element by a label in a form. This is useful for components that render multiple labels and HTML controls. However, you may have noticed we used a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) here. If we used a string instead, the colon for "Search:" must be included. By using a regular expression, we are matching strings that include the "Search" string, which makes finding elements much more efficient. For this reason, you may find yourself using regular expressions instead of strings quite often.
 
 Anyway, perhaps it would be more interesting to test the interactive parts of the SearchForm component. Since our callback handlers, which are passed as props to the SearchForm component, are already mocked with Jest, we can assert whether these functions get called appropriately:
 
@@ -619,7 +619,7 @@ jest.mock('axios');
 ...
 ~~~~~~~
 
-Next, implement the data you want returned from the mocked API request with a JavaScript Promise, and use it for the axios mock. Afterward, we can render our component and assume the correct data is mocked for our API request:
+Next, implement the data you want to be returned from the mocked API request with a JavaScript Promise, and use it for the axios mock. Afterward, we can render our component and assume the correct data is mocked for our API request:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
