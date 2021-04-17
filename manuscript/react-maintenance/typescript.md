@@ -1,8 +1,8 @@
 ## TypeScript in React
 
-TypeScript for JavaScript and React has many benefits for developing robust applications. Instead of getting type errors on runtime in the command line or browser, TypeScript integration presents them during compile time inside the IDE. It shortens the feedback loop for a developer, while it improves the developer experience. The code becomes more self-documenting and readable, because every variable is defined with a type. Also moving code blocks or performing a larger refactoring of a code base becomes much more efficient. Statically typed languages like TypeScript are trending because of their benefits over dynamically typed languages like JavaScript. It's useful to learn more [about TypeScript](https://www.typescriptlang.org/index.html) whenever possible.
+TypeScript for JavaScript and React has many benefits for developing robust applications. Instead of getting type errors on runtime in the command line or browser, TypeScript integration presents them during compile time inside the IDE. It shortens the feedback loop for a developer, while it improves the developer experience. The code becomes more self-documenting and readable because every variable is defined with a type. Also moving code blocks or performing a larger refactoring of a code base becomes much more efficient. Statically typed languages like TypeScript are trending because of their benefits over dynamically typed languages like JavaScript. It's useful to learn more [about TypeScript](https://www.typescriptlang.org/index.html) whenever possible.
 
-To use TypeScript in React, install TypeScript and its dependencies into your application using the command line. If you run into obstacles, follow the official TypeScript installation instructions for [create-react-app](https://create-react-app.dev/docs/adding-typescript/):
+To use TypeScript in React, install TypeScript and its dependencies into your application using the command-line. If you run into obstacles, follow the official TypeScript installation instructions for [create-react-app](https://create-react-app.dev/docs/adding-typescript/):
 
 {title="Command Line",lang="text"}
 ~~~~~~~
@@ -18,7 +18,7 @@ mv src/index.js src/index.tsx
 mv src/App.js src/App.tsx
 ~~~~~~~
 
-Restart your development server in the command line. You may encounter compile errors in the browser and IDE. If the latter doesn't work, try installing a TypeScript plugin for your editor, or extension for your IDE. After the initial TypeScript in React setup, we'll add [type safety](https://en.wikipedia.org/wiki/Type_safety) for the entire *src/App.tsx* file, starting with typing the arguments of the custom hook:
+Restart your development server in the command line. You may encounter compile errors in the browser and IDE. If the latter doesn't work, try installing a TypeScript plugin for your editor, or extension for your IDE. After the initial TypeScript in React setup, we'll add [type safety](https://en.wikipedia.org/wiki/Type_safety) for the entire *src/App.tsx* file starting with typing the arguments of the custom hook:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -40,7 +40,7 @@ const useSemiPersistentState = (
 };
 ~~~~~~~
 
-Adding types to the function's arguments is more about Javascript than React. We are telling the function to expect two arguments, which are JavaScript string primitives. Also, we can tell the function to return an array (`[]`) with a `string` (state), and tell functions like `state updater function` that take a `value` to return nothing (`void`):
+Adding types to the function's arguments is more about Javascript than React. We are telling the function to expect two arguments which are JavaScript string primitives. Also, we can tell the function to return an array (`[]`) with a `string` (state), and tell functions like `state updater function` that take a `value` to return nothing (`void`):
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -62,7 +62,7 @@ const useSemiPersistentState = (
 };
 ~~~~~~~
 
-Related to React though, considering the previous type safety improvements for the custom hook, we hadn't to add types to the internal React hooks in the function's body. That's because **type inference** works most of the time for React hooks out of the box. If the *initial state* of a React useState Hook is a JavaScript string primitive, then the returned *current state* will be inferred as a string and the returned *state updater function* will only take a string as argument and return nothing:
+Related to React considering the previous type safety improvements for the custom hook, we didn't have to add types to the internal React hooks in the function's body. That's because **type inference** works most of the time for React hooks out of the box. If the *initial state* of a React useState Hook is a JavaScript string primitive, then the returned *current state* will be inferred as a string and the returned *state updater function* will only take a string as argument and return nothing:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -136,7 +136,7 @@ const Item = ({
 );
 ~~~~~~~
 
-The `item` is of type `Story`; the `onRemoveItem` function takes an `item` of type `Story` as an argument and returns nothing. Next, clean up the code by defining the props of Item component outside:
+The `item` is of type `Story`; the `onRemoveItem` function takes an `item` of type `Story` as an argument and returns nothing. Next, we'll clean up the code by defining the props of Item component outside:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -192,7 +192,7 @@ const List = ({ list, onRemoveItem }: ListProps) => (
 );
 ~~~~~~~
 
-The `onRemoveItem` function is typed twice for the `ItemProps` and `ListProps`. To be more accurate, you *could* extract this to a standalone defined `OnRemoveItem` TypeScript type and reuse it for both `onRemoveItem` prop type definitions. Note, however, that development becomes increasingly difficult as components are split up into different files. That's why we will keep the duplication here. Now, since we already have the `Story` and `Stories` types, we can repurpose them for other components. Add the `Story` type to the callback handler in the `App` component:
+The `onRemoveItem` function is typed twice for the `ItemProps` and `ListProps`. To be more accurate, you *can* extract this to a standalone defined `OnRemoveItem` TypeScript type and reuse it for both `onRemoveItem` prop type definitions. Note that development becomes increasingly difficult as components are split up into different files. That's why we will keep the duplication here. Now, since we already have the `Story` and `Stories` types, we can repurpose them for other components. Add the `Story` type to the callback handler in the `App` component:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -212,7 +212,7 @@ const App = () => {
 };
 ~~~~~~~
 
-The reducer function manages the `Story` type as well, without really touching it due to `state` and `action` types. As the application's developer, we know both objects and their shapes passed to this reducer function:
+The reducer function manages the `Story` type as well without really touching it due to `state` and `action` types. As the application's developer, we know both objects and their shapes passed to this reducer function:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -241,7 +241,7 @@ const storiesReducer = (
 };
 ~~~~~~~
 
-The `Action` type with its `string` and `any` (TypeScript **wildcard**) type definitions are still too broad; and we gain no real type safety through it, because actions are not distinguishable. We can do better by specifying each action TypeScript type as an **interface**, and using a **union type** (here `StoriesAction`) for the final type safety:
+The `Action` type with its `string` and `any` (TypeScript **wildcard**) type definitions are still too broad; and we gain no real type safety through it because actions are not distinguishable. We can do better by specifying each action TypeScript type as an **interface**, and using a **union type** (here `StoriesAction`) for the final type safety:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -281,7 +281,7 @@ const storiesReducer = (
 
 The reducer's current state, action, and returned state (inferred) are type safe now. For example, if you would dispatch an action to the reducer with an action type that's not defined, you would get an type error. Or if you would pass something else than a story to the action which removes a story, you would get a type error as well.
 
-Let's shift our focus to the SearchForm component, which has callback handlers with events:
+Let's shift our focus to the SearchForm component which has callback handlers with events:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -304,7 +304,7 @@ const SearchForm = ({
 );
 ~~~~~~~
 
-Often using `React.SyntheticEvent` instead of `React.ChangeEvent` or `React.FormEvent` is usually enough. Going up to the App component again, we apply the same type for the callback handler there:
+Often using `React.SyntheticEvent` instead of `React.ChangeEvent` or `React.FormEvent` is usually enough. Going up to the App component again, we apply the same type for the callback handler:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -333,7 +333,7 @@ const App = () => {
 };
 ~~~~~~~
 
-All that's left is the InputWithLabel component. Before handling this component's props, let's take a look at the `ref` from React's useRef Hook. Unfortunately, the return value isn't inferred:
+All that's left is the InputWithLabel component. Before handling this component's props, let's have a look at the `ref` from React's useRef Hook. Unfortunately, the return value isn't inferred:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -349,7 +349,7 @@ const InputWithLabel = ({ ... }) => {
   }, [isFocused]);
 ~~~~~~~
 
-We made the returned `ref` type safe, and typed it as read-only because we only execute the `focus` method on it (read). React takes over for us there, setting the DOM element to the `current` property.
+We made the returned `ref` type safe and typed it as read-only because we only execute the `focus` method on it (read). React takes over for us there and sets the DOM element to the `current` property.
 
 Lastly, we will apply type safety checks for the InputWithLabel component's props. Note the `children` prop with its React specific type and the **optional types**  signaled with a question mark:
 
@@ -380,7 +380,7 @@ const InputWithLabel = ({
 };
 ~~~~~~~
 
-Both the `type` and `isFocused` properties are optional. Using TypeScript, you can tell the compiler these don't need to be passed to the component as props. The `children` prop has a lot of TypeScript type definitions that could be applicable to this concept, the most universal of which is `React.ReactNode` from the React library.
+Both the `type` and `isFocused` properties are optional. Using TypeScript, you can tell the compiler that these doesn't need to be passed to the component as props. The `children` prop has a lot of TypeScript type definitions that could be applicable to this concept. The most universal of which is `React.ReactNode` from the React library.
 
 Our entire React application is finally typed by TypeScript, making it easy to spot type errors on compile time. When adding TypeScript to your React application, start by adding type definitions to your function's arguments. These functions can be vanilla JavaScript functions, custom React hooks, or React function components. Only when using React is it important to know specific types for form elements, events, and JSX.
 
