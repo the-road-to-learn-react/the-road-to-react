@@ -1,14 +1,14 @@
 ## Testing in React
 
-Testing source code is an essential part of programming, and should be seen as a mandatory exercise for serious developers. The goal is to verify our source code's quality and functionality before using it in production. The [testing pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) will serve as our guide.
+Testing source code is an essential part of programming and should be seen as a mandatory exercise for serious developers. The goal is to verify our source code's quality and functionality before using it in production. The [testing pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) will serve as our guide.
 
-The testing pyramid includes end-to-end tests, integration tests, and unit tests. Unit tests are for small, isolated blocks of code, such as a single function or component. Integration tests help us figure out how well these blocks of code work together. An end-to-end test simulates a real-life scenario, like a user logging into a web application. Unit tests are quick and easy to write and maintain; end-to-end tests are the opposite.
+The testing pyramid includes end-to-end tests, integration tests, and unit tests. Unit tests are for small, and isolated blocks of code such as a single function or component. Integration tests help us figure out how well these blocks of code work together. An end-to-end test simulates a real-life scenario like a user logging into a web application. Unit tests are quick and easy to write and maintain; end-to-end tests are the opposite.
 
-Many unit tests are required to cover all the functions and components in a working application, after which several integration tests make sure that the most important units work together. Finally, a few end-to-end tests to simulate critical user scenario. In this learning experience, we will cover **unit and integration tests**, in addition to a useful component-specific testing technique called **snapshot tests**. **E2E tests** will be part of the exercise.
+Many unit tests are required to cover all the functions and components in a working application. After which, several integration tests make sure that the most important units work together. Finally, a few end-to-end tests to simulate critical user scenario. In this learning experience, we will cover **unit and integration tests** in addition to a useful component-specific testing technique called **snapshot tests**. **E2E tests** will be part of the exercise.
 
 ![](images/testing-pyramid.png)
 
-Choosing a testing library can be a challenge for React beginners, as there are many options. To keep things simple, we'll employ the most popular tools: [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/) (RTL). Jest is a full-blown testing framework with test runners, test suites, test cases, and assertions. RTL is used for rendering React components, triggering events like mouse clicks, and selecting HTML elements from the DOM to perform assertions. We'll explore both tools step-by-step, from setup to unit testing to integration testing.
+Choosing a testing library can be a challenge for React beginners as there are many options. To keep things simple, we'll employ the most popular tools: [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/) (RTL). Jest is a full-blown testing framework with test runners, test suites, test cases, and assertions. RTL is used for rendering React components, triggering events like mouse clicks, and selecting HTML elements from the DOM to perform assertions. We'll explore both tools step-by-step, from setup to unit testing to integration testing.
 
 ### Test Suites, Test Cases, and Assertions
 
@@ -55,7 +55,7 @@ describe('App component', () => {
 });
 ~~~~~~~
 
-Note that a "test" block can also be written as an "it" block. The blocks have the same purpose, except the "it" block may be more familiar to programmers from other programming languages:
+Note that a "test" block can also be written as an "it" block. The blocks have the same purpose except the "it" block may be more familiar to programmers from other programming languages:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -150,7 +150,7 @@ Ran all test suites related to changed files.
 Watch Usage: Press w to show more.
 ~~~~~~~
 
-Familiarize yourself with this test output, because it shows all failed tests, as well as information on why they failed. Using this information, you can fix certain parts of your code until all tests run green. Next, we'll cover *test assertions*, two of which we've already used with Jest's `expect` function. An assertion works by expecting value on the left side (`expect`) to match a value on the right side (`toBe`). The assertive function `toBe` is one of many available with Jest:
+Familiarize yourself with this test output because it shows all failed tests as well as information on why they failed. Using this information, you can fix certain parts of your code until all tests run green. Next, we'll cover *test assertions*, we've used the two of these already with Jest's `expect` function. An assertion works by expecting value on the left side (`expect`) to match a value on the right side (`toBe`). The assertive function `toBe` is one of many available with Jest:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -165,7 +165,7 @@ describe('something truthy and falsy', () => {
 });
 ~~~~~~~
 
-Once you start testing, it's a good practice to keep two command line interfaces open: one for watching your tests (`npm test`), and one for developing your application (`npm start`). In addition, source control platforms like Git may require an additional command line interface for adding your source code to the repository.
+Once you start testing, it's a good practice to keep two command-line interfaces open: one for watching your tests (`npm test`), and one for developing your application (`npm start`). In addition, source control platforms like Git may require an additional command line interface for adding your source code to the repository.
 
 ### Exercises:
 
@@ -175,7 +175,7 @@ Once you start testing, it's a good practice to keep two command line interfaces
 
 ### Unit Testing: Functions
 
-A unit test is generally used to test components or functions in isolation. For functions, unit tests are for input and output; for components, we test props or the callback handlers communicating to the outside. Before we can unit test our *src/App.js* file, we must export components and functions like the reducer from our *src/App.js* file with a named export:
+A unit test is generally used to test components or functions in isolation. For functions, unit tests are for input and output; for components, we test props or the callback handlers communicating outside the component. Before we can test our *src/App.js* file, we must export components and functions like the reducer from our *src/App.js* file with a named export:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -188,7 +188,7 @@ export { storiesReducer, SearchForm, InputWithLabel, List, Item };
 # leanpub-end-insert
 ~~~~~~~
 
-The exercises at the end of this chapter will cover all the remaining tests you should consider performing. For now, we can import all the components and reducers in our *src/App.test.js* file and will focus on the reducer test first. We are also importing React here, because we have to include it whenever we test React components:
+The exercises at the end of this chapter will cover all the remaining tests you should consider performing. For now, we can import all the components and reducers in our *src/App.test.js* file and will focus on the reducer test first. We are also importing React here because we have to include it whenever we test React components:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -240,7 +240,7 @@ describe('storiesReducer', () => {
 # leanpub-end-insert
 ~~~~~~~
 
-If you extrapolate the test cases, there should be one test case per reducer action. We will focus on a single action, which you can use to perform the rest as exercise yourself. The reducer function accepts a state and an action, and then returns a new state, so reducer tests follow the same pattern:
+If you extrapolate the test cases, there should be one test case per reducer action. We will focus on a single action, which you can use to perform the rest as exercise for yourself. The reducer function accepts a state and an action and then returns a new state, so reducer tests follow the same pattern:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -262,7 +262,7 @@ describe('storiesReducer', () => {
 });
 ~~~~~~~
 
-For our case, we define action, state, and expected state according to our reducer. The expected state will have one less story, which was removed as it passed to the reducer as action:
+For our case, we define the action, state, and expected state according to our reducer. The expected state will have one less story which was removed as it passed to the reducer as action:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -288,7 +288,7 @@ describe('storiesReducer', () => {
 });
 ~~~~~~~
 
-This test still fails because we are using `toBe` instead of `toStrictEqual`. The `toBe` assertive function makes a strict comparison like `newState === expectedState`. The object reference is not the same, however; it's just the content of the object. We use `toStrictEqual` instead of `toBe` to limit our comparison to the object's content:
+This test still fails because we are using `toBe` instead of `toStrictEqual`. The `toBe` assertive function makes a strict comparison like `newState === expectedState`. The object reference is not the same; it's just the content of the object. We use `toStrictEqual` instead of `toBe` to limit our comparison to the object's content:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -312,7 +312,7 @@ describe('storiesReducer', () => {
 });
 ~~~~~~~
 
-There is always the decision to make for JavaScript objects whether you want to make a strict comparison or just content comparison. Most often you only want to have a content comparison here, hence use `toStrictEqual`. For JavaScript primitives though, like strings or booleans, you can still use `toBe`. Also note that there is a `toEqual` function [which works slightly different](https://twitter.com/rwieruch/status/1260866850080067584) than `toStrictEqual`.
+There is always the decision to make for JavaScript objects whether you want to make a strict comparison or just content comparison. Most often you only want to have a content comparison here. Hence, we'll use `toStrictEqual`. For JavaScript primitives, like strings or booleans, you can still use `toBe`. Also note that there is a `toEqual` function [which works slightly different](https://twitter.com/rwieruch/status/1260866850080067584) than `toStrictEqual`.
 
 We continue to make adjustments until the reducer test turns green, which is really testing a JavaScript function with a certain input and expecting a certain output. We haven't done any testing methods regarding React yet.
 
@@ -409,7 +409,7 @@ Run the tests with `npm test`, and you'll see the output from the `debug` functi
 </body>
 ~~~~~~~
 
-Here you should form the habit of using RTL's `debug` function whenever you render a new component in a React component test. The function gives a useful overview of what is rendered, and informs the best way to proceed with testing. Based on the current output, we can start with our first assertion. RTL's `screen` object provides a function called `getByText`, one of many search functions:
+Here you should form the habit of using RTL's `debug` function whenever you render a new component in a React component test. The function gives a useful overview of what is rendered and informs the best way to proceed with testing. Based on the current output, we can start with our first assertion. RTL's `screen` object provides a function called `getByText`, one of many search functions:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -428,11 +428,11 @@ describe('Item', () => {
 });
 ~~~~~~~
 
-For the two assertions, we use the two assertive functions `toBeInTheDocument` and `toHaveAttribute`. These are to verify an element with the text "Jordan Walke" is in the document, and the presence of an element with the text "React" with a specific `href` attribute value. Over time, you will see more of these assertive functions being used.
+For the two assertions, we use the two assertive functions `toBeInTheDocument` and `toHaveAttribute`. These are to verify an element with the text "Jordan Walke" is in the document and the presence of an element with the text "React" with a specific `href` attribute value. Over time, you will see more of these assertive functions being used.
 
 RTL's `getByText` search function finds the one element with the visible texts "Jordan Walke" and "React". We can use the `getAllByText` equivalent to find more than one element. Similar equivalents exist for other search functions.
 
-The `getByText` function returns the element with a text that users can see, which relates to the real-world use of the application. Note that `getByText` is not the only search function, though. Another highly-used search function is the `getByRole` or `getAllByRole` function:
+The `getByText` function returns the element with a text that users can see, which relates to the real-world use of the application. Note that `getByText` is not the only search function. Another highly-used search function is the `getByRole` or `getAllByRole` function:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -451,9 +451,9 @@ describe('Item', () => {
 });
 ~~~~~~~
 
-The `getByRole` function is usually used to retrieve elements by [aria-label attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute). However, there are also [implicit roles on HTML elements](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) -- like button for a button element. Thus you can select elements not only by visible text, but also by their (implicit) accessibility role with React Testing Library. A neat feature of `getRoleBy` is that [it suggests roles if you provide a role that's not available](https://twitter.com/rwieruch/status/1260912349978013696). Both, `getByText` and `getByRole` are RTL's most widely used search functions.
+The `getByRole` function is usually used to retrieve elements by [aria-label attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute). However, there are also [implicit roles on HTML elements](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) -- like button for a button element. Thus, you can select elements not only by visible text but also by their (implicit) accessibility role with React Testing Library. A neat feature of `getRoleBy` is that [it suggests roles if you provide a role that's not available](https://twitter.com/rwieruch/status/1260912349978013696). Both `getByText` and `getByRole` are RTL's most widely used search functions.
 
-We can continue here by asserting not only that everything is *in the document*, but also by asserting whether our events work as expected. For example, the Item component's button element can be clicked and we want to verify that the callback handler gets called. Therefore, we are using Jest for creating a mocked function which we provide as a callback handler to the Item component. Then, after firing a click event with React Testing Library on the button, we want to assert that the callback handler function has been called:
+We can continue here by asserting not only everything that is *in the document*, but also by asserting whether our events work as expected. For example, the Item component's button element can be clicked and we want to verify that the callback handler gets called. Therefore, we are using Jest for creating a mocked function which we provide as a callback handler to the Item component. After firing a click event with React Testing Library on the button, we want to assert that the callback handler function has been called:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -480,11 +480,11 @@ describe('Item', () => {
 });
 ~~~~~~~
 
-Jest lets us pass a test-specific function to the Item component as prop. These test specific functions are called **spy**, **stub**, or **mock**; each is used for different test scenarios. The `jest.fn()` returns us a *mock* for the actual function, which lets us capture when it's called. As a result, we can use Jest assertions like `toHaveBeenCalledTimes`, which lets us assert a number of times the function has been called; and `toHaveBeenCalledWith`, to verify arguments that are passed to it.
+Jest lets us pass a test-specific function to the Item component as prop. These test specific functions are called **spy**, **stub**, or **mock**; each is used for different test scenarios. The `jest.fn()` returns us a *mock* for the actual function which lets us capture when it's called. As a result, we can use Jest assertions like `toHaveBeenCalledTimes` which lets us assert a number of times the function has been called; and `toHaveBeenCalledWith`, to verify arguments that are passed to it.
 
 Every time we want to spy a JavaScript function, whether it has been called or whether it received certain arguments, we can use Jest's helper function to create a mocked function. Then, after invoking this function implicitly with RTL's `fireEvent` object's function, we can assert that the provided callback handler -- which is the mocked function -- has been called one time.
 
-In the last exercise we tested the Item component's input and output via rendering assertions and callback handler assertions. We are not testing real state changes yet, however, as there is no actual item removed from the DOM after clicking the "Dismiss" button. The logic to remove the item from the list is in the App component, but we are only testing the Item component in isolation. Sometimes it's just useful to test whether a single block works, before testing everything altogether. We will test the actual implementation logic for removing an Item when we cover the App component later.
+In the last exercise we tested the Item component's input and output via rendering assertions and callback handler assertions. We are not testing real state changes yet, however, as there is no actual item removed from the DOM after clicking the "Dismiss" button. The logic to remove the item from the list is in the App component but we are only testing the Item component in isolation. Sometimes it's just useful to test whether a single block works before testing everything altogether. We will test the actual implementation logic for removing an Item when we cover the App component later.
 
 For now, the SearchForm component will use the InputWithLabel component as a child component. As before, we will start by rendering the component and providing all the essential props:
 
@@ -549,7 +549,7 @@ describe('SearchForm', () => {
 
 The `getByLabelText` search function allows us to find an element by label in a form. This is useful for components that render multiple labels and HTML controls. However, you may have noticed we used a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) here. If we used a string instead, the colon for "Search:" must be included. By using a regular expression, we are matching strings that include the "Search" string, which makes finding elements much more efficient. For this reason, you may find yourself using regular expressions instead of strings quite often.
 
-Anyway, perhaps it would be more interesting to test the interactive parts of the SearchForm component. Since our callback handlers, which are passed as props to the SearchForm component, are already mocked with Jest, we can assert whether these functions get called appropriately:
+Anyway, perhaps it would be more interesting to test the interactive parts of the SearchForm component. Since our callback handlers which are passed as props to the SearchForm component are already mocked with Jest, we can assert whether these functions get called appropriately:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -586,7 +586,7 @@ describe('SearchForm', () => {
 
 Similar to the Item component, we tested input (props) and output (callback handler) for the SearchForm component. The difference is that the SearchForm component renders a child component called `InputWithLabel`. If you check the debug output, you'll likely notice that the React Testing Library doesn't bother with this child component. This happens because the end user wouldn't care about the component either, so the React Testing Library outputs all the HTML that matters for the test.
 
-All the callback handler tests for Item and SearchForm component test only whether the functions have been called. No React re-rendering occurs, because all the components are tested in isolation without state management, which solely happens in the App component. Real testing with RTL starts further up the component tree, where state changes and side-effects can be evaluated. Therefore, let me introduce integration testing next.
+All the callback handler tests for Item and SearchForm component test only whether the functions have been called. No React re-rendering occurs because all the components are tested in isolation without state management, which solely happens in the App component. Real testing with RTL starts further up the component tree where state changes and side-effects can be evaluated. Therefore, let me introduce integration testing next.
 
 ### Exercises:
 
@@ -600,7 +600,7 @@ All the callback handler tests for Item and SearchForm component test only wheth
 
 React Testing Library adheres to a single core philosophy: instead of testing implementation details of React components, it tests how users interact with the application and if it works as expected. This becomes especially powerful for integration tests.
 
-We'll need to provide some data before we test the App component, since it makes requests for data from the remote API after its initial render. We'll start by using axios in the App component for our data request, after which we'll mock it with Jest at the top of the testing file:
+We'll need to provide some data before we test the App component since it makes requests for data from the remote API after its initial render. We'll start by using axios in the App component for our data request. After which, we'll mock it with Jest at the top of the testing file:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -619,7 +619,7 @@ jest.mock('axios');
 ...
 ~~~~~~~
 
-Next, implement the data you want returned from the mocked API request with a JavaScript Promise, and use it for the axios mock. Afterward, we can render our component and assume the correct data is mocked for our API request:
+Next, implement the data you want returned from the mocked API request with a JavaScript Promise, and use it for the axios mock. Afterwards, we can render our component and assume the correct data is mocked for our API request:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -671,7 +671,7 @@ describe('App', () => {
 });
 ~~~~~~~
 
-In the debug's output, we see the loading indicator renders for the first debug function, but not the second. This is because the data fetching and component re-render completes after we resolve the promise in our test with `act`. Let's assert the loading indicator for this case:
+In the debug's output, we see the loading indicator renders for the first debug function but not the second. This is because the data fetching and component re-render completes after we resolve the promise in our test with `act`. Let's assert the loading indicator for this case:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -700,7 +700,7 @@ describe('App', () => {
 });
 ~~~~~~~
 
-Because we're testing for a returned element that is absent, this time we use RTL's `queryByText` instead of the `getByText` function. Using `getByText` in this instance would produce an error, because the element can't be found; but with `queryByText` the value just returns `null`.
+Because we're testing for a returned element that is absent, this time we use RTL's `queryByText` instead of the `getByText` function. Using `getByText` in this instance would produce an error because the element can't be found; but with `queryByText` the value just returns `null`.
 
 Again, we're using a regular expression `/Loading/` instead of a string `'Loading'`. To use a string, we'd have to explicitly use `'Loading ...'` instead of `'Loading'`. With a regular expression, we don't need to provide the whole string, we just need to match a part of it.
 
@@ -801,7 +801,7 @@ describe('App', () => {
 });
 ~~~~~~~
 
-To test the search feature, we set up the mocking differently, because we're handling initial request, plus another request once the user searches for more stories by a specific search term:
+To test the search feature, we set up the mocking differently because we're handling initial request plus another request once the user searches for more stories by a specific search term:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -889,7 +889,7 @@ describe('App', () => {
 });
 ~~~~~~~
 
-We are resolving the first promise for the initial render. We expect the input field to render "React", and the two items in the list to render the creators of React and Redux. We also make sure that no stories related to JavaScript are rendered yet. Next, change the input field's value by firing an event, and asserting that the new value is rendered from the App component through all its child components in the actual input field:
+We are resolving the first promise for the initial render. We expect the input field to render "React", and the two items in the list to render the creators of React and Redux. We also make sure that no stories related to JavaScript are rendered yet. Next, change the input field's value by firing an event and asserting that the new value is rendered from the App component through all its child components in the actual input field:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -961,7 +961,7 @@ describe('App', () => {
 
 Brendan Eich is rendered as the creator of JavaScript, while the creators of React and Redux are removed. This test depicts an entire test scenario in one test case. We can move through each step -- initial fetching, changing the input field value, submitting the form, and retrieving new data from the API -- with the tools we've used.
 
-React Testing Library with Jest is the most popular library combination for React testing. RTL provides relevant testing tools, while Jest has a general testing framework for test suites, test cases, assertions, and mocking capabilities. If you need an alternative to RTL, consider trying  [Enzyme](https://www.robinwieruch.de/react-testing-jest-enzyme) by Airbnb.
+React Testing Library with Jest is the most popular library combination for React testing. RTL provides relevant testing tools while Jest has a general testing framework for test suites, test cases, assertions, and mocking capabilities. If you need an alternative to RTL, consider trying  [Enzyme](https://www.robinwieruch.de/react-testing-jest-enzyme) by Airbnb.
 
 ### Exercises:
 
@@ -1041,7 +1041,7 @@ This is a typical case for a breaking snapshot test. When a component's HTML str
 
 Jest stores snapshots in a folder so it can validate the difference against future snapshot tests. Users can share these snapshots across teams using version control platforms like git.  This is how we make sure the DOM stays the same.
 
-Snapshot tests are useful for setting up tests quickly in React, though it's best to avoid using them exclusively. Instead, use snapshot tests for components that don't update often, are less complex, and where it's easier to compare component results.
+Snapshot tests are useful for setting up tests quickly in React though it's best to avoid using them exclusively. Instead, use snapshot tests for components that don't update often, are less complex, and where it's easier to compare component results.
 
 ### Exercises:
 
