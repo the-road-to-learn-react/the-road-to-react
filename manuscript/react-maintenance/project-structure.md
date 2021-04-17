@@ -2,16 +2,16 @@
 
 With multiple React components in one file, you might wonder why we didn't put components into different files from the start. We already have multiple components in the *src/App.js* file that can be defined in their own files/folders (sometimes also called modules). For learning, it's more practical to keep these components in one place. Once your application grows, consider splitting these components into multiple files/folders/modules so it scales properly.
 
-Before we restructure our React project, recap [JavaScript's import and export statements](https://www.robinwieruch.de/javascript-import-export). Importing and exporting files are two fundamental concepts in JavaScript you must learn before React. There's no right way to structure a React application, as they evolve naturally along with the project's structure. We'll complete a simple refactoring for the project's folder/file structure for the sake of learning about the process. Afterward, there will be a few additional options about restructuring this project or React projects in general. You can continue with the restructured project, though we'll continue developing with the *src/App.js* file to keep things simple.
+Before we restructure our React project, recap [JavaScript's import and export statements](https://www.robinwieruch.de/javascript-import-export). Importing and exporting files are two fundamental concepts in JavaScript you must learn before React. There's no right way to structure a React application as they evolve naturally along with the project's structure. We'll complete a simple refactoring for the project's folder/file structure for the sake of learning about the process. Afterward, there will be a few additional options about restructuring this project or React projects in general. You can continue with the restructured project, though we'll continue developing with the *src/App.js* file to keep things simple.
 
-On the command line in your project's folder, navigate into the *src/* folder and create the following component dedicated files:
+On the command-line in your project's folder, navigate into the *src/* folder and create the following component dedicated files:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
 touch src/List.js src/InputWithLabel.js src/SearchForm.js
 ~~~~~~~
 
-Move every component from the *src/App.js* file in its own file, except for the List component which has to share its place with the Item component in the *src/List.js* file. Then in every file make sure to import React and to export the component which needs to be used from the file. For example, in *src/List.js* file:
+Move every component from the *src/App.js* file in its own file except for the List component which has to share its place with the Item component in the *src/List.js* file. Then in every file make sure to import React and to export the component which needs to be used from the file. For example, in *src/List.js* file:
 
 {title="src/List.js",lang="javascript"}
 ~~~~~~~
@@ -111,7 +111,7 @@ const App = () => {
 export default App;
 ~~~~~~~
 
-Components that are used in other components now have their own file. Only if a component (e.g. Item) is dedicated to another component (e.g. List) do we keep it in the same file. If a component should be used as a reusable component (e.g. InputWithLabel), it also receives its own file. From here, there are several strategies to structure your folder/file hierarchy. One scenario is to create a folder for every component:
+Components that are used in other components now have their own file. Only if a component (e.g. Item) is dedicated to another component (e.g. List), we keep it in the same file. If a component should be used as a reusable component (e.g. InputWithLabel), it also receives its own file. From here, there are several strategies to structure your folder/file hierarchy. One scenario is to create a folder for every component:
 
 {title="Project Structure",lang="text"}
 ~~~~~~~
@@ -123,7 +123,7 @@ Components that are used in other components now have their own file. Only if a 
 -- index.js
 ~~~~~~~
 
-The *index.js* file holds the implementation details for the component, while other files in the same folder have different responsibilities like styling, testing, and types:
+The *index.js* file holds the implementation details for the component while other files in the same folder have different responsibilities like styling, testing, and types:
 
 {title="Project Structure",lang="text"}
 ~~~~~~~
