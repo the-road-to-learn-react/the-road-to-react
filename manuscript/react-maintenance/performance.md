@@ -2,11 +2,11 @@
 
 Once a React application grows, maintenance becomes a priority. To prepare for this eventuality, we'll cover performance optimization, type safety, testing, and project structure. Each of these topics will strengthen your app to take on more functionality without losing quality.
 
-Performance optimization prevents applications from slowing down by assuring efficient use of available resource. Typed programming languages like TypeScript detect bugs earlier in the feedback loop.  Testing gives us more explicit feedback than typed programming, and provides a way to understand which actions can break the application. Lastly, a project structure supports the organized management of assets into folders and files, which is especially useful in scenarios where team members work in different domains.
+Performance optimization prevents applications from slowing down by assuring efficient use of available resource. Typed programming languages like TypeScript detect bugs earlier in the feedback loop.  Testing gives us more explicit feedback than typed programming and provides a way to understand which actions can break the application. Lastly, a project structure supports the organized management of assets into folders and files which is especially useful in scenarios where team members work in different domains.
 
 ## Performance in React (Advanced)
 
-This section is just here for the sake of learning about performance improvements in React. We wouldn't need optimizations in most React applications, as React is fast out of the box. While more sophisticated tools exist for performance measurements in JavaScript and React, we will stick to a simple `console.log()` and our browser's developer tools for the logging output.
+This section is just here for the sake of learning about performance improvements in React. We wouldn't need optimizations in most React application  as React is fast out of the box. While more sophisticated tools exist for performance measurements in JavaScript and React, we will stick to a simple `console.log()` and our browser's developer tools for the logging output.
 
 ### Don't run on first render
 
@@ -30,7 +30,7 @@ const useSemiPersistentState = (key, initialState) => {
 };
 ~~~~~~~
 
-With a closer look at the developer's tools, we can see the log for a first time when the components renders using this custom hook. It doesn't make sense to run the side-effect for the initial rendering of the component though, because there is nothing to store in the local storage except the initial value. It's a redundant function invocation, and should only run for every update (re-rendering) of the component.
+With a closer look at the developers' tools, we can see the log for a first time when the components renders using this custom hook. It doesn't make sense to run the side-effect for the initial rendering of the component because there is nothing to store in the local storage except the initial value. It's a redundant function invocation and should only run for every update (re-rendering) of the component.
 
 As mentioned, there is no React Hook that runs on every re-render, and there is no way to tell the `useEffect` hook in a React idiomatic way to call its function only on every re-render. However, by using React's useRef Hook which keeps its `ref.current` property intact over re-renders, we can keep a *made up state* (without re-rendering the component on state updates) with an instance variable of our component's lifecycle:
 
@@ -62,7 +62,7 @@ const useSemiPersistentState = (key, initialState) => {
 };
 ~~~~~~~
 
-We are exploiting the `ref` and its mutable `current` property for imperative state management that doesn't trigger a re-render. Once the hook is called from its component for the first time (component render), the ref's `current` property is initialized with a `false` boolean called `isMounted`. As a result, the side-effect function in `useEffect` isn't called; only the boolean flag for `isMounted` is toggled to `true` in the side-effect. Whenever the hook runs again (component re-render), the boolean flag is evaluated in the side-effect. Since it's `true`, the side-effect function runs. Over the lifetime of the component, the `isMounted` boolean will remain `true`. It was there to avoid calling the side-effect function for the first time render that uses our custom hook.
+We are exploiting the `ref` and its mutable `current` property for imperative state management that doesn't trigger a re-render. Once the hook is called from its component for the first time (component render). The ref's `current` property is initialized with a `false` boolean called `isMounted`. As a result, the side-effect function in `useEffect` isn't called; only the boolean flag for `isMounted` is toggled to `true` in the side-effect. Whenever the hook runs again (component re-render), the boolean flag is evaluated in the side-effect. Since it's `true`, the side-effect function runs. Over the lifetime of the component, the `isMounted` boolean will remain `true`. It was there to avoid calling the side-effect function for the first time render that uses our custom hook.
 
 The above was only about preventing the invocation of one simple function for a component rendering for the first time. But imagine you have an expensive computation in your side-effect, or the custom hook is used frequently in the application. It's more practical to deploy this technique to avoid unnecessary function invocations.
 
@@ -149,7 +149,7 @@ B:App
 B:List
 ~~~~~~~
 
-So far, this behavior is acceptable, since everything renders on time. Now we'll take this experiment a step further, by typing into the SearchForm component's input field. You should see the changes with every character entered into the element:
+So far, this behavior is acceptable since everything renders on time. Now we'll take this experiment a step further by typing into the SearchForm component's input field. You should see the changes with every character entered into the element:
 
 {title="Visualization",lang="text"}
 ~~~~~~~
@@ -157,9 +157,9 @@ B:App
 B:List
 ~~~~~~~
 
-What's striking is that the List component shouldn't re-render, but it does. The search feature isn't executed via its button, so the `list` passed to the List component remains the same for every keystroke. This is React's default behavior, re-rendering everything below a component with a state change, which surprises many people. In other words, if a parent component re-renders, its child components re-render as well. React does this by default, because preventing a re-render of child components could lead to bugs, and the re-rendering mechanism of React is often by default fast enough.
+What's striking is that the List component shouldn't re-render  but it does. The search feature isn't executed via its button, so the `list` passed to the List component remains the same for every keystroke. This is React's default behavior, re-rendering everything below a component with a state change which surprises many people. In other words, if a parent component re-renders, its child components re-render as well. React does this by default because preventing a re-render of child components could lead to bugs, and the re-rendering mechanism of React is often by default fast enough.
 
-Sometimes we want to prevent re-rendering, however. For example, huge data sets displayed in a table shouldn't re-render if they are not affected by an update. It's more efficient to perform an equality check if something changed for the component. Therefore, we can use React's memo API to make this equality check for the props:
+Sometimes we want to prevent re-rendering. But for example, huge data sets displayed in a table shouldn't re-render if they are not affected by an update. It's more efficient to perform an equality check if something changed for the component. Therefore, we can use React's memo API to make this equality check for the props:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -217,11 +217,11 @@ const App = () => {
 };
 ~~~~~~~
 
-Since the callback handler gets the `item` passed as an argument in its function signature, it doesn't have any dependencies and is declared only once when the App component initially renders. None of the props passed to the List component should change now. Try it with the combination of React `memo` and `useCallback`, to search via the SearchForm's input field. The "B:List" logging disappears, and only the App component re-renders with its "B:App" logging.
+Since the callback handler gets the `item` passed as an argument in its function signature, it doesn't have any dependencies and is declared only once when the App component initially renders. None of the props passed to the List component should change now. Try it with the combination of React `memo` and `useCallback`, to search via the SearchForm's input field. The "B:List" logging disappears, and only the App component re-renders with its "B:App" is logging.
 
 ![](images/memo.png)
 
-While all props passed to a component stay the same, the component renders again if its parent component is forced to re-render. That's React's default behavior, which works most of the time because the re-rendering mechanism is pretty fast. However, if re-rendering decreases the performance of a React application, React's `memo` API helps prevent re-rendering. As we have seen, sometimes `memo` alone doesn't help, though. Callback handlers are re-defined each time in the parent component and passed as *changed* props to the component, which causes another re-render. In that case, `useCallback` is used for making the callback handler only change when its dependencies change.
+While all props that are passed to a component stay the same, the component renders again if its parent component is forced to re-render. That's React's default behavior which works most of the time because the re-rendering mechanism is pretty fast. However, if re-rendering decreases the performance of a React application, React's `memo` API helps prevent re-rendering. As we have seen, sometimes `memo` alone doesn't help. Callback handlers are re-defined each time in the parent component and passed as *changed* props to the component which causes another re-render. In that case, `useCallback` is used for making the callback handler only change when its dependencies change.
 
 ### Exercises:
 
@@ -289,7 +289,7 @@ For every time someone types in the SearchForm, the computation shouldn't run ag
 
 ![](images/usememo-2.png)
 
-Now, after we went through these scenarios for `useMemo`, `useCallback`, and `memo`, remember that these shouldn't necessarily be used by default. Apply these performance optimization only if you run into a performance bottlenecks. Most of the time this shouldn't happen, because React's rendering mechanism is pretty efficient by default. Sometimes the check for utilities like `memo` can be more expensive than the re-rendering itself.
+Now, after we went through these scenarios for `useMemo`, `useCallback`, and `memo`, remember that these shouldn't necessarily be used by default. Apply these performance optimization only if you run into a performance bottlenecks. Most of the time this shouldn't happen because React's rendering mechanism is pretty efficient by default. Sometimes the check for utilities like `memo` can be more expensive than the re-rendering itself.
 
 ### Exercises:
 
