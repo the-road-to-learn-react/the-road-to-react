@@ -117,7 +117,7 @@ const countPlusOne = (count) =>
 const countPlusOne = (count) => count + 1;
 ~~~~~~~
 
-This can be done for the App, List and Search components as well, because they only return JSX and don't perform any task in between. Again it also applies for the arrow function that's used in the map function:
+This can be done for the App, List, and Search components as well because they only return JSX and don't perform any task in between. Again it also applies to the arrow function that's used in the map function:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

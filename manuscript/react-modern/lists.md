@@ -34,7 +34,7 @@ function App() { ... }
 export default App;
 ~~~~~~~
 
-*Note: I used a `...` here as a placeholder, to keep my code snippet small (without the App component's implementation details) and focused on the essential parts (the `list` variable outside of the App component). I will use the `...` throughout the rest of this learning experience as placeholder for code blocks that I have established in previous sections. If you get lost, you can always verify your code using the CodeSandbox links I provide at the end of most sections.*
+*Note: I used a `...` here as a placeholder, to keep my code snippet small (without the App component's implementation details) and focused on the essential parts (the `list` variable outside of the App component). I will use the `...` throughout the rest of this learning experience as a placeholder for code blocks that I have established in previous sections. If you get lost, you can always verify your code using the CodeSandbox links I provide at the end of most sections.*
 
 Each item in the list has a title, a url, an author, an identifier (`objectID`), points -- which indicate the popularity of an item -- and a count of comments (`num_comments`). Next, we'll render the list within our JSX dynamically:
 

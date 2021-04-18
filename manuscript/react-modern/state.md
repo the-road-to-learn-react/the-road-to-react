@@ -1,6 +1,6 @@
 ## React State
 
-In contrast to React props, **React state** is used to make applications interactive. Both concepts, props and state, have clear defined purposes: Props are used to pass information down the component tree, state is used to alter information over time. Both can work hand in hand as well. We will see what this means in the following sections.
+In contrast to React props, **React state** is used to make applications interactive. Both concepts, props, and state have clear defined purposes: Props are used to pass information down the component tree, state is used to alter information over time. Both can work hand in hand as well. We will see what this means in the following sections.
 
 Let's start with state in React with the following use case: Whenever a user types something into an HTML input field, the user may want to see this typed information (state) displayed somewhere else in the application. Therefore we need some way to change information over time and, what's more important, to notify React to re-render its component(s) again. A naive (but wrong) approach would be the following:
 
@@ -73,7 +73,7 @@ const Search = () => {
 
 When the user types into the input field, the input field's change event is captured by the event handler. The handler's logic uses the event's value and the state updater function to set the updated state. After the updated state is set in a component, the component renders again, meaning the component function runs again. The updated state becomes the current state and is displayed in the component's JSX.
 
-As an exercise, put a `console.log()` into each of your components. For example, the App component gets a `console.log('App renders')`, the List component gets a `console.log('List renders')` and so on. Now check your browser: For the first rendering, all loggings should appear, however, once you type into the HTML input field, only the Search component's logging should appear. That's because React only re-renders this component (and all of its child components), because its state changed.
+As an exercise, put a `console.log()` into each of your components. For example, the App component gets a `console.log('App renders')`, the List component gets a `console.log('List renders')` and so on. Now check your browser: For the first rendering, all loggings should appear, however, once you type into the HTML input field, only the Search component's logging should appear. That's because React only re-renders this component (and all of its child components) because its state changed.
 
 It's important to note that the `useState` function is called a **React hook**. It's only one of many hooks provided by React and this section only scratched the surface. You will learn more about them throughout the next sections.
 

@@ -60,7 +60,7 @@ const Search = ({ search, onSearch }) => (
 );
 ~~~~~~~
 
-A fragment wraps other elements into a single top-level element without adding to the rendered output. As alternative, you can also use `<React.Fragment></React.Fragment>` instead of the shorthand `<></>` Both Search elements, input field and label, should be visible in your browser now. So if you prefer to omit the wrapping `<div>` or `<span>` elements, substitute them with an empty tag that is allowed in JSX, and doesn't introduce intermediate elements in your rendered HTML.
+A fragment wraps other elements into a single top-level element without adding to the rendered output. As an alternative, you can also use `<React.Fragment></React.Fragment>` instead of the shorthand `<></>` Both Search elements, input field and label, should be visible in your browser now. So if you prefer to omit the wrapping `<div>` or `<span>` elements, substitute them with an empty tag that is allowed in JSX, and doesn't introduce intermediate elements in your rendered HTML.
 
 ### Exercises:
 

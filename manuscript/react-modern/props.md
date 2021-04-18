@@ -1,6 +1,6 @@
 ## React Props
 
-We are currently using the `list` variable as a global variable in the current application. We used it directly from the global scope in the App component, and later in the List component. This could work if you only had one global variable, but it isn't maintainable with multiple variables across multiple components. By using so called props in React, we can pass variables as information from one component to another component.
+We are currently using the `list` variable as a global variable in the current application. We used it directly from the global scope in the App component, and later in the List component. This could work if you only had one global variable, but it isn't maintainable with multiple variables across multiple components. By using so-called props in React, we can pass variables as information from one component to another component.
 
 Before using props for the first time, we'll move the `list` from the global scope into the App component and rename it to its actual domain. Don't forget to refactor the App component's function from concise to block body in order to define the list in between:
 

@@ -32,7 +32,7 @@ function App() {
 export default App;
 ~~~~~~~
 
-This file will be our focus throughout this tutorial, unless otherwise specified. Let's start by reducing the component to a more lightweight version for getting you started without too much [boilerplate code](https://en.wikipedia.org/wiki/Boilerplate_code). Afterward, start your application with `npm start` in the command line and check what's displayed in the browser:
+This file will be our focus throughout this tutorial unless otherwise specified. Let's start by reducing the component to a more lightweight version for getting you started without too much [boilerplate code](https://en.wikipedia.org/wiki/Boilerplate_code). Afterward, start your application with `npm start` in the command line and check what's displayed in the browser:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

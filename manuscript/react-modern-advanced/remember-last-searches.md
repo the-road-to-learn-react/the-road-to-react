@@ -254,7 +254,7 @@ const App = () => {
 };
 ~~~~~~~
 
-The functionality should work, but it complains or breaks if the same search term is used more than once, because `searchTerm` is used for each button element as `key` attribute. Make the key more specific by concatenating it with the `index` of the mapped array.
+The functionality should work, but it complains or breaks if the same search term is used more than once because `searchTerm` is used for each button element as `key` attribute. Make the key more specific by concatenating it with the `index` of the mapped array.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -400,7 +400,7 @@ const LastSearches = ({ lastSearches, onLastSearch }) => (
 # leanpub-end-insert
 ~~~~~~~
 
-This feature wasn't an easy one. Lots of fundamental React but also JavaScript knowledge was needed to accomplish it. If you had no problems implementing it yourself or didn't have to follow the instructions, you are very well set. If you had one or the other issue, don't worry too much about it. Maybe you even figured out another way to solve this task and it may have turned out simpler than the one I showed here.
+This feature wasn't an easy one. Lots of fundamental React but also JavaScript knowledge was needed to accomplish it. If you had no problems implementing it yourself or in following the instructions, you are very well set. If you had one or the other issue, don't worry too much about it. Maybe you even figured out another way to solve this task and it may have turned out simpler than the one I showed here.
 
 ### Exercises:
 

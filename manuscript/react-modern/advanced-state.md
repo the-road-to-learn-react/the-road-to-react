@@ -17,7 +17,7 @@ const storiesReducer = (state, action) => {
 # leanpub-end-insert
 ~~~~~~~
 
-A reducer `action` is always associated with a `type`. If this type matches a condition in the reducer, do something. If it isn't covered by the reducer, throw an error to remind yourself the implementation isn't covered. The `storiesReducer` function covers one `type`, and then returns the `payload` of the incoming action without using the current state to compute the new state. The new state is simply the `payload`.
+A reducer `action` is always associated with a `type`. If this type matches a condition in the reducer, do something. If it isn't covered by the reducer, throw an error to remind yourself the implementation isn't covered. The `storiesReducer` function covers one `type` and then returns the `payload` of the incoming action without using the current state to compute the new state. The new state is simply the `payload`.
 
 In the App component, exchange `useState` for `useReducer` for managing the `stories`. The new hook receives a reducer function and an initial state as arguments and returns an array with two items. The first item is the *current state*; the second item is the *state updater function* (also called *dispatch function*):
 
@@ -116,7 +116,7 @@ const storiesReducer = (state, action) => {
 };
 ~~~~~~~
 
-All these if else statements will eventually clutter when adding more state transitions into one reducer function. Refactoring it to a switch statement for all the state transitions makes it more readable:
+All these if-else statements will eventually clutter when adding more state transitions into one reducer function. Refactoring it to a switch statement for all the state transitions makes it more readable:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -136,7 +136,7 @@ const storiesReducer = (state, action) => {
 };
 ~~~~~~~
 
-What we've covered is a minimal version of a reducer in JavaScript. It covers two state transitions, shows how to compute current state and action into a new state, and uses some business logic (removal of a story). Now we can set a list of stories as state for the asynchronously arriving data, and remove a story from the list of stories, with just one state managing reducer and its associated `useReducer` hook. To fully grasp the concept of reducers in JavaScript and the usage of React's useReducer Hook, visit the linked resources in the exercises.
+What we've covered is a minimal version of a reducer in JavaScript. It covers two state transitions, shows how to compute the current state and action into a new state, and uses some business logic (removal of a story). Now we can set a list of stories as state for the asynchronously arriving data, and remove a story from the list of stories, with just one state managing reducer and its associated `useReducer` hook. To fully grasp the concept of reducers in JavaScript and the usage of React's useReducer Hook, visit the linked resources in the exercises.
 
 ### Exercises:
 

@@ -1,6 +1,6 @@
 ## React Custom Hooks (Advanced)
 
-Thus far we've covered the two most popular hooks in React: useState and useEffect. useState is used for variables that change over time; useEffect is used to opt into the lifecycle of your components to introduce side-effects. We'll eventually cover more hooks that come with React, but next we'll tackle **React custom Hooks**; that is, building a hook yourself.
+Thus far we've covered the two most popular hooks in React: useState and useEffect. useState is used for variables that change over time; useEffect is used to opt into the lifecycle of your components to introduce side-effects. We'll eventually cover more hooks that come with React, but next, we'll tackle **React custom Hooks**; that is, building a hook yourself.
 
 We will use the two hooks we already possess to create a new custom hook called `useSemiPersistentState`, named as such because it manages state yet synchronizes with the local storage. It's not fully persistent because clearing the local storage of the browser deletes relevant data for this application. We will start with how we want to use the hook in our App component:
 
@@ -71,7 +71,7 @@ const useSemiPersistentState = (initialState) => {
 };
 ~~~~~~~
 
-We are following two conventions of React's built-in hooks here. First, the naming convention which puts the "use" prefix in front of every hook name; second, the returned values are returned as an array. Another goal of a custom hook should be reusability. All of this custom hook's internals are about a value of a certain search domain, but the hook should be for a generic value. Let's refactor the naming therefore:
+We are following two conventions of React's built-in hooks here. First, the naming convention which puts the "use" prefix in front of every hook name; second, the returned values are returned as an array. Another goal of a custom hook should be reusability. All of this custom hook's internals are about a value of a certain search domain, but the hook should be for a generic value. Let's refactor the naming, therefore:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -130,7 +130,7 @@ const App = () => {
 };
 ~~~~~~~
 
-You've just created your first custom hook. If you're not comfortable with custom hooks, you can revert the changes and use the `useState` and `useEffect` hook as before, in the App component. However, knowing more about custom hooks gives you lots of new options. A custom hook can encapsulate non-trivial implementation details that should be kept away from a component; can be used in more than one React component; can be a composition of other hooks; and can even be open-sourced as an external library. Using your favorite search engine, you'll notice there are hundreds of React hooks that could be used in your application without worry over implementation details.
+You've just created your first custom hook. If you're not comfortable with custom hooks, you can revert the changes and use the `useState` and `useEffect` hook as before, in the App component. However, knowing more about custom hooks gives you lots of new options. A custom hook can encapsulate non-trivial implementation details that should be kept away from a component; can be used in more than one React component; can be a composition of other hooks, and can even be open-sourced as an external library. Using your favorite search engine, you'll notice there are hundreds of React hooks that could be used in your application without worry over implementation details.
 
 ### Exercises:
 
