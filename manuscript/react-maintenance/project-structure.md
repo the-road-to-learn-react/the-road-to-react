@@ -90,7 +90,7 @@ export { SearchForm };
 # leanpub-end-insert
 ~~~~~~~
 
-The App component has to import all the components it needs to render. It doesn't need to import InputWithLabel, because it's only used for the SearchForm component.
+The App component has to import all the components it needs to render. It doesn't need to import InputWithLabel because it's only used for the SearchForm component.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

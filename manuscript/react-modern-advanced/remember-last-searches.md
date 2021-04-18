@@ -285,7 +285,7 @@ const App = () => {
 };
 ~~~~~~~
 
-It's not the perfect solution, because the `index` isn't a stable key (especially when adding items to the list); however, it doesn't break in this scenario. The feature works now, but you can add further UX improvements by following the tasks below.
+It's not the perfect solution because the `index` isn't a stable key (especially when adding items to the list); however, it doesn't break in this scenario. The feature works now, but you can add further UX improvements by following the tasks below.
 
 **More Tasks:**
 

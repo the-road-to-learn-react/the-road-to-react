@@ -94,7 +94,7 @@ const useSemiPersistentState = (initialState) => {
 };
 ~~~~~~~
 
-We handle an abstracted "value" within the custom hook. Using it in the App component, we can name the returned current state and state updater function anything domain-related (e.g. `searchTerm` and `setSearchTerm`) with array destructuring. There is still one problem with this custom hook. Using the custom hook more than once in a React application leads to an overwrite of the "value"-allocated item in the local storage, because it uses the same key in the local storage. To fix this, pass in flexible key. Since the key comes from outside, the custom hook assumes that it could change, so it needs to be included in the dependency array of the `useEffect` hook as well. Without it, the side-effect may run with an outdated key (also called *stale*) if the key changed between renders:
+We handle an abstracted "value" within the custom hook. Using it in the App component, we can name the returned current state and state updater function anything domain-related (e.g. `searchTerm` and `setSearchTerm`) with array destructuring. There is still one problem with this custom hook. Using the custom hook more than once in a React application leads to an overwrite of the "value"-allocated item in the local storage because it uses the same key in the local storage. To fix this, pass in flexible key. Since the key comes from outside, the custom hook assumes that it could change, so it needs to be included in the dependency array of the `useEffect` hook as well. Without it, the side-effect may run with an outdated key (also called *stale*) if the key changed between renders:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -136,4 +136,4 @@ You've just created your first custom hook. If you're not comfortable with custo
 
 * Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-Custom-Hooks).
   * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-Side-Effects...2021/React-Custom-Hooks).
-* Read more about [React Hooks](https://www.robinwieruch.de/react-hooks) to get a good understanding of them, because they are the bread and butter in React function components.
+* Read more about [React Hooks](https://www.robinwieruch.de/react-hooks) to get a good understanding of them because they are the bread and butter in React function components.

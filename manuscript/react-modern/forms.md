@@ -61,7 +61,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Now we can execute the search feature with the keyboard's "Enter" key, because we are using a form instead of just a standalone button. In the next two steps, we will only separate the component into its own SearchForm component:
+Now we can execute the search feature with the keyboard's "Enter" key because we are using a form instead of just a standalone button. In the next two steps, we will only separate the component into its own SearchForm component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -89,7 +89,7 @@ const SearchForm = ({
 # leanpub-end-insert
 ~~~~~~~
 
-The new component is used by the App component. However, the App component still manages the state for the form, because the state is used in the App component to fetch data passed as props (`stories.data`) to the List component:
+The new component is used by the App component. However, the App component still manages the state for the form because the state is used in the App component to fetch data passed as props (`stories.data`) to the List component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

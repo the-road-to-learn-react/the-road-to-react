@@ -80,7 +80,7 @@ npm test
 npm run build
 ~~~~~~~
 
-Another command from the previous npm scripts called `eject` shouldn't be used for this learning experience. It's a one way operation, because once you eject, you can't go back. Essentially this command is only there to make all the tooling and configuration from create-react-app accessible if you are not satisfied with the choices or if you want to change something. Here we will keep all the defaults though.
+Another command from the previous npm scripts called `eject` shouldn't be used for this learning experience. It's a one way operation because once you eject, you can't go back. Essentially this command is only there to make all the tooling and configuration from create-react-app accessible if you are not satisfied with the choices or if you want to change something. Here we will keep all the defaults though.
 
 ### Exercises:
 

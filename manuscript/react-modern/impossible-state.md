@@ -178,7 +178,7 @@ const getAsyncStories = () =>
   new Promise((resolve, reject) => setTimeout(reject, 2000));
 ~~~~~~~
 
-We moved from unreliable state transitions with multiple `useState` hooks to predictable state transitions with React's useReducer Hook. The state object managed by the reducer encapsulates everything related to the stories, including loading and error state, but also implementation details like removing a story from the list of stories. We didn't get fully rid of impossible states, because it's still possible to leave out a crucial boolean flag like before, but we moved one step closer towards more predictable state management.
+We moved from unreliable state transitions with multiple `useState` hooks to predictable state transitions with React's useReducer Hook. The state object managed by the reducer encapsulates everything related to the stories, including loading and error state, but also implementation details like removing a story from the list of stories. We didn't get fully rid of impossible states because it's still possible to leave out a crucial boolean flag like before, but we moved one step closer towards more predictable state management.
 
 ### Exercises:
 

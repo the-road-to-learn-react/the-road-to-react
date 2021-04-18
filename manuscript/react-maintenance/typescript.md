@@ -388,5 +388,5 @@ Our entire React application is finally typed by TypeScript, making it easy to s
 
 * Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/TypeScript-in-React).
   * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-modern-final...2021/TypeScript-in-React).
-* Dig into the [React + TypeScript Cheatsheet](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets), because most common use cases we faced in this section are covered there as well. There is no need to know everything from the top of your head.
+* Dig into the [React + TypeScript Cheatsheet](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets) because most common use cases we faced in this section are covered there as well. There is no need to know everything from the top of your head.
 * While you continue with the learning experience in the following sections, remove or keep your types with TypeScript. If you do the latter, add new types whenever you get a compile error.

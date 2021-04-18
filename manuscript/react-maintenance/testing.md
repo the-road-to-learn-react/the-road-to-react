@@ -150,7 +150,7 @@ Ran all test suites related to changed files.
 Watch Usage: Press w to show more.
 ~~~~~~~
 
-Familiarize yourself with this test output, because it shows all failed tests, as well as information on why they failed. Using this information, you can fix certain parts of your code until all tests run green. Next, we'll cover *test assertions*, two of which we've already used with Jest's `expect` function. An assertion works by expecting value on the left side (`expect`) to match a value on the right side (`toBe`). `toBe` is only one of many available assertive functions provided by Jest.
+Familiarize yourself with this test output because it shows all failed tests, as well as information on why they failed. Using this information, you can fix certain parts of your code until all tests run green. Next, we'll cover *test assertions*, two of which we've already used with Jest's `expect` function. An assertion works by expecting value on the left side (`expect`) to match a value on the right side (`toBe`). `toBe` is only one of many available assertive functions provided by Jest.
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -586,7 +586,7 @@ describe('SearchForm', () => {
 
 Similar to the Item component, we tested input (props) and output (callback handler) for the SearchForm component. The difference is that the SearchForm component renders a child component called `InputWithLabel`. If you check the debug output, you'll likely notice that the React Testing Library doesn't bother with this child component. This happens because the end-user wouldn't care about the component either, so the React Testing Library outputs all the HTML that matters for the test.
 
-All the callback handler tests for Item and SearchForm component test only whether the functions have been called. No React re-rendering occurs, because all the components are tested in isolation without state management, which solely happens in the App component. Real testing with RTL starts further up the component tree, where state changes and side-effects can be evaluated. Therefore, let me introduce integration testing next.
+All the callback handler tests for Item and SearchForm component test only whether the functions have been called. No React re-rendering occurs because all the components are tested in isolation without state management, which solely happens in the App component. Real testing with RTL starts further up the component tree, where state changes and side-effects can be evaluated. Therefore, let me introduce integration testing next.
 
 ### Exercises:
 
@@ -801,7 +801,7 @@ describe('App', () => {
 });
 ~~~~~~~
 
-To test the search feature, we set up the mocking differently, because we're handling initial request, plus another request once the user searches for more stories by a specific search term:
+To test the search feature, we set up the mocking differently because we're handling initial request, plus another request once the user searches for more stories by a specific search term:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~

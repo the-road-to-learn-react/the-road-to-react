@@ -47,7 +47,7 @@ const getUrl = (searchTerm) =>
 # leanpub-end-insert
 ~~~~~~~
 
-Fortunately, we don't need to adjust the API endpoints at other places of the application, because we extracted a common `getUrl` function for it. However, there is one spot where we must address this logic for the future:
+Fortunately, we don't need to adjust the API endpoints at other places of the application because we extracted a common `getUrl` function for it. However, there is one spot where we must address this logic for the future:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

@@ -34,7 +34,7 @@ The book has a community of learners who help each other and for people who are 
 
 **Can I help to improve the content?**
 
-If you have feedback, shoot me an email and I will consider your suggestions. Don't expect many replies for bug tracking or troubleshoots though, because that's what's the community for.
+If you have feedback, shoot me an email and I will consider your suggestions. Don't expect many replies for bug tracking or troubleshoots though because that's what's the community for.
 
 **What do I do if I encounter a bug?**
 
@@ -52,7 +52,7 @@ I want to teach about this topic consistently. I often find materials online tha
 
 **JavaScript Beginners**
 
-JavaScript beginners with knowledge in fundamental JS, CSS, and HTML: If you just started out with web development, and have a basic grasp of JS, CSS, and HTML, this book should give you everything that's needed to learn React. However, if you feel there is a gap in your JavaScript knowledge, don't hesitate to read up on that topic before continuing with the book. You will have lots of references to fundamental JavaScript knowledge in the book though.
+JavaScript beginners with knowledge in fundamental JS, CSS, and HTML: If you just started out with web development, and have a basic grasp of JS, CSS, and HTML, this book should give you everything that's needed to learn React. However, if you feel there is a gap in your JavaScript knowledge, don't hesitate to read up on that topic before continuing with the book. You will have lots of references to fundamental JavaScript knowledge in this book though.
 
 **JavaScript Veterans**
 

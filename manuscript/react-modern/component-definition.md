@@ -181,7 +181,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Be sure to understand this refactoring concept, because we'll move quickly from arrow function components with and without block bodies as we go. Which one we use will depend on the requirements of the component.
+Be sure to understand this refactoring concept because we'll move quickly from arrow function components with and without block bodies as we go. Which one we use will depend on the requirements of the component.
 
 ### Exercises:
 

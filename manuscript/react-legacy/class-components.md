@@ -62,7 +62,7 @@ const InputWithLabel = ({
 );
 ~~~~~~~
 
-If no side-effects and no state were used in legacy apps, we'd use a function component instead of a class component. Before 2018 -- before React Hooks were introduced -- React's function components couldn't handle side-effects (`useEffect` hooks) or state (`useState`/`useReducer` hooks). As a result, these components were known as **functional stateless components**, there only to input props and output JSX. To use state or side-effects, it was necessary to refactor from a function component to a class component. When neither state nor side-effects were used, we used class components or the more commonly lightweight function component.
+If no side-effects and no state were used in legacy apps, we'd use a function component instead of a class component. Before 2018 -- before React Hooks were introduced -- React's function components couldn't handle side-effects (`useEffect` hooks) or state (`useState`/`useReducer` hooks). As a result, these components were known as **functional stateless components**, there only to input props and output JSX. To use state or side-effects, it was necessary to refactor from a function component to a class component. When neither state nor side-effects are used, we use class components or the more commonly lightweight function component.
 
 With the addition of React Hooks, function components were granted the same features as class components, with state and side-effects. And since there was no longer any practical difference between them, the community chose function components over class components since they are more lightweight.
 

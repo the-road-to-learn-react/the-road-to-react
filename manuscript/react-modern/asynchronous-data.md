@@ -37,7 +37,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Even though the data should arrive asynchronously when we start the application, it appears to arrive synchronously, because it's rendered immediately. Let's change this by giving it a bit of a realistic delay, because every network request to a remote API would come with a delay. First, remove the shorthand version for the promise:
+Even though the data should arrive asynchronously when we start the application, it appears to arrive synchronously because it's rendered immediately. Let's change this by giving it a bit of a realistic delay because every network request to a remote API would come with a delay. First, remove the shorthand version for the promise:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

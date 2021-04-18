@@ -67,7 +67,7 @@ const Item = ({ item, onRemoveItem }) => (
 );
 ~~~~~~~
 
-In the ongoing implementation, we will remove the style attributes, because it takes up lots of space and clutters the actual implementation logic (hence extracting it into proper CSS). But I encourage you to keep it for yourself.
+In the ongoing implementation, we will remove the style attributes because it takes up lots of space and clutters the actual implementation logic (hence extracting it into proper CSS). But I encourage you to keep it for yourself.
 
 The List component will handle the new sort state. This can also be done in the App component, but in the end only the List component needs it, so we can lift the state directly to it. The sort state initializes with a `'NONE'` state, so the list items are displayed in the order they are fetched from the API. Furthermore, we will add a new handler to set the sort state with a sort-specific key:
 

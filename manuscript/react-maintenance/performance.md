@@ -133,7 +133,7 @@ B:List
 
 *Note: If you are seeing more than these loggings, check whether your *src/index.js* file uses `<React.StrictMode>` as a wrapper for your App component. If it's the case, remove the strict mode and check your logging again. Explanation: In development mode, React's StrictMode renders a component twice to detect problems with your implementation in order to warn you about these. This StrictMode is automatically excluded for applications in production. However, if you don't want to be confused by the multiple renders, remove StrictMode from the *src/index.js* file.*
 
-Since a side-effect triggers data fetching after the first render, only the App component renders, because the List component is replaced by a loading indicator in a conditional rendering. Once the data arrives, both components render again.
+Since a side-effect triggers data fetching after the first render, only the App component renders because the List component is replaced by a loading indicator in a conditional rendering. Once the data arrives, both components render again.
 
 {title="Visualization",lang="text"}
 ~~~~~~~
@@ -264,7 +264,7 @@ const App = () => {
 };
 ~~~~~~~
 
-If all arguments are passed to a function, it's acceptable to have it outside the component, because it does not have any further dependency needed from within the component. This prevents creating the function on every render, so the `useCallback` hook becomes unnecessary. However, the function still computes the value of summed comments on every render, which becomes a problem for more expensive computations.
+If all arguments are passed to a function, it's acceptable to have it outside the component because it does not have any further dependency needed from within the component. This prevents creating the function on every render, so the `useCallback` hook becomes unnecessary. However, the function still computes the value of summed comments on every render, which becomes a problem for more expensive computations.
 
 ![](images/usememo-1.png)
 
@@ -289,7 +289,7 @@ For every time someone types in the SearchForm, the computation shouldn't run ag
 
 ![](images/usememo-2.png)
 
-Now, after we went through these scenarios for `useMemo`, `useCallback`, and `memo`, remember that these shouldn't necessarily be used by default. Apply these performance optimizations only if you run into performance bottlenecks. Most of the time this shouldn't happen, because React's rendering mechanism is pretty efficient by default. Sometimes the check for utilities like `memo` can be more expensive than the re-rendering itself.
+Now, after we went through these scenarios for `useMemo`, `useCallback`, and `memo`, remember that these shouldn't necessarily be used by default. Apply these performance optimizations only if you run into performance bottlenecks. Most of the time this shouldn't happen because React's rendering mechanism is pretty efficient by default. Sometimes the check for utilities like `memo` can be more expensive than the re-rendering itself.
 
 ### Exercises:
 

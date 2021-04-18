@@ -117,4 +117,4 @@ JSX was initially invented for React, but it became useful for other modern libr
 * Read more about [React's JSX](https://reactjs.org/docs/introducing-jsx.html).
 * Read more about [JavaScript Variables](https://www.robinwieruch.de/javascript-variable).
   * Define more primitive and complex JavaScript data types and render them in JSX.
-  * Try to render a JavaScript array in JSX ([hint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)). If it's too complicated, don't worry, because you will learn more about this in the next section.
+  * Try to render a JavaScript array in JSX ([hint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)). If it's too complicated, don't worry because you will learn more about this in the next section.

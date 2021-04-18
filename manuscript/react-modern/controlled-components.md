@@ -1,6 +1,6 @@
 ## React Controlled Components
 
-When you type into your HTML input field and see the characters showing up, you may have noticed that the element itself holds an internal state, because we are not providing any external value to it. Let me show you where this behavior leads to unexpected results: After applying the following change -- giving the `searchTerm` an initial state of 'React' -- can you spot the mistake in your browser?
+When you type into your HTML input field and see the characters showing up, you may have noticed that the element itself holds an internal state because we are not providing any external value to it. Let me show you where this behavior leads to unexpected results: After applying the following change -- giving the `searchTerm` an initial state of 'React' -- can you spot the mistake in your browser?
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
