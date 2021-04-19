@@ -293,7 +293,7 @@ It's not the perfect solution, because the `index` isn't a stable key (especiall
 * (2) Don't show duplicated searches. Searching twice for "React" shouldn't create two different buttons. Hint: Adapt the `getLastSearches` function.
 * (3) Set the SearchForm component's input field value with the last search term if one of the buttons is clicked.
 
-The source of the five rendered buttons is the `getLastSearches` function. There, we take the array of `urls` and return the last five entries from it. Now we'll change this utility function to return the last six entries instead of five, removing the last one, in order to not show the current search as button. Afterward, only the five *previous* searches are displayed as buttons:
+The source of the five rendered buttons is the `getLastSearches` function. There, we take the array of `urls` and return the last five entries from it. Now we'll change this utility function to return the last six entries instead of five, removing the last one, in order to not show the current search as a button. Afterward, only the five *previous* searches are displayed as buttons:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -400,7 +400,7 @@ const LastSearches = ({ lastSearches, onLastSearch }) => (
 # leanpub-end-insert
 ~~~~~~~
 
-This feature wasn't an easy one. Lots of fundamental React but also JavaScript knowledge was needed to accomplish it. If you had no problems implementing it yourself or to follow the instructions, you are very well set. If you had one or the other issue, don't worry too much about it. Maybe you even figured out another way to solve this task and it may have turned out simpler than the one I showed here.
+This feature wasn't an easy one. Lots of fundamental React but also JavaScript knowledge was needed to accomplish it. If you had no problems implementing it yourself or to following the instructions, you are very well set. If you had one or the other issue, don't worry too much about it. Maybe you even figured out another way to solve this task and it may have turned out simpler than the one I showed here.
 
 ### Exercises:
 
