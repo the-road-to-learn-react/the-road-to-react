@@ -1,6 +1,6 @@
 ## Paginated Fetch
 
-Searching for popular stories via Hacker News API is only one step towards a fully-functional search engine, and there are many ways to fine-tune the search. Take a closer look at the data structure and observe how [the Hacker News API](https://hn.algolia.com/api) returns more than a list of `hits`. Specifically, it returns a paginated list. The page property, which is `0` in the first response, can be used to fetch more paginated lists as results. You only need to pass the next page with the same search term to the API.
+Searching for popular stories via Hacker News API is only one step towards a fully-functional search engine and there are many ways to fine-tune the search. Take a closer look at the data structure and observe how [the Hacker News API](https://hn.algolia.com/api) returns more than a list of `hits`. Specifically, it returns a paginated list. The page property, which is `0` in the first response can be used to fetch more paginated lists as results. You only need to pass the next page with the same search term to the API.
 
 ![](images/paginated-list.png)
 
@@ -47,14 +47,14 @@ const getUrl = (searchTerm) =>
 # leanpub-end-insert
 ~~~~~~~
 
-Fortunately, we don't need to adjust the API endpoints at other places of the application, because we extracted a common `getUrl` function for it. However, there is one spot where we must address this logic for the future:
+Fortunately, we don't need to adjust the API endpoints at other places of the application because we extracted a common `getUrl` function for it. However, there is one spot where we must address this logic for the future:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const extractSearchTerm = url => url.replace(API_ENDPOINT, '');
 ~~~~~~~
 
-In the next steps, it won't be sufficient to replace the base of our API endpoint, which is no longer in our code. With more parameters for the API endpoint, the URL becomes more complex. It will change from X to Y:
+In the next steps, it won't be sufficient to replace the base of our API endpoint which is no longer in our code. With more parameters for the API endpoint, the URL becomes more complex. It will change from X to Y:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -269,7 +269,7 @@ const App = () => {
 };
 ~~~~~~~
 
-We've implemented data fetching with the dynamic `page` argument. The initial and last searches always use the first page, and every fetch with the new "More" button uses an incremented page. There is one crucial bug when trying the feature, though: the new fetches don't extend the previous list, but completely replace it.
+We've implemented data fetching with the dynamic `page` argument. The initial and last searches always use the first page, and every fetch with the new "More" button uses an incremented page. However, there is one crucial bug when trying the feature; The new fetches don't extend the previous list but completely replace it.
 
 ![](images/concat.png)
 
@@ -344,5 +344,5 @@ It's possible to fetch ongoing data for popular stories now. When working with t
 * Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Paginated-Fetch).
   * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Remember-Last-Searches...2021/Paginated-Fetch).
 * Revisit the [Hacker News API documentation](https://hn.algolia.com/api): Is there a way to fetch more items in a list for a page by just adding further parameters to the API endpoint?
-* Revisit the beginning of this section which speaks about pagination and infinite pagination. How would you implement a normal pagination component with buttons from 1-[3]-10, where each button fetches and displays only one page of the list.
+* Revisit the beginning of this section which speaks about pagination and infinite pagination. How would you implement a normal pagination component with buttons from 1-[3]-10 where each button fetches and displays only one page of the list.
 * Instead of having one "More" button, how would you implement an infinite pagination with an infinite scroll technique? Rather than clicking a button for fetching the next page explicitly, the infinite scroll could fetch the next page once the viewport of the browser hits the bottom of the displayed list.
