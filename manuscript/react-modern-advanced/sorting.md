@@ -1,10 +1,10 @@
 # Real World React (Advanced)
 
-We've covered most of React's fundamentals, its legacy features, and techniques for maintaining applications. Now it's time to dive into developing real-world React features. Each of the following sections will come with a task. Try to tackle these tasks without the *optional hints* first, but be aware that these are going to be challenging on your first attempt. If you need help, use the *optional hints* or follow the instructions from the section.
+We've covered most of React's fundamentals, its legacy features, and techniques for maintaining applications. Now it's time to dive into developing real-world React features. Each of the following sections will come with a task. Try to tackle these tasks without the *optional hints* first but be aware that these are going to be challenging on your first attempt. If you need help, use the *optional hints* or follow the instructions from the section.
 
 ## Sorting
 
-**Task:** Working with a list of items often includes interactions that make data more approachable by users. So far, every item was listed with each of its properties. To make it explorable, the list should enable sorting of each property by title, author, comments, and points in ascending or descending order. Sorting in only one direction is fine, because sorting in the other direction will be part of the next task.
+**Task:** Working with a list of items often includes interactions that make data more approachable by users. So far, every item was listed with each of its properties. To make it explorable, the list should enable sorting of each property by title, author, comments, and points in ascending or descending order. Sorting in only one direction is fine because sorting in the other direction will be part of the next task.
 
 **Optional Hints:**
 
@@ -67,9 +67,9 @@ const Item = ({ item, onRemoveItem }) => (
 );
 ~~~~~~~
 
-In the ongoing implementation, we will remove the style attributes, because it takes up lots of space and clutters the actual implementation logic (hence extracting it into proper CSS). But I encourage you to keep it for yourself.
+In the ongoing implementation, we will remove the style attributes because it takes up lots of space and clutters to the actual implementation logic (hence extracting it into proper CSS). But I encourage you to keep it for yourself.
 
-The List component will handle the new sort state. This can also be done in the App component, but in the end only the List component needs it, so we can lift the state directly to it. The sort state initializes with a `'NONE'` state, so the list items are displayed in the order they are fetched from the API. Further, we add a new handler to set the sort state with a sort-specific key:
+The List component will handle the new sort state. This can also be done in the App component, but in the end, only the List component needs it, so we can lift the state directly to it. The sort state initializes with a `'NONE'` state, so the list items are displayed in the order they are fetched from the API. Further, we add a new handler to set the sort state with a sort-specific key:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -137,7 +137,7 @@ const List = ({ list, onRemoveItem }) => {
 };
 ~~~~~~~
 
-The state management for the new feature is implemented, but we don't see anything when our buttons are clicked yet. This happens because the sorting mechanism hasn't been applied to the actual `list`. Sorting an array with JavaScript isn't trivial, because every JavaScript primitive (e.g. string, boolean, number) comes with edge cases when an array is sorted by its properties. We will use a library called [Lodash](https://lodash.com/) to solve this, which comes with many JavaScript utility functions (e.g. `sortBy`). First, install it via the command line:
+The state management for the new feature is implemented but we don't see anything when our buttons are clicked yet. This happens because the sorting mechanism hasn't been applied to the actual `list`. Sorting an array with JavaScript isn't trivial because every JavaScript primitive (e.g. string, boolean, number) comes with edge cases when an array is sorted by its properties. We will use a library called [Lodash](https://lodash.com/) to solve this which comes with many JavaScript utility functions (e.g. `sortBy`). First, install it via the command line:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
@@ -157,7 +157,7 @@ import { sortBy } from 'lodash';
 ...
 ~~~~~~~
 
-Third, create a JavaScript object (also called dictionary in this case) with all the possible `sortKey` and sort function mappings. Each specific sort key is mapped to a function that sorts the incoming `list`. Sorting by `'NONE'` returns the unsorted list; sorting by `'POINT'` returns a list and its items sorted by the `points` property; and so on:
+Third, create a JavaScript a object (also called dictionary in this case) with all the possible `sortKey` and sort function mappings. Each specific sort key is mapped to a function that sorts the incoming `list`. Sorting by `'NONE'` returns the unsorted list; sorting by `'POINT'` returns a list and its items sorted by the `points` property; and so on:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -210,7 +210,7 @@ const List = ({ list, onRemoveItem }) => {
 };
 ~~~~~~~
 
-It's done and here comes the recap: First we extracted the sort function from the dictionary by its `sortKey` (state). Then, we applied the function to the list, before mapping it to render each Item component. Second we rendered HTML buttons as header columns to give our users interaction. Then, we added implementation details for each button by changing the sort state. Finally, we used the sort state to sort the actual list.
+It's done and here comes the recap: First we extracted the sort function from the dictionary by its `sortKey` (state). Second, we applied the function to the list before mapping it to render each Item component. Then, we rendered HTML buttons as header columns to give our users interaction. After which, we added implementation details for each button by changing the sort state. Finally, we used the sort state to sort the actual list.
 
 ### Exercises:
 
