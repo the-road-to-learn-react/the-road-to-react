@@ -1,8 +1,8 @@
 ## Deploy to Firebase
 
-After we've built a full-fledged application in React, the final step is deployment. It is the tipping point of getting your ideas into the world, from learning how to code to producing applications. We will use Firebase Hosting for deployment.
+After we've built a full-fledged application in React, the final step is deployment. It is the tipping point of getting your ideas into the world. From learning how to code to producing applications. We will use Firebase Hosting for deployment.
 
-Firebase works for create-react-app, as well as most libraries and frameworks like Angular and Vue. First, install the Firebase CLI globally to the node modules:
+Firebase works for create-react-app as well as most libraries and frameworks like Angular and Vue. First, install the Firebase CLI globally to the node modules:
 
 {title="Command Line",lang="javascript"}
 ~~~~~~~
@@ -23,7 +23,7 @@ If you don't have a Firebase project yet, sign up for a [Firebase account](https
 firebase login
 ~~~~~~~
 
-A URL will display in the command line that you can open in a browser, or the Firebase CLI opens it. Choose a Google account to create a Firebase project, and give Google the necessary permissions. Return to the command line to verify a successful login.
+A URL will display in the command line that you can open in a browser or the Firebase CLI opens it. Choose a Google account to create a Firebase project and give Google the necessary permissions. Return to the command line to verify a successful login.
 
 Next, move to the project's folder and execute the following command, which initializes a Firebase project for the Firebase hosting features:
 
@@ -85,7 +85,7 @@ Hosting URL: https://my-react-project-abc123.firebaseapp.com
 
 Visit both pages to observe the results. The first link navigates to your Firebase project's dashboard, where you'll see a new panel for the Firebase Hosting. The second link navigates to your deployed React application.
 
-If you see a blank page for your deployed React application, make sure the `public` key/value pair in the *firebase.json* is set to `build`, or whichever name you chose for this folder. Second, verify you've run the build script for your React app with `npm run build`. Finally, check out the [official troubleshoot area for deploying create-react-app applications to Firebase](https://create-react-app.dev/docs/deployment). Try another deployment with `firebase deploy`.
+If you see a blank page for your deployed React application, make sure the `public` key/value pair in the *firebase.json* is set to `build` or whichever name you chose for this folder. Second, verify you've run the build script for your React app with `npm run build`. Finally, check out the [official troubleshoot area for deploying create-react-app applications to Firebase](https://create-react-app.dev/docs/deployment). Try another deployment with `firebase deploy`.
 
 ### Exercises:
 
