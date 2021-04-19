@@ -1,6 +1,6 @@
 ## Reverse Sort
 
-**Task:** The sort feature works, but the ordering only includes one direction. Implement a reverse sort when a sort button is clicked twice, so it becomes a toggle between normal (ascending) and reverse (descending) sort.
+**Task:** The sort feature works but the ordering only includes one direction. Implement a reverse sort when a sort button is clicked twice so it becomes a toggle between normal (ascending) and reverse (descending) sort.
 
 **Optional Hints:**
 
@@ -8,7 +8,7 @@
 * Set the new state in the `handleSort` handler based on the previous sort.
 * Use the new `isReverse` state for sorting the list with the sort function from the dictionary with the optionally applied `reverse()` function from JavaScript arrays.
 
-Let's get to the task. The initial sort direction works for strings, as well as numeric sorts like the reverse sort for JavaScript numbers that arranges them from high to low. Now we need another state to track whether the sort is reversed or normal:
+Let's get to the task. The initial sort direction works for strings as well as numeric sorts like the reverse sort for JavaScript numbers that arranges them from high to low. Now we need another state to track whether the sort is reversed or normal:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -84,7 +84,7 @@ const List = ({ list, onRemoveItem }) => {
 };
 ~~~~~~~
 
-The reverse sort is now operational! Congratulations, you have a fully sortable list now. And by the way: For the object passed to the state updater function, we use what is called a **shorthand object initializer notation**:
+The reverse sort is now operational! Congratulations, you have a fully sortable list now. And by the way; For the object passed to the state updater function, we use what is called a **shorthand object initializer notation**:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
