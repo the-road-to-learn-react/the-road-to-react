@@ -1,6 +1,6 @@
 ## Remember Last Searches
 
-**Task:** Remember the last five search terms which hit the API, and provide a button to move quickly between searches. When the buttons are clicked, stories for the search term should be fetched again.
+**Task:** Remember the last five search terms which hit the API and provide a button to move quickly between searches. When the buttons are clicked, stories for the search term should be fetched again.
 
 **Optional Hints:**
 
@@ -27,7 +27,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Second, instead of using the current `url` state for data fetching, use the last `url` entry from the `urls` array. If another `url` is added to the list of `urls`, it is used to fetch data instead:
+Second, instead of using the current `url` state for data fetching, use the last `url` entry from the `urls` array. If another `url` is added to the list of `urls`, it will be used to fetch data instead:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -79,7 +79,7 @@ const App = () => {
 };
 ~~~~~~~
 
-With each search, another URL is stored in our state of `urls`. Next, render a button for each of the last five URLs. We'll include a new universal handler for these buttons, and each passes a specific `url` with a more specific inline handler:
+With each search, another URL is stored in our state of `urls`. Next, render a button for each of the last five URLs. We'll include a new universal handler for these buttons and each passes a specific `url` with a more specific inline handler:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -182,7 +182,7 @@ const getLastSearches = (urls) =>
 # leanpub-end-insert
 ~~~~~~~
 
-Now we'll provide functionality for the new handler used by every button, since clicking one of these buttons should trigger another search. Since we use the `urls` state for fetching data, and since we know the last URL is always used for data fetching, concat a new `url` to the list of `urls` to trigger another search request:
+Now we'll provide functionality for the new handler used by every button since clicking one of these buttons should trigger another search. Since we use the `urls` state for fetching data and since we know the last URL is always used for data fetching, concat a new `url` to the list of `urls` to trigger another search request:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -254,7 +254,7 @@ const App = () => {
 };
 ~~~~~~~
 
-The functionality should work, but it complains or breaks if the same search term is used more than once, because `searchTerm` is used for each button element as `key` attribute. Make the key more specific by concatenating it with the `index` of the mapped array.
+The functionality should work, but it complains or breaks if the same search term is used more than once because `searchTerm` is used for each button element as `key` attribute. Make the key more specific by concatenating it with the `index` of the mapped array.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -285,7 +285,7 @@ const App = () => {
 };
 ~~~~~~~
 
-It's not the perfect solution, because the `index` isn't a stable key (especially when adding items to the list); however, it doesn't break in this scenario. The feature works now, but you can add further UX improvements by following the tasks below.
+It's not the perfect solution because the `index` isn't a stable key (especially when adding items to the list). However, it doesn't break in this scenario. The feature works now but you can add further UX improvements by following the tasks below.
 
 **More Tasks:**
 
@@ -306,7 +306,7 @@ const getLastSearches = (urls) =>
     .map(extractSearchTerm);
 ~~~~~~~
 
-If the same search is executed twice or more times in a row, duplicate buttons appear, which is likely not your desired behavior. It would be acceptable to group identical searches into one button if they followed each other. We will solve this problem in the utility function as well. Before separating the array into the five previous searches, group the identical searches:
+If the same search is executed twice or more times in a row, duplicate buttons appear, which is likely not your desired behavior. It would be acceptable to group identical searches into one button if they followed each other. We will solve this problem in the utility function as well. Before separating the array into the five previous searches, we will group the identical searches:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -354,7 +354,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Last, extract the feature's new rendered content from this section as a standalone component, to keep the App component lightweight:
+Last, extract the feature's new rendered content from this section as a standalone component to keep the App component lightweight:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
