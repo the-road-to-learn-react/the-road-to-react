@@ -98,7 +98,7 @@ const List = () => {
 };
 ~~~~~~~
 
-If an arrow function’s only purpose is to return a value and it doesn’t have any business logic in between, you can remove the **block body** (curly braces) of the function. In a **concise body**, an **implicit return statement** is attached, so you can remove the return statement:
+If an arrow function's only purpose is to return a value and it doesn't have any business logic in between, you can remove the **block body** (curly braces) of the function. In a **concise body**, an **implicit return statement** is attached, so you can remove the return statement:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
