@@ -2,7 +2,7 @@
 
 So far, the App component fetches a list of stories once with a predefined query (`react`). After that, users can search for stories on the client-side. Now we'll move this feature from client-side to server-side searching, using the actual `searchTerm` as a dynamic query for the API request.
 
-First, remove `searchedStories`, because we will receive the stories searched from the API. Pass only the regular stories to the List component:
+First, remove `searchedStories` because we will receive the stories searched from the API. Pass only the regular stories to the List component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -91,7 +91,7 @@ const App = () => {
 };
 ~~~~~~~
 
-We changed the feature from a client-side to server-side search. Instead of filtering a predefined list of stories on the client, the `searchTerm` is used to fetch a server-side filtered list. The server-side search happens for the initial data fetching, but also for data fetching if the `searchTerm` changes. The feature is fully server-side now. Re-fetching data each time someone types into the input field isn't optimal though, so we'll correct that soon. Because this implementation stresses the API, you might experience errors if you use requests too often.
+We changed the feature from a client-side to server-side search. Instead of filtering a predefined list of stories on the client, the `searchTerm` is used to fetch a server-side filtered list. The server-side search happens not only for the initial data fetching, but also for data fetching if the `searchTerm` changes. The feature is fully server-side now. Re-fetching data each time someone types into the input field isn't optimal though, so we'll correct that soon. Because this implementation stresses the API, you might experience errors if you use requests too often.
 
 ### Exercises:
 

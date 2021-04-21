@@ -1,6 +1,6 @@
 ## Meet the React Component
 
-Every React application is build on the foundation of React components. In this section, you will get to know your first React component which is located in the *src/App.js* file and which should look similar to the example below. Depending on your create-react-app version, the content of the file might differ slightly:
+Every React application is built on the foundation of React components. In this section, you will get to know your first React component which is located in the *src/App.js* file and which should look similar to the example below. Depending on your create-react-app version, the content of the file might differ slightly:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -53,11 +53,11 @@ export default App;
 
 Before we dive deeper into each topic, here comes a quick overview of what you are seeing:
 
-* First, this React component, called App component, is just a JavaScript function. In contrast to JavaScript functions, it's defined in [PascalCase](https://www.robinwieruch.de/javascript-naming-conventions). This kind of component is commonly called **function component**. Function components are the modern way of using components in React, however, be aware that there are other variations of React components too. (see **component types** later)
+* First, this React component, called the App component, is just a JavaScript function. In contrast to JavaScript functions, it's defined in [PascalCase](https://www.robinwieruch.de/javascript-naming-conventions). This kind of component is commonly called a **function component**. Function components are the modern way of using components in React, however, be aware that there are other variations of React components too. (see **component types** later)
 * Second, the App component doesn't receive any parameters in its function signature yet. In the upcoming sections, you will learn how to pass information (props) from one component to another component. These props will be accessible via the function's signature as parameters then. (see **props** later)
 * And third, the App component returns code that resembles HTML. You will see how this new syntax, called JSX, allows you to combine JavaScript and HTML for displaying highly dynamic and interactive content in a browser. (see **JSX** later)
 
-The function component possesses implementation details between function signature and return statement, like any other JavaScript function. You will see this in practice in action throughout your React journey:
+The function component possesses implementation details between the function signature and the return statement, like any other JavaScript function. You will see this in practice in action throughout your React journey:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -99,7 +99,7 @@ function App() {
 export default App;
 ~~~~~~~
 
-The function of a function component will either run when a component is rendered for the first time or re-rendered when it updates. The act of rendering means that the component displays itself in the browser. Since we don't need anything from within the App component used to define this variable from the last code snippet -- for example parameters coming from the component's function signature -- we can define the variable outside of the App component as well. Thus it will be defined only once and not every time the function is called:
+The function of a function component will either run when a component is rendered for the first time or re-rendered when it updates. The act of rendering means that the component displays itself in the browser. Since we don't need anything from within the App component that will be used to define this variable from the last code snippet -- for example parameters coming from the component's function signature -- we can define the variable outside of the App component as well. Thus it will be defined only once and not every time the function is called:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

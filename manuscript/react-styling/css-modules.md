@@ -102,7 +102,7 @@ const Item = ({ item, onRemoveItem }) => (
 );
 ~~~~~~~
 
-We can also add inline styles as more dynamic styles in JSX again. It's also possible to add a CSS extension like Sass to enable advanced features like CSS nesting (see previous section). We will stick to native CSS features though:
+We can also add inline styles as more dynamic styles in JSX again. It's also possible to add a CSS extension like Sass to enable advanced features like CSS nesting (see the previous section). We will stick to native CSS features though:
 
 {title="src/App.module.css",lang="css"}
 ~~~~~~~
@@ -177,7 +177,7 @@ const SearchForm = ({ ... }) => (
 );
 ~~~~~~~
 
-The SearchForm component receives the styles as well. It has to use string interpolation for using two styles in one element via JavaScript's template literals. One alternative way is the [classnames](https://github.com/JedWatson/classnames) library, which is installed via the command line as project dependency:
+The SearchForm component receives the styles as well. It has to use string interpolation for using two styles in one element via JavaScript's template literals. One alternative way is the [classnames](https://github.com/JedWatson/classnames) library, which is installed via the command line as a project dependency:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -189,7 +189,7 @@ import cs from 'classnames';
 className={cs(styles.button, styles.buttonLarge)}
 ~~~~~~~
 
-The library offers conditional styling too; whereas the left hand-side of the object's property must be used as a [computed property name](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) and is only applied if the right hand-side evaluates to true:
+The library offers conditional styling too; whereas the left-hand side of the object's property must be used as a [computed property name](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) and is only applied if the right-hand side evaluates to true:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -257,7 +257,7 @@ And finish up the remaining style in the *src/App.module.css* file:
 }
 ~~~~~~~
 
-The same caution applies as the last section: some of these styles like `input` and `label` might be more efficient in a global *src/index.css* file without CSS modules.
+The same caution as the last section applies: some of these styles like `input` and `label` might be more efficient in a global *src/index.css* file without CSS modules.
 
 Again, CSS Modules -- like any other CSS-in-CSS approach -- can use Sass for more advanced CSS features like nesting. The advantage of CSS modules is that we receive an error in  JavaScript each time a style isn't defined. In the standard CSS approach, unmatched styles in JavaScript and CSS files might go unnoticed.
 

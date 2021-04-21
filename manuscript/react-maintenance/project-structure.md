@@ -111,7 +111,7 @@ const App = () => {
 export default App;
 ~~~~~~~
 
-Components that are used in other components now have their own file. Only if a component (e.g. Item) is dedicated to another component (e.g. List) do we keep it in the same file. If a component should be used as a reusable component (e.g. InputWithLabel), it also receives its own file. From here, there are several strategies to structure your folder/file hierarchy. One scenario is to create a folder for every component:
+Components that are used in other components now have their own file. If a component should be used as a reusable component (e.g. InputWithLabel), it receives its own file. Only if a component (e.g. Item) is dedicated to another component (e.g. List) do we keep it in the same file. From here, there are several strategies to structure your folder/file hierarchy. One scenario is to create a folder for every component:
 
 {title="Project Structure",lang="text"}
 ~~~~~~~
@@ -185,7 +185,7 @@ If you scale this to the deeper level folder structure, each component will have
 --- types.js
 ~~~~~~~
 
-There are many ways on how to structure your React project from small to large project: simple to complex folder structure; one-level nested to two-level nested folder nesting; dedicated folders for styling, types and testing next to implementation logic. There is no right way for folder/file structures. However, in the exercises you will find my 5 steps approach to structure a React project. After all, a project's requirements evolve over time and so should its structure. If keeping all assets in one file feels right, then there is no rule against it.
+There are many ways on how to structure your React project from small to large project: simple to complex folder structure; one-level nested to two-level nested folder nesting; dedicated folders for styling, types, and testing next to implementation logic. There is no right way for folder/file structures. However, in the exercises, you will find my 5 steps approach to structure a React project. After all, a project's requirements evolve over time and so should its structure. If keeping all assets in one file feels right, then there is no rule against it.
 
 ### Exercises:
 

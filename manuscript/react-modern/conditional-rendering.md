@@ -1,8 +1,8 @@
 ## React Conditional Rendering
 
-A **conditional rendering** in React always happens if we have to render different JSX based on state or props. Dealing with asynchronous data is a good use case for dealing with these conditional states. For example, when the application initializes for the first time, there is no data to start with. Next we are loading data and eventually we have the data at our disposal to display it. Sometimes the data fetching fails and we receive an error instead. So there are lots of things to cover for us as developers.
+A **conditional rendering** in React always happens if we have to render different JSX based on state or props. Dealing with asynchronous data is a good use case for dealing with these conditional states. For example, when the application initializes for the first time, there is no data to start with. Next, we are loading data and eventually, we have the data at our disposal to display it. Sometimes the data fetching fails and we receive an error instead. So there are lots of things to cover for us as developers.
 
-Fortunately a few of these cases are already taken care of. For instance, because our initial state is an empty list rather than `null`, we don't have to worry that this breaks the application when we filter and map over this list. However, some things are still missing. For example, let's introduce one more state for a loading indicator which gives our users feedback about the pending data request:
+Fortunately, a few of these cases are already taken care of. For instance, because our initial state is an empty list rather than `null`, we don't have to worry that this breaks the application when we filter and map over this list. However, some things are still missing. For example, let's introduce one more state for a loading indicator which gives our users feedback about the pending data request:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -91,7 +91,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Next, give the user feedback in case something went wrong with another conditional rendering. This time, it's either rendering something or nothing. So instead of having a ternary operator where one side returns `null`, use the logical `&&` operator as shorthand:
+Next, give the user feedback in case something goes wrong with another conditional rendering. This time, it's either rendering something or nothing. So instead of having a ternary operator where one side returns `null`, use the logical `&&` operator as shorthand:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

@@ -2,7 +2,7 @@
 
 Perhaps you've noticed a disconnect between the single states in the App component, which seem to belong together because of the `useState` hooks. Technically, all the states related to the asynchronous data belong together, which doesn't only include the stories as actual data, but also their loading and error states.
 
-There is nothing wrong with multiple `useState` hooks in one React component. Be wary once you see multiple state updater functions in a row, however. These conditional states can lead to **impossible states**, and undesired behavior in the UI. Try changing your pseudo data fetching function to the following to simulate the error handling:
+There is nothing wrong with multiple `useState` hooks in one React component. Be wary once you see multiple state updater functions in a row, however. These conditional states can lead to **impossible states** and undesired behavior in the UI. Try changing your pseudo data fetching function to the following to simulate the error handling:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -85,7 +85,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Since we introduced new types for state transitions, and a new state structure, we must add these types and change the structure in the `storiesReducer` reducer function:
+Since we introduced new types for state transitions and a new state structure, we must add these types and change the structure in the `storiesReducer` reducer function:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -125,9 +125,9 @@ const storiesReducer = (state, action) => {
 };
 ~~~~~~~
 
-For every state transition, we return a *new state* object which contains all the key/value pairs from the *current state* object (via JavaScript's spread operator) and the new overwriting properties. For example, `STORIES_FETCH_FAILURE` resets the `isLoading`, but sets the `isError` boolean flags yet keeps all the other state intact (e.g. `stories`). That's how we get around the bug introduced earlier as impossible state, since an error should remove the loading state.
+For every state transition, we return a *new state* object which contains all the key/value pairs from the *current state* object (via JavaScript's spread operator) and the new overwriting properties. For example, `STORIES_FETCH_FAILURE` resets the `isLoading`, sets the `isError` boolean flags, while keeping all the the other state intact (e.g. `stories`). That's how we get around the bug introduced earlier as impossible state since an error should remove the loading state.
 
-Observe how the `REMOVE_STORY` action changed as well. It operates on the `state.data`, and no longer just on the plain `state`. The state is a complex object with data, loading and error states rather than just a list of stories. This has to be solved in the remaining code too:
+Observe how the `REMOVE_STORY` action changed as well. It operates on the `state.data`, and no longer just on the plain `state`. The state is a complex object with data, loading, and error states rather than just a list of stories. This has to be solved in the remaining code too:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

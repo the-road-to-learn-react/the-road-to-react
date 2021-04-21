@@ -23,7 +23,7 @@ This icon as SVG is taken from [Flaticon's Freepick](https://www.flaticon.com/au
 </svg>
 ~~~~~~~
 
-Because we're using create-react-app again , we can import SVGs (similar to CSS) as React components right away. In *src/App.js*, use the following syntax for importing the SVG:
+Because we're using create-react-app again, we can import SVGs (similar to CSS) as React components right away. In *src/App.js*, use the following syntax for importing the SVG:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

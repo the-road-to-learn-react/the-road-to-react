@@ -8,7 +8,7 @@
 
 ![](images/last-searches.png)
 
-Let's get to it. First, we will refactor all `url` to `urls` state and all `setUrl` to `setUrls` state updater functions. Instead of initializing the state with a `url` as a string, make it an array with the initial `url` as its only entry:
+Let's get to it. First, we will refactor all `url` to `urls` state and all `setUrl` to `setUrls` state updater functions. Instead of initializing the state with an `url` as a string, make it an array with the initial `url` as its only entry:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -59,7 +59,7 @@ const App = () => {
 };
 ~~~~~~~
 
-And third, instead of storing the `url` string as state with the state updater function, concat the new `url` with the previous `urls` in an array for the new state:
+And third, instead of storing the `url` string as state with the state updater function, concatenate the new `url` using the concat method with the previous `urls` in an array for the new state:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -182,7 +182,7 @@ const getLastSearches = (urls) =>
 # leanpub-end-insert
 ~~~~~~~
 
-Now we'll provide functionality for the new handler used by every button, since clicking one of these buttons should trigger another search. Since we use the `urls` state for fetching data, and since we know the last URL is always used for data fetching, concat a new `url` to the list of `urls` to trigger another search request:
+Now we'll provide functionality for the new handler used by every button, since clicking one of these buttons should trigger another search. Since we use the `urls` state for fetching data, and since we know the last URL is always used for data fetching, concatenate a new `url` to the list of `urls` to trigger another search request:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -293,7 +293,7 @@ It's not the perfect solution, because the `index` isn't a stable key (especiall
 * (2) Don't show duplicated searches. Searching twice for "React" shouldn't create two different buttons. Hint: Adapt the `getLastSearches` function.
 * (3) Set the SearchForm component's input field value with the last search term if one of the buttons is clicked.
 
-The source of the five rendered buttons is the `getLastSearches` function. There, we take the array of `urls` and return the last five entries from it. Now we'll change this utility function to return the last six entries instead of five, removing the last one, in order to not show the current search as button. Afterward, only the five *previous* searches are displayed as buttons:
+The source of the five rendered buttons is the `getLastSearches` function. There, we take the array of `urls` and return the last five entries from it. Now we'll change this utility function to return the last six entries instead of five by removing the last one, in order to not show the current search as a button. Afterward, only the five *previous* searches are displayed as buttons:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -306,7 +306,7 @@ const getLastSearches = (urls) =>
     .map(extractSearchTerm);
 ~~~~~~~
 
-If the same search is executed twice or more times in a row, duplicate buttons appear, which is likely not your desired behavior. It would be acceptable to group identical searches into one button if they followed each other. We will solve this problem in the utility function as well. Before separating the array into the five previous searches, group the identical searches:
+If the same search is executed two or more times in a row, duplicate buttons appear, which is likely not your desired behavior. It would be acceptable to group identical searches into one button if they followed each other. We will solve this problem in the utility function as well. Before separating the array into the five previous searches, group the identical searches:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -333,9 +333,9 @@ const getLastSearches = (urls) =>
     .slice(0, -1);
 ~~~~~~~
 
-The reduce function starts with an empty array as its `result`. The first iteration concats the `searchTerm` we extracted from the first `url` into the `result`. Every extracted `searchTerm` is compared to the one before it. If the previous search term is different from the current, concat the `searchTerm` to the result. If the search terms are identical, return the result without adding anything.
+The reduce function starts with an empty array as its `result`. The first iteration concatenates the `searchTerm` we extracted from the first `url` into the `result`. Every extracted `searchTerm` is compared to the one before it. If the previous search term is different from the current, concatenate the `searchTerm` to the result. If the search terms are identical, return the result without adding anything.
 
-Lastly, the SearchForm's input field should be set with the new `searchTerm` if one of the last search buttons is clicked. We can solve this using the state updater function for the specific value used in the SearchForm component.
+The SearchForm component's input field should be set with the new `searchTerm` if one of the last search buttons is clicked. We can solve this using the state updater function for the specific value used in the SearchForm component.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -354,7 +354,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Last, extract the feature's new rendered content from this section as a standalone component, to keep the App component lightweight:
+Lastly, extract the feature's new rendered content from this section as a standalone component, to keep the App component lightweight:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -400,7 +400,7 @@ const LastSearches = ({ lastSearches, onLastSearch }) => (
 # leanpub-end-insert
 ~~~~~~~
 
-This feature wasn't an easy one. Lots of fundamental React but also JavaScript knowledge was needed to accomplish it. If you had no problems implementing it yourself or to follow the instructions, you are very well set. If you had one or the other issue, don't worry too much about it. Maybe you even figured out another way to solve this task and it may have turned out simpler than the one I showed here.
+This feature wasn't an easy one. Lots of fundamental React but also JavaScript knowledge was needed to accomplish it. If you had no problems implementing it yourself or in following the instructions, you are very well set. If you had one or the other issue, don't worry too much about it. Maybe you even figured out another way to solve this task and it may have turned out simpler than the one I showed here.
 
 ### Exercises:
 

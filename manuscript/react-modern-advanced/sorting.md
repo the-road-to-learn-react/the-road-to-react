@@ -4,7 +4,7 @@ We've covered most of React's fundamentals, its legacy features, and techniques 
 
 ## Sorting
 
-**Task:** Working with a list of items often includes interactions that make data more approachable by users. So far, every item was listed with each of its properties. To make it explorable, the list should enable sorting of each property by title, author, comments, and points in ascending or descending order. Sorting in only one direction is fine, because sorting in the other direction will be part of the next task.
+**Task:** Working with a list of items often includes interactions that make data more approachable by users. So far, every item was listed with each of its properties. To make it explorable, the list should enable the sorting of each property by title, author, comments, and points in ascending or descending order. Sorting in only one direction is fine, because sorting in the other direction will be part of the next task.
 
 **Optional Hints:**
 
@@ -69,7 +69,7 @@ const Item = ({ item, onRemoveItem }) => (
 
 In the ongoing implementation, we will remove the style attributes, because it takes up lots of space and clutters the actual implementation logic (hence extracting it into proper CSS). But I encourage you to keep it for yourself.
 
-The List component will handle the new sort state. This can also be done in the App component, but in the end only the List component needs it, so we can lift the state directly to it. The sort state initializes with a `'NONE'` state, so the list items are displayed in the order they are fetched from the API. Further, we add a new handler to set the sort state with a sort-specific key:
+The List component will handle the new sort state. This can also be done in the App component, but in the end, only the List component needs it, so we can lift the state directly to it. The sort state initializes with a `'NONE'` state, so the list items are displayed in the order they are fetched from the API. Furthermore, we will add a new handler to set the sort state with a sort-specific key:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -157,7 +157,7 @@ import { sortBy } from 'lodash';
 ...
 ~~~~~~~
 
-Third, create a JavaScript object (also called dictionary in this case) with all the possible `sortKey` and sort function mappings. Each specific sort key is mapped to a function that sorts the incoming `list`. Sorting by `'NONE'` returns the unsorted list; sorting by `'POINT'` returns a list and its items sorted by the `points` property; and so on:
+Third, create a JavaScript object (also called dictionary in this case) with all the possible `sortKey` and sort function mappings. Each specific sort key is mapped to a function that sorts the incoming `list`. Sorting by `'NONE'` returns the unsorted list; sorting by `'POINT'` returns a list and its items sorted by the `points` property, and so on:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -210,12 +210,12 @@ const List = ({ list, onRemoveItem }) => {
 };
 ~~~~~~~
 
-It's done and here comes the recap: First we extracted the sort function from the dictionary by its `sortKey` (state). Then, we applied the function to the list, before mapping it to render each Item component. Second we rendered HTML buttons as header columns to give our users interaction. Then, we added implementation details for each button by changing the sort state. Finally, we used the sort state to sort the actual list.
+Task's done and here comes the recap: First we extracted the sort function from the dictionary by its `sortKey` (state), then we applied the function to the list before mapping it to render each Item component. Second, we rendered HTML buttons as header columns to give our users interaction. Then, we added implementation details for each button by changing the sort state. Finally, we used the sort state to sort the actual list.
 
 ### Exercises:
 
 * Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Sort).
   * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-modern-final...2021/Sort).
 * Read more about [Lodash](https://lodash.com/).
-* Why did we use numeric properties like `points` and `num_comments` a reverse sort?
+* Why did we use numeric properties like `points` and `num_comments` for a reverse sort?
 * Use your styling skills to give the user feedback about the current active sort. This mechanism can be as straightforward as giving the active sort button a different color.
