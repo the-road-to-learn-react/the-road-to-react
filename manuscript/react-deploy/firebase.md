@@ -4,21 +4,21 @@ After we've built a full-fledged application in React, the final step is deploym
 
 Firebase works for create-react-app, as well as most libraries and frameworks like Angular and Vue. First, install the Firebase CLI globally to the node modules:
 
-{title="Command Line",lang="javascript"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 npm install -g firebase-tools
 ~~~~~~~
 
 Using a global installation of the Firebase CLI lets us deploy applications without concern over project dependency. For any globally-installed node package, remember to update it to a newer version with the same command as often as you can:
 
-{title="Command Line",lang="javascript"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 npm install -g firebase-tools
 ~~~~~~~
 
 If you don't have a Firebase project yet, sign up for a [Firebase account](https://console.firebase.google.com/) and create a new project there. Then you can associate the Firebase CLI with the Firebase account (Google account):
 
-{title="Command Line",lang="javascript"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 firebase login
 ~~~~~~~
@@ -27,14 +27,14 @@ A URL will display in the command line that you can open in a browser, or the Fi
 
 Next, move to the project's folder and execute the following command, which initializes a Firebase project for the Firebase hosting features:
 
-{title="Command Line",lang="javascript"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 firebase init
 ~~~~~~~
 
 Next, choose the Hosting option. If you're interested in using another tool next to Firebase Hosting, add other options:
 
-{title="Command Line",lang="javascript"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 ? Which Firebase CLI features do you want to set up for this folder? Press Space to select features, then Enter to confirm your choices.
  ? Database: Deploy Firebase Realtime Database Rules
@@ -46,7 +46,7 @@ Next, choose the Hosting option. If you're interested in using another tool next
 
 Google becomes aware of all Firebase projects associated with an account after login, and we can select one from the Firebase platform:
 
-{title="Command Line",lang="javascript"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 First, let's associate this project directory with a Firebase project.
 You can create multiple project aliases by running firebase use --add,
@@ -59,7 +59,7 @@ i  Using project my-react-project-abc123 (my-react-project)
 
 There are a few other configuration steps to define. Instead of using the default *public/* folder, we want to use the *build/* folder from create-react-app. If you set up the bundling with a tool like Webpack yourself, you can choose the appropriate name for the build folder:
 
-{title="Command Line",lang="javascript"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 ? What do you want to use as your public directory? build
 ? Configure as a single-page app (rewrite all urls to /index.html)? Yes
@@ -70,14 +70,14 @@ The create-react-app application creates a *build/* folder after we perform the 
 
 Now your Firebase initialization is complete. This step created a few configuration files for Firebase Hosting in your project's folder. You can read more about them in [Firebase's documentation](https://firebase.google.com/docs/hosting/full-config) for configuring redirects, a 404 page, or headers. Finally, deploy your React application with Firebase in the command line:
 
-{title="Command Line",lang="javascript"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 firebase deploy
 ~~~~~~~
 
 After a successful deployment, you should see a similar output with your project's identifier:
 
-{title="Command Line",lang="javascript"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 Project Console: https://console.firebase.google.com/project/my-react-project-abc123/overview
 Hosting URL: https://my-react-project-abc123.firebaseapp.com
