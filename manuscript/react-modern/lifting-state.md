@@ -145,3 +145,4 @@ Now you should be able to search for "eact", "React", or "react" and see one of 
 * Confirm your [source code](https://bit.ly/3vtfBwo).
   * Confirm the [changes](https://bit.ly/3DSiuK6).
 * Read more about [lifting state in React](https://www.robinwieruch.de/react-lift-state).
+* Optional: [Rate this section](https://forms.gle/EqJGjxCM1Xzw9S6g7).

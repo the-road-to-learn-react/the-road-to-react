@@ -393,3 +393,4 @@ It may not be the most concise, but it is the easiest to reason about. Variation
 * Read more about [JavaScript's rest parameters](https://mzl.la/3GeJbef).
 * Get a good sense about JavaScript (e.g. destructuring, spread operator, rest parameters) and what's related to React (e.g. props) from the last lessons.
 * Continue to use your favorite way to handle React's props. If you're still undecided, consider the variation used in the previous section.
+* Optional: [Rate this section](https://forms.gle/WNB4R6yEP1hot3tK8).

@@ -117,3 +117,4 @@ Before the `searchTerm` was used for two cases: updating the input field's state
   * Confirm the [changes](https://bit.ly/3AXZk3J).
 * Why is `useState` instead of `useSemiPersistentState` used for the `url` state management?
 * Why is there no check for an empty `searchTerm` in the `handleFetchStories` function anymore?
+* Optional: [Rate this section](https://forms.gle/HuJDuVNZmEDbhGzU9).

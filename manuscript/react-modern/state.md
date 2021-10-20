@@ -83,3 +83,4 @@ It's important to note that the `useState` function is called a **React hook**. 
   * Confirm the [changes](https://bit.ly/30ISOBv).
 * Read more about [JavaScript array destructuring](https://mzl.la/3ncC7WI).
 * Read more about [React's useState Hook](https://www.robinwieruch.de/react-usestate-hook).
+* Optional: [Rate this section](https://forms.gle/ZJNbQqq3Lw3RiD4H9).

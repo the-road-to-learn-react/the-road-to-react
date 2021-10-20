@@ -31,3 +31,4 @@ The second argument specifies where the React application enters your HTML. It e
 
 * Open the *public/index.html* to see where the React application enters your HTML.
 * Read more about [rendering elements in React](https://bit.ly/3aUySgP).
+* Optional: [Rate this section](https://forms.gle/zSqHUhmsuQ35vqoj9).

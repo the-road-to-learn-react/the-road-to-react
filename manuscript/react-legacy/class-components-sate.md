@@ -45,3 +45,4 @@ In a React class component, there are two dedicated APIs (`this.state` and `this
 ### Exercises:
 
 * Write a stateful class component (e.g. Input component where a user can type something into it and the text displays somewhere else).
+* Optional: [Rate this section](https://forms.gle/5UPEsMWSGjWyeaiA9).

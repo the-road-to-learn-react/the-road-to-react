@@ -407,3 +407,4 @@ This feature wasn't an easy one. Lots of fundamental React but also JavaScript k
 * Confirm your [source code](https://bit.ly/3vtAYgZ).
   * Confirm the [changes](https://bit.ly/3jlnHm1).
 * Read more about [grouping in JavaScript](https://www.robinwieruch.de/javascript-groupby/).
+* Optional: [Rate this section](https://forms.gle/LhNVodZgu8qTqHhN6).

@@ -37,3 +37,7 @@ npx http-server build/
 ~~~~~~~
 
 After entering one of the commands, a URL is presented that provides access to your optimized, packaged and hosted application. It's sent through a local IP address that can be made available over your local network, meaning we're hosting the application on our local machine.
+
+### Exercises:
+
+* Optional: [Rate this section](https://forms.gle/hFsut8q7eYsWfYL7A).

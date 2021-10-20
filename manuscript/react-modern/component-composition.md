@@ -89,3 +89,4 @@ With this React feature, we can compose React components into each other. We've 
 * Confirm your [source code](https://bit.ly/3lUZqVA).
   * Confirm the [changes](https://bit.ly/3BU66J3).
 * Read more about [Component Composition in React](https://www.robinwieruch.de/react-component-composition).
+* Optional: [Rate this section](https://forms.gle/L2GgfHVjAAwbqudq8).

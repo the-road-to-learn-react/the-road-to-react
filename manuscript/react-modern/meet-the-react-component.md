@@ -129,3 +129,4 @@ On your journey as a React developer, and in this learning experience, you will 
   * Read more about [const](https://mzl.la/3jkvHn5).
   * Read more about [let](https://mzl.la/3piHQgc).
 * Think about ways to display the `title` variable in your App component's returned HTML. In the next section, we'll put this variable to use.
+* Optional: [Rate this section](https://forms.gle/VYiZqqjzXGE11wCv6).

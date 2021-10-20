@@ -95,3 +95,4 @@ Another command from the previous npm scripts called `eject` shouldn't be used f
   * Run the `npm run build` script and verify that a *build/* folder was added to your project (you can remove it afterward). Note that the build folder can be used later on to [deploy your application](https://www.robinwieruch.de/deploy-applications-digital-ocean/).
 * Every time we change something in our code throughout the coming learning experience, make sure to check the output in your browser for getting visual feedback. Use `npm start` to keep your application running.
 * Optionally: If you use git and GitHub, add and commit your changes after every section of the book.
+* Optional: [Rate this section](https://forms.gle/bvH2jcppsSA6p9i16).

@@ -21,3 +21,4 @@ With the rise of React, the concept of components became popular. Every componen
 * Read more about [how to learn a framework](https://www.robinwieruch.de/how-to-learn-framework).
 * Read more about [how to learn React](https://www.robinwieruch.de/learn-react-js).
 * Read more about [JavaScript fundamentals needed for React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements) -- without worrying too much about React here -- to challenge yourself with several JavaScript features used in React.
+* Optional: [Rate this section](https://forms.gle/NTqhvyDaP1RjtanC6).

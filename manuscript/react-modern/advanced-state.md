@@ -145,3 +145,4 @@ What we've covered is a minimal version of a reducer in JavaScript. It covers tw
 * Read more about [reducers in JavaScript](https://www.robinwieruch.de/javascript-reducer).
 * Read more about [reducers and useReducer in React](https://www.robinwieruch.de/react-usereducer-hook).
 * Extract the action types `'SET_STORIES'` and `'REMOVE_STORY'` as variables and reuse them in the reducer and the dispatch functions. This way, you will avoid introducing typos in your action types.
+* Optional: [Rate this section](https://forms.gle/tNqqVynwQV9Ym9u68).

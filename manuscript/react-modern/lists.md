@@ -181,9 +181,10 @@ The map function is inlined concisely in your JSX. Within the map function, we h
 
 * Confirm your [source code](https://bit.ly/2Z6e2ZI).
   * Confirm the [changes](https://bit.ly/3jf7a2Q).
-* Read more about why React's key attribute is needed ([0](https://www.robinwieruch.de/react-list-key), [1](https://reactjs.org/docs/lists-and-keys.html)). Don't worry if you don't understand the implementation yet, just focus on what problem it causes for dynamic lists.
+* Read more about why React's key attribute is needed ([0](https://www.robinwieruch.de/react-list-key), [1](https://bit.ly/3vsA1pj)). Don't worry if you don't understand the implementation yet, just focus on what problem it causes for dynamic lists.
 * Recap the [standard built-in array methods](https://mzl.la/3b9V9rf) -- especially *map*, *filter*, and *reduce* -- which are available in native JavaScript.
 * What happens if you return `null` instead of the JSX? Try it first, then read the answer:
   * Returning `null` in JSX is allowed. It's always used if you want to render nothing.
 * Extend the list with some more items to make the example more realistic.
 * Practice using different JavaScript expressions in JSX.
+* Optional: [Rate this section](https://forms.gle/aZmLFjEdSMTk9Thk9).

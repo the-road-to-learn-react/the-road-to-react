@@ -219,3 +219,4 @@ Task's done and here comes the recap: First we extracted the sort function from 
 * Read more about [Lodash](https://lodash.com).
 * Why did we use numeric properties like `points` and `num_comments` for a reverse sort?
 * Use your styling skills to give the user feedback about the current active sort. This mechanism can be as straightforward as giving the active sort button a different color.
+* Optional: [Rate this section](https://forms.gle/GM71SDZZWPQWEwmB7).

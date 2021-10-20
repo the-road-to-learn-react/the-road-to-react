@@ -66,3 +66,4 @@ After all, using async/await with try/catch over then/catch makes it often more 
   * Confirm the [changes](https://bit.ly/3G4t3LV).
 * Read more about [data fetching in React](https://www.robinwieruch.de/react-hooks-fetch-data).
 * Read more about [async/await in JavaScript](https://mzl.la/3AWyWaw).
+* Optional: [Rate this section](https://forms.gle/mtMmwrrsiwioZ8GH6).

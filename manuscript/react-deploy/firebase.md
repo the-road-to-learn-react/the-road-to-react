@@ -92,3 +92,4 @@ If you see a blank page for your deployed React application, make sure the `publ
 * Read more about [Firebase Hosting](https://firebase.google.com/docs/hosting).
 * [Connect your domain to your Firebase deployed application](https://firebase.google.com/docs/hosting/custom-domain).
 * Optional: If you want to have a managed cloud server, check out [DigitalOcean](https://m.do.co/c/fb27c90322f3). It's more work, but it allows more control. [I host all my websites, web applications, and backend APIs there](https://www.robinwieruch.de/deploy-applications-digital-ocean/).
+* Optional: [Rate this section](https://forms.gle/QPjydK8UbaXkxCEj9).

@@ -153,3 +153,4 @@ This was an example of how to move from declarative to imperative programming in
   * Confirm the [changes](https://bit.ly/3aT3bEq).
 * Read more about [refs in React](https://www.robinwieruch.de/react-ref).
 * Learn [how to build a Slider component with imperative React](https://www.robinwieruch.de/react-slider).
+* Optional: [Rate this section](https://forms.gle/nABoW2tKAPd1yVkv7).

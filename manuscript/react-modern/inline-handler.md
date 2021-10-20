@@ -205,3 +205,4 @@ All three handler versions, two of which are inline and the normal handler, are 
 * Read more about how to [add](https://www.robinwieruch.de/react-add-item-to-list), [update](https://www.robinwieruch.de/react-update-item-in-list), [remove](https://www.robinwieruch.de/react-remove-item-from-list) items in a list.
 * Read more about [computed properties in React](https://www.robinwieruch.de/react-computed-properties).
 * Review handlers, callback handlers, and inline handlers.
+* Optional: [Rate this section](https://forms.gle/19NvNYMk2RUKTDyZ6).

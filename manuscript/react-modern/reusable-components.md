@@ -87,3 +87,4 @@ In conclusion, with just a few changes we turned a specialized Search component 
   * Confirm the [changes](https://bit.ly/3C2DzAY).
 * Read more about [Reusable React Components](https://www.robinwieruch.de/react-reusable-components).
 * Before we used the text "Search:" with a ":". How would you deal with it now? Would you pass it with `label="Search:"` as prop to the InputWithLabel component or hardcode it after the `<label htmlFor={id}>{label}:</label>` usage in the InputWithLabel component? We will see how to cope with this later.
+* Optional: [Rate this section](https://forms.gle/76C3LvW3kHHwdhgq5).

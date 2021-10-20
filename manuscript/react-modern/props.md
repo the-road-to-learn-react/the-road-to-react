@@ -118,3 +118,4 @@ In conclusion, one can see how props are used to pass information down the compo
 * Confirm your [source code](https://bit.ly/3jlmUBz).
   * Confirm the [changes](https://bit.ly/3lW2sIX).
 * Read more about [how to pass props to React components](https://www.robinwieruch.de/react-pass-props-to-component).
+* Optional: [Rate this section](https://forms.gle/APwaUSAuVAAA56sY6).

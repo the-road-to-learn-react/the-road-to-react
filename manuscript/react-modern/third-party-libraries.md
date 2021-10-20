@@ -61,3 +61,4 @@ In this code, we call axios `axios.get()` for an explicit [HTTP GET request](htt
 * Read more about [popular libraries in React](https://www.robinwieruch.de/react-libraries).
 * Read more about [why frameworks matter](https://www.robinwieruch.de/why-frameworks-matter).
 * Read more about [axios](https://bit.ly/3jjEupg).
+* Optional: [Rate this section](https://forms.gle/wfDb7r5K4az3TiWN9).

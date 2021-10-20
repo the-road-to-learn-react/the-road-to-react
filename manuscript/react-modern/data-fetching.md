@@ -66,3 +66,4 @@ Check your browser to see stories related to the initial query fetched from the 
 * Read through [Hacker News](https://news.ycombinator.com) and its [API](https://hn.algolia.com/api).
 * Read more about [the browser native fetch API](https://mzl.la/2Z1kyjU) for connecting to remote APIs.
 * Read more about [JavaScript's Template Literals](https://mzl.la/3jlcVfn).
+* Optional: [Rate this section](https://forms.gle/hoJxjjpoZQGCS7Vp9).

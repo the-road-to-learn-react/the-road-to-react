@@ -65,3 +65,4 @@ The concept of the callback handler in a nutshell: We pass a function from a par
 * Confirm your [source code](https://bit.ly/3DUWm1O).
   * Confirm the [changes](https://bit.ly/3jizj9s).
 * Revisit the concepts of handler and callback handler as many times as you need.
+* Optional: [Rate this section](https://forms.gle/3LoBoWKCMNT2YpnA7).

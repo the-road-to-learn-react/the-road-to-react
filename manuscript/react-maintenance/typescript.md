@@ -390,3 +390,4 @@ Our entire React application is finally typed by TypeScript, making it easy to s
   * Confirm the [changes](https://bit.ly/3pjxlJr).
 * Dig into the [React + TypeScript Cheatsheet](https://bit.ly/3phdf2H), because most common use cases we faced in this section are covered there as well. There is no need to know everything from the top of your head.
 * While you continue with the learning experience in the following sections, remove or keep your types with TypeScript. If you do the latter, add new types whenever you get a compile error.
+* Optional: [Rate this section](https://forms.gle/Pyw2oUjXV85hwk2t6).

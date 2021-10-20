@@ -189,3 +189,4 @@ Be sure to understand this refactoring concept, because we'll move quickly from 
   * Confirm the [changes](https://bit.ly/3pkH2aS).
 * Read more about [JavaScript arrow functions](https://mzl.la/3BYCOcp).
 * Familiarize yourself with arrow functions with block body and return, and concise body without return.
+* Optional: [Rate this section](https://forms.gle/iWSchmqasbZUWUpT8).

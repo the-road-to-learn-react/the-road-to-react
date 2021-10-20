@@ -74,3 +74,4 @@ Once we've defined a **component**, we can use it as an HTML **element** anywher
 * Experiment by creating multiple component instances of a List component.
 * From the previous section: Ask yourself again what problems could arise if we keep treating the `list` variable as a global variable.
   * Think about how it could be possible to give each List component its own `list` variable.
+* Optional: [Rate this section](https://forms.gle/sf1UMNR58v3NsRUSA).

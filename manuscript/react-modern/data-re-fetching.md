@@ -97,3 +97,4 @@ We changed the feature from a client-side to server-side search. Instead of filt
 
 * Confirm your [source code](https://bit.ly/3lZtjUO).
   * Confirm the [changes](https://bit.ly/3b9S4aF).
+* Optional: [Rate this section](https://forms.gle/ywE4bFy6D2HSG8Rd7).

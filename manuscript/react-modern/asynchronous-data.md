@@ -73,3 +73,4 @@ Once you start the application again, you should see a delayed rendering of the 
 * Read more about [JavaScript Promises](https://mzl.la/3aTGuQz).
 * Read more about [faking a remote API with JavaScript](https://www.robinwieruch.de/javascript-fake-api).
 * Read more about [using mock data in React](https://www.robinwieruch.de/react-mock-data).
+* Optional: [Rate this section](https://forms.gle/sfQcc477xmgGRLyB7).
