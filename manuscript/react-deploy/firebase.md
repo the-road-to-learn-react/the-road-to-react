@@ -68,7 +68,7 @@ There are a few other configuration steps to define. Instead of using the defaul
 
 The create-react-app application creates a *build/* folder after we perform the `npm run build` for the first time. The folder contains all the merged content from the *public/* folder and the *src/* folder. Since it is a single page application, we want to redirect the user to the *index.html* file, so the React router can handle client-side routing.
 
-Now your Firebase initialization is complete. This step created a few configuration files for Firebase Hosting in your project's folder. You can read more about them in [Firebase's documentation](https://firebase.google.com/docs/hosting/full-config) for configuring redirects, a 404 page, or headers. Finally, deploy your React application with Firebase in the command line:
+Now your Firebase initialization is complete. This step created a few configuration files for Firebase Hosting in your project's folder. You can read more about them in [Firebase's documentation](https://bit.ly/3DVgbpG) for configuring redirects, a 404 page, or headers. Finally, deploy your React application with Firebase in the command line:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
@@ -85,11 +85,11 @@ Hosting URL: https://my-react-project-abc123.firebaseapp.com
 
 Visit both pages to observe the results. The first link navigates to your Firebase project's dashboard, where you'll see a new panel for the Firebase Hosting. The second link navigates to your deployed React application.
 
-If you see a blank page for your deployed React application, make sure the `public` key/value pair in the *firebase.json* is set to `build`, or whichever name you chose for this folder. Second, verify you've run the build script for your React app with `npm run build`. Finally, check out the [official troubleshoot area for deploying create-react-app applications to Firebase](https://create-react-app.dev/docs/deployment). Try another deployment with `firebase deploy`.
+If you see a blank page for your deployed React application, make sure the `public` key/value pair in the *firebase.json* is set to `build`, or whichever name you chose for this folder. Second, verify you've run the build script for your React app with `npm run build`. Finally, check out the [official troubleshoot area for deploying create-react-app applications to Firebase](https://bit.ly/2ZaLMoE). Try another deployment with `firebase deploy`.
 
 ### Exercises:
 
-* Read more about [Firebase Hosting](https://firebase.google.com/docs/hosting).
-* [Connect your domain to your Firebase deployed application](https://firebase.google.com/docs/hosting/custom-domain).
-* Optional: If you want to have a managed cloud server, check out [DigitalOcean](https://m.do.co/c/fb27c90322f3). It's more work, but it allows more control. [I host all my websites, web applications, and backend APIs there](https://www.robinwieruch.de/deploy-applications-digital-ocean/).
+* Read more about [Firebase Hosting](https://bit.ly/3lXypAC).
+* [Connect your domain to your Firebase deployed application](https://bit.ly/3phFxdp).
+* Optional: If you want to have a managed cloud server, check out [DigitalOcean](https://m.do.co/c/fb27c90322f3). It's more work, but it allows more control. [I host all my websites, web applications, and backend APIs there](https://www.robinwieruch.de/deploy-applications-digital-ocean).
 * Optional: [Rate this section](https://forms.gle/QPjydK8UbaXkxCEj9).
