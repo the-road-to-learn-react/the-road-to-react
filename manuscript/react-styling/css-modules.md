@@ -177,7 +177,7 @@ const SearchForm = ({ ... }) => (
 );
 ~~~~~~~
 
-The SearchForm component receives the styles as well. It has to use string interpolation for using two styles in one element via JavaScript's template literals. One alternative way is the [classnames](https://github.com/JedWatson/classnames) library, which is installed via the command line as a project dependency:
+The SearchForm component receives the styles as well. It has to use string interpolation for using two styles in one element via JavaScript's template literals. One alternative way is the [classnames](https://bit.ly/3aSz1Bl) library, which is installed via the command line as a project dependency:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -189,7 +189,7 @@ import cs from 'classnames';
 className={cs(styles.button, styles.buttonLarge)}
 ~~~~~~~
 
-The library offers conditional styling too; whereas the left-hand side of the object's property must be used as a [computed property name](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) and is only applied if the right-hand side evaluates to true:
+The library offers conditional styling too; whereas the left-hand side of the object's property must be used as a [computed property name](https://mzl.la/2XuN651) and is only applied if the right-hand side evaluates to true:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -263,6 +263,6 @@ Again, CSS Modules -- like any other CSS-in-CSS approach -- can use Sass for mor
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/CSS-Modules-in-React).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-modern-final...2021/CSS-Modules-in-React).
-* Read more about [CSS Modules in create-react-app](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet).
+* Confirm your [source code](https://bit.ly/3lVeoeb).
+  * Confirm the [changes](https://bit.ly/3pkqgs4).
+* Read more about [CSS Modules in create-react-app](https://bit.ly/3phgN51).

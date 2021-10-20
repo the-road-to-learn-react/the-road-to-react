@@ -137,7 +137,7 @@ const List = ({ list, onRemoveItem }) => {
 };
 ~~~~~~~
 
-The state management for the new feature is implemented, but we don't see anything when our buttons are clicked yet. This happens because the sorting mechanism hasn't been applied to the actual `list`. Sorting an array with JavaScript isn't trivial, because every JavaScript primitive (e.g. string, boolean, number) comes with edge cases when an array is sorted by its properties. We will use a library called [Lodash](https://lodash.com/) to solve this, which comes with many JavaScript utility functions (e.g. `sortBy`). First, install it via the command line:
+The state management for the new feature is implemented, but we don't see anything when our buttons are clicked yet. This happens because the sorting mechanism hasn't been applied to the actual `list`. Sorting an array with JavaScript isn't trivial, because every JavaScript primitive (e.g. string, boolean, number) comes with edge cases when an array is sorted by its properties. We will use a library called [Lodash](https://lodash.com) to solve this, which comes with many JavaScript utility functions (e.g. `sortBy`). First, install it via the command line:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
@@ -214,8 +214,8 @@ Task's done and here comes the recap: First we extracted the sort function from 
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Sort).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-modern-final...2021/Sort).
-* Read more about [Lodash](https://lodash.com/).
+* Confirm your [source code](https://bit.ly/3aUfX5W).
+  * Confirm the [changes](https://bit.ly/2ZfbVTb).
+* Read more about [Lodash](https://lodash.com).
 * Why did we use numeric properties like `points` and `num_comments` for a reverse sort?
 * Use your styling skills to give the user feedback about the current active sort. This mechanism can be as straightforward as giving the active sort button a different color.

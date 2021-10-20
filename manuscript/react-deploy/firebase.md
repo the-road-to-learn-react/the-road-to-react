@@ -16,7 +16,7 @@ Using a global installation of the Firebase CLI lets us deploy applications with
 npm install -g firebase-tools
 ~~~~~~~
 
-If you don't have a Firebase project yet, sign up for a [Firebase account](https://console.firebase.google.com/) and create a new project there. Then you can associate the Firebase CLI with the Firebase account (Google account):
+If you don't have a Firebase project yet, sign up for a [Firebase account](https://console.firebase.google.com) and create a new project there. Then you can associate the Firebase CLI with the Firebase account (Google account):
 
 {title="Command Line",lang="text"}
 ~~~~~~~
@@ -89,6 +89,6 @@ If you see a blank page for your deployed React application, make sure the `publ
 
 ### Exercises:
 
-* Read more about [Firebase Hosting](https://firebase.google.com/docs/hosting/).
+* Read more about [Firebase Hosting](https://firebase.google.com/docs/hosting).
 * [Connect your domain to your Firebase deployed application](https://firebase.google.com/docs/hosting/custom-domain).
 * Optional: If you want to have a managed cloud server, check out [DigitalOcean](https://m.do.co/c/fb27c90322f3). It's more work, but it allows more control. [I host all my websites, web applications, and backend APIs there](https://www.robinwieruch.de/deploy-applications-digital-ocean/).

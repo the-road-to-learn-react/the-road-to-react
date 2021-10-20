@@ -47,7 +47,7 @@ function App() {
 export default App;
 ~~~~~~~
 
-For our input field and label combination, we specified three HTML attributes: `htmlFor`, `id`, and `type`. Where `id` and `type` should be familiar from native HTML, `htmlFor` might be new to you. The `htmlFor` reflects the `for` attribute in HTML. JSX replaces a handful of internal HTML attributes caused by internal implementation details of React itself. However, you can find all the [supported HTML attributes](https://reactjs.org/docs/dom-elements.html#all-supported-html-attributes) in React's documentation, which follows the [camel case](https://en.wikipedia.org/wiki/Camel_case) naming convention. Expect to come across more JSX-specific attributes like `className` and `onClick` instead of `class` and `onclick`, as you learn more about React.
+For our input field and label combination, we specified three HTML attributes: `htmlFor`, `id`, and `type`. Where `id` and `type` should be familiar from native HTML, `htmlFor` might be new to you. The `htmlFor` reflects the `for` attribute in HTML. JSX replaces a handful of internal HTML attributes caused by internal implementation details of React itself. However, you can find all the [supported HTML attributes](https://bit.ly/2Z42zcK) in React's documentation, which follows the [camel case](https://bit.ly/3jljQFn) naming convention. Expect to come across more JSX-specific attributes like `className` and `onClick` instead of `class` and `onclick`, as you learn more about React.
 
 We will revisit the HTML input field for implementation details later; for now, let's return to JavaScript in JSX in contrast to HTML. We have defined a JavaScript string primitive to be displayed in the App component, and the same can be done with a JavaScript object:
 
@@ -108,13 +108,13 @@ function App() {
 export default App;
 ~~~~~~~
 
-JSX was initially invented for React, but it became useful for other modern libraries and frameworks after it gained popularity. [It's one of my favorite things about React](https://www.quora.com/Why-choose-React/answer/Robin-Wieruch). Without any extra templating syntax (except for the curly braces), we are now able to use JavaScript in HTML. Every data structure, from JavaScript primitive to a JavaScript function, can be displayed within HTML with the help of JSX.
+JSX was initially invented for React, but it became useful for other modern libraries and frameworks after it gained popularity. [It's one of my favorite things about React](https://bit.ly/3aZbdM0). Without any extra templating syntax (except for the curly braces), we are now able to use JavaScript in HTML. Every data structure, from JavaScript primitive to a JavaScript function, can be displayed within HTML with the help of JSX.
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-JSX).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Meet-the-React-Component...2021/React-JSX).
-* Read more about [React's JSX](https://reactjs.org/docs/introducing-jsx.html).
+* Confirm your [source code](https://bit.ly/3vvS8ec).
+  * Confirm the [changes](https://bit.ly/3n3WW6o).
+* Read more about [React's JSX](https://bit.ly/3BZSkVk).
 * Read more about [JavaScript Variables](https://www.robinwieruch.de/javascript-variable).
   * Define more primitive and complex JavaScript data types and render them in JSX.
-  * Try to render a JavaScript array in JSX ([hint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)). If it's too complicated, don't worry, because you will learn more about this in the next section.
+  * Try to render a JavaScript array in JSX ([hint](https://mzl.la/3B3a7tf)). If it's too complicated, don't worry, because you will learn more about this in the next section.

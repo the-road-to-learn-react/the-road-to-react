@@ -79,7 +79,7 @@ It's important to note that the `useState` function is called a **React hook**. 
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-State).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-Props...2021/React-State).
-* Read more about [JavaScript array destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Array_destructuring).
+* Confirm your [source code](https://bit.ly/3prVjSO).
+  * Confirm the [changes](https://bit.ly/30ISOBv).
+* Read more about [JavaScript array destructuring](https://mzl.la/3ncC7WI).
 * Read more about [React's useState Hook](https://www.robinwieruch.de/react-usestate-hook).

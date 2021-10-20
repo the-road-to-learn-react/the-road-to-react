@@ -68,6 +68,6 @@ By moving the data fetching function outside the `useEffect` hook, it becomes re
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Memoized-Handler-in-React).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Data-Re-Fetching-in-React...2021/Memoized-Handler-in-React).
+* Confirm your [source code](https://bit.ly/3aSpb2v).
+  * Confirm the [changes](https://bit.ly/3G4vkGX).
 * Read more about [React's useCallback Hook](https://www.robinwieruch.de/react-usecallback-hook).

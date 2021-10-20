@@ -244,7 +244,7 @@ CSS-in-JS with styled components shifts the focus of defining styles to actual R
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Styled-Components-in-React).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-modern-final...2021/Styled-Components-in-React).
+* Confirm your [source code](https://bit.ly/2ZaHeOU).
+  * Confirm the [changes](https://bit.ly/3n4aH5e).
 * Read more about [best practices for Styled Components in React](https://www.robinwieruch.de/styled-components).
 * Usually there is no *src/index.css* file for global styles when using Styled Components. Find out how to use global styles when using Styled Components.

@@ -62,7 +62,7 @@ After all, using async/await with try/catch over then/catch makes it often more 
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Async-Await-in-React).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Third-Party-Libraries-in-React...2021/Async-Await-in-React).
+* Confirm your [source code](https://bit.ly/3po4jsf).
+  * Confirm the [changes](https://bit.ly/3G4t3LV).
 * Read more about [data fetching in React](https://www.robinwieruch.de/react-hooks-fetch-data).
-* Read more about [async/await in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function).
+* Read more about [async/await in JavaScript](https://mzl.la/3AWyWaw).

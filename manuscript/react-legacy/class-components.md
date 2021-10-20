@@ -2,13 +2,13 @@
 
 React has changed a lot since 2013. The iterations of its library, how React applications are written, and especially its components have all changed drastically. However, many React applications were built over the last few years, so not everything was created with the current status quo in mind. This section of the book covers React's legacy. However, I won't cover all that's considered legacy in React, because some features have been revamped more than once.
 
-Throughout this section, we will compare a [modern React application](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/react-modern-final) to its [legacy version](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/react-legacy). We'll discover that most differences between modern and legacy React are due to class components versus function components.
+Throughout this section, we will compare a [modern React application](https://bit.ly/3vrKgu9) to its [legacy version](https://bit.ly/2Z1matY). We'll discover that most differences between modern and legacy React are due to class components versus function components.
 
 ## React Class Components
 
 React components have undergone many changes, from **createClass components** over **class components**, to **function components**. Going through a React application today, it's likely that we'll see class components next to the modern function components. Fortunately, you will not see many **createClass components** anymore.
 
-A typical class component is a JavaScript class with a mandatory **render method** that returns the JSX. The class extends from a `React.Component` to inherit ([class inheritance](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming))) all React's component features (e.g. state management, lifecycle methods for side-effects). React `props` are accessed via the class instance (`this`) in any class method (e.g. `render`):
+A typical class component is a JavaScript class with a mandatory **render method** that returns the JSX. The class extends from a `React.Component` to inherit ([class inheritance](https://bit.ly/3vxh3xY)) all React's component features (e.g. state management, lifecycle methods for side-effects). React `props` are accessed via the class instance (`this`) in any class method (e.g. `render`):
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -68,8 +68,8 @@ With the addition of React Hooks, function components were granted the same feat
 
 ### Exercises:
 
-* Read more about [JavaScript Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes).
+* Read more about [JavaScript Classes](https://mzl.la/3vvc2FO).
 * Read more about [how to refactor from a class component to a function component](https://www.robinwieruch.de/react-hooks-migration).
-* Learn more about a different [class component syntax](https://github.com/the-road-to-learn-react/react-alternative-class-component-syntax) which wasn't popular but more effective.
-* Read more about [class components in depth](https://reactjs.org/docs/react-component.html).
+* Learn more about a different [class component syntax](https://bit.ly/3lYzrfT) which wasn't popular but more effective.
+* Read more about [class components in depth](https://bit.ly/3FXUibf).
 * Read more about [other legacy and modern component types in React](https://www.robinwieruch.de/react-component-types).

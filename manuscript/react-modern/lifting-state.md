@@ -81,7 +81,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Here, the [JavaScript array's built-in filter function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) is used to create a new filtered array. The filter function takes a function as an argument, which accesses each item in the array and returns true or false. If the function returns true, meaning the condition is met, the item stays in the newly created array; if the function returns false, it's removed:
+Here, the [JavaScript array's built-in filter function](https://mzl.la/3BYFAOR) is used to create a new filtered array. The filter function takes a function as an argument, which accesses each item in the array and returns true or false. If the function returns true, meaning the condition is met, the item stays in the newly created array; if the function returns false, it's removed:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -142,6 +142,6 @@ Now you should be able to search for "eact", "React", or "react" and see one of 
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Lifting-State-in-React).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Callback-Handler-in-JSX...2021/Lifting-State-in-React).
+* Confirm your [source code](https://bit.ly/3vtfBwo).
+  * Confirm the [changes](https://bit.ly/3DSiuK6).
 * Read more about [lifting state in React](https://www.robinwieruch.de/react-lift-state).

@@ -95,5 +95,5 @@ We changed the feature from a client-side to server-side search. Instead of filt
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Data-Re-Fetching-in-React).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Data-Fetching-with-React...2021/Data-Re-Fetching-in-React).
+* Confirm your [source code](https://bit.ly/3lZtjUO).
+  * Confirm the [changes](https://bit.ly/3b9S4aF).

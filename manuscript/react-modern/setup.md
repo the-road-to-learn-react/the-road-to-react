@@ -1,6 +1,6 @@
 ## Setting up a React Project
 
-In the Road to React, we'll use [create-react-app](https://github.com/facebook/create-react-app) to bootstrap your application. It's an opinionated yet zero-configuration starter kit for React introduced by Facebook in 2016, which is [recommended for beginners by 96% of React users](https://twitter.com/dan_abramov/status/806985854099062785). In *create-react-app*, the tooling and configuration evolve in the background, while the focus remains on the application's implementation.
+In the Road to React, we'll use [create-react-app](https://bit.ly/3jjkzHd) to bootstrap your application. It's an opinionated yet zero-configuration starter kit for React introduced by Facebook in 2016, which is [recommended for beginners by 96% of React users](https://bit.ly/3AY58u3). In *create-react-app*, the tooling and configuration evolve in the background, while the focus remains on the application's implementation.
 
 After installing Node and NPM, use the command line to type the following command in a dedicated folder for your project. We'll refer to this project as *hacker-stories*, but you may choose any name you like:
 
@@ -38,7 +38,7 @@ hacker-stories/
 
 This is a breakdown of the most important folders and files:
 
-* **README.md:** The *.md* extension indicates the file is a markdown file. Markdown is a lightweight markup language with plain text formatting syntax. Many projects come with a *README*.md file that gives instructions and useful information about the project. When we push projects to platforms like GitHub, the *README.md* file usually displays information about the content contained in its repositories. Because you used create-react-app, your *README.md* should be the same as the official's [create-react-app GitHub repository](https://github.com/facebook/create-react-app).
+* **README.md:** The *.md* extension indicates the file is a markdown file. Markdown is a lightweight markup language with plain text formatting syntax. Many projects come with a *README*.md file that gives instructions and useful information about the project. When we push projects to platforms like GitHub, the *README.md* file usually displays information about the content contained in its repositories. Because you used create-react-app, your *README.md* should be the same as the official's [create-react-app GitHub repository](https://bit.ly/3jjkzHd).
 * **node_modules/:** This folder contains all node packages that have been installed. Since we used create-react-app, a couple of node modules are already installed. We'll not touch this folder, since node packages are usually installed and uninstalled with npm via the command line.
 * **package.json:** This file shows you a list of node package dependencies and other project configurations.
 * **package-lock.json:** This file indicates npm how to break down all node package versions. We'll not touch this file.
@@ -84,11 +84,11 @@ Another command from the previous npm scripts called `eject` shouldn't be used f
 
 ### Exercises:
 
-* Read a bit more through React's [create-react-app documentation](https://github.com/facebook/create-react-app) and [getting started guide](https://create-react-app.dev/docs/getting-started).
-  * Read more about [the supported JavaScript features in create-react-app](https://create-react-app.dev/docs/supported-browsers-features).
-* Read more about [the folder structure in create-react-app](https://create-react-app.dev/docs/folder-structure).
+* Read a bit more through React's [create-react-app documentation](https://bit.ly/3jjkzHd) and [getting started guide](https://create-react-app.dev/docs/getting-started).
+  * Read more about [the supported JavaScript features in create-react-app](https://bit.ly/3vvl4Tn).
+* Read more about [the folder structure in create-react-app](https://bit.ly/3jeBN8H).
   * Go through all of your React project's folders and files one by one.
-* Read more about [the scripts in create-react-app](https://create-react-app.dev/docs/available-scripts).
+* Read more about [the scripts in create-react-app](https://bit.ly/3vvjsJx).
   * Start your React application with `npm start` on the command line and check it out in the browser.
     * Exit the command on the command line by pressing `Control + C`.
   * Run the `npm test` script.

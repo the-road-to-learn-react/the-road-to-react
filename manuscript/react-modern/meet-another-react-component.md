@@ -92,8 +92,8 @@ React applications have **component hierarchies** (also called **component trees
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Meet-another-React-Component).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Lists-in-React...2021/Meet-another-React-Component).
+* Confirm your [source code](https://bit.ly/3plb66a).
+  * Confirm the [changes](https://bit.ly/3G61kKU).
 * Ask yourself:
   * What problem could arise if we keep treating the `list` variable as a global variable. Think about a way how to prevent it.
   * We can't extract an Item component from the List component (like in the illustration) yet, because we don't know how to pass individual items from the list to each Item component. Think about a way to do it.

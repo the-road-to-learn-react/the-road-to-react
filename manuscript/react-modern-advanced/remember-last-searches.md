@@ -404,6 +404,6 @@ This feature wasn't an easy one. Lots of fundamental React but also JavaScript k
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Remember-Last-Searches).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Reverse-Sort...2021/Remember-Last-Searches).
+* Confirm your [source code](https://bit.ly/3vtAYgZ).
+  * Confirm the [changes](https://bit.ly/3jlnHm1).
 * Read more about [grouping in JavaScript](https://www.robinwieruch.de/javascript-groupby/).

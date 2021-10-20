@@ -64,6 +64,6 @@ A fragment wraps other elements into a single top-level element without adding t
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-Fragments).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-Custom-Hooks...2021/React-Fragments).
-* Read more about [React fragments](https://reactjs.org/docs/fragments.html).
+* Confirm your [source code](https://bit.ly/3piEnhG).
+  * Confirm the [changes](https://bit.ly/3n9Rmjd).
+* Read more about [React fragments](https://bit.ly/2Z4mo44).

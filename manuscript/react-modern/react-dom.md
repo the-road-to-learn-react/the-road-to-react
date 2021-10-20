@@ -30,4 +30,4 @@ The second argument specifies where the React application enters your HTML. It e
 ### Exercises:
 
 * Open the *public/index.html* to see where the React application enters your HTML.
-* Read more about [rendering elements in React](https://reactjs.org/docs/rendering-elements.html).
+* Read more about [rendering elements in React](https://bit.ly/3aUySgP).

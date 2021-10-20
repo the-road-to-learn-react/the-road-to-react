@@ -86,6 +86,6 @@ With this React feature, we can compose React components into each other. We've 
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-Component-Composition).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Reusable-React-Component...2021/React-Component-Composition).
+* Confirm your [source code](https://bit.ly/3lUZqVA).
+  * Confirm the [changes](https://bit.ly/3BU66J3).
 * Read more about [Component Composition in React](https://www.robinwieruch.de/react-component-composition).

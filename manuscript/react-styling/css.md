@@ -115,7 +115,7 @@ const Item = ({ item, onRemoveItem }) => (
 
 As you can see, we can also use the `style` attribute for HTML elements. In JSX, style can be passed as an inline JavaScript object to these attributes. This way we can define dynamic style properties in JavaScript files rather than mostly static CSS files. This approach is called **inline style**, which is useful for quick prototyping and dynamic style definitions. Inline style should be used sparingly, however, since a separate style definition with a CSS file keeps the JSX more concise.
 
-In your *src/App.css* file, define the new CSS classes. Basic CSS features are used here, because advanced CSS features (e.g. nesting) from CSS extensions (e.g. Sass) are not included in this example, as they are [optional configurations](https://create-react-app.dev/docs/adding-a-sass-stylesheet/):
+In your *src/App.css* file, define the new CSS classes. Basic CSS features are used here, because advanced CSS features (e.g. nesting) from CSS extensions (e.g. Sass) are not included in this example, as they are [optional configurations](https://bit.ly/3E1a2bM):
 
 {title="src/App.css",lang="css"}
 ~~~~~~~
@@ -165,7 +165,7 @@ The button style from the previous component is still missing, so we'll define a
 }
 ~~~~~~~
 
-Apart from styling approaches in React, naming conventions ([CSS guidelines](https://developer.mozilla.org/en-US/docs/MDN/Contribute/Guidelines/Code_guidelines/CSS)) are a whole other topic. The last CSS snippet followed BEM rules by defining modifications of a class with an underscore (`_`). Choose whatever naming convention suits you and your team. Without further ado, we will style the next React component:
+Apart from styling approaches in React, naming conventions ([CSS guidelines](https://mzl.la/3m5avnb)) are a whole other topic. The last CSS snippet followed BEM rules by defining modifications of a class with an underscore (`_`). Choose whatever naming convention suits you and your team. Without further ado, we will style the next React component:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -250,9 +250,9 @@ For simplicity, we styled elements like label and input individually in the *src
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/CSS-in-React).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-modern-final...2021/CSS-in-React).
-* Read more about [CSS stylesheets in create-react-app](https://create-react-app.dev/docs/adding-a-stylesheet).
+* Confirm your [source code](https://bit.ly/3jk9llQ).
+  * Confirm the [changes](https://bit.ly/3vrrnr4).
+* Read more about [CSS stylesheets in create-react-app](https://bit.ly/3G0fTjn).
   * Try to pass `className` prop from App to SearchForm component, either with the value `button_small` or `button_large`, and use this as `className` for the button element.
-* Read more about [Sass in create-react-app](https://create-react-app.dev/docs/adding-a-sass-stylesheet) for taking advantage of more advanced CSS features like nesting.
+* Read more about [Sass in create-react-app](https://bit.ly/3GeJGF9) for taking advantage of more advanced CSS features like nesting.
 * Enable Sass in your create-react-app and start to use its features (e.g. nesting) in your CSS file.

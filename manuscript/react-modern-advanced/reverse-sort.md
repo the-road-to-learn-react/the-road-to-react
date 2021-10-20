@@ -112,11 +112,11 @@ console.log(user);
 // { firstName: "Robin" }
 ~~~~~~~
 
-If necessary, read more about [JavaScript Object Initializers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer).
+If necessary, read more about [JavaScript Object Initializers](https://mzl.la/2XuN651).
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Reverse-Sort).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Sort...2021/Reverse-Sort).
+* Confirm your [source code](https://bit.ly/3lVe7Ib).
+  * Confirm the [changes](https://bit.ly/3jerTE3).
 * Consider the drawback of keeping the sort state in the List instead of the App component. If you don't know, sort the list by "Title" and search for other stories afterward. What would be different if the sort state would be in the App component.
-* Use your styling skills to give the user feedback about the current active sort and its reverse state. It could be an [arrow up or arrow down SVG](https://www.flaticon.com/packs/arrow-set-2) next to each active sort button.
+* Use your styling skills to give the user feedback about the current active sort and its reverse state. It could be an [arrow up or arrow down SVG](https://bit.ly/3lXfLZN) next to each active sort button.

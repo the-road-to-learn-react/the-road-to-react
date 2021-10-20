@@ -55,4 +55,4 @@ Where createRef is used in React's class components, React's useRef Hook is used
 
 ### Exercises:
 
-* Read more about [the different ref techniques in React](https://reactjs.org/docs/refs-and-the-dom.html).
+* Read more about [the different ref techniques in React](https://bit.ly/3jjhCXa).

@@ -189,8 +189,8 @@ There are many ways on how to structure your React project from small to large p
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-Folder-Structure).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-modern-final...2021/React-Folder-Structure).
+* Confirm your [source code](https://bit.ly/2XxzDcG).
+  * Confirm the [changes](https://bit.ly/3DW8109).
 * Read more about [JavaScript's import and export statements](https://www.robinwieruch.de/javascript-import-export).
 * Read more about [React Folder Structures](https://www.robinwieruch.de/react-folder-structure).
 * Keep the current folder structure if you feel confident. The ongoing sections will omit it, only using the *src/App.js* file.

@@ -1,6 +1,6 @@
 ## Explicit Data Fetching with React
 
-Re-fetching all data each time someone types in the input field isn't optimal. Since we're using a third-party API to fetch the data, its internals is out of our reach. Eventually, we will incur [rate limiting](https://en.wikipedia.org/wiki/Rate_limiting), which returns an error instead of data. To solve this problem, change the implementation details from implicit to explicit data (re-)fetching. In other words, the application will refetch data only if someone clicks a confirmation button.
+Re-fetching all data each time someone types in the input field isn't optimal. Since we're using a third-party API to fetch the data, its internals is out of our reach. Eventually, we will incur [rate limiting](https://bit.ly/2ZaJXI8), which returns an error instead of data. To solve this problem, change the implementation details from implicit to explicit data (re-)fetching. In other words, the application will refetch data only if someone clicks a confirmation button.
 
 First, add a button element for the confirmation to the JSX:
 
@@ -113,7 +113,7 @@ Before the `searchTerm` was used for two cases: updating the input field's state
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Explicit-Data-Fetching-with-React).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Memoized-Handler-in-React...2021/Explicit-Data-Fetching-with-React).
+* Confirm your [source code](https://bit.ly/3n47Qcw).
+  * Confirm the [changes](https://bit.ly/3AXZk3J).
 * Why is `useState` instead of `useSemiPersistentState` used for the `url` state management?
 * Why is there no check for an empty `searchTerm` in the `handleFetchStories` function anymore?

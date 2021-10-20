@@ -148,7 +148,7 @@ const Item = ({ item, onRemoveItem }) => (
 );
 ~~~~~~~
 
-Using [JavaScript's bind method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) on a function allows us to bind arguments directly to that function that should be used when executing it. The bind method returns a new function with the bound argument attached. In contrast, the second and more popular solution is to use a wrapping arrow function, which allows us to sneak in arguments like `item`:
+Using [JavaScript's bind method](https://mzl.la/3ncEkBu) on a function allows us to bind arguments directly to that function that should be used when executing it. The bind method returns a new function with the bound argument attached. In contrast, the second and more popular solution is to use a wrapping arrow function, which allows us to sneak in arguments like `item`:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -200,8 +200,8 @@ All three handler versions, two of which are inline and the normal handler, are 
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Inline-Handler-in-JSX).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Imperative-React...2021/Inline-Handler-in-JSX).
+* Confirm your [source code](https://bit.ly/3vrGWzb).
+  * Confirm the [changes](https://bit.ly/3jj37CR).
 * Read more about how to [add](https://www.robinwieruch.de/react-add-item-to-list), [update](https://www.robinwieruch.de/react-update-item-in-list), [remove](https://www.robinwieruch.de/react-remove-item-from-list) items in a list.
 * Read more about [computed properties in React](https://www.robinwieruch.de/react-computed-properties).
 * Review handlers, callback handlers, and inline handlers.

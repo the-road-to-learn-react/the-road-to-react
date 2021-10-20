@@ -73,7 +73,7 @@ Every run through a component's function takes the *recent value* (e.g. current 
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-Controlled-Components).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Lifting-State-in-React...2021/React-Controlled-Components).
+* Confirm your [source code](https://bit.ly/3aXr7GZ).
+  * Confirm the [changes](https://bit.ly/3aV4XVO).
 * Read more about [controlled components in React](https://www.robinwieruch.de/react-controlled-components/).
 * Experiment with `console.log()` in your React components and observe how your changes render, both initially and after the input field changes.

@@ -9,7 +9,7 @@ React is inherently declarative, starting with JSX and ending with hooks. In JSX
   * setting transitions
   * orchestrating transitions
 * integration of third-party libraries:
-  * [D3](https://d3js.org/) is a popular imperative chart library
+  * [D3](https://d3js.org) is a popular imperative chart library
 
 Because imperative programming in React is often verbose and counterintuitive, we'll walk through only a small example for setting the focus of an input field imperatively. For the declarative way, simply set the input field's autofocus attribute:
 
@@ -149,7 +149,7 @@ This was an example of how to move from declarative to imperative programming in
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Imperative-React).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-Component-Composition...2021/Imperative-React).
+* Confirm your [source code](https://bit.ly/3B0qc2S).
+  * Confirm the [changes](https://bit.ly/3aT3bEq).
 * Read more about [refs in React](https://www.robinwieruch.de/react-ref).
-* Learn [how to build a Slider component with imperative React](https://www.robinwieruch.de/react-slider/).
+* Learn [how to build a Slider component with imperative React](https://www.robinwieruch.de/react-slider).

@@ -38,9 +38,9 @@ const App = () => {
 };
 ~~~~~~~
 
-First, the `API_ENDPOINT` (A) is used to fetch popular tech stories for a certain query (a search term). In this case, we fetch stories about React (B). Second, the native browser's [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) is used to make this request (B). For the fetch API, the response needs to be translated into JSON (C). Finally, the returned result follows a different data structure (D), which we send as payload to our component's state reducer.
+First, the `API_ENDPOINT` (A) is used to fetch popular tech stories for a certain query (a search term). In this case, we fetch stories about React (B). Second, the native browser's [fetch API](https://mzl.la/2Z1kyjU) is used to make this request (B). For the fetch API, the response needs to be translated into JSON (C). Finally, the returned result follows a different data structure (D), which we send as payload to our component's state reducer.
 
-In the previous code example, we used [JavaScript's Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) for a string interpolation. When this feature wasn't available in JavaScript, we'd have used the + operator on strings instead:
+In the previous code example, we used [JavaScript's Template Literals](https://mzl.la/3jlcVfn) for a string interpolation. When this feature wasn't available in JavaScript, we'd have used the + operator on strings instead:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -61,8 +61,8 @@ Check your browser to see stories related to the initial query fetched from the 
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Data-Fetching-with-React).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-Impossible-States...2021/Data-Fetching-with-React).
-* Read through [Hacker News](https://news.ycombinator.com/) and its [API](https://hn.algolia.com/api).
-* Read more about [the browser native fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) for connecting to remote APIs.
-* Read more about [JavaScript's Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
+* Confirm your [source code](https://bit.ly/3DYWxZS).
+  * Confirm the [changes](https://bit.ly/3jks1Sj).
+* Read through [Hacker News](https://news.ycombinator.com) and its [API](https://hn.algolia.com/api).
+* Read more about [the browser native fetch API](https://mzl.la/2Z1kyjU) for connecting to remote APIs.
+* Read more about [JavaScript's Template Literals](https://mzl.la/3jlcVfn).

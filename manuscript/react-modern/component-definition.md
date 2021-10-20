@@ -185,7 +185,7 @@ Be sure to understand this refactoring concept, because we'll move quickly from 
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-Component-Definition).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Meet-another-React-Component...2021/React-Component-Definition).
-* Read more about [JavaScript arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
+* Confirm your [source code](https://bit.ly/2ZbLXQz).
+  * Confirm the [changes](https://bit.ly/3pkH2aS).
+* Read more about [JavaScript arrow functions](https://mzl.la/3BYCOcp).
 * Familiarize yourself with arrow functions with block body and return, and concise body without return.

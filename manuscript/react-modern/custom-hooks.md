@@ -134,6 +134,6 @@ You've just created your first custom hook. If you're not comfortable with custo
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-Custom-Hooks).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-Side-Effects...2021/React-Custom-Hooks).
+* Confirm your [source code](https://bit.ly/30Koneb).
+  * Confirm the [changes](https://bit.ly/2ZbkAGm).
 * Read more about [React Hooks](https://www.robinwieruch.de/react-hooks) to get a good understanding of them, because they are the bread and butter in React function components.

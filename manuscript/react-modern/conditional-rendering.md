@@ -31,7 +31,7 @@ const App = () => {
 };
 ~~~~~~~
 
-With [JavaScript's ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator), we can inline this conditional state as a **conditional rendering** in JSX:
+With [JavaScript's ternary operator](https://mzl.la/3vAPKCL), we can inline this conditional state as a **conditional rendering** in JSX:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -124,6 +124,6 @@ Conditional rendering is not just for asynchronous data though. The simplest exa
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-Conditional-Rendering).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-Asynchronous-Data...2021/React-Conditional-Rendering).
+* Confirm your [source code](https://bit.ly/2ZfIJLM).
+  * Confirm the [changes](https://bit.ly/3AYmneE).
 * Read more about [conditional rendering in React](https://www.robinwieruch.de/conditional-rendering-react/).

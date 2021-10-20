@@ -126,7 +126,7 @@ Forms aren't much different in React than in plain HTML. When we have input fiel
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Forms-in-React).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Async-Await-in-React...2021/Forms-in-React).
+* Confirm your [source code](https://bit.ly/3jfEcjd).
+  * Confirm the [changes](https://bit.ly/3G43M4I).
 * Try what happens without using `preventDefault`.
   * Read more about [preventDefault for events in React](https://www.robinwieruch.de/react-preventdefault).

@@ -1,6 +1,6 @@
 ## Handler Function in JSX
 
-The Search component still has the input field and label, which we haven't used. In HTML outside of JSX, input fields have an [onchange handler](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onchange). We're going to discover how to use onchange handlers with a React component's JSX. First, refactor the Search component from a concise body to a block body so we can add implementation details:
+The Search component still has the input field and label, which we haven't used. In HTML outside of JSX, input fields have an [onchange handler](https://mzl.la/3n9wit4). We're going to discover how to use onchange handlers with a React component's JSX. First, refactor the Search component from a concise body to a block body so we can add implementation details:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -57,7 +57,7 @@ const Search = () => {
 };
 ~~~~~~~
 
-React's synthetic event is essentially a wrapper around the [browser's native event](https://developer.mozilla.org/en-US/docs/Web/Events), with more functions that are useful to prevent native browser behavior (e.g. refreshing a page after the user clicks a form's submit button). Sometimes you will use the event, sometimes you won't need it.
+React's synthetic event is essentially a wrapper around the [browser's native event](https://mzl.la/30Dk8kt), with more functions that are useful to prevent native browser behavior (e.g. refreshing a page after the user clicks a form's submit button). Sometimes you will use the event, sometimes you won't need it.
 
 After all, this is how we give HTML elements in JSX handler functions to respond to user interaction. Always pass functions to these handlers, not the return value of the function, except when the return value is a function. Knowing this is crucial because it's a well-known source for bugs in a React beginners application:
 
@@ -86,6 +86,6 @@ As you can see, HTML and JavaScript work well together in JSX. JavaScript in HTM
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Handler-Function-in-JSX).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-Component-Definition...2021/Handler-Function-in-JSX).
-* Read more about [React's event handler](https://www.robinwieruch.de/react-event-handler) and [React's events](https://reactjs.org/docs/events.html).
+* Confirm your [source code](https://bit.ly/3lY8usB).
+  * Confirm the [changes](https://bit.ly/3BYqQzp).
+* Read more about [React's event handler](https://www.robinwieruch.de/react-event-handler) and [React's events](https://bit.ly/3jiFdaz).

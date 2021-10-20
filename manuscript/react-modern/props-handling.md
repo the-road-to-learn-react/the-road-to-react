@@ -4,7 +4,7 @@ Props are passed from parent to child down the component tree. Since we use prop
 
 ### Object Destructuring
 
-After all, React props are a JavaScript object, else we couldn't access `props.list` or `props.onSearch` in our React components. Since `props` is an object which just passes information from one component to another component, we can apply a couple JavaScript tricks to it. For example, accessing an object's properties with modern [JavaScript object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment):
+After all, React props are a JavaScript object, else we couldn't access `props.list` or `props.onSearch` in our React components. Since `props` is an object which just passes information from one component to another component, we can apply a couple JavaScript tricks to it. For example, accessing an object's properties with modern [JavaScript object destructuring](https://mzl.la/30KbXTC):
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -238,7 +238,7 @@ const Item = ({ title, url, author, num_comments, points }) => (
 );
 ~~~~~~~
 
-Now, even though the Item component's function signature is more concise, the clutter ended up in the List component instead, because every property is passed to the Item component individually. We can improve this approach using [JavaScript's spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax):
+Now, even though the Item component's function signature is more concise, the clutter ended up in the List component instead, because every property is passed to the Item component individually. We can improve this approach using [JavaScript's spread operator](https://mzl.la/3jetIkn):
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -297,7 +297,7 @@ const Item = ({ title, url, author, num_comments, points }) => (
 );
 ~~~~~~~
 
-This refactoring made the process of passing the information from List to Item component more concise. Finally, we'll use [JavaScript's rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) as the icing on the cake. The JavaScript rest operator happens always as the last part of an object destructuring:
+This refactoring made the process of passing the information from List to Item component more concise. Finally, we'll use [JavaScript's rest parameters](https://mzl.la/3GeJbef) as the icing on the cake. The JavaScript rest operator happens always as the last part of an object destructuring:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -385,11 +385,11 @@ It may not be the most concise, but it is the easiest to reason about. Variation
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Props-Handling).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-Controlled-Components...2021/Props-Handling).
-* Read more about [JavaScript's destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
+* Confirm your [source code](https://bit.ly/30IuiAu).
+  * Confirm the [changes](https://bit.ly/3G45eUI).
+* Read more about [JavaScript's destructuring assignment](https://mzl.la/30KbXTC).
 * Think about the difference between JavaScript array destructuring -- which we used for React's `useState` hook -- and object destructuring.
-* Read more about [JavaScript's spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax).
-* Read more about [JavaScript's rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters).
+* Read more about [JavaScript's spread operator](https://mzl.la/3jetIkn).
+* Read more about [JavaScript's rest parameters](https://mzl.la/3GeJbef).
 * Get a good sense about JavaScript (e.g. destructuring, spread operator, rest parameters) and what's related to React (e.g. props) from the last lessons.
 * Continue to use your favorite way to handle React's props. If you're still undecided, consider the variation used in the previous section.

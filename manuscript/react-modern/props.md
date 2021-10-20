@@ -115,6 +115,6 @@ In conclusion, one can see how props are used to pass information down the compo
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-Props).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Handler-Function-in-JSX...2021/React-Props).
+* Confirm your [source code](https://bit.ly/3jlmUBz).
+  * Confirm the [changes](https://bit.ly/3lW2sIX).
 * Read more about [how to pass props to React components](https://www.robinwieruch.de/react-pass-props-to-component).

@@ -1,6 +1,6 @@
 ## Testing in React
 
-Testing source code is an essential part of programming and should be seen as a mandatory exercise for serious developers. The goal is to verify our source code's quality and functionality before using it in production. The [testing pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) will serve as our guide.
+Testing source code is an essential part of programming and should be seen as a mandatory exercise for serious developers. The goal is to verify our source code's quality and functionality before using it in production. The [testing pyramid](https://bit.ly/3BYEra1) will serve as our guide.
 
 The testing pyramid includes end-to-end tests, integration tests, and unit tests. Unit tests are for small, isolated blocks of code, such as a single function or component. Integration tests help us figure out how well these blocks of code work together. An end-to-end test simulates a real-life scenario, like a user logging into a web application. Unit tests are quick and easy to write and maintain; end-to-end tests are the opposite.
 
@@ -8,7 +8,7 @@ Many unit tests are required to cover all the functions and components in a work
 
 ![](images/testing-pyramid.png)
 
-Choosing a testing library can be a challenge for React beginners, as there are many options. To keep things simple, we'll employ the most popular tools: [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/) (RTL). Jest is a full-blown testing framework with test runners, test suites, test cases, and assertions. RTL is used for rendering React components, triggering events like mouse clicks, and selecting HTML elements from the DOM to perform assertions. We'll explore both tools step-by-step, from setup to unit testing to integration testing.
+Choosing a testing library can be a challenge for React beginners, as there are many options. To keep things simple, we'll employ the most popular tools: [Jest](https://jestjs.io) and [React Testing Library](https://testing-library.com) (RTL). Jest is a full-blown testing framework with test runners, test suites, test cases, and assertions. RTL is used for rendering React components, triggering events like mouse clicks, and selecting HTML elements from the DOM to perform assertions. We'll explore both tools step-by-step, from setup to unit testing to integration testing.
 
 ### Test Suites, Test Cases, and Assertions
 
@@ -169,9 +169,9 @@ Once you start testing, it's a good practice to keep two command line interfaces
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/react-testing-setup).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-modern-final...2021/react-testing-setup).
-* Read more about [Jest](https://jestjs.io/).
+* Confirm your [source code](https://bit.ly/3C42rII).
+  * Confirm the [changes](https://bit.ly/3B2CesG).
+* Read more about [Jest](https://jestjs.io).
 
 ### Unit Testing: Functions
 
@@ -312,7 +312,7 @@ describe('storiesReducer', () => {
 });
 ~~~~~~~
 
-There is always the decision to make for JavaScript objects whether you want to make a strict comparison or just a content comparison. Most often you only want to have a content comparison here, hence use `toStrictEqual`. For JavaScript primitives though, like strings or booleans, you can still use `toBe`. Also note that there is a `toEqual` function [which works slightly different](https://twitter.com/rwieruch/status/1260866850080067584) than `toStrictEqual`.
+There is always the decision to make for JavaScript objects whether you want to make a strict comparison or just a content comparison. Most often you only want to have a content comparison here, hence use `toStrictEqual`. For JavaScript primitives though, like strings or booleans, you can still use `toBe`. Also note that there is a `toEqual` function [which works slightly different](https://bit.ly/3jlPpii) than `toStrictEqual`.
 
 We continue to make adjustments until the reducer test turns green, which is really testing a JavaScript function with a certain input and expecting a certain output. We haven't done any testing methods regarding React yet.
 
@@ -320,8 +320,8 @@ Remember, a reducer function will always follow the same test pattern: given a s
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/react-testing-unit-function).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-testing-setup...2021/react-testing-unit-function).
+* Confirm your [source code](https://bit.ly/3jjIhD3).
+  * Confirm the [changes](https://bit.ly/3E175aO).
 * Continue to write a test case for every reducer action and its state transition.
 * Read more about Jest's assertive functions like `toBe` and `toStrictEqual`.
 
@@ -451,7 +451,7 @@ describe('Item', () => {
 });
 ~~~~~~~
 
-The `getByRole` function is usually used to retrieve elements by [aria-label attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute). However, there are also [implicit roles on HTML elements](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) -- like button for a button element. Thus you can select elements not only by visible text, but also by their (implicit) accessibility role with React Testing Library. A neat feature of `getRoleBy` is that [it suggests roles if you provide a role that's not available](https://twitter.com/rwieruch/status/1260912349978013696). Both, `getByText` and `getByRole` are RTL's most widely used search functions.
+The `getByRole` function is usually used to retrieve elements by [aria-label attributes](https://mzl.la/3B3bBDP). However, there are also [implicit roles on HTML elements](https://mzl.la/3n7SgN7) -- like button for a button element. Thus you can select elements not only by visible text, but also by their (implicit) accessibility role with React Testing Library. A neat feature of `getRoleBy` is that [it suggests roles if you provide a role that's not available](https://bit.ly/3pnPXrQ). Both, `getByText` and `getByRole` are RTL's most widely used search functions.
 
 We can continue here by asserting not only that everything is *in the document*, but also by asserting whether our events work as expected. For example, the Item component's button element can be clicked and we want to verify that the callback handler gets called. Therefore, we are using Jest for creating a mocked function which we provide as a callback handler to the Item component. Then, after firing a click event with React Testing Library on the button, we want to assert that the callback handler function has been called:
 
@@ -547,7 +547,7 @@ describe('SearchForm', () => {
 });
 ~~~~~~~
 
-The `getByLabelText` search function allows us to find an element by a label in a form. This is useful for components that render multiple labels and HTML controls. However, you may have noticed we used a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) here. If we used a string instead, the colon for "Search:" must be included. By using a regular expression, we are matching strings that include the "Search" string, which makes finding elements much more efficient. For this reason, you may find yourself using regular expressions instead of strings quite often.
+The `getByLabelText` search function allows us to find an element by a label in a form. This is useful for components that render multiple labels and HTML controls. However, you may have noticed we used a [regular expression](https://mzl.la/3CdDjiZ) here. If we used a string instead, the colon for "Search:" must be included. By using a regular expression, we are matching strings that include the "Search" string, which makes finding elements much more efficient. For this reason, you may find yourself using regular expressions instead of strings quite often.
 
 Anyway, perhaps it would be more interesting to test the interactive parts of the SearchForm component. Since our callback handlers, which are passed as props to the SearchForm component, are already mocked with Jest, we can assert whether these functions get called appropriately:
 
@@ -590,10 +590,10 @@ All the callback handler tests for Item and SearchForm component test only wheth
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/react-testing-unit-component).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-testing-unit-function...2021/react-testing-unit-component).
-* Read more about [React Testing Library](https://testing-library.com/docs/react-testing-library/intro).
-  * Read more about [search functions](https://testing-library.com/docs/guide-which-query).
+* Confirm your [source code](https://bit.ly/2Z3Vc54).
+  * Confirm the [changes](https://bit.ly/3E28IoZ).
+* Read more about [React Testing Library](https://bit.ly/30KueQH).
+  * Read more about [search functions](https://bit.ly/3jjUw2t).
 * Add tests for your List and InputWithLabel components.
 
 ### Integration Testing: Component
@@ -735,7 +735,7 @@ describe('App', () => {
 });
 ~~~~~~~
 
-The [happy path](https://en.wikipedia.org/wiki/Happy_path) for the data fetching is tested now. Similarly, we can test the unhappy path in case of a failed API request. The promise needs to reject and the error should be caught with a try/catch block:
+The [happy path](https://bit.ly/3jiAbuB) for the data fetching is tested now. Similarly, we can test the unhappy path in case of a failed API request. The promise needs to reject and the error should be caught with a try/catch block:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -965,8 +965,8 @@ React Testing Library with Jest is the most popular library combination for Reac
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/react-testing-integration).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-testing-unit-component...2021/react-testing-integration).
+* Confirm your [source code](https://bit.ly/3DOSIqe).
+  * Confirm the [changes](https://bit.ly/3jf3pKM).
 * Read more about [React Testing Library in React](https://www.robinwieruch.de/react-testing-library).
 * Read more about [E2E tests in React](https://www.robinwieruch.de/react-testing-cypress).
 * While you continue with the upcoming sections, keep your tests green and add new tests when needed.
@@ -1045,6 +1045,6 @@ Snapshot tests are useful for setting up tests quickly in React, though it's bes
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/react-snapshot).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/react-testing-integration...2021/react-snapshot).
+* Confirm your [source code](https://bit.ly/3G7tF3M).
+  * Confirm the [changes](https://bit.ly/3lUYpge).
 * Add one snapshot test for each of all the other components and check the content of your *_snapshots_* folder.

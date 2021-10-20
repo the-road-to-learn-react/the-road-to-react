@@ -32,7 +32,7 @@ function App() {
 export default App;
 ~~~~~~~
 
-This file will be our focus throughout this tutorial, unless otherwise specified. Let's start by reducing the component to a more lightweight version for getting you started without too much [boilerplate code](https://en.wikipedia.org/wiki/Boilerplate_code). Afterward, start your application with `npm start` in the command line and check what's displayed in the browser:
+This file will be our focus throughout this tutorial, unless otherwise specified. Let's start by reducing the component to a more lightweight version for getting you started without too much [boilerplate code](https://bit.ly/3lZzckS). Afterward, start your application with `npm start` in the command line and check what's displayed in the browser:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -124,8 +124,8 @@ On your journey as a React developer, and in this learning experience, you will 
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Meet-the-React-Component).
+* Confirm your [source code](https://bit.ly/3G6O6gX).
 * If you are unsure when to use `const`, `let` or `var` in JavaScript (or React) for variable declarations, make sure to [read more about their differences](https://www.robinwieruch.de/const-let-var).
-  * Read more about [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const).
-  * Read more about [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let).
+  * Read more about [const](https://mzl.la/3jkvHn5).
+  * Read more about [let](https://mzl.la/3piHQgc).
 * Think about ways to display the `title` variable in your App component's returned HTML. In the next section, we'll put this variable to use.

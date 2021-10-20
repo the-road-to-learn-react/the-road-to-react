@@ -62,6 +62,6 @@ The concept of the callback handler in a nutshell: We pass a function from a par
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/Callback-Handler-in-JSX).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/React-State...2021/Callback-Handler-in-JSX).
+* Confirm your [source code](https://bit.ly/3DUWm1O).
+  * Confirm the [changes](https://bit.ly/3jizj9s).
 * Revisit the concepts of handler and callback handler as many times as you need.

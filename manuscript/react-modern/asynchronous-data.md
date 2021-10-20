@@ -68,8 +68,8 @@ Once you start the application again, you should see a delayed rendering of the 
 
 ### Exercises:
 
-* Confirm your [source code](https://codesandbox.io/s/github/the-road-to-learn-react/hacker-stories/tree/2021/React-Asynchronous-Data).
-  * Confirm the [changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2021/Inline-Handler-in-JSX...2021/React-Asynchronous-Data).
-* Read more about [JavaScript Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+* Confirm your [source code](https://bit.ly/3vu6kEb).
+  * Confirm the [changes](https://bit.ly/3B0p7rQ).
+* Read more about [JavaScript Promises](https://mzl.la/3aTGuQz).
 * Read more about [faking a remote API with JavaScript](https://www.robinwieruch.de/javascript-fake-api).
 * Read more about [using mock data in React](https://www.robinwieruch.de/react-mock-data).
