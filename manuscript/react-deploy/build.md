@@ -40,4 +40,4 @@ After entering one of the commands, a URL is presented that provides access to y
 
 ### Exercises:
 
-* Optional: [Rate this section](https://forms.gle/hFsut8q7eYsWfYL7A).
+* Optional: [Leave feedback for this section](https://forms.gle/hFsut8q7eYsWfYL7A).

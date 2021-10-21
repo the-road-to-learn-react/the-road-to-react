@@ -130,4 +130,4 @@ Forms aren't much different in React than in plain HTML. When we have input fiel
   * Confirm the [changes](https://bit.ly/3G43M4I).
 * Try what happens without using `preventDefault`.
   * Read more about [preventDefault for events in React](https://www.robinwieruch.de/react-preventdefault).
-* Optional: [Rate this section](https://forms.gle/d14Mf7WzetP25jxq5).
+* Optional: [Leave feedback for this section](https://forms.gle/d14Mf7WzetP25jxq5).

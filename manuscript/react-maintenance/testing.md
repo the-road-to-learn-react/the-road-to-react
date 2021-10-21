@@ -1048,4 +1048,4 @@ Snapshot tests are useful for setting up tests quickly in React, though it's bes
 * Confirm your [source code](https://bit.ly/3G7tF3M).
   * Confirm the [changes](https://bit.ly/3lUYpge).
 * Add one snapshot test for each of all the other components and check the content of your *_snapshots_* folder.
-* Optional: [Rate this section](https://forms.gle/tMJyXvxS1AmRvSUU9).
+* Optional: [Leave feedback for this section](https://forms.gle/tMJyXvxS1AmRvSUU9).

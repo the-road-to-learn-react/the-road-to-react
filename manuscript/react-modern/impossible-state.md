@@ -187,4 +187,4 @@ We moved from unreliable state transitions with multiple `useState` hooks to pre
 * Read over the previously linked tutorials about reducers in JavaScript and React.
 * Read more about [when to use useState or useReducer in React](https://www.robinwieruch.de/react-usereducer-vs-usestate).
 * Read more about [deriving state from props in React](https://www.robinwieruch.de/react-derive-state-props).
-* Optional: [Rate this section](https://forms.gle/XWTJS65iu6WkiZMCA).
+* Optional: [Leave feedback for this section](https://forms.gle/XWTJS65iu6WkiZMCA).

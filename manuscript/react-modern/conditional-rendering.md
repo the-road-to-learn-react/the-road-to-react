@@ -127,4 +127,4 @@ Conditional rendering is not just for asynchronous data though. The simplest exa
 * Confirm your [source code](https://bit.ly/2ZfIJLM).
   * Confirm the [changes](https://bit.ly/3AYmneE).
 * Read more about [conditional rendering in React](https://www.robinwieruch.de/conditional-rendering-react/).
-* Optional: [Rate this section](https://forms.gle/kHLAXtMaKsTFtWjY9).
+* Optional: [Leave feedback for this section](https://forms.gle/kHLAXtMaKsTFtWjY9).

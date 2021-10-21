@@ -89,4 +89,4 @@ As you can see, HTML and JavaScript work well together in JSX. JavaScript in HTM
 * Confirm your [source code](https://bit.ly/3lY8usB).
   * Confirm the [changes](https://bit.ly/3BYqQzp).
 * Read more about [React's event handler](https://www.robinwieruch.de/react-event-handler) and [React's events](https://bit.ly/3jiFdaz).
-* Optional: [Rate this section](https://forms.gle/oSKyMudmb8X1iSsv8).
+* Optional: [Leave feedback for this section](https://forms.gle/oSKyMudmb8X1iSsv8).

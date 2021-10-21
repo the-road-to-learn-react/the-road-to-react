@@ -256,4 +256,4 @@ For simplicity, we styled elements like label and input individually in the *src
   * Try to pass `className` prop from App to SearchForm component, either with the value `button_small` or `button_large`, and use this as `className` for the button element.
 * Read more about [Sass in create-react-app](https://bit.ly/3GeJGF9) for taking advantage of more advanced CSS features like nesting.
 * Enable Sass in your create-react-app and start to use its features (e.g. nesting) in your CSS file.
-* Optional: [Rate this section](https://forms.gle/RovYbjYF9McD1h6c7).
+* Optional: [Leave feedback for this section](https://forms.gle/RovYbjYF9McD1h6c7).

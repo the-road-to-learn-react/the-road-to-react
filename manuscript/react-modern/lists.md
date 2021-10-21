@@ -187,4 +187,4 @@ The map function is inlined concisely in your JSX. Within the map function, we h
   * Returning `null` in JSX is allowed. It's always used if you want to render nothing.
 * Extend the list with some more items to make the example more realistic.
 * Practice using different JavaScript expressions in JSX.
-* Optional: [Rate this section](https://forms.gle/aZmLFjEdSMTk9Thk9).
+* Optional: [Leave feedback for this section](https://forms.gle/aZmLFjEdSMTk9Thk9).

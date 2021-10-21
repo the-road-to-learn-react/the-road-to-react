@@ -266,4 +266,4 @@ Again, CSS Modules -- like any other CSS-in-CSS approach -- can use Sass for mor
 * Confirm your [source code](https://bit.ly/3lVeoeb).
   * Confirm the [changes](https://bit.ly/3pkqgs4).
 * Read more about [CSS Modules in create-react-app](https://bit.ly/3phgN51).
-* Optional: [Rate this section](https://forms.gle/iuU7WaeJVwHN2pFCA).
+* Optional: [Leave feedback for this section](https://forms.gle/iuU7WaeJVwHN2pFCA).

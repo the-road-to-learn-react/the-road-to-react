@@ -4,7 +4,7 @@ In this first part of this learning experience, we'll cover the fundamentals of 
 
 ## Hello React
 
-Single-page applications ([SPA](https://bit.ly/3BZOL1o)) have become increasingly popular with first-generation SPA frameworks like Angular (by Google), Ember, Knockout, and Backbone. Using these frameworks made it easier to build web applications that advanced beyond vanilla JavaScript and jQuery. React, yet another solution for SPAs, was released by Facebook later in 2013. All of them are used to create web applications in JavaScript.
+Single-page applications ([SPA](https://bit.ly/3BZOL1o)) have become increasingly popular with first-generation SPA frameworks like Angular (by Google), Ember, Knockout, and Backbone. Using these frameworks made it easier to build web applications that advanced beyond vanilla JavaScript and jQuery. React, yet another solution for SPAs, was released by Facebook later in 2013. All of them are used to create modern web applications in JavaScript.
 
 For a moment, let's go back in time before SPAs existed: In the past, websites and web applications were rendered from the server. A user visits a URL in a browser and requests one HTML file and all its associated HTML, CSS, and JavaScript files from a web server. After some network delay, the user sees the rendered HTML in the browser (client) and starts to interact with it. Every additional page transition (meaning: visiting another URL) would initiate this chain of events again. In this version from the past, essentially everything crucial is done by the server, whereas the client plays a minimal role by just rendering page by page. While barebones HTML and CSS were used to structure the application, just a little bit of JavaScript was thrown into the mix to make interactions (e.g. toggling a dropdown) or advanced styling (e.g. positioning a tooltip) possible. A popular JavaScript library for this kind of work was jQuery.
 
@@ -17,8 +17,7 @@ With the rise of React, the concept of components became popular. Every componen
 ### Exercises
 
 * Read more about [how we moved from websites to web applications](https://www.robinwieruch.de/web-applications).
-* Read more about [why I moved from Angular to React](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react).
 * Read more about [how to learn a framework](https://www.robinwieruch.de/how-to-learn-framework).
 * Read more about [how to learn React](https://www.robinwieruch.de/learn-react-js).
 * Read more about [JavaScript fundamentals needed for React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements) -- without worrying too much about React here -- to challenge yourself with several JavaScript features used in React.
-* Optional: [Rate this section](https://forms.gle/NTqhvyDaP1RjtanC6).
+* Optional: [Leave feedback for this section](https://forms.gle/NTqhvyDaP1RjtanC6).

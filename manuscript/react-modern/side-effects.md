@@ -95,4 +95,4 @@ In conclusion, using React `useEffect` Hook instead of managing the side-effect 
 * Read more about [using local storage with React](https://www.robinwieruch.de/local-storage-react).
 * Give the first argument's function a `console.log()` and experiment with React's useEffect Hook's dependency array. Check the logs for an empty dependency array too.
 * Try the following scenario: In your browser, backspace the search term from the input field until nothing is left there. Internally, it should be set to an empty string now. Next, refresh the browser and check what it displays. You may be wondering why it does show "React" instead of "", because "" should be the recent search. That's because JavaScript's logical OR evaluates "" to false and thus takes "React" as the true value. If you want to prevent this and evaluate "" as true instead, you may want to exchange JavaScript's logical OR operator || with [JavaScript's nullish coalescing operator ??](https://mzl.la/2Z4bsU4).
-* Optional: [Rate this section](https://forms.gle/iCtVZHYt2XRNfAcBA).
+* Optional: [Leave feedback for this section](https://forms.gle/iCtVZHYt2XRNfAcBA).
