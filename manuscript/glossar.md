@@ -34,3 +34,6 @@ instance - .e.g class instance, component instance
 function
 class
 class method, method
+library
+framework
+dependency
