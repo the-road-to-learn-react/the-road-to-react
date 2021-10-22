@@ -1,11 +1,12 @@
 # Index
 
-Component, Meet the React Component, Meet another React Component
+component, Meet the React Component, Meet another React Component
+component instance, React Component Instantiation
 component types, Meet the React Component
 component hierarchies, Meet another React Component
 entry point component, Meet another React Component
 root component, Meet another React Component
-leaf component, Meet another React Component
+lea component, Meet another React Component
 parent component, Meet another React Component
 child component, Meet another React Component
 sibling component, Meet another React Component

@@ -25,3 +25,12 @@ implementation details
 rendering - other word for display
 stable identifier - e.g. `id`
 unstable identifier - e.g. `index`
+multi-paradigm programming language - .e.g JavaScript
+object-oriented programming
+functional programming
+declaration/definition
+instanstiation - e.g. class
+instance - .e.g class instance, component instance
+function
+class
+class method, method
