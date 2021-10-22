@@ -21,7 +21,7 @@ create-react-app
 Boilerplate Code
 Node
 npm
-implementation details
+implementation details, business logic
 rendering - other word for display
 stable identifier - e.g. `id`
 unstable identifier - e.g. `index`
@@ -37,3 +37,4 @@ class method, method
 library
 framework
 dependency
+refactor

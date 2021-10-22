@@ -1,47 +1,24 @@
-## React Component Definition (Advanced)
+## React Component Declaration
 
-The following refactoring recommendations are optional to explain the different JavaScript/React patterns. You can build complete React applications without these advanced patterns, so don't be discouraged if they seem too complicated.
-
-JavaScript has multiple ways to declare functions. So far, we have used the function statement, though arrow functions can be used more concisely:
+We have declared multiple React components so far. Since these components are function components, we can leverage the different ways of declaring functions in JavaScript. So far, we have used the standard function declaration, though arrow functions can be used more concisely and therefore can establish a new standard for defining function components:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
 // function declaration
-function () { ... }
+function App() { ... }
 
-// arrow function declaration
-const () => { ... }
+// arrow function expression
+const App = () => { ... }
 ~~~~~~~
 
-You can remove the parentheses in an arrow function expression if it has only one argument, but multiple arguments require parentheses:
-
-{title="Code Playground",lang="javascript"}
-~~~~~~~
-// allowed
-const item => { ... }
-
-// allowed (recommended)
-const (item) => { ... }
-
-// not allowed
-const item, index => { ... }
-
-// allowed (recommended)
-const (item, index) => { ... }
-~~~~~~~
-
-Defining React function components with arrow functions makes them more concise:
+Equipped with this knowledge, go through your React project and refactor all function declarations to arrow function expressions. While this refactoring can be applied to function components, it can also be used for any other functions that are used in the project. Next, we will go ahead as well and refactor all the function component's function declarations to arrow function expressions:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const App = () => {
 # leanpub-end-insert
-  return (
-    <div>
-      ...
-    </div>
-  );
+  return ( ... );
 # leanpub-start-insert
 };
 # leanpub-end-insert
@@ -49,12 +26,7 @@ const App = () => {
 # leanpub-start-insert
 const Search = () => {
 # leanpub-end-insert
-  return (
-    <div>
-      <label htmlFor="search">Search: </label>
-      <input id="search" type="text" />
-    </div>
-  );
+  return ( ... );
 # leanpub-start-insert
 };
 # leanpub-end-insert
@@ -62,17 +34,13 @@ const Search = () => {
 # leanpub-start-insert
 const List = () => {
 # leanpub-end-insert
-  return (
-    <ul>
-      ...
-    </ul>
-  );
+  return ( ... );
 # leanpub-start-insert
 };
 # leanpub-end-insert
 ~~~~~~~
 
-This also holds true for other functions, like the one we used in our JavaScript array's map method:
+As said, not only function components can be refactored, but also other functions like the callback function that we have used for the array's `map()` method:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -84,12 +52,7 @@ const List = () => {
 # leanpub-end-insert
         return (
           <li key={item.objectID}>
-            <span>
-              <a href={item.url}>{item.title}</a>
-            </span>
-            <span>{item.author}</span>
-            <span>{item.num_comments}</span>
-            <span>{item.points}</span>
+            ...
           </li>
         );
       })}
@@ -103,21 +66,21 @@ If an arrow function's only purpose is to return a value and it doesn't have any
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
 // with block body
-const countPlusOne = (count) => {
+const addOne = (count) => {
   // perform any task in between
 
   return count + 1;
 };
 
-// with concise body
-const countPlusOne = (count) =>
+// with concise body as multi line
+const addOne = (count) =>
   count + 1;
 
 // with concise body as one line
-const countPlusOne = (count) => count + 1;
+const addOne = (count) => count + 1;
 ~~~~~~~
 
-This can be done for the App, List, and Search components as well, because they only return JSX and don't perform any task in between. Again it also applies to the arrow function that's used in the map function:
+This can be done for the App, List, and Search components as well, because they only return JSX and don't perform any task in between. In addition, it also applies to the arrow function that's used in the `map()` method:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -135,8 +98,7 @@ const App = () => (
 const Search = () => (
 # leanpub-end-insert
   <div>
-    <label htmlFor="search">Search: </label>
-    <input id="search" type="text" />
+    ...
   </div>
 # leanpub-start-insert
 );
@@ -150,12 +112,7 @@ const List = () => (
     {list.map((item) => (
 # leanpub-end-insert
       <li key={item.objectID}>
-        <span>
-          <a href={item.url}>{item.title}</a>
-        </span>
-        <span>{item.author}</span>
-        <span>{item.num_comments}</span>
-        <span>{item.points}</span>
+        ...
       </li>
 # leanpub-start-insert
     ))}
@@ -166,7 +123,9 @@ const List = () => (
 # leanpub-end-insert
 ~~~~~~~
 
-Our JSX is more concise now, as it omits the function statement, the curly braces, and the return statement. However, remember this is an optional step, and that it's acceptable to use normal functions instead of arrow functions and block bodies with curly braces for arrow functions over implicit returns. Sometimes block bodies will be necessary to introduce more business logic between function signature and return statement:
+All JSX is more concise now, because it omits the function statement, the curly braces, and the return statement. However, remember this is an optional step and that it's acceptable to use function declarations over arrow function expressions and block bodies with curly braces over concise bodies with implicit returns for arrow functions.
+
+Often block bodies will be necessary to introduce more business logic between function signature and return statement. Be sure to understand this refactoring concept, because we'll move quickly from arrow function components with and without block bodies as we go. Which one we use will depend on the requirements of the component:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -181,12 +140,12 @@ const App = () => {
 };
 ~~~~~~~
 
-Be sure to understand this refactoring concept, because we'll move quickly from arrow function components with and without block bodies as we go. Which one we use will depend on the requirements of the component.
+As a rule of thumb, use either function declarations or arrow function expressions for your component definitions throughout your application. Both versions are fine to use, but make sure that you and your team working on the project share the same implementation style. In addition, while an implicit return statement when using an arrow function expressions makes your component definition more concise, you may introduce tedious refactorings from concise to block body when you need to perform tasks prior the return statement. So you may want to keep your arrow function expression with a block body (like in the last code snippet) all the time.
 
 ### Exercises:
 
 * Confirm your [source code](https://bit.ly/2ZbLXQz).
   * Confirm the [changes](https://bit.ly/3pkH2aS).
 * Read more about [JavaScript arrow functions](https://mzl.la/3BYCOcp).
-* Familiarize yourself with arrow functions with block body and return, and concise body without return.
+* Familiarize yourself with arrow functions with block body and explicit return and concise body without return (implicit return).
 * Optional: [Leave feedback for this section](https://forms.gle/iWSchmqasbZUWUpT8).
