@@ -38,3 +38,6 @@ library
 framework
 dependency
 refactor
+declarative
+programmatic
+imperative

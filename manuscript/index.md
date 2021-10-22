@@ -14,8 +14,11 @@
 **descendant component**, React DOM
 **component trees**, Meet another React Component
 **props**, Meet the React Component
-**JSX**, Meet the React Component, React JSX, Lists in React, React Component Instantiation, React DOM
+**JSX**, Meet the React Component, React JSX, Lists in React, React Component Instantiation, React DOM, Handler Function in JSX
 **React** Fast Refresh, React JSX
 **React** Hot Loader, React JSX
 **Hot** Module Replacement, React JSX
 **key**, Lists in React
+**event handler**, Handler Function in JSX
+**handler**, Handler Function in JSX
+**synthetic event**, Handler Function in JSX

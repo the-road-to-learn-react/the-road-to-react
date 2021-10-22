@@ -130,7 +130,7 @@ Often block bodies will be necessary to introduce more business logic between fu
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
 const App = () => {
-  // perform any task in between
+  // perform a task in between
 
   return (
     <div>
