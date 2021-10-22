@@ -1,6 +1,6 @@
 ## React Component Declaration
 
-We have declared multiple React components so far. Since these components are function components, we can leverage the different ways of declaring functions in JavaScript. So far, we have used the standard function declaration, though arrow functions can be used more concisely and therefore can establish a new standard for defining function components:
+We have declared multiple React components so far. Since these components are function components, we can leverage the different ways of declaring functions in JavaScript. So far, we have used the standard function declaration, though arrow functions can be used more concisely and therefore can establish a new standard for declaring function components:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -140,7 +140,7 @@ const App = () => {
 };
 ~~~~~~~
 
-As a rule of thumb, use either function declarations or arrow function expressions for your component definitions throughout your application. Both versions are fine to use, but make sure that you and your team working on the project share the same implementation style. In addition, while an implicit return statement when using an arrow function expressions makes your component definition more concise, you may introduce tedious refactorings from concise to block body when you need to perform tasks prior the return statement. So you may want to keep your arrow function expression with a block body (like in the last code snippet) all the time.
+As a rule of thumb, use either function declarations or arrow function expressions for your component declarations throughout your application. Both versions are fine to use, but make sure that you and your team working on the project share the same implementation style. In addition, while an implicit return statement when using an arrow function expressions makes your component declaration more concise, you may introduce tedious refactorings from concise to block body when you need to perform tasks prior the return statement. So you may want to keep your arrow function expression with a block body (like in the last code snippet) all the time.
 
 ### Exercises:
 
