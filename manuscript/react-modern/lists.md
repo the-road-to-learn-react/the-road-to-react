@@ -142,8 +142,6 @@ function App() {
     <div>
       ...
 
-      <hr />
-
 # leanpub-start-insert
       <ul>
         {list.map(function (item) {
