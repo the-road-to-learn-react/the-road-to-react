@@ -9,8 +9,8 @@
 **root component**, Meet another React Component
 **leaf component**, Meet another React Component
 **sibling component**, Meet another React Component
-**parent component**, Meet another React Component
-**child component**, Meet another React Component, React DOM
+**parent component**, Meet another React Component, React Props
+**child component**, Meet another React Component, React DOM, React Props
 **descendant component**, React DOM
 **component trees**, Meet another React Component
 **props**, Meet the React Component
@@ -22,3 +22,4 @@
 **event handler**, Handler Function in JSX
 **handler**, Handler Function in JSX
 **synthetic event**, Handler Function in JSX
+**props**, React Props
