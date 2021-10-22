@@ -21,7 +21,7 @@ function App() {
 export default App;
 ~~~~~~~
 
-Either start your application again with `npm start` (or check whether your application still runs) and look for the rendered `title` in the browser. The output should read "Hello React". If you change the variable in the source code, the browser should reflect that change.
+Either start your application again with `npm start` (or check whether your application still runs) and look for the rendered (read: displayed) `title` in the browser. The output should read "Hello React". If you change the variable in the source code, the browser should reflect that change.
 
 *Under the hood: Changing the variable in the source code and seeing the change reflected in the browser is not solely connected to React, but also to the underlying development server when we start our application on the command line. Any time one of our files changes, the development server notices it and reloads all affected files for the browser. The bridge between React and the development server which makes this behavior possible is called **React Fast Refresh** (prior to that it was **React Hot Loader**) on React's side and **Hot Module Replacement** on the development server's side.*
 

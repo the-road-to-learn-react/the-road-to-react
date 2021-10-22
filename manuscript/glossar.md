@@ -6,6 +6,9 @@ visual studio code (VSCode)
 vanilla - e.g. vanilla HTML, JavaScript: It's purest form without sugar on top
 development server
 production server
+browser's developer tools
+bug
+debugging
 build tools
 compiler
 transpiler
@@ -19,3 +22,6 @@ Boilerplate Code
 Node
 npm
 implementation details
+rendering - other word for display
+stable identifier - e.g. `id`
+unstable identifier - e.g. `index`

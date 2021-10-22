@@ -1,8 +1,20 @@
 ## Lists in React
 
-So far we've rendered a few variables in JSX, however, most often you will deal with arrays. Thus we'll render a list of items next. We'll experiment with sample data first, and later we'll apply that knowledge to fetched data from a remote API.
+When working with data in JavaScript, most often the data comes as an array of objects. Therefore, we will learn how to render such list of items in React next. In order to prepare you for rendering lists in React, let's recap one of the most common data manipulation methods: the [array's built-in map() method](https://mzl.la/3B3a7tf). It is used to iterate over each item of a list in order to return a new version of each item:
 
-First, let's define the array as a variable. Similar as before, we can define a variable outside or inside the component. The following defines it outside:
+{title="Code Playground",lang="javascript"}
+~~~~~~~
+const numbers = [1, 2, 3, 4];
+
+const exponentialNumbers = numbers.map(function (number) {
+  return number * number;
+});
+
+console.log(exponentialNumbers);
+// [1, 4, 9, 16]
+~~~~~~~
+
+In React, the array's built-in `map()` method is used to transform a list of items into JSX by returning JSX for each item. In the following, we want to display a list of items (here: JavaScript objects) in React. First, we will define the array outside of the component. Afterward, try yourself to render each object with its `title` property in React by inlining the array's `map()` method in JSX:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -31,12 +43,18 @@ const list = [
 
 function App() { ... }
 
+# leanpub-start-insert
+// note the ... as placeholder
+// for source code that didn't change
+// and isn't relevant for this code snippet
+# leanpub-end-insert
+
 export default App;
 ~~~~~~~
 
-*Note: I used a `...` here as a placeholder, to keep my code snippet small (without the App component's implementation details) and focused on the essential parts (the `list` variable outside of the App component). I will use the `...` throughout the rest of this learning experience as a placeholder for code blocks that I have established in previous sections. If you get lost, you can always verify your code using the CodeSandbox links I provide at the end of most sections.*
+Each item in the list has a `title`, an `url`, an `author`, an identifier (`objectID`), `points` -- which indicate the popularity of an item -- and a count of comments (`num_comments`). The property names are chosen this way, because they resemble real world data that we are going to use later.
 
-Each item in the list has a title, a url, an author, an identifier (`objectID`), points -- which indicate the popularity of an item -- and a count of comments (`num_comments`). Next, we'll render the list within our JSX dynamically:
+Next, we'll render the list inlined in JSX with the array's built-in `map()` method. Hence we won't map from one JavaScript data type to another, but instead return JSX that renders each item of the list:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -55,40 +73,6 @@ function App() {
 # leanpub-end-insert
 
 # leanpub-start-insert
-      {/* render the list here */}
-      {/* and by the way: that's how you do comments in JSX */}
-# leanpub-end-insert
-    </div>
-  );
-}
-~~~~~~~
-
-You can use the [built-in JavaScript map method for arrays](https://mzl.la/3B3a7tf) to iterate over each item of the list and return a new version of each:
-
-{title="Code Playground",lang="javascript"}
-~~~~~~~
-const numbers = [1, 4, 9, 16];
-
-const newNumbers = numbers.map(function(number) {
-  return number * 2;
-});
-
-console.log(newNumbers);
-// [2, 8, 18, 32]
-~~~~~~~
-
-In our case, we won't map from one JavaScript data type to another. Instead, we return a JSX fragment that renders each item of the list:
-
-{title="src/App.js",lang="javascript"}
-~~~~~~~
-function App() {
-  return (
-    <div>
-      ...
-
-      <hr />
-
-# leanpub-start-insert
       <ul>
         {list.map(function (item) {
           return <li>{item.title}</li>;
@@ -100,11 +84,11 @@ function App() {
 }
 ~~~~~~~
 
-Actually, one of my first React "Aha" moments was using barebones JavaScript to map a list of JavaScript objects to HTML elements without any other HTML templating syntax. It's just JavaScript mixed with HTML.
+Actually, rendering a list of items in React was one of my personal JSX "Aha" moments. Without any made up templating syntax, it's possible to use JavaScript to map from a list of items to a list of HTML elements. That's what JSX is for the developer in the end: just JS mixed with HTML.
 
 ![](images/jsx-mapping.png)
 
-React will display each item now, but you can still improve your code so React handles dynamic lists more gracefully. By assigning a `key` attribute to each list item's element, React can identify items if the list changes (e.g. re-ordering). The `key` isn't necessary yet in our current situation, however, it's a best practice to use it from the start. Fortunately, our items come with an identifier:
+Finally React displays each item now. But there is one important piece missing. If you check your browser's developer tools, you should see a warning showing up in the "Console" tab which says that every React element in a list should have a key assigned to it. The `key` attribute should be a stable identifier. Fortunately, our items come with such an identifier:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -112,8 +96,6 @@ function App() {
   return (
     <div>
       ...
-
-      <hr />
 
       <ul>
         {list.map(function (item) {
@@ -127,23 +109,31 @@ function App() {
 }
 ~~~~~~~
 
-We avoid using the `index` of the item in the array to make sure the key attribute is a stable identifier. If the list changes its order, for example, React will not be able to identify the items properly when using the array's `index`:
+The `key` attribute is used for one specific reason: Whenever React has to re-render a list, it checks whether an item has changed. When using keys, React can efficiently exchange the changed items. When not using keys, React may update the list inefficiently. Take the following example where a new item gets appended at the start of the list.
+
+![](images/react-keys-performance.png)
+
+The key is not difficult to find, because usually when having data in form of an array, we can use each item's stable identifier. However, sometimes you do not have an `id`, so you need to come up with another identifier (e.g. `title` if it does not change and if it's unique in the array). As last resort, you can use the index of the item in the list too:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
-// avoid doing this
 <ul>
   {list.map(function (item, index) {
     return (
       <li key={index}>
-        ...
+        {/* only use an index as last resort */}
+        {/* and by the way: that's how you do comments in JSX */}
+
+        {item.title}
       </li>
     );
   })}
 </ul>
 ~~~~~~~
 
-So far, only the title is displayed for each item. Let's experiment with displaying more of the item's properties:
+Usually using an index should be avoided though, because it comes with the same rendering performance issues from above. In addition, it can [cause actual bugs in the UI](https://www.robinwieruch.de/react-list-key) whenever the order of items got changed (e.g. re-ordering, appending or removing items). However, as last resort, if the list does not change its order in any way, using the index is fine.
+
+So far, we are only displaying the `title` of each item. Go ahead and render the item's `url`, `author`, `num_comments`, and `points` as well. In the special case of the `url`, use an HTML anchor element that surrounds the `title`. For guidance, the following solution will show you how the book implements this to be prepared for the next sections:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -175,16 +165,15 @@ function App() {
 }
 ~~~~~~~
 
-The map function is inlined concisely in your JSX. Within the map function, we have access to each item and its properties. The `url` property of each item is used as dynamic `href` attribute for the HTML anchor tag. Not only can JavaScript in JSX be used to display items, but also to assign HTML attributes dynamically. This section only scratches the surface of how powerful it is to use mixed JavaScript and HTML, however, using an array's map function or assigning dynamic HTML attributes should give you a good first impression.
+The array's `map()` method is inlined concisely in your JSX for rendering a list. Within the `map()` method, we have access to each object and its properties. The `url` property of each item is used as `href` attribute for the HTML anchor tag. Not only can JavaScript in JSX be used to display elements, but also to assign HTML attributes dynamically. This section only scratches the surface of how powerful it is to mix JavaScript and HTML, however, using an array's `map()` method or assigning HTML attributes should give you a good first impression.
 
 ### Exercises:
 
 * Confirm your [source code](https://bit.ly/2Z6e2ZI).
   * Confirm the [changes](https://bit.ly/3jf7a2Q).
-* Read more about why React's key attribute is needed ([0](https://www.robinwieruch.de/react-list-key), [1](https://bit.ly/3vsA1pj)). Don't worry if you don't understand the implementation yet, just focus on what problem it causes for dynamic lists.
-* Recap the [standard built-in array methods](https://mzl.la/3b9V9rf) -- especially *map*, *filter*, and *reduce* -- which are available in native JavaScript.
-* What happens if you return `null` instead of the JSX? Try it first, then read the answer:
-  * Returning `null` in JSX is allowed. It's always used if you want to render nothing.
+* Recap the [standard built-in array methods](https://mzl.la/3b9V9rf), especially *map*, *filter*, and *reduce*, which are available in native JavaScript.
+* Question: What happens if you return `null` instead of the JSX?
+  * Answer: Returning `null` in JSX is allowed. It's always used if you want to render nothing.
 * Extend the list with some more items to make the example more realistic.
 * Practice using different JavaScript expressions in JSX.
 * Optional: [Leave feedback for this section](https://forms.gle/aZmLFjEdSMTk9Thk9).
