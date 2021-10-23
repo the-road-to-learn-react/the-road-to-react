@@ -34,7 +34,7 @@ const Search = () => {
 };
 ~~~~~~~
 
-When you try this in the browser, you will see that the output does not appear below the HTML input field after typing into it. However, this approach is not too far away from the actual solution. What's missing is the mechanisms to notify React to re-render the component with the new `searchTerm` state after the event handler updated it. Therefore, we need to tell React that `searchTerm` is a stateful value that changes over time and that whenever it changes React has to re-render its affected component(s). Fortunately, React offers us a method called `useState` for it:
+When you try this in the browser, you will see that the output does not appear below the HTML input field after typing into it. However, this approach is not too far away from the actual solution. What's missing is telling React that `searchTerm` is a stateful value which will trigger a re-render of all affected components once it changes. Fortunately, React offers us a method called `useState` for it:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
