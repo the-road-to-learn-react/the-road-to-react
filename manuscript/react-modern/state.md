@@ -34,7 +34,7 @@ const Search = () => {
 };
 ~~~~~~~
 
-When you try this in the browser, you will see that the output does not appear below the HTML input field after typing into it. However, this approach is not too far away from the actual solution. What's missing is telling React that `searchTerm` is a stateful value which will trigger a re-render of all affected components once it changes. Fortunately, React offers us a method called `useState` for it:
+When you try this in the browser, you will see that the output does not appear below the HTML input field after typing into it. However, this approach is not too far away from the actual solution. What's missing is telling React that `searchTerm` is a stateful value which will trigger a re-render of all affected components once it changes which allows the components to display their most recent value. Fortunately, React offers us a method called `useState` for it:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -42,21 +42,6 @@ const Search = () => {
 # leanpub-start-insert
   const [searchTerm, setSearchTerm] = React.useState('');
 # leanpub-end-insert
-
-  ...
-};
-~~~~~~~
-
-React's `useState` method takes an *initial state* as an argument -- where we will start off with an empty string. By using `useState`, we are telling React that we want to have a stateful value which changes over time.
-
-![](images/react-usestate.png)
-
-Furthermore, calling this method will return an array with two entries: The first entry (`searchTerm`) represents the *current state*; the second entry is a *function to update this state* (`setSearchTerm`). I will sometimes refer to this function as *state updater function*. Both entries are everything we need to display the current state and to alter the current state:
-
-{title="src/App.js",lang="javascript"}
-~~~~~~~
-const Search = () => {
-  const [searchTerm, setSearchTerm] = React.useState('');
 
   const handleChange = (event) => {
 # leanpub-start-insert
@@ -64,18 +49,15 @@ const Search = () => {
 # leanpub-end-insert
   };
 
-  return (
-    <div>
-      <label htmlFor="search">Search: </label>
-      <input id="search" type="text" onChange={handleChange} />
-
-      <p>
-        Searching for <strong>{searchTerm}</strong>.
-      </p>
-    </div>
-  );
+  ...
 };
 ~~~~~~~
+
+By using `useState`, we are telling React that we want to have a stateful value which changes over time. And whenever this stateful value changes, the affected components will re-render to display the recent values. React's `useState` method takes an *initial state* as an argument -- in our case it is an empty string.
+
+![](images/react-usestate.png)
+
+Furthermore, calling this method will return an array with two entries: The first entry (`searchTerm`) represents the *current state*. The second entry is a *function to update this state* (`setSearchTerm`). I will sometimes refer to this function as *state updater function*. Both entries are everything we need to display the current state and to mutate it.
 
 When the user types into the input field, the input field's change event is captured by the event handler. The handler's logic uses the event's value and the state updater function to set the updated state. After the updated state is set in a component, the component renders again, meaning the component function runs again. The updated state becomes the current state and is displayed in the component's JSX.
 
