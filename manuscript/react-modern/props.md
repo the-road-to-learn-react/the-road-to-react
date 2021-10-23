@@ -1,6 +1,6 @@
 ## React Props
 
-Currently we are using the `list` as a global variable in our project. At the beginning, we used it directly from the global scope in the App component, now at this point in the List component. This could work if you only had one global variable, but it isn't maintainable with multiple variables across multiple components. By using so-called props in React, we can pass variables as information from one component to another component.
+Currently we are using the `list` as a global variable in our project. At the beginning, we used it directly from the global scope in the App component, and now at this point in the List component. This could work if you only had one global variable, but it isn't maintainable with multiple variables across multiple components. By using so-called props in React, we can pass variables as information from one component to another component.
 
 Before using props for the first time, we'll move the `list` from the global scope into the App component and give it a descriptive name. Don't forget to refactor the App component's function from concise to block body in order to declare the `list` prior to the return statement:
 
@@ -77,7 +77,7 @@ const List = (props) => (
 
 Everything that we pass from a parent component to a child component via the component element's HTML attribute can be accessed in the child component. The child component receives a parameter (`props`) as object in its function signature which includes all the passed attributes as properties. At this point, we could also define `stories` directly in the List component and would not need to pass them as props, however, in the future we will make use of the `stories` in the App component and thus will keep them there.
 
-Another use case for React props is the List component and its potential child component. Previously, we couldn't extract an Item component from the List component, because we didn't know how to pass each item to the extracted Item component. With this new knowledge about React props, we can perform the component extraction and pass each item along to the List component's new child component:
+Another use case for React props is the List component and its potential child component. Previously, we couldn't extract an Item component from the List component, because we didn't know how to pass each item to the extracted Item component. With this new knowledge about React props, we can perform the component extraction and pass each item along to the List component's new child component. Before you check the following solution, try it yourself.
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

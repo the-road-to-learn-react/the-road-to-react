@@ -23,3 +23,4 @@
 **handler**, Handler Function in JSX
 **synthetic event**, Handler Function in JSX
 **props**, React Props
+**state**, React State
