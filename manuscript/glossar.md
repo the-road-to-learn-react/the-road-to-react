@@ -42,3 +42,5 @@ declarative
 programmatic
 imperative
 state
+mutable
+immutable

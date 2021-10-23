@@ -1,12 +1,10 @@
 ## React State
 
-While it is not allowed to change React props, **React state** introduces stateful values (read: changeable) in React. These stateful values get instantiated in a React component, can be passed as props down to child components, but can also get changed in the component where they got instantiated. When a stateful value (read: state) gets changed, the component with the state and all child components will re-render (read: run their component's function again).
+While it is not allowed to mutate React props as a developer, because they are only their to pass information from parent to child components, **React state** introduces mutable values (read: stateful values). These stateful values get instantiated in a React component as so called state, can be passed with props as vehicle down to child components, but can also get changed in the component where they got instantiated. When a state gets changed, the component with the state and all child components will re-render (read: run their component's function again) for using and displaying the latest state.
 
 ![](images/react-state.png)
 
-Both concepts, props and state, have clear defined purposes: Props are used to pass information down the component tree, state is used to alter information over time. Both can work hand in hand as well. We will see what this means in the following sections.
-
-Let's start with state in React with the following use case: Whenever a user types something into an HTML input field, the user may want to see this typed information (state) displayed somewhere else in the application. Therefore we need some way to change information over time and, what's more important, to notify React to re-render its component(s) again. A naive (but wrong) approach would be the following:
+Both concepts, props and state, have clear defined purposes: While props are used to pass information down the component hierarchy, state is used to change information over time. Let's start with state in React with the following use case: Whenever a user types text into our HTML input field element, the user wants to see this information (state) displayed next to it. An intuitive (but not working) approach would be the following:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -36,7 +34,7 @@ const Search = () => {
 };
 ~~~~~~~
 
-When you try this in the browser, you will see that the output does not appear below the HTML input field after typing into it. However, this approach is not too far away from the actual solution. What's missing after all is the mechanisms to notify React to re-render the component with the new `searchTerm` state after the event handler updated it. In order to do so, we need to tell React that `searchTerm` is a state that changes over time and that whenever it changes React has to re-render its affected component(s). Fortunately, React offers us a utility function called `useState` for it:
+When you try this in the browser, you will see that the output does not appear below the HTML input field after typing into it. However, this approach is not too far away from the actual solution. What's missing is the mechanisms to notify React to re-render the component with the new `searchTerm` state after the event handler updated it. Therefore, we need to tell React that `searchTerm` is a stateful value that changes over time and that whenever it changes React has to re-render its affected component(s). Fortunately, React offers us a method called `useState` for it:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -49,7 +47,11 @@ const Search = () => {
 };
 ~~~~~~~
 
-React's `useState` function takes an *initial state* as an argument -- where we will use an empty string. By providing this initial state to `useState`, we are telling React that this state will change over time. Furthermore, calling this function will return an array with two entries: The first entry (`searchTerm`) represents the *current state*; the second entry is a *function to update this state* (`setSearchTerm`). I will sometimes refer to this function as *state updater function*. Both entries are everything we need to display the current state and to alter the current state:
+React's `useState` method takes an *initial state* as an argument -- where we will start off with an empty string. By using `useState`, we are telling React that we want to have a stateful value which changes over time.
+
+![](images/react-usestate.png)
+
+Furthermore, calling this method will return an array with two entries: The first entry (`searchTerm`) represents the *current state*; the second entry is a *function to update this state* (`setSearchTerm`). I will sometimes refer to this function as *state updater function*. Both entries are everything we need to display the current state and to alter the current state:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
