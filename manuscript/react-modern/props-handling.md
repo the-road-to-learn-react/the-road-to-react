@@ -1,6 +1,8 @@
 ## Props Handling (Advanced)
 
-Props are passed from parent to child down the component tree. Since we use props to transport information from component to component frequently, and sometimes via other components which are in between, it is useful to know a few tricks to make passing props more convenient. Note that the following refactorings are recommended for you to learn different JavaScript/React patterns, though you can still build complete React applications without them. Consider these advanced React techniques that will make your source code more concise.
+Props are passed from parent to child down the component tree. Since we use props to transport information from component to component frequently, and sometimes via other components which are in between, it is useful to know a few tricks to make passing props more convenient.
+
+*Note that the following refactorings are recommended for you to learn different JavaScript/React patterns, though you can still build complete React applications without them. Consider these advanced React techniques that will make your source code more concise.*
 
 ### Object Destructuring
 
@@ -17,45 +19,18 @@ const user = {
 const firstName = user.firstName;
 const lastName = user.lastName;
 
-console.log(firstName + ' ' + lastName);
-// "Robin Wieruch"
-
 // with object destructuring
 const { firstName, lastName } = user;
-
-console.log(firstName + ' ' + lastName);
-// "Robin Wieruch"
 ~~~~~~~
 
-If we need to access multiple properties of an object, using one line of code instead of multiple lines is often simpler and more elegant. That's why object destructuring is already widely used in JavaScript. Let's transfer this knowledge to the React props in our Search component. First, we have to refactor the Search component's arrow function from the concise body into block body:
+If we need to access multiple properties of an object, using one line of code instead of multiple lines is often simpler and more elegant. That's why object destructuring is already widely used in JavaScript. Before you read the following code, try to transfer this knowledge to the React props in our Search component yourself.
+
+First, we have to refactor the Search component's arrow function from the concise body into block body. And second, we can apply the destructuring of the `props` object in the component's function body:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const Search = (props) => {
-  return (
-# leanpub-end-insert
-    <div>
-      <label htmlFor="search">Search: </label>
-      <input
-        id="search"
-        type="text"
-        value={props.search}
-        onChange={props.onSearch}
-      />
-    </div>
-# leanpub-start-insert
-  );
-};
-# leanpub-end-insert
-~~~~~~~
-
-And second, we can apply the destructuring of the `props` object in the component's function body:
-
-{title="src/App.js",lang="javascript"}
-~~~~~~~
-const Search = (props) => {
-# leanpub-start-insert
   const { search, onSearch } = props;
 # leanpub-end-insert
 
@@ -71,8 +46,10 @@ const Search = (props) => {
 # leanpub-end-insert
       />
     </div>
+# leanpub-start-insert
   );
 };
+# leanpub-end-insert
 ~~~~~~~
 
 That's a basic destructuring of the `props` object in a React component, so that the object's properties can be used conveniently in the component. However, we also had to refactor the Search component's arrow function from concise body into block body to access the properties of `props` with the object destructuring in the function's body. This would happen quite often if we followed this pattern, and it wouldn't make things easier for us, because we would constantly have to refactor our components. We can take all this one step further by destructuring the `props` object right away in the function signature of our component, omitting the function's block body of the component again:
