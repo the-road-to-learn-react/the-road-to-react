@@ -19,8 +19,8 @@
 **React** Hot Loader, React JSX
 **Hot** Module Replacement, React JSX
 **key**, Lists in React
-**event handler**, Handler Function in JSX
-**handler**, Handler Function in JSX
+**(event) handler**, Handler Function in JSX, Callback Handlers in JSX
 **synthetic event**, Handler Function in JSX
-**props**, React Props
-**state**, React State
+**props**, React Props, React State, Callback Handlers in JSX
+**state**, React State, Callback Handlers in JSX
+**callback handler**, Callback Handlers in JSX

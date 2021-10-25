@@ -1,10 +1,12 @@
 ## Callback Handlers in JSX
 
-The last sections taught us important lessons about props and state in React. While props are passed down as information from parent to child components, state can be used to change information over time and to make React show this changed information. However, we don't have all the pieces yet to make our components talk to each other. At the moment, the Search component does not share its state with other components, so it's only used and updated by the Search component and thus becomes useless for the other components.
+While props are passed down as information from parent to child components, state can be used to change information over time. However, we don't have all the pieces yet to make our components talk to each other. When using props as vehicle to transport information, we can only talk to descendant components. When using state, we can make information stateful, but this information can also only be passed down by using props as container.
 
-![](images/callback-handler.png)
+For example, at the moment, the Search component does not share its state with other components, so it's only used (here: displayed) and updated by the Search component. That's fine for displaying the most recent state in the Search component, however, at the end we want to use this state somewhere else (e.g. in App component to filter the `stories` by `searchTerm`). We know that we could communicate to a child component via props, but do not know how to communicate the state up to a parent component.
 
-There is no way to pass information up the component tree, since props are naturally only passed downwards. However, we can introduce a **callback handler**: A callback function gets introduced (A), is used elsewhere (B), but "calls back" to the place it was introduced (C):
+![](images/callback-handler-1.png)
+
+There is no way to pass information up the component tree, since props are naturally only passed downwards. However, we can introduce a **callback handler** instead: A callback handler gets introduced as event handler (A), is passed as function in props to another component (B), is executed as callback handler (C), and *calls back* to the place it was introduced (D):
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -14,7 +16,7 @@ const App = () => {
 # leanpub-start-insert
   // A
   const handleSearch = (event) => {
-    // C
+    // D
     console.log(event.target.value);
   };
 # leanpub-end-insert
@@ -34,12 +36,7 @@ const App = () => {
     </div>
   );
 };
-~~~~~~~
 
-Now our Search component can use this callback handler from its incoming props to call it whenever a user types into the HTML input field:
-
-{title="src/App.js",lang="javascript"}
-~~~~~~~
 # leanpub-start-insert
 const Search = (props) => {
 # leanpub-end-insert
@@ -49,7 +46,7 @@ const Search = (props) => {
     setSearchTerm(event.target.value);
 
 # leanpub-start-insert
-    // B
+    // C
     props.onSearch(event);
 # leanpub-end-insert
   };
@@ -58,11 +55,15 @@ const Search = (props) => {
 };
 ~~~~~~~
 
-The concept of the callback handler in a nutshell: We pass a function from a parent component (App) to a child component (Search) via props; we call this function in the child component (Search), but have the actual implementation of the called function in the parent component (App). Essentially when an (event) handler is passed as props from a parent component to its child component, it becomes a callback handler. React props are always passed down the component tree, and callback handlers passed as functions in props can be used to communicate up the component hierarchy.
+Whenever a user types into the input field now, the function that is passed down from the App component to the Search component runs. This way, we can notify the App component when a user types into the input field in the Search component.
+
+![](images/callback-handler-2.png)
+
+The concept of the callback handler in a nutshell: We pass a function from a parent component (App) to a child component (Search) via props; we call this function in the child component (Search), but have the actual implementation of the called function in the parent component (App). Essentially when an (event) handler is passed as props from a parent component to its child component, it becomes a callback handler. React props are always passed down the component tree, and therefore callback handlers passed down as functions in props can be used to communicate up the component hierarchy.
 
 ### Exercises:
 
 * Confirm your [source code](https://bit.ly/3DUWm1O).
   * Confirm the [changes](https://bit.ly/3jizj9s).
-* Revisit the concepts of handler and callback handler as many times as you need.
+* Revisit the concepts of (event) handler and callback handler as many times as you need.
 * Optional: [Leave feedback for this section](https://forms.gle/3LoBoWKCMNT2YpnA7).

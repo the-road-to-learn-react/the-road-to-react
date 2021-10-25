@@ -42,7 +42,7 @@ If you encounter any bug in the code, you should find a URL to the current GitHu
 
 **How to support the project?**
 
-If you find my lessons useful and would like to contribute, seek my website's [about page](https://www.robinwieruch.de/about/) for information about how to offer support. It is also very helpful for my readers to spread the word about how my books helped them, so others might discover it as ways to improve their web development skills. Contributing through any of the provided channels gives me the freedom to create in-depth courses, and to continue offering free material on my website.
+If you find my lessons useful and would like to contribute, seek my website's [about page](https://www.robinwieruch.de/about) for information about how to offer support. It is also very helpful for my readers to spread the word about how my books helped them, so others might discover it as ways to improve their web development skills. Contributing through any of the provided channels gives me the freedom to create in-depth courses, and to continue offering free material on my website.
 
 **What's your motivation behind the book?**
 

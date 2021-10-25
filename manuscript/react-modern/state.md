@@ -57,7 +57,7 @@ By using `useState`, we are telling React that we want to have a stateful value 
 
 ![](images/react-usestate.png)
 
-React's `useState` method takes an *initial state* as an argument -- in our case it is an empty string. Furthermore, calling this method will return an array with two entries: The first entry (`searchTerm`) represents the *current state*. The second entry (`setSearchTerm`) is a *function to update this state*. The book will refer to this function as *state updater function*. Both entries are everything we need to display the current state and to mutate it.
+React's `useState` method takes an *initial state* as an argument -- in our case it is an empty string. Furthermore, calling this method will return an array with two entries: The first entry (`searchTerm`) represents the *current state*. The second entry (`setSearchTerm`) is a function to update this state. The book will refer to this function as *state updater function*. Both entries are everything we need to display the current state and to update it.
 
 When the user types into the input field, the input field's change event is captured by the event handler. The handler's logic uses the event's value of the target and the state updater function to set the updated state. After the updated state is set in a component, the component renders again (meaning the component function runs again). The updated state becomes the current state (here: `searchTerm`) and is displayed in the component's JSX.
 

@@ -44,3 +44,6 @@ imperative
 state
 mutable
 immutable
+pure function
+side-effect
+callback function
