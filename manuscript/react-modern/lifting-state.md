@@ -1,6 +1,10 @@
 ## Lifting State in React
 
-In this section, we are confronted with the following task: Use the `searchTerm` from the Search component to filter the `stories` by title in the App component before they reach the List component. In the last section, we established a callback handler to pass information from the Search component up to the App component. However, if you check the code, it seems somehow difficult to access the value coming from the callback handler's event in the App component in order to filter the list. The incoming value is only accessible in the callback handler's function. We need to figure out how to share the Search component's state across multiple components (App, List) who are interested in it. Therefore, we'll need to **lift state up** from Search to App component to share the state with more components:
+In this section, we are confronted with the following task: Use the `searchTerm` from the Search component to filter the `stories` by their `title` property in the App component before they are passed as props to the List component. So far, we have learned about how to pass information down explicilty with props and how to pass information up implictly with callback handlers. However, if you look at callback handler in the App component, it doesn't come natural to one on how to apply the `searchTerm` from the App component's `handleSearch()` event handler as filter for the `stories`.
+
+One solution could be establishing another state in the App component which captures the arriving `searchTerm` in the App component and then uses it for filtering the `stories` before they are passed to the List component as props. However, this adds duplication, because the `searchTerm` would have a state in the Search and App components then. So think about it another way: If the App component is interested in the `searchTerm` state to filter the `stories`, why not instantiate the state in the App component in the first place?
+
+Try it yourself: **Lift the state** from the Search component to the App component, pass the state updater function to the Search component and use it to update the state when a user types into the input field, and use the new state in the App component to `filter()` the `stories` before they are passed to the List component. The following implementation will demonstrate this solution:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -40,9 +44,9 @@ const Search = (props) => (
 );
 ~~~~~~~
 
-We learned about the callback handler previously, because it helps us to keep an open communication channel from Search to App component. Now the Search component doesn't manage the state anymore, but only passes up the event to the App component via a callback handler after the text is entered into the HTML input field. You could also display the `searchTerm` again in the App component (from state, when using `searchTerm` directly) or Search component (from props, when passing the `searchTerm` state down as props).
+We learned about the callback handler previously, because it helps us to keep an open communication channel from child component (here: Search component) to parent component (here: App component). In the recent version of the code, the Search component doesn't manage the state anymore, but only passes up the event to the App component via a callback handler after the text is entered into the HTML input field. From here, you still could also display the `searchTerm` again in the App component (from state, when using `searchTerm` directly) or Search component (from props, when passing the `searchTerm` state down as props).
 
-Rule of thumb: Always manage state at a component level where every component that's interested in it is one that either manages the state (using information directly from state, e.g. App component) or a component below the managing component (using information from props, e.g. List or Search). If a component below needs to update the state (e.g. Search), pass a callback handler down to it which allows it to update it. If a component needs to use the state (e.g. displaying it), pass it down as props.
+Rule of thumb: Always manage state at a component level where every component that's interested in it is one that either manages the state (using information directly from state, e.g. App component) or a component below the state managing component (using information from props, e.g. List or Search components). If a component below needs to update the state (e.g. Search), pass a callback handler down which allows this particular component to update the state above in the parent component. If a component needs to use the state (e.g. displaying it), you can pass it down as props too.
 
 ![](images/component-communication.png)
 

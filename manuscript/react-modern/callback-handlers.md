@@ -6,7 +6,7 @@ For example, at the moment, the Search component does not share its state with o
 
 ![](images/callback-handler-1.png)
 
-There is no way to pass information up the component tree, since props are naturally only passed downwards. However, we can introduce a **callback handler** instead: A callback handler gets introduced as event handler (A), is passed as function in props to another component (B), is executed as callback handler (C), and *calls back* to the place it was introduced (D):
+There is no way to pass information up the component tree, since props are naturally only passed downwards. However, we can introduce a **callback handler** instead: A callback handler gets introduced as event handler (A), is passed as function in props to another component (B), is executed callback handler (C), and *calls back* to the place it was introduced (D):
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -55,7 +55,7 @@ const Search = (props) => {
 };
 ~~~~~~~
 
-Whenever a user types into the input field now, the function that is passed down from the App component to the Search component runs. This way, we can notify the App component when a user types into the input field in the Search component. Essential a callback handler becomes our implicit vehicle to communicate upwards the component tree.
+Whenever a user types into the input field now, the function that is passed down from the App component to the Search component runs. This way, we can notify the App component when a user types into the input field in the Search component. Essential a callback handler, which is just a more specific type of an event handler, becomes our implicit vehicle to communicate upwards the component tree.
 
 ![](images/callback-handler-2.png)
 
