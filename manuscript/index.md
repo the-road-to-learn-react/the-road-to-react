@@ -11,7 +11,7 @@
 **sibling component**, Meet another React Component
 **parent component**, Meet another React Component, React Props
 **child component**, Meet another React Component, React DOM, React Props
-**descendant component**, React DOM
+**descendant component**, React DOM, Lifting State in React
 **component trees**, Meet another React Component
 **props**, Meet the React Component
 **JSX**, Meet the React Component, React JSX, Lists in React, React Component Instantiation, React DOM, Handler Function in JSX
@@ -25,3 +25,4 @@
 **state**, React State, Callback Handlers in JSX, Lifting State in React
 **callback handler**, Callback Handlers in JSX, Lifting State in React
 **lift state**, Lifting State in React
+**controlled component**, React Controlled Components

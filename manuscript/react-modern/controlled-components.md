@@ -1,6 +1,10 @@
 ## React Controlled Components
 
-When you type into your HTML input field and see the characters showing up, you may have noticed that the element itself holds an internal state, because we are not providing any external value to it. Let me show you where this behavior leads to unexpected results: After applying the following change -- giving the `searchTerm` an initial state of 'React' -- can you spot the mistake in your browser?
+HTML elements come with their internal state which is not coupled to React. Confirm this thesis yourself by checking how your HTML input field is implemented in your Search component. While we provide essential attributes like `id` and `type` in addition to a handler (here: `onChange`), we do not tell the element its value. However, it does show the correct value when a user types into it.
+
+Now try the following: When initializing the `searchTerm` state in the App component, use `'React'` as initial state instead of an empty string. Afterward, open the application in the browser. Can you spot the problem? Try yourself for some time figuring out what happens here and how to fix this problem.
+
+While the `stories` have been filtered respectively to the new initial `searchTerm`, the HTML input field doesn't show the value in the browser. Only when we start typing into the input field, we see the changes reflected in it. That's because the input field doesn't know anything about React's state (here: `searchTerm`), it only uses its handler to translate (see `handleSearch()`) its internal state to React state. And once a user starts typing into the input field, the HTML element keeps track of these changes itself. However, if we want to get things right, the HTML should know about the React state. Therefore, we need need to provide the current state as `value` to it:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -10,19 +14,6 @@ const App = () => {
 # leanpub-start-insert
   const [searchTerm, setSearchTerm] = React.useState('React');
 # leanpub-end-insert
-
- ...
-};
-~~~~~~~
-
-While the list has been filtered respectively to this search term, the HTML input field doesn't show the value. Only when typing into the input field we see the change reflected in it. However, if we want to start properly with the initial state in the input field, we need to convert the Search component with its input field into a so-called **controlled component**. So far, the input field doesn't know anything about the `searchTerm`. It only uses the `onChange` handler to inform us of a change. Good for us that the input field has a `value` attribute which we can use as well:
-
-{title="src/App.js",lang="javascript"}
-~~~~~~~
-const App = () => {
-  const stories = [ ... ];
-
-  const [searchTerm, setSearchTerm] = React.useState('React');
 
   ...
 
@@ -54,27 +45,15 @@ const Search = (props) => (
 );
 ~~~~~~~
 
-Now the input field uses the correct initial value when displaying it in the browser. When we use the `searchTerm` state from the App component via props, we force the input field to use this value over its internally managed element's state.
+Now both states are synchronized. Instead of giving the HTML element the freedom of keeping track of its internal state, it uses React's state by leveraging its `value` attribute instead. Whenever the HTML element emits a change event, the new value is written to Reacts state and re-renders the components. Then the HTML element uses the recent state as `value` again.
 
 ![](images/controlled-component.png)
 
-We learned about controlled components in this section. Taking all the previous sections as learning steps into consideration, we discovered another concept called **unidirectional data flow**:
-
-{title="Visualization",lang="javascript"}
-~~~~~~~
-UI -> Side-Effect -> State -> UI -> ...
-~~~~~~~
-
-A React application and its components start with an initial state, which may or may not be passed down as props to interested child components. It's rendered for the first time as a UI. Once a side-effect occurs, like user interaction (e.g. typing into an input field) or data loading from a remote API, the change is captured in React's state either in the component itself or by notifying parent components via a callback handler. Once state has been changed, all components below the component with the modified state are re-rendered (meaning: the component functions run again).
-
-In the previous sections, we also learned about React's **component lifecycle**. At first, all components are instantiated from the top to the bottom of the component hierarchy. This includes all hooks (e.g. `useState`) that are instantiated with their initial values (e.g. initial state). From there, the UI awaits side-effects like user interactions. Once the state is changed (e.g. current state changed via state updater function from `useState`), all components below render again.
-
-Every run through a component's function takes the *recent value* (e.g. current state) from React's useState Hook and *doesn't* reinitialize them again (e.g. initial state). This might seem odd, as one could assume the `useState` hooks function re-initializes again with its initial value, but it doesn't. Hooks initialize only once when the component renders for the first time, after which React tracks them internally with their most recent values.
+While the input field became explicitly a **controlled element**, the Search component became implicitly a **controlled component**. As a React beginner, using controlled components is important, because you want to enforce a predictable behavior. Previously the HTML element did its own thing, but know we are in control of it by feeding React's state into it.
 
 ### Exercises:
 
 * Confirm your [source code](https://bit.ly/3aXr7GZ).
   * Confirm the [changes](https://bit.ly/3aV4XVO).
 * Read more about [controlled components in React](https://www.robinwieruch.de/react-controlled-components/).
-* Experiment with `console.log()` in your React components and observe how your changes render, both initially and after the input field changes.
 * Optional: [Leave feedback for this section](https://forms.gle/7VYTww2EQiPkFnaR8).
