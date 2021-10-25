@@ -49,7 +49,7 @@ Now both states are synchronized. Instead of giving the HTML element the freedom
 
 ![](images/controlled-component.png)
 
-While the input field became explicitly a **controlled element**, the Search component became implicitly a **controlled component**. As a React beginner, using controlled components is important, because you want to enforce a predictable behavior. Previously the HTML element did its own thing, but know we are in control of it by feeding React's state into it.
+While the input field became explicitly a **controlled element**, the Search component became implicitly a **controlled component**. As a React beginner, using controlled components is important, because you want to enforce a predictable behavior. Later though, there will be cases for uncontrolled components too. Previously the HTML element did its own thing, but now we are in control of it by feeding React's state into it.
 
 ### Exercises:
 
