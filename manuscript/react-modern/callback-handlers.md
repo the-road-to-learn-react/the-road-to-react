@@ -55,7 +55,7 @@ const Search = (props) => {
 };
 ~~~~~~~
 
-Whenever a user types into the input field now, the function that is passed down from the App component to the Search component runs. This way, we can notify the App component when a user types into the input field in the Search component.
+Whenever a user types into the input field now, the function that is passed down from the App component to the Search component runs. This way, we can notify the App component when a user types into the input field in the Search component. Essential a callback handler becomes our implicit vehicle to communicate upwards the component tree.
 
 ![](images/callback-handler-2.png)
 
