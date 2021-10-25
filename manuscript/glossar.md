@@ -42,6 +42,8 @@ declarative
 programmatic
 imperative
 state
+global state
+shared state
 mutable
 immutable
 pure function
