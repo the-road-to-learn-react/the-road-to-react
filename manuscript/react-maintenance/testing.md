@@ -484,7 +484,7 @@ Jest lets us pass a test-specific function to the Item component as a prop. Thes
 
 Every time we want to spy a JavaScript function, whether it has been called or whether it received certain arguments, we can use Jest's helper function to create a mocked function. Then, after invoking this function implicitly with RTL's `fireEvent` object's function, we can assert that the provided callback handler -- which is the mocked function -- has been called one time.
 
-In the last exercise we tested the Item component's input and output via rendering assertions and callback handler assertions. We are not testing real state changes yet, however, as there is no actual item removed from the DOM after clicking the "Dismiss" button. The logic to remove the item from the list is in the App component, but we are only testing the Item component in isolation. Sometimes it's just useful to test whether a single block works, before testing everything all together. We will test the actual implementation logic for removing an Item when we cover the App component later.
+In the last exercise we tested the Item component's input and output via rendering assertions and callback handler assertions. We are not testing real state changes yet, however, as there is no actual item removed from the DOM after clicking the "Dismiss"-button. The logic to remove the item from the list is in the App component, but we are only testing the Item component in isolation. Sometimes it's just useful to test whether a single block works, before testing everything all together. We will test the actual implementation logic for removing an Item when we cover the App component later.
 
 For now, the SearchForm component will use the InputWithLabel component as a child component. As before, we will start by rendering the component and providing all the essential props:
 
@@ -524,7 +524,7 @@ describe('SearchForm', () => {
 });
 ~~~~~~~
 
-Since the input element is rendered with a default value, we can use the default value (here "React"), which is the displayed value in our test assertion. If the input element doesn't have a default value, the application could show a placeholder with the `placeholder` HTML attribute on the input field. Then we'd use another function from RTL called `getByPlaceholderText`, which is used for searching an element with a placeholder text.
+Since the input element is rendered with a default value, we can use the default value (here: "React"), which is the displayed value in our test assertion. If the input element doesn't have a default value, the application could show a placeholder with the `placeholder` HTML attribute on the input field. Then we'd use another function from RTL called `getByPlaceholderText`, which is used for searching an element with a placeholder text.
 
 Because the debug information presented multiple options to query the HTML, we could continue with one more test to assert the rendered label:
 
@@ -767,7 +767,7 @@ describe('App', () => {
 
 There may be some confusion about when to use `getBy` or the `queryBy` search variants. As a rule of thumb, use `getBy` for single elements, and `getAllBy` for multiple elements. If you are checking for elements that aren't present, use `queryBy` (or `queryAllBy`). In this code, I preferred using `queryBy` for the sake of alignment and readability.
 
-Now we know the initial data fetching works for our App component, so we can move to testing user interactions. We have only tested user actions in the child components thus far, by firing events without any state and side-effect. Next, we'll remove an item from the list after the data has been fetched successfully. Since the item with "Jordan Walke" is the first rendered item in the list, it gets removed if we click the first "Dismiss" button:
+Now we know the initial data fetching works for our App component, so we can move to testing user interactions. We have only tested user actions in the child components thus far, by firing events without any state and side-effect. Next, we'll remove an item from the list after the data has been fetched successfully. Since the item with "Jordan Walke" is the first rendered item in the list, it gets removed if we click the first "Dismiss"-button:
 
 {title="src/App.test.js",lang="javascript"}
 ~~~~~~~
@@ -961,14 +961,14 @@ describe('App', () => {
 
 Brendan Eich is rendered as the creator of JavaScript, while the creators of React and Redux are removed. This test depicts an entire test scenario in one test case. We can move through each step -- initial fetching, changing the input field value, submitting the form, and retrieving new data from the API -- with the tools we've used.
 
-React Testing Library with Jest is the most popular library combination for React testing. RTL provides relevant testing tools, while Jest has a general testing framework for test suites, test cases, assertions, and mocking capabilities. If you need an alternative to RTL, consider trying  [Enzyme](https://www.robinwieruch.de/react-testing-jest-enzyme) by Airbnb.
+React Testing Library with Jest is the most popular library combination for React testing. RTL provides relevant testing tools, while Jest has a general testing framework for test suites, test cases, assertions, and mocking capabilities. If you need an alternative to RTL, consider trying  [Enzyme](https://www.robinwieruch.de/react-testing-jest-enzyme/) by Airbnb.
 
 ### Exercises:
 
 * Confirm your [source code](https://bit.ly/3DOSIqe).
   * Confirm the [changes](https://bit.ly/3jf3pKM).
-* Read more about [React Testing Library in React](https://www.robinwieruch.de/react-testing-library).
-* Read more about [E2E tests in React](https://www.robinwieruch.de/react-testing-cypress).
+* Read more about [React Testing Library in React](https://www.robinwieruch.de/react-testing-library/).
+* Read more about [E2E tests in React](https://www.robinwieruch.de/react-testing-cypress/).
 * While you continue with the upcoming sections, keep your tests green and add new tests when needed.
 
 ### Snapshot Testing

@@ -1,6 +1,8 @@
 ## Imperative React
 
-React is inherently declarative, starting with JSX and ending with hooks. In JSX, we tell React *what* to render and not *how* to render it. In a React side-effect Hook (useEffect), we express when to achieve *what* instead of *how* to achieve it. Sometimes, however, we'll want to access the rendered elements of JSX imperatively, most often as a side-effect, in cases such as these:
+React is inherently declarative. It starts with JSX and ends with hooks. In JSX, we tell React *what* to render and not *how* to render it. In a React side-effect Hook (useEffect), we express when to achieve *what* instead of *how* to achieve it.
+
+However, there are times when we will not want everything to be declarative, but want to have imperative access to  rednered elements, most often as a side-effect, in cases such as these:
 
 * read/write access to elements via the DOM API:
   * measuring (read) an element's width or height
@@ -151,6 +153,6 @@ This was an example of how to move from declarative to imperative programming in
 
 * Confirm your [source code](https://bit.ly/3B0qc2S).
   * Confirm the [changes](https://bit.ly/3aT3bEq).
-* Read more about [refs in React](https://www.robinwieruch.de/react-ref).
-* Learn [how to build a Slider component with imperative React](https://www.robinwieruch.de/react-slider).
+* Read more about [refs in React](https://www.robinwieruch.de/react-ref/).
+  * Learn [how to build a Slider component with imperative React](https://www.robinwieruch.de/react-slider/).
 * Optional: [Leave feedback for this section](https://forms.gle/nABoW2tKAPd1yVkv7).

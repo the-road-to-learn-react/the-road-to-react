@@ -16,7 +16,7 @@ If you're looking for extensions for your application, I recommend several learn
 
 * **Code Organization:** Recall the chapter about code organization and apply these changes, if you haven't already. It will help organize your components into structured files and folders, and it will help you understand the principles of code splitting, reusability, maintainability, and module API design. Your application will grow and need structured modules eventually; so it's better to start now.
 
-* **Testing:** We only scratched the surface of testing. If you are unfamiliar with testing web applications, [dive deeper into unit testing and integration testing](https://www.robinwieruch.de/react-testing-tutorial), especially with React applications. [Cypress](https://www.robinwieruch.de/react-testing-cypress) is a useful tool to explore for end-to-end testing in React.
+* **Testing:** We only scratched the surface of testing. If you are unfamiliar with testing web applications, [dive deeper into unit testing and integration testing](https://www.robinwieruch.de/react-testing-tutorial/), especially with React applications. [Cypress](https://www.robinwieruch.de/react-testing-cypress/) is a useful tool to explore for end-to-end testing in React.
 
 * **Type Checking:** Earlier we used TypeScript in React, which is good practice to prevent bugs and improve the developer experience. Dive deeper into this topic to make your JavaScript applications more robust. Maybe you'll end up using TypeScript instead of JavaScript all along.
 

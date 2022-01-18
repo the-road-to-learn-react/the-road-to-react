@@ -14,7 +14,7 @@ Previously, we have covered React's useEffect Hook, which is used for side-effec
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
-const useSemiPersistentState = (key, initialState) => {
+const useStorageState = (key, initialState) => {
   const [value, setValue] = React.useState(
     localStorage.getItem(key) || initialState
   );
@@ -36,7 +36,7 @@ As mentioned, there is no React Hook that runs on every re-render, and there is 
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
-const useSemiPersistentState = (key, initialState) => {
+const useStorageState = (key, initialState) => {
 # leanpub-start-insert
   const isMounted = React.useRef(false);
 # leanpub-end-insert
@@ -68,8 +68,8 @@ The above was only about preventing the invocation of one simple function for a 
 
 ### Exercises:
 
-* Read more about [running useEffect only on update](https://www.robinwieruch.de/react-useeffect-only-on-update).
-* Read more about [running useEffect only once](https://www.robinwieruch.de/react-useeffect-only-once).
+* Read more about [running useEffect only on update](https://www.robinwieruch.de/react-useeffect-only-on-update/).
+* Read more about [running useEffect only once](https://www.robinwieruch.de/react-useeffect-only-once/).
 
 ### Don't re-render if not needed
 
@@ -225,8 +225,8 @@ While all props passed to a component stay the same, the component renders again
 
 ### Exercises:
 
-* Read more about [React's memo API](https://www.robinwieruch.de/react-memo).
-* Read more about [React's useCallback Hook](https://www.robinwieruch.de/react-usecallback-hook).
+* Read more about [React's memo API](https://www.robinwieruch.de/react-memo/).
+* Read more about [React's useCallback Hook](https://www.robinwieruch.de/react-usecallback-hook/).
 
 ### Don't rerun expensive computations
 
@@ -295,9 +295,9 @@ Now, after we went through these scenarios for `useMemo`, `useCallback`, and `me
 
 * Confirm your [source code](https://bit.ly/3AYYTpJ).
   * Confirm the [changes](https://bit.ly/3aVxXgc).
-* Read more about [React's useMemo Hook](https://www.robinwieruch.de/react-usememo-hook).
+* Read more about [React's useMemo Hook](https://www.robinwieruch.de/react-usememo-hook/).
 * Download *React Developer Tools* as an extension for your browser. Open it for your application in the browser via the browser's developer tools and try its various features. For example, you can use it to visualize React's component tree and its updating components.
-* Does the SearchForm re-render when removing an item from the List with the "Dismiss" button? If it's the case, apply performance optimization techniques to prevent re-rendering.
-* Does each Item re-render when removing an item from the List with the "Dismiss" button? If it's the case, apply performance optimization techniques to prevent re-rendering.
+* Does the SearchForm re-render when removing an item from the List with the "Dismiss"-button? If it's the case, apply performance optimization techniques to prevent re-rendering.
+* Does each Item re-render when removing an item from the List with the "Dismiss"-button? If it's the case, apply performance optimization techniques to prevent re-rendering.
 * Remove all performance optimizations to keep the application simple. Our current application doesn't suffer from any performance bottlenecks. Try to avoid [premature optimzations](https://bit.ly/3AYktL8). Use this section and its further reading material as a reference, in case you run into performance problems.
 * Optional: [Leave feedback for this section](https://forms.gle/FwNrJSdLikquVzsB6).

@@ -30,7 +30,7 @@ function List() {
 # leanpub-end-insert
 ~~~~~~~
 
-Then the new List component can be used in the App component where we have been using the inlined functionality previously:
+Then the new List component can be used in the App component where we have been using the inlined HTML elements previously:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -52,7 +52,7 @@ function App() {
 }
 ~~~~~~~
 
-You've just created your first React component. With this example in mind, we can see how components encapsulate meaningful tasks while contributing to the greater good of a larger React project. Extracting a component is a task that you will perform very often as a React developer, because it's always the case that a component will grow in size and complexity. Go ahead and extract the label and input elements from the App component into their own Search component. The following code snippet shows how the book would attempt this task:
+You've just created your first React component. With this example in mind, we can see how components encapsulate meaningful tasks while contributing to the greater good of a larger React project. Extracting a component is a task that you will perform very often as a React developer, because it's always the case that a component will grow in size and complexity. Go ahead and extract the label and input elements from the App component into their own Search component. The following code snippet shows how the book would solve this task:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

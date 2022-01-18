@@ -49,3 +49,6 @@ immutable
 pure function
 side-effect
 callback function
+single page application
+static site generation
+server-side rendering

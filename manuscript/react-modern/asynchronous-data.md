@@ -71,6 +71,6 @@ Once you start the application again, you should see a delayed rendering of the 
 * Confirm your [source code](https://bit.ly/3vu6kEb).
   * Confirm the [changes](https://bit.ly/3B0p7rQ).
 * Read more about [JavaScript Promises](https://mzl.la/3aTGuQz).
-* Read more about [faking a remote API with JavaScript](https://www.robinwieruch.de/javascript-fake-api).
-* Read more about [using mock data in React](https://www.robinwieruch.de/react-mock-data).
+* Read more about [faking a remote API with JavaScript](https://www.robinwieruch.de/javascript-fake-api/).
+* Read more about [using mock data in React](https://www.robinwieruch.de/react-mock-data/).
 * Optional: [Leave feedback for this section](https://forms.gle/sfQcc477xmgGRLyB7).

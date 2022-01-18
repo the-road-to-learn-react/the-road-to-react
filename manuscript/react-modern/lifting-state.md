@@ -44,13 +44,13 @@ const Search = (props) => (
 );
 ~~~~~~~
 
-We learned about the callback handler previously, because it helps us to keep an open communication channel from child component (here: Search component) to parent component (here: App component). Now, the Search component doesn't manage the state anymore, but only passes up the event to the App component via a callback handler after the text is entered into the HTML input field. From there, the App component updates its state. The process of moving state from one component to another like we did in the last code snippet is called **lifting state**. Next, you could still display the `searchTerm` again in the App component (from state, when using `searchTerm`) or Search component (from props, when passing the `searchTerm` state down as props).
+We learned about the callback handler previously, because it helps us to keep an open communication channel from child component (here: Search component) to parent component (here: App component). Now, the Search component doesn't manage the state anymore, but only passes up the event to the App component via a callback handler after the text is entered into the HTML input field. From there, the App component updates its state. The process of moving state from one component to another, like we did in the last code snippet, is called **lifting state**. Next, you could still display the `searchTerm` again in the App component (from state, when using `searchTerm`) or Search component (from props, when passing the `searchTerm` state down as props).
 
 ![](images/component-communication.png)
 
 Rule of thumb: Always manage state at a component level where every component that's interested in it is one that either manages the state (using information directly from state, e.g. App component) or a component below the state managing component (using information from props, e.g. List or Search components). If a component below needs to update the state (e.g. Search), pass a callback handler down to it which allows this particular component to update the state above in the parent component. If a component below needs to use the state (e.g. displaying it), pass it down as props.
 
-Finally, by managing the search state in the App component, we can filter the `stories` with the stateful `searchTerm` before passing them as `list` prop to the List component. The following implementation demonstrates the second part of the solution:
+Finally, by managing the search state in the App component, we can filter the `stories` with the stateful `searchTerm` before passing them as `list` prop to the List component. Try it yourself by using the array's built-in `filter()` method in combination with the `stories` and the `searchTerm` before consulting the following implementation:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -85,7 +85,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Here, the [JavaScript array's built-in filter method](https://mzl.la/3BYFAOR) is used to create a new filtered array. The `filter()` method takes a function as an argument, which accesses each item in the array and returns true or false. If the function returns true, meaning the condition is met, the item stays in the newly created array; if the function returns false, it's removed:
+Here, the [JavaScript array's built-in filter method](https://mzl.la/3BYFAOR) is used to create a new filtered array. The `filter()` method takes a function as an argument, which accesses each item in the array and returns `true` or `false`. If the function returns `true`, meaning the condition is met, the item stays in the newly created array; if the function returns `false`, it's removed:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -106,7 +106,7 @@ console.log(filteredWords);
 // ["exuberant", "destruction", "present"]
 ~~~~~~~
 
-The `filter()` method can be made more concise by using an arrow function with an immediate return:
+The `filter()` method could be made more concise by using an arrow function with an immediate return:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -152,5 +152,5 @@ After all, knowing where to instantiate state in React turns out to be an import
 
 * Confirm your [source code](https://bit.ly/3vtfBwo).
   * Confirm the [changes](https://bit.ly/3DSiuK6).
-* Read more about [lifting state in React](https://www.robinwieruch.de/react-lift-state).
+* Read more about [lifting state in React](https://www.robinwieruch.de/react-lift-state/).
 * Optional: [Leave feedback for this section](https://forms.gle/EqJGjxCM1Xzw9S6g7).

@@ -1,6 +1,6 @@
 ## Lists in React
 
-When working with data in JavaScript, most often the data comes as an array of objects. Therefore, we will learn how to render such list of items in React next. In order to prepare you for rendering lists in React, let's recap one of the most common data manipulation methods: the [array's built-in map() method](https://mzl.la/3B3a7tf). It is used to iterate over each item of a list in order to return a new version of each item:
+When working with data in JavaScript, most often the data comes as an array of objects. Therefore, we will learn how to render a list of items in React next. In order to prepare you for rendering lists in React, let's recap one of the most common data manipulation methods: the [array's built-in map() method](https://mzl.la/3B3a7tf). It is used to iterate over each item of a list in order to return a new version of each item:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -52,7 +52,7 @@ function App() { ... }
 export default App;
 ~~~~~~~
 
-Each item in the list has a `title`, an `url`, an `author`, an identifier (`objectID`), `points` -- which indicate the popularity of an item -- and a count of comments (`num_comments`). The property names are chosen this way, because they resemble real world data that we are going to use later.
+Each item in the list has a `title`, an `url`, an `author`, an identifier (`objectID`), `points` -- which indicate the popularity of an item -- and a count of comments (`num_comments`). The property names are chosen this way, because they resemble real world data that we are going to use later. They don't fit the desired [naming conventions](https://www.robinwieruch.de/javascript-naming-conventions/) for JavaScript though.
 
 Next, we'll render the list inlined in JSX with the array's built-in `map()` method. Hence we won't map from one JavaScript data type to another, but instead return JSX that renders each item of the list:
 
@@ -88,7 +88,7 @@ Actually, rendering a list of items in React was one of my personal JSX "Aha" mo
 
 ![](images/jsx-mapping.png)
 
-Finally React displays each item now. But there is one important piece missing. If you check your browser's developer tools, you should see a warning showing up in the "Console" tab which says that every React element in a list should have a key assigned to it. The `key` attribute should be a stable identifier. Fortunately, our items come with such an identifier:
+Finally React displays each item now. But there is one important piece missing. If you check your browser's developer tools, you should see a warning showing up in the "Console"-tab which says that every React element in a list should have a key assigned to it. The `key` is an HTML attribute and should be a stable identifier. Fortunately, our items come with such a stable identifier, because they have an `id` (here: `objectId`):
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -113,7 +113,7 @@ The `key` attribute is used for one specific reason: Whenever React has to re-re
 
 ![](images/react-keys-performance.png)
 
-The key is not difficult to find, because usually when having data in form of an array, we can use each item's stable identifier. However, sometimes you do not have an `id`, so you need to come up with another identifier (e.g. `title` if it does not change and if it's unique in the array). As last resort, you can use the index of the item in the list too:
+The key is not difficult to find, because usually when having data in shape of an array, we can use each item's stable identifier. However, sometimes you do not have an `id`, so you need to come up with another identifier (e.g. `title` if it does not change and if it's unique in the array). As last resort, you can use the index of the item in the list too:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -131,9 +131,9 @@ The key is not difficult to find, because usually when having data in form of an
 </ul>
 ~~~~~~~
 
-Usually using an index should be avoided though, because it comes with the same rendering performance issues from above. In addition, it can [cause actual bugs in the UI](https://www.robinwieruch.de/react-list-key) whenever the order of items got changed (e.g. re-ordering, appending or removing items). However, as last resort, if the list does not change its order in any way, using the index is fine.
+Usually using an index should be avoided though, because it comes with the same rendering performance issues from above. In addition, it can [cause actual bugs in the UI](https://www.robinwieruch.de/react-list-key/) whenever the order of items got changed (e.g. re-ordering, appending or removing items). However, as last resort, if the list does not change its order in any way, using the index is fine.
 
-So far, we are only displaying the `title` of each item. Go ahead and render the item's `url`, `author`, `num_comments`, and `points` as well. In the special case of the `url`, use an HTML anchor element that surrounds the `title`. For guidance, the following solution will show you how the book implements this to be prepared for the next sections:
+So far, we are only displaying the `title` of each item. Go ahead and render the item's `url`, `author`, `num_comments`, and `points` as well. In the special case of the `url`, use an HTML anchor element (read: `<a>` tag) that surrounds the `title`. For guidance, the following solution will show you how the book implements this to be prepared for the next sections:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -163,7 +163,7 @@ function App() {
 }
 ~~~~~~~
 
-The array's `map()` method is inlined concisely in your JSX for rendering a list. Within the `map()` method, we have access to each object and its properties. The `url` property of each item is used as `href` attribute for the HTML anchor tag. Not only can JavaScript in JSX be used to display elements, but also to assign HTML attributes dynamically. This section only scratches the surface of how powerful it is to mix JavaScript and HTML, however, using an array's `map()` method or assigning HTML attributes should give you a good first impression.
+The array's `map()` method is inlined concisely in your JSX for rendering a list. Within the `map()` method, we have access to each object and its properties. The `url` property of each item is used as `href` attribute for the HTML anchor element. Not only can JavaScript in JSX be used to display elements, but also to assign HTML attributes dynamically. This section only scratches the surface of how powerful it is to mix JavaScript and HTML, however, using an array's `map()` method and assigning HTML attributes should give you a good first impression.
 
 ### Exercises:
 

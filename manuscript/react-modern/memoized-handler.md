@@ -70,5 +70,5 @@ By moving the data fetching function outside the `useEffect` hook, it becomes re
 
 * Confirm your [source code](https://bit.ly/3aSpb2v).
   * Confirm the [changes](https://bit.ly/3G4vkGX).
-* Read more about [React's useCallback Hook](https://www.robinwieruch.de/react-usecallback-hook).
+* Read more about [React's useCallback Hook](https://www.robinwieruch.de/react-usecallback-hook/).
 * Optional: [Leave feedback for this section](https://forms.gle/HSX9aurgsf5j76HR9).

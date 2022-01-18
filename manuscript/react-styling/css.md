@@ -6,7 +6,7 @@ We will begin React styling with common CSS in React, but then explore two alter
 
 ![](images/css-style-strategies.png)
 
-If you don't want to build common UI components (e.g. button, dialog, dropdown) from scratch, you can always pick a [popular UI library suited for React](https://www.robinwieruch.de/react-libraries), which provides these components by default. However, it is better for learning React if you try building these components before using a pre-built solution. As a result, we won't use any of the UI component libraries.
+If you don't want to build common UI components (e.g. button, dialog, dropdown) from scratch, you can always pick a [popular UI library suited for React](https://www.robinwieruch.de/react-libraries/), which provides these components by default. However, it is better for learning React if you try building these components before using a pre-built solution. As a result, we won't use any of the UI component libraries.
 
 ![](images/ui-library.png)
 
@@ -14,7 +14,7 @@ The following styling approaches and SVGs are pre-configured in `create-react-ap
 
 ### Exercises:
 
-* Read more about [the different styling strategies and approaches in React](https://www.robinwieruch.de/react-css-styling).
+* Read more about [the different styling strategies and approaches in React](https://www.robinwieruch.de/react-css-styling/).
 
 ## CSS in React
 

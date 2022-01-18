@@ -2,7 +2,7 @@
 
 With multiple React components in one file, you might wonder why we didn't put components into different files from the start. We already have multiple components in the *src/App.js* file that can be defined in their own files/folders (sometimes also called modules). For learning, it's more practical to keep these components in one place. Once your application grows, consider splitting these components into multiple files/folders/modules so it scales properly.
 
-Before we restructure our React project, recap [JavaScript's import and export statements](https://www.robinwieruch.de/javascript-import-export). Importing and exporting files are two fundamental concepts in JavaScript you must learn before React. There's no right way to structure a React application, as they evolve naturally along with the project's structure. We'll complete a simple refactoring for the project's folder/file structure for the sake of learning about the process. Afterward, there will be a few additional options about restructuring this project or React projects in general. You can continue with the restructured project, though we'll continue developing with the *src/App.js* file to keep things simple.
+Before we restructure our React project, recap [JavaScript's import and export statements](https://www.robinwieruch.de/javascript-import-export/). Importing and exporting files are two fundamental concepts in JavaScript you must learn before React. There's no right way to structure a React application, as they evolve naturally along with the project's structure. We'll complete a simple refactoring for the project's folder/file structure for the sake of learning about the process. Afterward, there will be a few additional options about restructuring this project or React projects in general. You can continue with the restructured project, though we'll continue developing with the *src/App.js* file to keep things simple.
 
 On the command line in your project's folder, navigate into the *src/* folder and create the following component dedicated files:
 
@@ -191,7 +191,7 @@ There are many ways on how to structure your React project from small to large p
 
 * Confirm your [source code](https://bit.ly/2XxzDcG).
   * Confirm the [changes](https://bit.ly/3DW8109).
-* Read more about [JavaScript's import and export statements](https://www.robinwieruch.de/javascript-import-export).
-* Read more about [React Folder Structures](https://www.robinwieruch.de/react-folder-structure).
+* Read more about [JavaScript's import and export statements](https://www.robinwieruch.de/javascript-import-export/).
+* Read more about [React Folder Structures](https://www.robinwieruch.de/react-folder-structure/).
 * Keep the current folder structure if you feel confident. The ongoing sections will omit it, only using the *src/App.js* file.
 * Optional: [Leave feedback for this section](https://forms.gle/yLzszsmtdB1DQBCe7).

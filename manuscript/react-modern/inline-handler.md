@@ -1,6 +1,6 @@
 ## Inline Handler in JSX
 
-The list of stories we have in our App component is only an unstateful variable. We can filter the rendered list with the search feature, but the list itself stays intact even if we apply or remove the filter. The filtered list is just a derived state through a third party (here `searchTerm`), but we can't manipulate the real list yet. To gain control over the list, make it stateful by using it as initial state in React's useState Hook. The returned values from the array are the current state (`stories`) and the state updater function (`setStories`):
+The list of stories we have in our App component is only an unstateful variable. We can filter the rendered list with the search feature, but the list itself stays intact even if we apply or remove the filter. The filtered list is just a derived state through a third party (here: `searchTerm`), but we can't manipulate the real list yet. To gain control over the list, make it stateful by using it as initial state in React's useState Hook. The returned values from the array are the current state (`stories`) and the state updater function (`setStories`):
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -202,7 +202,7 @@ All three handler versions, two of which are inline and the normal handler, are 
 
 * Confirm your [source code](https://bit.ly/3vrGWzb).
   * Confirm the [changes](https://bit.ly/3jj37CR).
-* Read more about how to [add](https://www.robinwieruch.de/react-add-item-to-list), [update](https://www.robinwieruch.de/react-update-item-in-list), [remove](https://www.robinwieruch.de/react-remove-item-from-list) items in a list.
-* Read more about [computed properties in React](https://www.robinwieruch.de/react-computed-properties).
+* Read more about how to [add](https://www.robinwieruch.de/react-add-item-to-list), [update](https://www.robinwieruch.de/react-update-item-in-list/), [remove](https://www.robinwieruch.de/react-remove-item-from-list) items in a list.
+* Read more about [computed properties in React](https://www.robinwieruch.de/react-computed-properties/).
 * Review handlers, callback handlers, and inline handlers.
 * Optional: [Leave feedback for this section](https://forms.gle/19NvNYMk2RUKTDyZ6).

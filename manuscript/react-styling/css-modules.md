@@ -28,7 +28,7 @@ In the renamed *src/App.module.css*, start with the first CSS class definitions,
 }
 ~~~~~~~
 
-Import the *src/App.module.css* file with a relative path again. This time, import it as a JavaScript object where the name of the object (here `styles`) is up to you:
+Import the *src/App.module.css* file with a relative path again. This time, import it as a JavaScript object where the name of the object (here: `styles`) is up to you:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

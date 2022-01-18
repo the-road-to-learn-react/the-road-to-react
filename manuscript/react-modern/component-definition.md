@@ -11,7 +11,7 @@ function App() { ... }
 const App = () => { ... }
 ~~~~~~~
 
-Equipped with this knowledge, go through your React project and refactor all function declarations to arrow function expressions. While this refactoring can be applied to function components, it can also be used for any other functions that are used in the project. Next, we will go ahead as well and refactor all the function component's function declarations to arrow function expressions:
+Equipped with this knowledge, go through your React project and refactor all function declarations to arrow function expressions. While this refactoring can be applied to function components, it can also be used for any other functions that are used in the project. In the book, we will go ahead as well and refactor all the function component's function declarations to arrow function expressions:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -40,7 +40,7 @@ const List = () => {
 # leanpub-end-insert
 ~~~~~~~
 
-As said, not only function components can be refactored, but also other functions like the callback function that we have used for the array's `map()` method:
+As said, not only function components can be refactored, but also other functions like the [callback function](https://www.robinwieruch.de/javascript-callback-function/) that we have used for the array's `map()` method:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -123,7 +123,7 @@ const List = () => (
 # leanpub-end-insert
 ~~~~~~~
 
-All JSX is more concise now, because it omits the function statement, the curly braces, and the return statement. However, remember this is an optional step and that it's acceptable to use function declarations over arrow function expressions and block bodies with curly braces over concise bodies with implicit returns for arrow functions.
+All JSX is more concise now, because it omits the function statement, the curly braces, and the return statement. However, it's important to remember this is an optional step and that it's acceptable to use function declarations over arrow function expressions and block bodies with curly braces over concise bodies with implicit returns for arrow functions.
 
 Often block bodies will be necessary to introduce more business logic between function signature and return statement. Be sure to understand this refactoring concept, because we'll move quickly from arrow function components with and without block bodies as we go. Which one we use will depend on the requirements of the component:
 
@@ -140,7 +140,7 @@ const App = () => {
 };
 ~~~~~~~
 
-As a rule of thumb, use either function declarations or arrow function expressions for your component declarations throughout your application. Both versions are fine to use, but make sure that you and your team working on the project share the same implementation style. In addition, while an implicit return statement when using an arrow function expressions makes your component declaration more concise, you may introduce tedious refactorings from concise to block body when you need to perform tasks prior the return statement. So you may want to keep your arrow function expression with a block body (like in the last code snippet) all the time.
+As a rule of thumb, use either function declarations or arrow function expressions for your component declarations throughout your application. Both versions are fine to use, but make sure that you and your team working on the project share the same implementation style. In addition, while an implicit return statement when using an arrow function expressions makes your component declaration more concise, you may introduce tedious refactorings from concise to block body when you need to perform tasks between function signature and the return statement. So you may want to keep your arrow function expression with a block body (like in the last code snippet) all the time.
 
 ### Exercises:
 

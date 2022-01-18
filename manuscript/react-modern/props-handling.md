@@ -2,11 +2,13 @@
 
 Props are passed from parent to child down the component tree. Since we use props to transport information from component to component frequently, and sometimes via other components which are in between, it is useful to know a few tricks to make passing props more convenient.
 
-*Note that the following refactorings are recommended for you to learn different JavaScript/React patterns, though you can still build complete React applications without them. Consider these advanced React techniques that will make your source code more concise.*
+![](images/react-props-handling.png)
 
-### Object Destructuring
+The following refactorings are recommended for you to learn different JavaScript/React patterns, though you can still build complete React applications without them. Consider these as advanced props techniques that will make your React code for certain scenarios more concise, readable, and maintainable.
 
-After all, React props are a JavaScript object, else we couldn't access `props.list` or `props.onSearch` in our React components. Since `props` is an object which just passes information from one component to another component, we can apply a couple JavaScript tricks to it. For example, accessing an object's properties with modern [JavaScript object destructuring](https://mzl.la/30KbXTC):
+### Props Destructuring via Object Destructuring
+
+React props are just a JavaScript object, otherwise we couldn't access `props.list` or `props.onSearch` in our React components. Since `props` is an object which just passes information from one component to another component, we can apply a couple JavaScript tricks to it. For example, accessing an object's properties with modern [JavaScript object destructuring](https://mzl.la/30KbXTC):
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -25,7 +27,7 @@ const { firstName, lastName } = user;
 
 If we need to access multiple properties of an object, using one line of code instead of multiple lines is often simpler and more elegant. That's why object destructuring is already widely used in JavaScript. Before you read the following code, try to transfer this knowledge to the React props in our Search component yourself.
 
-First, we have to refactor the Search component's arrow function from the concise body into block body. And second, we can apply the destructuring of the `props` object in the component's function body:
+Let's see how we can make use of props destructuring here. First, we have to refactor the Search component's arrow function from the concise body into block body. And second, we can apply the destructuring of the `props` object in the component's function body:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -52,7 +54,7 @@ const Search = (props) => {
 # leanpub-end-insert
 ~~~~~~~
 
-That's a basic destructuring of the `props` object in a React component, so that the object's properties can be used conveniently in the component. However, we also had to refactor the Search component's arrow function from concise body into block body to access the properties of `props` with the object destructuring in the function's body. This would happen quite often if we followed this pattern, and it wouldn't make things easier for us, because we would constantly have to refactor our components. We can take all this one step further by destructuring the `props` object right away in the function signature of our component, omitting the function's block body of the component again:
+That's a basic destructuring of the `props` object in a React component, so that the object's properties can be used conveniently in the component. However, we also had to refactor the Search component's arrow function from concise body into block body to access the properties of `props` with the object destructuring in the component function's body. This would happen quite often if we followed this pattern and it wouldn't make things easier for us, because we would constantly have to refactor our components. We can take all this one step further by destructuring the `props` object right away in the function signature of our component, omitting the function's block body of the component again:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -107,9 +109,11 @@ const Item = ({ item }) => (
 );
 ~~~~~~~
 
-This should be the basic lesson learned from this section, however, we can take this one step further with the following advanced lessons. The incoming `item` parameter in the Item component has something in common with the previously discussed `props` parameter: they are both JavaScript objects. Also, even though the `item` object has already been destructured from the `props` in the Item component's function signature, it isn't directly used in the Item component. The `item` object only passes its information (object properties) to the elements.
+This should be the basic lesson learned from this section, however, we can take this one step further with a bunch of optional advanced lessons.
 
 ### Nested Destructuring
+
+The incoming `item` parameter in the Item component has something in common with the previously discussed `props` parameter: they are both JavaScript objects. Also, even though the `item` object has already been destructured from the `props` in the Item component's function signature, it isn't directly used in the Item component. The `item` object only passes its information (object properties) to the elements.
 
 The current solution is fine as you will see in the ongoing discussion. However, I want to show you two more variations of it, because there are many things to learn about JavaScript objects in React here. Let's get started with *nested destructuring* and how it works:
 
@@ -141,7 +145,7 @@ console.log(firstName + ' has a pet called ' + name);
 // "Robin has a pet called Trixi"
 ~~~~~~~
 
-The nested destructuring helps us to gather all the needed information of the `item` object in the function signature for its immediate usage in the component's elements. However, nested destructuring introduces lots of clutter through indentations in the function signature. Even though it's not the most readable option here, note that it can still be useful in other scenarios.
+The nested destructuring helps us to gather all the needed information of the `item` object in the function signature for its immediate usage in the component's elements. Even though it's not the most readable option here, note that it can still be useful in other scenarios:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -334,7 +338,9 @@ const Item = ({ title, url, author, num_comments, points }) => (
 
 In this final variation, the rest operator is used to destructure the `objectID` from the rest of the `item` object. Afterward, the `item` is spread with its key/values pairs into the Item component. While this final variation is very concise, it comes with advanced JavaScript features that may be unknown to some.
 
-In this section, we have learned about JavaScript object destructuring which can be commonly used not only for the `props` object, but also for other objects like the `item` object. We have also seen how nested destructuring can be used (Variation 1), but also how it didn't add any benefits in our case because it just made the component bigger. In the future, you are more likely to find use cases for nested destructuring which are beneficial. Last but not least, you have learned about JavaScript's spread and rest operators, which shouldn't be confused with each other, to perform operations on JavaScript objects and to pass the `props` object from one component to another component in the most concise way. In the end, I want to point out the initial version again which we will keep over for the next sections:
+In this section, we have learned about JavaScript object destructuring which can be commonly used not only for the `props` object, but also for other objects like the `item` object which are nested within the props. We have also seen how nested destructuring can be used (Variation 1), but also how it didn't add any benefits in our case because it just made the component bigger. In the future, you are more likely to find use cases for nested destructuring which are beneficial.
+
+Last but not least, you have learned about JavaScript's spread and rest operators, which shouldn't be confused with each other, to perform operations on JavaScript objects and to pass the `props` object from one component to another component in the most concise way. In the end, I want to point out the initial version again which we will keep over for the next sections:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -358,16 +364,23 @@ const Item = ({ item }) => (
 );
 ~~~~~~~
 
-It may not be the most concise, but it is the easiest to reason about. Variation 1 with its nested destructuring didn't add much benefit and variation 2 may add too many advanced JavaScript features (spread operator, rest operator) which are not familiar to everyone. After all, all these variations have their pros and cons. When refactoring a component, always aim for readability, especially when working in a team of people, and make sure they're using a common React code style.
+It may not be the most concise, but it is the easiest to reason about. Variation 1 with its nested destructuring didn't add much benefit and variation 2 added too many advanced JavaScript features (spread operator, rest operator) which are not familiar to everyone. After all, all these variations have their pros and cons. When refactoring a component, always aim for readability, especially when working in a team of people, and make sure everyone is using a common React code style.
+
+Rules of thumb:
+
+* Always use object destructuring for props in a function component's function signature, because props are rarely used themselves. Exception: When props are only passed through the component to the next child component (see when to use spread operator).
+* Use the spread operator when you want to pass all key/value pairs of an object to a child component in JSX. For example, often props themselves are not used in a component but only passed along to the next component. Then it makes sense to just spread the props object `{...props}` to the next component.
+* Use the rest operator when you only want to split out certain properties from your props object.
+* Use nested destructuring only when it improves readability.
 
 ### Exercises:
 
 * Confirm your [source code](https://bit.ly/30IuiAu).
   * Confirm the [changes](https://bit.ly/3G45eUI).
 * Read more about [JavaScript's destructuring assignment](https://mzl.la/30KbXTC).
-* Think about the difference between JavaScript array destructuring -- which we used for React's `useState` hook -- and object destructuring.
-* Read more about [JavaScript's spread operator](https://mzl.la/3jetIkn).
-* Read more about [JavaScript's rest parameters](https://mzl.la/3GeJbef).
+* Question: Why is array destructuring used for React Hooks like `useState` and object destructuring for props?
+  * Answer: First of all, a React Hook like `useState` returns an array and props are an object hence the we need to apply the fitting operation for the underlying data structure. The benefit of having an array returned from `useState` is that the values can be given any name in the destructuring operation.
+* Read more about [JavaScript's spread operator](https://mzl.la/3jetIkn) and [rest operator](https://mzl.la/3GeJbef).
 * Get a good sense about JavaScript (e.g. destructuring, spread operator, rest parameters) and what's related to React (e.g. props) from the last lessons.
 * Continue to use your favorite way to handle React's props. If you're still undecided, consider the variation used in the previous section.
 * Optional: [Leave feedback for this section](https://forms.gle/WNB4R6yEP1hot3tK8).

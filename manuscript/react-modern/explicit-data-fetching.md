@@ -45,7 +45,7 @@ Second, the handler, input, and button handler receive implementation logic to u
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
 const App = () => {
-  const [searchTerm, setSearchTerm] = useSemiPersistentState(
+  const [searchTerm, setSearchTerm] = useStorageState(
     'search',
     'React'
   );
@@ -115,6 +115,6 @@ Before the `searchTerm` was used for two cases: updating the input field's state
 
 * Confirm your [source code](https://bit.ly/3n47Qcw).
   * Confirm the [changes](https://bit.ly/3AXZk3J).
-* Why is `useState` instead of `useSemiPersistentState` used for the `url` state management?
+* Why is `useState` instead of `useStorageState` used for the `url` state management?
 * Why is there no check for an empty `searchTerm` in the `handleFetchStories` function anymore?
 * Optional: [Leave feedback for this section](https://forms.gle/HuJDuVNZmEDbhGzU9).

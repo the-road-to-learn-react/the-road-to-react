@@ -69,8 +69,8 @@ With the addition of React Hooks, function components were granted the same feat
 ### Exercises:
 
 * Read more about [JavaScript Classes](https://mzl.la/3vvc2FO).
-* Read more about [how to refactor from a class component to a function component](https://www.robinwieruch.de/react-hooks-migration).
+* Read more about [how to refactor from a class component to a function component](https://www.robinwieruch.de/react-hooks-migration/).
 * Learn more about a different [class component syntax](https://bit.ly/3lYzrfT) which wasn't popular but more effective.
 * Read more about [class components in depth](https://bit.ly/3FXUibf).
-* Read more about [other legacy and modern component types in React](https://www.robinwieruch.de/react-component-types).
+* Read more about [other legacy and modern component types in React](https://www.robinwieruch.de/react-component-types/).
 * Optional: [Leave feedback for this section](https://forms.gle/g5qLH1KZ5Y1JE1v57).

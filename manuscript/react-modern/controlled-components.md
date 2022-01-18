@@ -4,7 +4,7 @@ HTML elements come with their internal state which is not coupled to React. Conf
 
 Now try the following: When initializing the `searchTerm` state in the App component, use `'React'` as initial state instead of an empty string. Afterward, open the application in the browser. Can you spot the problem? Try yourself for some time figuring out what happens here and how to fix this problem.
 
-While the `stories` have been filtered respectively to the new initial `searchTerm`, the HTML input field doesn't show the value in the browser. Only when we start typing into the input field, we see the changes reflected in it. That's because the input field doesn't know anything about React's state (here: `searchTerm`), it only uses its handler to translate (see `handleSearch()`) its internal state to React state. And once a user starts typing into the input field, the HTML element keeps track of these changes itself. However, if we want to get things right, the HTML should know about the React state. Therefore, we need need to provide the current state as `value` to it:
+While the `stories` have been filtered respectively to the new initial `searchTerm`, the HTML input field doesn't show the value in the browser. Only when we start typing into the input field, we see the changes reflected in it. That's because the input field doesn't know anything about React's state (here: `searchTerm`), it only uses its handler to communicate (see `handleSearch()`) its internal state to React state. And once a user starts typing into the input field, the HTML element keeps track of these changes itself. However, if we want to get things right, the HTML should know about the React state. Therefore, we need need to provide the current state as `value` to it:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -45,11 +45,11 @@ const Search = (props) => (
 );
 ~~~~~~~
 
-Now both states are synchronized. Instead of giving the HTML element the freedom of keeping track of its internal state, it uses React's state by leveraging its `value` attribute instead. Whenever the HTML element emits a change event, the new value is written to Reacts state and re-renders the components. Then the HTML element uses the recent state as `value` again.
+Now both states are synchronized. Instead of giving the HTML element the freedom of keeping track of its internal state, it uses React's state by leveraging the element's `value` attribute instead. Whenever the HTML element emits a change event, the new value is written to Reacts state and re-renders the components. Then the HTML element uses the recent state as `value` again.
 
 ![](images/controlled-component.png)
 
-While the input field became explicitly a **controlled element**, the Search component became implicitly a **controlled component**. As a React beginner, using controlled components is important, because you want to enforce a predictable behavior. Later though, there will be cases for uncontrolled components too. Previously the HTML element did its own thing, but now we are in control of it by feeding React's state into it.
+Earlier the HTML element did its own thing, but now we are in control of it by feeding React's state into it. Now, while the input field became explicitly a **controlled element**, the Search component became implicitly a **controlled component**. As a React beginner, using controlled components is important, because you want to enforce a predictable behavior. Later though, there will be cases for uncontrolled components too.
 
 ### Exercises:
 

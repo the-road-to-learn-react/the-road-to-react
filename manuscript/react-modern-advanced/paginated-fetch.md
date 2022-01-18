@@ -269,7 +269,7 @@ const App = () => {
 };
 ~~~~~~~
 
-We've implemented data fetching with the dynamic `page` argument. The initial and last searches always use the first page, and every fetch with the new "More" button uses an incremented page. There is one crucial bug when trying the feature, though: the new fetches don't extend the previous list, but completely replace it.
+We've implemented data fetching with the dynamic `page` argument. The initial and last searches always use the first page, and every fetch with the new "More"-button uses an incremented page. There is one crucial bug when trying the feature, though: the new fetches don't extend the previous list, but completely replace it.
 
 ![](images/concat.png)
 
@@ -308,7 +308,7 @@ The displayed list grows after fetching more data with the new button. However, 
 
 ![](images/flicker.png)
 
-The desired behavior is to render the list -- which is an empty list in the beginning -- and replace the "More" button with the loading indicator only for the next requests. This is a common UI refactoring for conditional rendering when the task evolves from a single list to paginated lists:
+The desired behavior is to render the list -- which is an empty list in the beginning -- and replace the "More"-button with the loading indicator only for the next requests. This is a common UI refactoring for conditional rendering when the task evolves from a single list to paginated lists:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -345,5 +345,5 @@ It's possible to fetch ongoing data for popular stories now. When working with t
   * Confirm the [changes](https://bit.ly/3vu8OT1).
 * Revisit the [Hacker News API documentation](https://hn.algolia.com/api): Is there a way to fetch more items in a list for a page by just adding further parameters to the API endpoint?
 * Revisit the beginning of this section which speaks about pagination and infinite pagination. How would you implement a normal pagination component with buttons from 1-[3]-10, where each button fetches and displays only one page of the list?
-* Instead of having one "More" button, how would you implement infinite pagination with an infinite scroll technique? Rather than clicking a button for fetching the next page explicitly, the infinite scroll could fetch the next page once the viewport of the browser hits the bottom of the displayed list.
+* Instead of having one "More"-button, how would you implement infinite pagination with an infinite scroll technique? Rather than clicking a button for fetching the next page explicitly, the infinite scroll could fetch the next page once the viewport of the browser hits the bottom of the displayed list.
 * Optional: [Leave feedback for this section](https://forms.gle/maPsfzHLba8gheCQA).

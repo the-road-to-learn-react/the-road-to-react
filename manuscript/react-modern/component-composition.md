@@ -1,6 +1,6 @@
 ## React Component Composition
 
-The concept of component composition is one of React's more powerful features. Essentially we'll discover how to use a React element in the same fashion as an HTML element, with an opening and closing tag:
+Essentially a React application is a bunch of React components arranged in the shape of a tree. When you learned about initializing components as elements in JSX, you have seen how they are used like any other HTML element in JSX. However, until now we have only used them as self-closing tags. What if there could be an opening and closing tag instead for React elements too? Entering the concept of component composition:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -27,7 +27,9 @@ const App = () => {
 };
 ~~~~~~~
 
-Instead of using the `label` prop from before, we inserted the text "Search:" between the component's element's tags. In the InputWithLabel component, you have access to this information via **React's children** prop now. Instead of using the `label` prop, use the `children` prop to render everything that has been passed down from above where you want it:
+Component composition is one of React's more powerful features. Essentially we'll discover how to use a React element in the same fashion as an HTML element by leveraging its opening and closing tag.
+
+In the previous example, instead of using the `label` prop from before, we inserted the text "Search:" between the component's element's tags. In the InputWithLabel component, you have access to this information via **React's children** prop now. Instead of using the `label` prop, use the `children` prop to render everything that has been rendered in between the `<InputWithLabel>` opening and closing tag:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -82,11 +84,11 @@ const App = () => {
 };
 ~~~~~~~
 
-With this React feature, we can compose React components into each other. We've used it with a JavaScript string and with a string wrapped in an HTML `<strong>` element, but it doesn't end here. You can pass components via React children as well; which you should definitely explore more as an exercise.
+With the React children prop, we can compose React components into each other. We've used it with a string and with a string wrapped in an HTML `<strong>` element, but it doesn't end here. You can pass React elements via React children as well -- which you should definitely explore more as an exercise.
 
 ### Exercises:
 
 * Confirm your [source code](https://bit.ly/3lUZqVA).
   * Confirm the [changes](https://bit.ly/3BU66J3).
-* Read more about [Component Composition in React](https://www.robinwieruch.de/react-component-composition).
+* Read more about [Component Composition in React](https://www.robinwieruch.de/react-component-composition/).
 * Optional: [Leave feedback for this section](https://forms.gle/L2GgfHVjAAwbqudq8).

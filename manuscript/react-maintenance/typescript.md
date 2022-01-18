@@ -22,7 +22,7 @@ Restart your development server in the command line. You may encounter compile e
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
-const useSemiPersistentState = (
+const useStorageState = (
 # leanpub-start-insert
   key: string,
   initialState: string
@@ -44,7 +44,7 @@ Adding types to the function's arguments is more about Javascript than React. We
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
-const useSemiPersistentState = (
+const useStorageState = (
   key: string,
   initialState: string
 # leanpub-start-insert
@@ -71,7 +71,7 @@ const [value, setValue] = React.useState('React');
 // setValue only takes a string as argument
 ~~~~~~~
 
-If adding type safety becomes an aftermath for a React application and its components, there are multiple ways on how to approach it. We will start with the props and state for the leaf components of our application. For example, the Item component receives a story (here `item`) and a callback handler function (here `onRemoveItem`). Starting out very verbose, we could add the inlined types for both function arguments as we did before:
+If adding type safety becomes an aftermath for a React application and its components, there are multiple ways on how to approach it. We will start with the props and state for the leaf components of our application. For example, the Item component receives a story (here: `item`) and a callback handler function (here: `onRemoveItem`). Starting out very verbose, we could add the inlined types for both function arguments as we did before:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -241,7 +241,7 @@ const storiesReducer = (
 };
 ~~~~~~~
 
-The `Action` type with its `string` and `any` (TypeScript **wildcard**) type definitions are still too broad; and we gain no real type safety through it, because actions are not distinguishable. We can do better by specifying each action TypeScript type as an **interface**, and using a **union type** (here `StoriesAction`) for the final type safety:
+The `Action` type with its `string` and `any` (TypeScript **wildcard**) type definitions are still too broad; and we gain no real type safety through it, because actions are not distinguishable. We can do better by specifying each action TypeScript type as an **interface**, and using a **union type** (here: `StoriesAction`) for the final type safety:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~

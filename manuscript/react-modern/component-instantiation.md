@@ -1,6 +1,6 @@
 ## React Component Instantiation
 
-You have learned how to *declare* a component (e.g. `function List()`) and how to *instantiate* (e.g. `<List />`) it. In this section, we will intensify this learning by going through an analogy and the terminology. We will start with the analogy by using the JavaScript class. Technically, JavaScript classes and React components are not related, which is important to note, but it is still a fitting analogy for you to understand the concept of a component by using something you may have used in the past.
+You have learned how to *declare* a component (e.g. `function List() { ... }`) and how to *instantiate* (e.g. `<List />`) it. In this section, we will intensify this learning by going through an analogy and the terminology. We will start with the analogy by using the JavaScript class. Technically, JavaScript classes and React components are not related, which is important to note, but it is still a fitting analogy for you to understand the concept of a component by using something you may have used in the past.
 
 A class is most often used in object-oriented programming languages. JavaScript as a multi-paradigm programming language allows functional programming and object-oriented programming to co-exist side-by-side. To recap JavaScript classes for object-oriented programming, consider the following *Person* class:
 
