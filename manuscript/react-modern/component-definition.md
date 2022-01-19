@@ -146,6 +146,6 @@ As a rule of thumb, use either function declarations or arrow function expressio
 
 * Confirm your [source code](https://bit.ly/2ZbLXQz).
   * Confirm the [changes](https://bit.ly/3pkH2aS).
-* Read more about [JavaScript arrow functions](https://mzl.la/3BYCOcp).
+* Optional: Read more about [JavaScript arrow functions](https://mzl.la/3BYCOcp).
 * Familiarize yourself with arrow functions with block body and explicit return and concise body without return (implicit return).
 * Optional: [Leave feedback for this section](https://forms.gle/iWSchmqasbZUWUpT8).

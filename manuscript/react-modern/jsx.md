@@ -145,5 +145,5 @@ Initially invented for React, JSX gained popularity in other modern libraries an
 * Beginner: Read more about [JavaScript Variables](https://www.robinwieruch.de/javascript-variable/).
   * Beginner: Define more primitive and complex JavaScript data types and render them in JSX.
   * Advanced: Try to render a JavaScript array in JSX by using the array's built-in `map()` method to return JSX for each item in the list. If it's too complicated, don't worry, because you will learn more about this in the next section.
-* Read more about [React's JSX](https://bit.ly/3BZSkVk).
+* Optional: Read more about [React's JSX](https://bit.ly/3BZSkVk).
 * Optional: [Leave feedback for this section](https://forms.gle/R6y6kEqGPACLrXmP8).

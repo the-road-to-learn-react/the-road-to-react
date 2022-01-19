@@ -75,6 +75,6 @@ When the UI is rendered for the first time, every `useState` hook gets initializ
 
 * Confirm your [source code](https://bit.ly/3prVjSO).
   * Confirm the [changes](https://bit.ly/30ISOBv).
-* Read more about [JavaScript array destructuring](https://mzl.la/3ncC7WI).
+* Optional: Read more about [JavaScript array destructuring](https://mzl.la/3ncC7WI).
 * Read more about [React's useState Hook](https://www.robinwieruch.de/react-usestate-hook/).
 * Optional: [Leave feedback for this section](https://forms.gle/ZJNbQqq3Lw3RiD4H9).

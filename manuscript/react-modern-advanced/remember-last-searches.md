@@ -238,7 +238,7 @@ const App = () => {
 };
 ~~~~~~~
 
-The new utility function can be used somewhere else in the App component. If you extract functionality that can be used by two parties, always check to see if it can be used by a third party:
+The new utility function can be used somewhere else in the App component. If you extract functionality that can be used by two parties, always check to see if it can be used by a third-party:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

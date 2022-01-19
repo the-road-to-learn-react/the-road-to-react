@@ -1,6 +1,10 @@
-## Async/Await in React (Advanced)
+## Async/Await in React
 
-You'll work with asynchronous data often in React, so it's good to know an alternative syntax for handling promises: async/await. The following refactoring of the `handleFetchStories` function (without error handling) shows how:
+There is no way around asynchronous data when working on real world applications. There will always be a remote API that gives your frontend data, so you need to work with this data asynchronously. In our React application, we have started to resolve promises with then/catch blocks. However, in modern JavaScript (and therefore React), a more popular solution is using async/await.
+
+If you are already familiar with async/await or you want to explore [its usage](https://mzl.la/3AWyWaw) yourself, go ahead and change the code from using then/catch to async/await. If you have come this far, you could also consider to compensate the removal of the catch block for the error handling by using a try/catch blocks instead.
+
+Let's continue with the task here. First, you would have to replace the then/catch syntax with the async/await syntax. The following refactoring of the `handleFetchStories()` function shows how to accomplish it without error handling:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -28,7 +32,7 @@ const App = () => {
 };
 ~~~~~~~
 
-To use async/await, our function requires the `async` keyword. Once you start using the `await` keyword on returned promises, everything reads like synchronous code. Actions after the `await` keyword are not executed until the promise resolves, meaning the code will wait. To include error handling as before, the `try` and `catch` blocks are there to help. If something goes wrong in the `try` block, the code will jump into the `catch` block to handle the error. `then`/`catch` blocks and async/await with `try`/`catch` blocks are both valid for handling asynchronous data in JavaScript and React.
+To use async/await, our function requires the `async` keyword. Once you start using the `await` keyword on returned promises, everything reads like synchronous code. Actions after the `await` keyword are not executed until the promise resolves, meaning the code will wait. To include error handling as before, the `try` and `catch` blocks are there to help. If something goes wrong in the `try` block, the code will jump into the `catch` block to handle the error:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -58,12 +62,11 @@ const App = () => {
 };
 ~~~~~~~
 
-After all, using async/await with try/catch over then/catch makes it often more readable, because we avoid using callback functions and instead try to make our code more readable in a synchronous way.
+After all, using async/await with try/catch over then/catch makes it often more readable, because we avoid using callback functions and instead try to make our code more readable in a synchronous way. However, using then/catch is fine too. In the end, the whole team working on a project should agree on one syntax.
 
 ### Exercises:
 
 * Confirm your [source code](https://bit.ly/3po4jsf).
   * Confirm the [changes](https://bit.ly/3G4t3LV).
 * Read more about [data fetching in React](https://www.robinwieruch.de/react-hooks-fetch-data/).
-* Read more about [async/await in JavaScript](https://mzl.la/3AWyWaw).
 * Optional: [Leave feedback for this section](https://forms.gle/mtMmwrrsiwioZ8GH6).

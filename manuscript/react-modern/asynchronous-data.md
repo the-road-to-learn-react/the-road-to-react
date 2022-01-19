@@ -1,8 +1,8 @@
 ## React Asynchronous Data
 
-We have two interactions in our application: searching the list and removing items from the list. The first interaction is a fluctuant interference through a third-party state (`searchTerm`) applied on the list; the second interaction is a non-reversible deletion of an item from the list. However, the list we are dealing with is still just sample data. What about preparing our application to deal with real data instead?
+We have two interactions in our application: searching the list and removing items from the list. While the first interaction is a fluctuant interference through a third-party state (`searchTerm`) applied on the list, the second interaction is a non-reversible deletion of an item from the list. However, the list we are dealing with is still just sample data. What about preparing our application to deal with real data instead?
 
-Usually, data from a remote backend/database arrives asynchronously for client-side applications like React. Thus it's often the case that we must render a component before we can initiate the data fetching. In the following, we will start by simulating this kind of asynchronous data with our sample data in the application. Later, we will replace it with real data fetched from a real remote API. We start off with a function that returns a promise with data in its shorthand version once it resolves. The resolved object holds the previous list of stories:
+Usually, data from a remote backend/database arrives asynchronously for client-side applications like React. Thus it's often the case that we must render a component before we can initiate the data fetching. In the following, we will start by simulating this kind of asynchronous data with our sample data in the application. Later, we will replace the sample data with real data fetched from a real remote API. We start off with a function that returns a promise with data in its shorthand version once it resolves. The resolved object holds the previous list of stories:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -49,7 +49,7 @@ const getAsyncStories = () =>
 # leanpub-end-insert
 ~~~~~~~
 
-And second, when resolving the promise, delay it for a few seconds:
+And second, when resolving the promise, delay it for 2 seconds:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -64,13 +64,15 @@ const getAsyncStories = () =>
   );
 ~~~~~~~
 
-Once you start the application again, you should see a delayed rendering of the list. The initial state for the stories is an empty array. After the App component is rendered, the side-effect hook runs once to fetch the asynchronous data. After resolving the promise and setting the data in the component's state, the component renders again and displays the list of asynchronously loaded stories.
+Once you start the application again, you should see a delayed rendering of the list. The initial state for the stories is an empty array and therefore nothing gets rendered in the List component. After the App component is rendered, the side-effect hook runs once to fetch the asynchronous data. After resolving the promise and setting the data in the component's state, the component renders again and displays the list of asynchronously loaded stories.
+
+This section was only the first stepping stone to asynchronous data in React. Instead of having the data there from the beginning, we resolved the data asynchronously from a promise. However, we only moved our `stories` from being synchronous to asynchronous data. It's still sample data though and we will learn how to fetch real data eventually.
 
 ### Exercises:
 
 * Confirm your [source code](https://bit.ly/3vu6kEb).
   * Confirm the [changes](https://bit.ly/3B0p7rQ).
-* Read more about [JavaScript Promises](https://mzl.la/3aTGuQz).
+* Optional: Read more about [JavaScript Promises](https://mzl.la/3aTGuQz).
 * Read more about [faking a remote API with JavaScript](https://www.robinwieruch.de/javascript-fake-api/).
-* Read more about [using mock data in React](https://www.robinwieruch.de/react-mock-data/).
+  * Read more about [using mock data in React](https://www.robinwieruch.de/react-mock-data/).
 * Optional: [Leave feedback for this section](https://forms.gle/sfQcc477xmgGRLyB7).

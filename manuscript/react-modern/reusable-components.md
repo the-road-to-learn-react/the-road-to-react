@@ -90,5 +90,8 @@ It's always a trade-off between generalization and specialization of components.
 * Confirm your [source code](https://bit.ly/3B0roTU).
   * Confirm the [changes](https://bit.ly/3C2DzAY).
 * Read more about [Reusable React Components](https://www.robinwieruch.de/react-reusable-components/).
+  * Learn [how to build a Checkbox in React](https://www.robinwieruch.de/react-checkbox/).
+  * Optional: Learn [how to build a Radio Button in React](https://www.robinwieruch.de/react-radio-button/).
+  * Optional: Learn [how to build a Dropdown in React](https://www.robinwieruch.de/react-dropdown/).
 * Before we used the text "Search:" with a ":". How would you deal with it now? Would you pass it with `label="Search:"` as prop to the InputWithLabel component or hardcode it after the `<label htmlFor={id}>{label}:</label>` usage in the InputWithLabel component? We will see how to cope with this later.
 * Optional: [Leave feedback for this section](https://forms.gle/76C3LvW3kHHwdhgq5).

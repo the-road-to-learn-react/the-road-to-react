@@ -377,7 +377,7 @@ Rules of thumb:
 
 * Confirm your [source code](https://bit.ly/30IuiAu).
   * Confirm the [changes](https://bit.ly/3G45eUI).
-* Read more about [JavaScript's destructuring assignment](https://mzl.la/30KbXTC).
+* Optional: Read more about [JavaScript's destructuring assignment](https://mzl.la/30KbXTC).
 * Question: Why is array destructuring used for React Hooks like `useState` and object destructuring for props?
   * Answer: First of all, a React Hook like `useState` returns an array and props are an object hence the we need to apply the fitting operation for the underlying data structure. The benefit of having an array returned from `useState` is that the values can be given any name in the destructuring operation.
 * Read more about [JavaScript's spread operator](https://mzl.la/3jetIkn) and [rest operator](https://mzl.la/3GeJbef).

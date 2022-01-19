@@ -30,7 +30,7 @@ If you have purchased the print version of the book, make sure to take notes in 
 
 **Why does the book not have many pages?**
 
-First of all, the print version of book is large (see above), so there are less pages overall. However, even though most of the sections in this book are concisely written, there are plenty of external resources to get more in-depth knowledge about certain topics. I wanted to give every reader the chance to get through the book without painfully having to read more than 500 pages, so I extracted lots of material that can be read online as exercise. I encourage everyone who wants to learn React in-depth and advanced concepts to go through the exercises of every section too.
+First of all, the print version of book is large (see above), so there are less pages overall. However, even though most of the sections in this book are concisely written, there are plenty of external resources to get more in-depth knowledge about certain topics. I wanted to give every reader the chance to get through the book without painfully having to read lots of pages, so I extracted optional in-depth and advanced material that can be read online as exercise. So I encourage everyone who wants to learn React to go through the exercises of every section too, however, the book itself should teach you the essentials and more to get started as well.
 
 **Why is the book written like a long read tutorial?**
 

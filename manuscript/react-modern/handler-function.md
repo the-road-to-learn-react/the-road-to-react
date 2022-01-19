@@ -73,5 +73,4 @@ As you can see, HTML and JavaScript work well together in JSX. JavaScript in HTM
 * Read more about [React's event handler](https://www.robinwieruch.de/react-event-handler/) and [React's events](https://bit.ly/3jiFdaz).
   * Read more about [event capturing and bubbling in React](https://www.robinwieruch.de/react-event-bubbling-capturing/).
 * In addition to the `onChange` attribute, add a `onBlur` attribute with an event handler to your input field and verify its logging in the browser's developer tools.
-* Read more about [why frameworks matter](https://www.robinwieruch.de/why-frameworks-matter/).
 * Optional: [Leave feedback for this section](https://forms.gle/oSKyMudmb8X1iSsv8).
