@@ -138,6 +138,6 @@ You've just created your first custom hook. If you're not comfortable with custo
 
 * Confirm your [source code](https://bit.ly/30Koneb).
   * Confirm the [changes](https://bit.ly/2ZbkAGm).
-* Read more about [React Hooks](https://www.robinwieruch.de/react-hooks/) to get a good understanding of them, because they are the bread and butter in React function components.
+* Read more about [React Hooks](https://www.robinwieruch.de/react-hooks/) and [custom React Hooks](/react-custom-hook/) to get a good understanding of them, because they are the bread and butter in React function components.
 * Read more about [custom React Hooks](https://www.robinwieruch.de/react-custom-hooks/).
 * Optional: [Leave feedback for this section](https://forms.gle/5seN1Rv3ZwXmWmDR9).

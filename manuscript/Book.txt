@@ -40,6 +40,8 @@ react-modern/third-party-libraries.md
 react-modern/async-await.md
 react-modern/forms.md
 
+react-roadmap/react-roadmap.md
+
 react-legacy/class-components.md
 react-legacy/class-components-sate.md
 react-legacy/imperative-react.md

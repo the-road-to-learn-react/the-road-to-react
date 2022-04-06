@@ -106,5 +106,5 @@ The most important fact about props: it's not allowed to change them, because th
 
 * Confirm your [source code](https://bit.ly/3jlmUBz).
   * Confirm the [changes](https://bit.ly/3lW2sIX).
-* Read more about [how to pass props to React components](https://www.robinwieruch.de/react-pass-props-to-component/).
+* Read more about [how to use props in React](https://www.robinwieruch.de/react-pass-props-to-component/).
 * Optional: [Leave feedback for this section](https://forms.gle/APwaUSAuVAAA56sY6).

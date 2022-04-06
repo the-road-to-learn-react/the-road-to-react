@@ -181,8 +181,9 @@ Essentially that's the whole example of how to move from declarative to imperati
 
 * Confirm your [source code](https://bit.ly/3B0qc2S).
   * Confirm the [changes](https://bit.ly/3aT3bEq).
-* Read more about [refs in React](https://www.robinwieruch.de/react-ref/).
-  * Optional: Learn [how to build a Slider component with imperative React](https://www.robinwieruch.de/react-slider/).
-  * Optional: Learn [how to create a custom hook with a ref](https://www.robinwieruch.de/react-custom-hook-check-if-overflow/).
+* Read more about [refs in React](https://www.robinwieruch.de/react-ref/) and optionally check out the following tutorials which are using refs:
+  * [Create a Slider component with a ref](https://www.robinwieruch.de/react-slider/)
+  * [Create an image from a React component with a ref](https://www.robinwieruch.de/react-component-to-image/)
+  * [Create a custom hook with a ref](https://www.robinwieruch.de/react-custom-hook-check-if-overflow/)
 * Read more about [why frameworks matter](https://www.robinwieruch.de/why-frameworks-matter/).
 * Optional: [Leave feedback for this section](https://forms.gle/nABoW2tKAPd1yVkv7).

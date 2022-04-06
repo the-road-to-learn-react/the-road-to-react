@@ -278,7 +278,7 @@ const Item = ({ title, url, author, num_comments, points }) => (
 );
 ~~~~~~~
 
-This refactoring made the process of passing the information from List to Item component more concise. Finally, we'll use [JavaScript's rest parameters](https://mzl.la/3GeJbef) as the icing on the cake. The JavaScript rest operator happens always as the last part of an object destructuring:
+This refactoring made the process of passing the information from List to Item component more concise. Finally, we'll use JavaScript's rest destructuring as the icing on the cake. The JavaScript rest operation happens always as the last part of an object destructuring:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -377,10 +377,11 @@ Rules of thumb:
 
 * Confirm your [source code](https://bit.ly/30IuiAu).
   * Confirm the [changes](https://bit.ly/3G45eUI).
+* Read more about [how to use props in React](https://www.robinwieruch.de/react-pass-props-to-component/).
 * Optional: Read more about [JavaScript's destructuring assignment](https://mzl.la/30KbXTC).
 * Question: Why is array destructuring used for React Hooks like `useState` and object destructuring for props?
   * Answer: First of all, a React Hook like `useState` returns an array and props are an object hence the we need to apply the fitting operation for the underlying data structure. The benefit of having an array returned from `useState` is that the values can be given any name in the destructuring operation.
 * Read more about [JavaScript's spread operator](https://mzl.la/3jetIkn) and [rest operator](https://mzl.la/3GeJbef).
-* Get a good sense about JavaScript (e.g. destructuring, spread operator, rest parameters) and what's related to React (e.g. props) from the last lessons.
+* Get a good sense about JavaScript (e.g. destructuring, spread operator, rest destructuring) and how it relates to React (e.g. props) from the last lessons.
 * Continue to use your favorite way to handle React's props. If you're still undecided, consider the variation used in the previous section.
 * Optional: [Leave feedback for this section](https://forms.gle/WNB4R6yEP1hot3tK8).

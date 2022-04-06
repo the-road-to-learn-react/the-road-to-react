@@ -67,7 +67,7 @@ Now you have heard the terms rendering and re-rendering in a technical context a
 
 ![](images/react-lifecycle.png)
 
-It's important to note that the `useState` function is called a **React hook**. It's only one of many hooks provided by React and this section only scratched the surface of hooks in React. You will learn more about them throughout the next sections. As for now, you should know that you can have as many `useState` hooks as you want in one or multiple components whereas state can be anything from a JavaScript string (like in our case) to a more complex data structure such as an array or object.
+It's important to note that the `useState` function is called a **React hook**. It's only one of many hooks provided by React and this section only scratched the surface of hooks in React. You will learn more about them throughout the next sections. As for now, you should know that you can have as many `useState` hooks as you want in one or multiple components whereas state can be anything from a JavaScript string (like in this case) to a more complex data structure such as an array or object.
 
 When the UI is rendered for the first time, every `useState` hook gets initialized with an initial state which gets returned as current state. Whenever the UI is re-rendered because of a state change, the `useState` hook uses the most recent state from its internal [closure](https://www.robinwieruch.de/javascript-closure/). This might seem odd, as one would assume the `useState` gets declared from scratch every time a component's function runs. However, next to each component React allocates an invisible container where information like state is stored in memory.
 
