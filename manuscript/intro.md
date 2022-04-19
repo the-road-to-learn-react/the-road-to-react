@@ -73,3 +73,27 @@ If your main profession is in design, user interaction, or user experience, don'
 **Team Leads, Product Owners, or Product Managers**
 
 If you are a team lead, product owner or product manager of your development department, this book should give you a good breakdown of all the essential parts of a React application. Every section explains one React concept/pattern/technique to add another feature or to improve the overall architecture. It's a well-rounded reference guide for React.
+
+## How to read the book?
+
+Most programming books are high-level and go into very much technical detail, but they lack the ability to get their readers into coding. That's why this book may be different from the books that you are used to read in this domain, because it attempts to teach aspiring developer actual programming. Hence I try to keep a good balance between being pragmatic, by giving you all the tools to get the job done, while still being detail-oriented, by giving you as much information as needed to understand these tools and how they are used in practice.
+
+Every section in this book introduces you to a new topic. For the fast pace learners who do not want to go into much detail, it's possible to read from section to section. However, if learners want to dive deeper into certain topics, they can read more by following the footnotes. I want to offer you a way to get a great overview of the topic at hand while still enabling you to dig deeper if you want to. After reading the book either way, you should be able to code what you have learned in a pragmatic way.
+
+**Take Notes**
+
+If you have a print version of the book, do not hesitate to underline paragraphs, to write notes, or to annotate code snippets. That's why it has such a large size in the first place. If you don't have a print version, keep a notebook on the side for your learnings. Taking notes fortifies what you have learned and you can always come back to them. With every new learning, you will get a better understanding of the big picture and how the smaller pieces fit together, so it's a great exercise on the side to write down your learnings on a piece of paper.
+
+**Code Code Code**
+
+Every section introduces you to a new topic in a pragmatic way. For this reason just reading through the section does not suffice to become a developer, because there is lots of things going on in one section alone. So you shouldn't rush from section to section, but instead I recommend you to have a computer by your side which allows you to code along the way.
+
+Do not just copy paste code, instead type it yourself. Do not be satisfied when you just used the code from the book, instead experiment with it. See what breaks the code and how to fix it. See how certain changes affect the result. And see how you can extend or even improve the code by adding a few lines to it. That's what coding is all about after all. It does not help you to rush through the book if you haven't written a line of code once. So get your hands dirty and do more coding than reading!
+
+**Anticipate**
+
+There will be many coding problems presented in this book. Often I will give you the option to solve things yourself before reading about the solution in the next paragraph or code snippet. However, it breaks the flow of reading repeating myself, so I keep these encouragements to a minimum. Instead I am hoping for your eagerness here to jump ahead. Try to solve things before I get the chance to present you the solution. Only by trying, failing, and solving a problem you will become a better developer.
+
+**Take Breaks**
+
+Since every section introduces you to a new topic, it happens fast that you forget the learnings from the previous section. In addition to coding along with every section, I recommend you to take breaks between the sections which allow learnings to sink in. Read the section, code along the way, do the exercise afterwards, code even a bit more if you like, and then rest. Think about your learnings while taking a walk outside or speak with someone about what you have learned even though this other person is not into coding. After all, taking breaks is always essential if you want to learn something new.
