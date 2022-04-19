@@ -6,7 +6,7 @@ From here, I recommend you extend the application to create your own React proje
 
 If you're looking for extensions for your application, I recommend several learning paths after you've mastered the fundamentals:
 
-* **Routing**: Once you want to navigate from page to page, you have to introduce a routing library. React Router is the go-to solution for client-side routing in a React application. If you want to get started, I got you covered in this [tutorial series](https://www.robinwieruch.de/react-router/).
+* **Routing:** You can implement routing for your application with [React Router](https://www.robinwieruch.de/react-router/). There is only one page in the application we've created, but that will grow. React Router helps manage multiple pages across multiple URLs. When you introduce routing to your application, no requests are made to the web server for the next page. The router handles this client-side.
 
 * **Connecting to a Database and/or Authentication:** Growing React applications will eventually require persistent data. The data should be stored in a database so that keeps it intact after browser sessions, to be shared with different users. Firebase is one of the simplest ways to introduce a database without writing a backend application. In my book titled ["The Road to Firebase"](https://www.roadtofirebase.com/), you will find a step-by-step guide on how to use Firebase authentication and database in React.
 
@@ -23,8 +23,6 @@ If you're looking for extensions for your application, I recommend several learn
 * **Type Checking:** Earlier we used TypeScript in React, which is good practice to prevent bugs and improve the developer experience. Dive deeper into this topic to make your JavaScript applications more robust. Maybe you'll end up using TypeScript instead of JavaScript all along.
 
 * **UI Components:** Many beginners introduce UI component libraries like Material UI too early in their projects. It is more practical to use a dropdown, checkbox, or dialog in React with standard HTML elements. Most of these components will manage their own local state. A checkbox has to know whether it is checked or unchecked, so you should implement them as controlled components. After you cover the basic implementations of these crucial UI components, introducing a UI component library should become easier.
-
-* **Routing:** You can implement routing for your application with [React Router](https://www.robinwieruch.de/react-router/). There is only one page in the application we've created, but that will grow. React Router helps manage multiple pages across multiple URLs. When you introduce routing to your application, no requests are made to the web server for the next page. The router handles this client-side.
 
 * **React Native:** [React Native](https://facebook.github.io/react-native/) brings your application to mobile devices like iOS and Android. Once you've mastered React, the learning curve for React Native shouldn't be that steep, as they share the same principles. The only difference with mobile devices are the layout components, the build tools, and the APIs of your mobile device.
 
