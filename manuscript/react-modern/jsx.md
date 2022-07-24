@@ -57,7 +57,7 @@ When using HTML in JSX, React internally translates all HTML attributes to JavaS
 
 ![](images/rendering-jsx.png)
 
-We will revisit the HTML input field and its label for further implementation details with JavaScript later. For now, in order to contrast how HTML and JavaScript are used in JSX, let's use more complex JavaScript daya types in JSX. Instead of defining a JavaScript string primitive like `title`, define a JavaScript object called `welcome` which has a `title` (e.g. `'React'`) and a `greeting` (e.g. `'Hey'`) as properties. Afterward, try yourself to render both properties of the object in JSX side by side in the `<h1>` tag.
+We will revisit the HTML input field and its label for further implementation details with JavaScript later. For now, in order to contrast how HTML and JavaScript are used in JSX, let's use more complex JavaScript data types in JSX. Instead of defining a JavaScript string primitive like `title`, define a JavaScript object called `welcome` which has a `title` (e.g. `'React'`) and a `greeting` (e.g. `'Hey'`) as properties. Afterward, try yourself to render both properties of the object in JSX side by side in the `<h1>` tag.
 
 The following code snippet will show you the solution to the task. Before we have defined a JavaScript string primitive to be displayed in the App component. Now, the same can be done with a JavaScript object by accessing its properties within JSX:
 
