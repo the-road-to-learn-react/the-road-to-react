@@ -68,11 +68,11 @@ const List = (props) => (
 
 Everything that we pass from a parent component to a child component via the component element's HTML attribute can be accessed in the child component. The child component receives a parameter (`props`) as object in its function signature which includes all the passed attributes as properties (short: props).
 
-Note that at this point, we could also define `stories` directly in the List component and would not need to pass them as props, however, in the future we will make use of the `stories` in the App component and thus will keep them there. In addition, this was a great learning exercise to get to know props in React.
+Note that at this point, we could also define `stories` directly in the List component and would not need to pass them as props; however, in the future we will make use of the `stories` in the App component and thus will keep them there. In addition, this was a great learning exercise to get to know props in React.
 
 Another use case for React props is the List component and its potential child component. Previously, we couldn't extract an Item component from the List component, because we didn't know how to pass each item to the extracted Item component. With this new knowledge about React props, we can perform the component extraction and pass each item along to the List component's new child component.
 
-Before you check the following solution, try it yourself: extract an Item component from the List component and pass each `item` in the `map()` methods callback function to this new component. If you don't come up with a solution yourself after some time, check out how the books implements it:
+Before you check the following solution, try it yourself: extract an Item component from the List component and pass each `item` in the `map()` method's callback function to this new component. If you don't come up with a solution yourself after some time, check out how the book implements it:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

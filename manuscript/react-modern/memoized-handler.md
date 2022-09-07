@@ -2,7 +2,7 @@
 
 Functions that are defined in a React components are most of the time event handlers. However, because a React component is just a function itself, you can declare functions, function expressions, and arrow function expressions in a component too. In this section, we will introduce the concept of a **memoized function** by using React's useCallback Hook.
 
-We will refactor the code once to use a memoized function and get all the explanation afterward. The refactoring contains moving all the data fetching logic from the side-effect into a arrow function expression (A), wrapping this new function into React's `useCallback` hook (B), and invoking it in the `useEffect` hook (C):
+We will refactor the code upfront to use a memoized function and provide the explanations afterward. The refactoring consists of moving all the data fetching logic from the side-effect into a arrow function expression (A), wrapping this new function into React's `useCallback` hook (B), and invoking it in the `useEffect` hook (C):
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -68,7 +68,7 @@ If we didn't create a memoized function with React's `useCallback` Hook, a new `
 
 React's `useCallback` hook changes the function only when one of its values in the dependency array changes. That's when we want to trigger a re-fetch of the data, because the input field has new input and we want to see the new data displayed in our list.
 
-By moving the data fetching function outside the React's useEffect Hook, it becomes reusable for other parts of the application. We won't use it just yet, but it is good use case to understand the memoized functions in React. Now the `useEffect` hook runs implicitly when the `searchTerm` changes, because the `handleFetchStories` is re-defined each time the `searchTerm` changes. Since the `useEffect` hook depends on the `handleFetchStories`, the side-effect for data fetching runs again.
+By moving the data fetching function outside the React's useEffect Hook, it becomes reusable for other parts of the application. We won't use it just yet, but it is a good use case to understand the memoized functions in React. Now the `useEffect` hook runs implicitly when the `searchTerm` changes, because the `handleFetchStories` is re-defined each time the `searchTerm` changes. Since the `useEffect` hook depends on the `handleFetchStories`, the side-effect for data fetching runs again.
 
 ### Exercises:
 

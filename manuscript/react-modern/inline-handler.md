@@ -6,7 +6,7 @@ While this section will teach you about inline handlers as new fundamental build
 
 **Optional Hints:**
 
-* The list of items needs to become a stateful value in order to manipulate (e.g. removing an item) it later.
+* The list of items needs to become a stateful value in order to manipulate it (e.g. removing an item) later.
 * Every list item renders a button with a click handler. When clicking the button, the item gets removed from the list by manipulating the state.
 * Since the stateful list resides in the App component, one needs to use callback handlers to enable the Item component to communicate up to the App component for removing an item by its identifier.
 
@@ -135,7 +135,7 @@ const Item = ({ item, onRemoveItem }) => {
 
 So far in this section, we have made the list of stories stateful with React's useState Hook, passed the still searched stories down as props to the List component, and implemented a callback handler (`handleRemoveStory`) and handler (`handleRemoveItem`) to be used in their respective components to remove a story by clicking on a button. In order to implement this feature, we applied many lessons learned from before: state, props, handlers, and callback handlers. The feature works and you may have arrived at the same or a similar solution yourself.
 
-Let's enter the topic of inline handlers: You may have noticed that we had to introduce an additional `handleRemoveItem` handler in the Item component which is in charge to execute the incoming `onRemoveItem` callback handler. We had to introduce this extra event handler to pick up the item as argument for the callback handler.
+Let's enter the topic of inline handlers: You may have noticed that we had to introduce an additional `handleRemoveItem` handler in the Item component which is in charge of executing the incoming `onRemoveItem` callback handler. We had to introduce this extra event handler to pick up the item as argument for the callback handler.
 
 If you want to make this more elegant though, you can use an **inline handler** which allows you to execute the callback handler function in the Item component right in the JSX. There are two solutions using the incoming `onRemoveItem` function in the Item component as an inline handler. First, using JavaScript's bind method:
 

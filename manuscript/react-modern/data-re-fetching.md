@@ -1,8 +1,8 @@
 ## Data Re-Fetching in React
 
-Finally we have data from a remote API. That's more encouraging to play around in contrast to sample data. When you started your application after the last section, you may have noticed that it doesn't feel complete yet. Because we are fetching data with a predefined query (here: `'react'`), we always see "React"-related stories. Even though we have a search feature, we can filter only the stories that are already there. Hence the search feature is called a client-side search, because it does not interact with the remote API, but only with the data that's already there.
+Finally we have data from a remote API. That's more encouraging to play around with in contrast to sample data. When you started your application after the last section, you may have noticed that it doesn't feel complete yet. Because we are fetching data with a predefined query (here: `'react'`), we always see "React"-related stories. Even though we have a search feature, we can filter only the stories that are already there. Hence the search feature is called a client-side search, because it does not interact with the remote API, but only with the data that's already there.
 
-In this section, we want to change the client-side search to a server-side search. While a client-side search only filters the stories that are available on the client (after the initial data fetching), a serve-side search would allow us to get data from the remote API based on the search term. Try to tackle the following task yourself again before continuing to read the book.
+In this section, we want to change the client-side search to a server-side search. While a client-side search only filters the stories that are available on the client (after the initial data fetching), a server-side search would allow us to get data from the remote API based on the search term. Try to tackle the following task yourself again before continuing to read the book.
 
 **Task:** The search feature is a client-side search, because it filters only the data that's already there. Instead it should be possible to use the search to fetch data related to the search term.
 

@@ -101,7 +101,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Now the reducer function has to cover this new case in a new conditional state transition. If the condition for removing a story is met, the reducer has all the implementation details needed to remove the story. The action gives all the necessary information (here an item's identifier`) to remove the story from the current state and return a new list of filtered stories as state:
+Now the reducer function has to cover this new case in a new conditional state transition. If the condition for removing a story is met, the reducer has all the implementation details needed to remove the story. The action gives all the necessary information (here an item's identifier) to remove the story from the current state and return a new list of filtered stories as state:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

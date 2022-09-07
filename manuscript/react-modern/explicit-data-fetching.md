@@ -1,6 +1,6 @@
 ## Explicit Data Fetching with React
 
-Re-fetching all data each time someone types in the input field isn't optimal. Since we're using a third-party API to fetch the data, its internals is out of our reach. Eventually, we will be confronted with [rate limiting](https://bit.ly/2ZaJXI8) which returns an error instead of data. To solve this problem, we will change the implementation details from implicit to explicit data (re-)fetching. In other words, the application will refetch data only if someone clicks a confirmation button.
+Re-fetching all data each time someone types in the input field isn't optimal. Since we're using a third-party API to fetch the data, its internals are out of our reach. Eventually, we will be confronted with [rate limiting](https://bit.ly/2ZaJXI8) which returns an error instead of data. To solve this problem, we will change the implementation details from implicit to explicit data (re-)fetching. In other words, the application will refetch data only if someone clicks a confirmation button.
 
 **Task:** The server-side search executes every time a user types into the input field. The new implementation should only execute a search when a user clicks a confirmation button. As long as the button is not clicked, the search term can change but isn't executed as API request.
 
@@ -11,7 +11,7 @@ Re-fetching all data each time someone types in the input field isn't optimal. S
 * The button's event handler sets confirmed search as state by using the current search term.
 * Only when the new confirmed search is set as state, execute the side-effect to perform a server-side search.
 
-What's important with this feature is that we need a state for the fluctuant `searchTerm` and a new state for the confirmed search. But first of all, create a new button element which confirms the search and will execute the data request eventually:
+What's important with this feature is that we need a state for the fluctuating `searchTerm` and a new state for the confirmed search. But first of all, create a new button element which confirms the search and executes the data request eventually:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

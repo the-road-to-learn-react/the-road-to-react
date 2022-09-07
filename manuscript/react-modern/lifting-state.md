@@ -123,7 +123,7 @@ const App = () => {
 };
 ~~~~~~~
 
-That's all to the refactoring steps of the inlined function for the `filter()` method. There are many variations to it -- and it's not always simple to keep a good balance between readable and conciseness -- however, I feel like keeping it concise whenever possible keeps it most of the time readable as well.
+That's all to the refactoring steps of the inlined function for the `filter()` method. There are many variations to it -- and it's not always simple to keep a good balance between readability and conciseness -- however, I feel like keeping it concise whenever possible keeps it most of the time readable as well.
 
 What's not working very well yet: The `filter()` method checks whether the `searchTerm` is present as string in the `title` property of each story, but it's case sensitive. If we search for "react", there is no filtered "React" story in your rendered list. Try to fix this problem yourself by making the `filter()` method's condition case insensitive. The following code snippet shows you how to achieve it by lower casing the `searchTerm` and the `title` of the story:
 

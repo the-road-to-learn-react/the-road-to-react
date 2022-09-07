@@ -85,7 +85,7 @@ const App = () => {
 };
 ~~~~~~~
 
-We changed two things for the reducer function. First, we introduced new types when we called the dispatch function from the outside. Therefore we need to add new cases for state transitions. And second, we changed ti state structure from an array to a complex object. Therefore we need to take the new complex object into account as incoming state and returned state:
+We changed two things for the reducer function. First, we introduced new types when we called the dispatch function from the outside. Therefore we need to add new cases for state transitions. And second, we changed the state structure from an array to a complex object. Therefore we need to take the new complex object into account as incoming state and returned state:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~

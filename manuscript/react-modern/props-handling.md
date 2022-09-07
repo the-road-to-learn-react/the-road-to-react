@@ -177,7 +177,7 @@ const Item = ({
 );
 ~~~~~~~
 
-The nested destructuring helps us to gather all the needed information of the `item` object in the function signature for its immediate usage in the component's elements. However, nested destructuring introduces lots of clutter through indentations in the function signature. While it's here not the most readable option, it can be useful in other scenarios though.
+The nested destructuring helps us to gather all the needed information of the `item` object in the function signature for its immediate usage in the component's elements. However, nested destructuring introduces lots of clutter through indentations in the function signature. While here it's not the most readable option, it can be useful in other scenarios though.
 
 ### Spread and Rest Operators
 
@@ -340,7 +340,7 @@ In this final variation, the rest operator is used to destructure the `objectID`
 
 In this section, we have learned about JavaScript object destructuring which can be commonly used not only for the `props` object, but also for other objects like the `item` object which are nested within the props. We have also seen how nested destructuring can be used (Variation 1), but also how it didn't add any benefits in our case because it just made the component bigger. In the future, you are more likely to find use cases for nested destructuring which are beneficial.
 
-Last but not least, you have learned about JavaScript's spread and rest operators, which shouldn't be confused with each other, to perform operations on JavaScript objects and to pass the `props` object from one component to another component in the most concise way. In the end, I want to point out the initial version again which we will keep over for the next sections:
+Last but not least, you have learned about JavaScript's spread and rest operators, which shouldn't be confused with each other, to perform operations on JavaScript objects and to pass the `props` object from one component to another component in the most concise way. In the end, I want to point out the initial version again which we will save for the next sections:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
@@ -364,7 +364,7 @@ const Item = ({ item }) => (
 );
 ~~~~~~~
 
-It may not be the most concise, but it is the easiest to reason about. Variation 1 with its nested destructuring didn't add much benefit and variation 2 added too many advanced JavaScript features (spread operator, rest operator) which are not familiar to everyone. After all, all these variations have their pros and cons. When refactoring a component, always aim for readability, especially when working in a team of people, and make sure everyone is using a common React code style.
+It may not be the most concise, but it is the easiest to understand. Variation 1 with its nested destructuring didn't add much benefit and variation 2 added too many advanced JavaScript features (spread operator, rest operator) which are not familiar to everyone. After all, all these variations have their pros and cons. When refactoring a component, always aim for readability, especially when working in a team of people, and make sure everyone is using a common React code style.
 
 Rules of thumb:
 
@@ -380,7 +380,7 @@ Rules of thumb:
 * Read more about [how to use props in React](https://www.robinwieruch.de/react-pass-props-to-component/).
 * Optional: Read more about [JavaScript's destructuring assignment](https://mzl.la/30KbXTC).
 * Question: Why is array destructuring used for React Hooks like `useState` and object destructuring for props?
-  * Answer: First of all, a React Hook like `useState` returns an array and props are an object hence the we need to apply the fitting operation for the underlying data structure. The benefit of having an array returned from `useState` is that the values can be given any name in the destructuring operation.
+  * Answer: A React Hook like `useState` returns an array whereas props are an object; hence we need to apply the appropriate operation for the underlying data structure. The benefit of having an array returned from `useState` is that the values can be given any name in the destructuring operation.
 * Read more about [JavaScript's spread operator](https://mzl.la/3jetIkn) and [rest operator](https://mzl.la/3GeJbef).
 * Get a good sense about JavaScript (e.g. destructuring, spread operator, rest destructuring) and how it relates to React (e.g. props) from the last lessons.
 * Continue to use your favorite way to handle React's props. If you're still undecided, consider the variation used in the previous section.

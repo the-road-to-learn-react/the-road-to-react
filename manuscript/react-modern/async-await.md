@@ -2,7 +2,7 @@
 
 There is no way around asynchronous data when working on real world applications. There will always be a remote API that gives your frontend data, so you need to work with this data asynchronously. In our React application, we have started to resolve promises with then/catch blocks. However, in modern JavaScript (and therefore React), a more popular solution is using async/await.
 
-If you are already familiar with async/await or you want to explore [its usage](https://mzl.la/3AWyWaw) yourself, go ahead and change the code from using then/catch to async/await. If you have come this far, you could also consider to compensate the removal of the catch block for the error handling by using a try/catch blocks instead.
+If you are already familiar with async/await or you want to explore [its usage](https://mzl.la/3AWyWaw) yourself, go ahead and change the code from using then/catch to async/await. If you have come this far, you could also consider compensating for the removal of the catch block for the error handling by using a try/catch blocks instead.
 
 Let's continue with the task here. First, you would have to replace the then/catch syntax with the async/await syntax. The following refactoring of the `handleFetchStories()` function shows how to accomplish it without error handling:
 

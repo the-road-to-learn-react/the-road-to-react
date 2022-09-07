@@ -68,7 +68,7 @@ console.log(anotherWelcome);
 // Hello React
 ~~~~~~~
 
-Check your browser to see stories related to the initial query fetched from the Hacker News API. Since we used the same data structure for a story for the sample stories, we didn't need to change anything in the Item component, and it's still possible to filter the stories after fetching them with the search feature, because they still have a `title` property. We will change this behavior in one of the next sections though.
+Check your browser to see stories related to the initial query fetched from the Hacker News API. Since we used the same data structure for the sample stories, we didn't need to change anything in the Item component. It's still possible to filter the stories after fetching them with the search feature, because they still have a `title` property. We will change this behavior in one of the next sections though.
 
 ### Exercises:
 

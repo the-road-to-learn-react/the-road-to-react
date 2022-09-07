@@ -81,7 +81,7 @@ const Search = ({ search, onSearch }) => (
 );
 ~~~~~~~
 
-Both elements in the Search component, input field and label, should be still visible in your browser now. After all, whenever you don't want to introduce an intermediary element that's only there to satisfy React, you can use fragments as helper "elements".
+Both elements in the Search component - input field and label - should be still visible in your browser now. After all, whenever you don't want to introduce an intermediary element that's only there to satisfy React, you can use fragments as helper "elements".
 
 ### Exercises:
 

@@ -4,7 +4,7 @@ We previously introduced the native fetch API (which the browser provides) to pe
 
 One alternative is to substitute the native fetch API with a stable library like [axios](https://bit.ly/3jjEupg), which performs asynchronous requests to remote APIs. In this section, we will discover how to substitute a library -- a native API of the browser in this case -- with another library from the npm registry.
 
-If you know how to install a axios via npm and use it as replacement for the browser's fetch API, go ahead and implement it yourself. Otherwise, the book will guide you through the implementation. First, install axios from the command line:
+If you know how to install axios via npm and use it as replacement for the browser's fetch API, go ahead and implement it yourself. Otherwise, the book will guide you through the implementation. First, install axios from the command line:
 
 {title="Command Line",lang="text"}
 ~~~~~~~

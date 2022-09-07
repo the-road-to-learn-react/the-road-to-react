@@ -1,6 +1,6 @@
 ## React Side-Effects
 
-A React component's returned output is defined by its props and state. Side-effects can affect this output too, because they are used to interact with third-party APIs (e.g. browser's localStorage API, remote APIs for data fetching), with HTML element's for width and height measurements, or with built-in JavaScript functions such as timers or intervals. These are only a few examples of side-effects in React components and we will get to apply one of these examples next.
+A React component's returned output is defined by its props and state. Side-effects can affect this output too, because they are used to interact with third-party APIs (e.g. browser's localStorage API, remote APIs for data fetching), with HTML elements for width and height measurements, or with built-in JavaScript functions such as timers or intervals. These are only a few examples of side-effects in React components and we will get to apply one of these examples next.
 
 At the moment, whenever you search for a term in our application you will get the result. However, once you close the browser and open it again, the search term isn't there anymore. Wouldn't it be a great user experience if our Search component could remember the most recent search, so that the application displays it in the browser whenever it restarts?
 
