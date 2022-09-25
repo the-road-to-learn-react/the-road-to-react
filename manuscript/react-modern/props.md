@@ -47,7 +47,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Now try yourself to retrieve the `list` from the List component's function signature by using introducing a parameter. If you find the solution yourself, congratulations for passing your first information from one component to another. If not, the following code snippet shows how it works:
+Now try yourself to retrieve the `list` from the List component's function signature by introducing a parameter. If you find the solution yourself, congratulations for passing your first information from one component to another. If not, the following code snippet shows how it works:
 
 {title="src/App.js",lang="javascript"}
 ~~~~~~~
