@@ -15,7 +15,7 @@ If you are familiar how to fetch data in JavaScript, you can try to accomplish t
 
 We start with a great foundation for fetching asynchronous data, because everything is already in place. The only thing that keeps us away from the solution is using sample data instead of real world data. Therefore, the next code snippet shows everything you need to change to connect to a remote API. Instead of using the `initialStories` array and `getAsyncStories` function, which can be removed now, we will fetch the data directly from the API:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 // A
 # leanpub-start-insert
@@ -72,8 +72,9 @@ Check your browser to see stories related to the initial query fetched from the 
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3DYWxZS).
-  * Confirm the [changes](https://bit.ly/3jks1Sj).
+* Compare your source code against the author's [source code](https://bit.ly/3DICIsS).
+  * Recap all the [source code changes from this section](https://bit.ly/3R4EaJ2).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3LK6OhQ).
 * Read through [Hacker News](https://news.ycombinator.com) and its [API](https://hn.algolia.com/api).
 * Optional: Read more about [JavaScript's Template Literals](https://mzl.la/3jlcVfn).
 * Optional: [Leave feedback for this section](https://forms.gle/hoJxjjpoZQGCS7Vp9).

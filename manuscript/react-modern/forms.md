@@ -4,7 +4,7 @@ There will be no modern application that doesn't use forms. A form is just a pro
 
 Forms aren't much different in React's JSX than in HTML. We'll implement it in two refactoring steps with some HTML/JavaScript. First, wrap the input field and button into an HTML form element:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -44,7 +44,7 @@ const App = () => {
 
 Instead of passing the `handleSearchSubmit()` handler to the button, it's used in the new form element's `onSubmit` attribute. The button receives a new `type` attribute called `submit`, which indicates that the form element's `onSubmit` handles the click and not the button. Next, since the handler is used for the form event, it executes `preventDefault()` additionally on React's synthetic event. This prevents the HTML form's native behavior which would lead to a browser reload:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -65,7 +65,7 @@ const App = () => {
 
 Now we can execute the search feature with the keyboard's "Enter" key, because we are using a form instead of just a standalone button. In the next two steps, we will separate the whole form into a new SearchForm component. If you want to go ahead yourself, do not hesitate. Anyway, that's how the form can gets extracted into its own component:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const SearchForm = ({
@@ -93,7 +93,7 @@ const SearchForm = ({
 
 The new component is instantiated in the App component. The App component still manages the state for the form though, because the state triggers the data request in the App component where the requested data will eventually get passed as props (here: `stories.data`) to the List component:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -128,8 +128,10 @@ Forms aren't much different in React than in plain HTML. When we have input fiel
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3jfEcjd).
-  * Confirm the [changes](https://bit.ly/3G43M4I).
+* Compare your source code against the author's [source code](https://bit.ly/3RXqiSl).
+  * Recap all the [source code changes from this section](https://bit.ly/3fe5uaw).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3xVur1e).
+* Read more about [forms in React](https://www.robinwieruch.de/react-form/).
 * Try what happens without using `preventDefault`.
   * Read more about [preventDefault for events in React](https://www.robinwieruch.de/react-preventdefault/).
 * Optional: [Leave feedback for this section](https://forms.gle/d14Mf7WzetP25jxq5).

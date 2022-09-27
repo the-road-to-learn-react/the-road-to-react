@@ -16,7 +16,7 @@ Optionally, I recommend managing projects on **GitHub** while we conduct the exe
 
 Before we can begin, we'll need to have **[Node and NPM](https://nodejs.org/en/)** installed. Both are used to manage libraries (node packages) that you will need along the way. These node packages can be libraries or whole frameworks. We'll install external node packages via npm (node package manager).
 
-You can verify node and npm versions in the command line using the `node --version` and `npm --version` commands. If you don't receive output in the terminal indicating which version is installed, you need to install node and npm:
+You can verify node and npm versions on the command line using the `node --version` and `npm --version` commands. If you don't receive output in the terminal indicating which version is installed, you need to install node and npm:
 
 {title="Command Line",lang="text"}
 ~~~~~~~

@@ -17,7 +17,7 @@ We've covered most of React's fundamentals, its legacy features, and techniques 
 
 Okay, let's tackle this task! We will treat the list of data like a table. Each row represents an item of the list and each column represents one property of the item. Introducing headers should provide the user more guidance about each column:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const List = ({ list, onRemoveItem }) => (
   <ul>
@@ -44,7 +44,7 @@ const List = ({ list, onRemoveItem }) => (
 
 We are using inline style for the most basic layout. To match the layout of the header with the rows, give the rows in the Item component a layout as well:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
 # leanpub-start-insert
@@ -71,7 +71,7 @@ In the ongoing implementation, we will remove the style attributes, because it t
 
 The List component will handle the new sort state. This can also be done in the App component, but in the end, only the List component needs it, so we can lift the state directly to it. The sort state initializes with a `'NONE'` state, so the list items are displayed in the order they are fetched from the API. Furthermore, we will add a new handler to set the sort state with a sort-specific key:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const List = ({ list, onRemoveItem }) => {
@@ -92,14 +92,14 @@ const List = ({ list, onRemoveItem }) => {
 
 In the List component's header, buttons can help us to set the sort state for each column/property. An inline handler is used to sneak in the sort-specific key (`sortKey`). When the button for the "Title" column is clicked, `'TITLE'` becomes the new sort state:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const List = ({ list, onRemoveItem }) => {
   ...
 
   return (
-    <div>
-      <div>
+    <ul>
+      <li>
         <span>
 # leanpub-start-insert
           <button type="button" onClick={() => handleSort('TITLE')}>
@@ -129,10 +129,10 @@ const List = ({ list, onRemoveItem }) => {
 # leanpub-end-insert
         </span>
         <span>Actions</span>
-      </div>
+      </li>
 
       {list.map((item) => ... )}
-    </div>
+    </ul>
   );
 };
 ~~~~~~~
@@ -146,7 +146,7 @@ npm install lodash
 
 Second, at the top of your file, import the utility function for sorting:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 import * as React from 'react';
 import axios from 'axios';
@@ -159,7 +159,7 @@ import { sortBy } from 'lodash';
 
 Third, create a JavaScript object (also called dictionary in this case) with all the possible `sortKey` and sort function mappings. Each specific sort key is mapped to a function that sorts the incoming `list`. Sorting by `'NONE'` returns the unsorted list; sorting by `'POINT'` returns a list and its items sorted by the `points` property, and so on:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const SORTS = {
@@ -178,7 +178,7 @@ const List = ({ list, onRemoveItem }) => {
 
 With the `sort` (`sortKey`) state and all possible sort variations (`SORTS`) at our disposal, we can sort the list before mapping it:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const List = ({ list, onRemoveItem }) => {
   const [sort, setSort] = React.useState('NONE');
@@ -193,7 +193,7 @@ const List = ({ list, onRemoveItem }) => {
 # leanpub-end-insert
 
   return (
-    <div>
+    <ul>
       ...
 
 # leanpub-start-insert
@@ -205,7 +205,7 @@ const List = ({ list, onRemoveItem }) => {
           onRemoveItem={onRemoveItem}
         />
       ))}
-    </div>
+    </ul>
   );
 };
 ~~~~~~~
@@ -214,8 +214,8 @@ Task's done and here comes the recap: First we extracted the sort function from 
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3aUfX5W).
-  * Confirm the [changes](https://bit.ly/2ZfbVTb).
+* Compare your source code against the author's [source code](https://bit.ly/3LN8IhE).
+  * Recap all the [source code changes from this section](https://bit.ly/3BN0m58).
 * Read more about [Lodash](https://lodash.com).
 * Why did we use numeric properties like `points` and `num_comments` for a reverse sort?
 * Use your styling skills to give the user feedback about the current active sort. This mechanism can be as straightforward as giving the active sort button a different color.

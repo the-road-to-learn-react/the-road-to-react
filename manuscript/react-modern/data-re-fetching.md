@@ -14,7 +14,7 @@ In this section, we want to change the client-side search to a server-side searc
 
 There are not many steps involved to migrate the application from a client-side to a server-side search. First, remove `searchedStories` because we will receive the stories filtered by search term from the API. Pass only the regular stories to the List component:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -37,7 +37,7 @@ const App = () => {
 
 And second, instead of using the hardcoded search term (here: `'react'`), use the actual `searchTerm` from the component's state. Afterward, every time a user searches for something via the input field, the `searchTerm` will be used to request these kind of stories from the remote API. In addition, you need to deal with the edge case if `searchTerm` is an empty string, which means preventing a request from being fired:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -70,7 +70,7 @@ const App = () => {
 
 There is one crucial piece missing now. While the initial data fetching respects the `searchTerm` (here: `'React'` which is set as initial state), the `searchTerm` is not respected when it is changed via a user typing into the input field. If you inspect the dependency array of our `useEffect` hook, you will see that it's empty. This means the side-effect only renders for the initial rendering of the App component. If we would want to run the side-effect also when the `searchTerm` changes, we would have to include it in the dependency array:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -112,6 +112,7 @@ Caveat: Re-fetching data each time someone types into the input field isn't opti
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3lZtjUO).
-  * Confirm the [changes](https://bit.ly/3b9S4aF).
+* Compare your source code against the author's [source code](https://bit.ly/3DJRZd3).
+  * Recap all the [source code changes from this section](https://bit.ly/3S2P1og).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3C9TFvb).
 * Optional: [Leave feedback for this section](https://forms.gle/ywE4bFy6D2HSG8Rd7).

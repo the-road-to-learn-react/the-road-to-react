@@ -13,7 +13,7 @@ Re-fetching all data each time someone types in the input field isn't optimal. S
 
 What's important with this feature is that we need a state for the fluctuating `searchTerm` and a new state for the confirmed search. But first of all, create a new button element which confirms the search and executes the data request eventually:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -51,7 +51,7 @@ const App = () => {
 
 Second, we distinguish between the handler of the input field and the button. While the renamed handler of the input field still sets the stateful `searchTerm`, the new handler of the button sets the new stateful value called `url` which is derived from the *current* `searchTerm` and the static API endpoint as a new state:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   const [searchTerm, setSearchTerm] = useStorageState(
@@ -85,7 +85,7 @@ const App = () => {
 
 Third, instead of running the data fetching side-effect on every `searchTerm` change (which happens each time the input field's value changes like we have seen before), the new stateful `url` is used whenever a user changes it by confirming a search request when clicking the button:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -122,8 +122,9 @@ Before the `searchTerm` was used for two cases: updating the input field's state
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3n47Qcw).
-  * Confirm the [changes](https://bit.ly/3AXZk3J).
+* Compare your source code against the author's [source code](https://bit.ly/3SkBAjX).
+  * Recap all the [source code changes from this section](https://bit.ly/3qVR29V).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3Cf3ND9).
 * Question: Why is `useState` instead of `useStorageState` used for the `url` state management?
   * Answer: We do not want to remember the `url` in the browser's local storage, because it's already derived from a static string (here: `API_ENDPOINT`) and the `searchTerm` which already comes from the browser's local storage.
 * Question: Why is there no check for an empty `searchTerm` in the `handleFetchStories` function anymore?

@@ -14,7 +14,7 @@ A **conditional rendering** in React always happens if we have to render differe
 
 Fortunately, a few of these cases are already taken care of. For instance, because the initial state is an empty list `[]` rather than `null`, we don't have to worry that this breaks the application when we filter and map over this list. However, a few mentioned things are still missing. For example, what about a loading state which will show the user a loading indicator as feedback about the pending data request? We could introduce this as new stateful value and set the state accordingly when data gets fetched:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -43,7 +43,7 @@ const App = () => {
 
 The boolean should be toggled properly now. What's missing is showing the user the loading indicator. A straightforward approach would be using an early return in the App component:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -62,7 +62,7 @@ const App = () => {
 
 However, this way *only* the loading indicator would render and nothing else. Instead, we want to inline the loading indicator within the JSX to either show the loading indicator or the List component. Using an if-else statement inlined in JSX is not encouraged though due to JSX's limitations here. (You can try it as exercise though.) However, you can use a [ternary operator](https://mzl.la/3vAPKCL) instead and produce a **conditional rendering** in JSX this way:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -92,7 +92,7 @@ const App = () => {
 
 That's already it. You are rendering conditionally a loading indicator or the List component based on a stateful boolean. Let's move on by implementing error handling for the asynchronous data too. An error doesn't happen in our simulated environment, but there could be errors if we start fetching data from a remote API. Therefore, introduce another state for error handling and handle it in the promise's `catch()` block when resolving the promise:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -122,7 +122,7 @@ const App = () => {
 
 Next, give the user feedback in case something goes wrong with another conditional rendering. This time, it's either rendering something or nothing. So instead of having a ternary operator where one side returns `null`, use the logical `&&` operator as shorthand:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -153,8 +153,9 @@ Conditional rendering is not just for asynchronous data though. The simplest exa
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/2ZfIJLM).
-  * Confirm the [changes](https://bit.ly/3AYmneE).
+* Compare your source code against the author's [source code](https://bit.ly/3xKEdTD).
+  * Recap all the [source code changes from this section](https://bit.ly/3fdJOf3).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3dQai5F).
 * Read more about [conditional rendering in React](https://www.robinwieruch.de/conditional-rendering-react/).
 * Question: Why didn't we need a conditional rendering for the empty `stories` before they get fetched from the fake API?
   * Answer: The `stories` are mapped as list in the List component by using the `map()` method. When mapping over a list, the `map()` method returns for every item a modified version (in our case JSX). If there are no items in the list, the `map()` method will return nothing. Therefore we do not need a conditional rendering here.

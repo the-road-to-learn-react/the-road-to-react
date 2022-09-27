@@ -6,7 +6,7 @@ One solution could be establishing another state in the App component which capt
 
 Try it yourself: Move the state from the Search component to the App component, pass the state updater function to the Search component as callback handler and use it to update the state when a user types into the input field. Then use the new state in the App component to `filter()` the `stories` before they are passed to the List component. The following implementation demonstrates the first part of the solution:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   const stories = [ ... ];
@@ -52,7 +52,7 @@ Rule of thumb: Always manage state at a component level where every component th
 
 Finally, by managing the search state in the App component, we can filter the `stories` with the stateful `searchTerm` before passing them as `list` prop to the List component. Try it yourself by using the array's built-in `filter()` method in combination with the `stories` and the `searchTerm` before consulting the following implementation:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   const stories = [ ... ];
@@ -108,7 +108,7 @@ console.log(filteredWords);
 
 The `filter()` method could be made more concise by using an arrow function with an immediate return:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -127,7 +127,7 @@ That's all to the refactoring steps of the inlined function for the `filter()` m
 
 What's not working very well yet: The `filter()` method checks whether the `searchTerm` is present as string in the `title` property of each story, but it's case sensitive. If we search for "react", there is no filtered "React" story in your rendered list. Try to fix this problem yourself by making the `filter()` method's condition case insensitive. The following code snippet shows you how to achieve it by lower casing the `searchTerm` and the `title` of the story:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -150,7 +150,8 @@ After all, knowing where to instantiate state in React turns out to be an import
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3vtfBwo).
-  * Confirm the [changes](https://bit.ly/3DSiuK6).
+* Compare your source code against the author's [source code](https://bit.ly/3dCKU3f).
+  * Recap all the [source code changes from this section](https://bit.ly/3DG8Op8).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SEqxl1).
 * Read more about [lifting state in React](https://www.robinwieruch.de/react-lift-state/).
 * Optional: [Leave feedback for this section](https://forms.gle/EqJGjxCM1Xzw9S6g7).

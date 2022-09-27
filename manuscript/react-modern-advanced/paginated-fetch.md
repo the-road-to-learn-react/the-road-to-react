@@ -23,7 +23,7 @@ In contrast, we will implement the feature as **infinite pagination**. Instead o
 
 Let's do this! First, extend the API constant so it can deal with paginated data later. We will turn this one constant:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const API_ENDPOINT = 'https://hn.algolia.com/api/v1/search?query=';
 
@@ -32,7 +32,7 @@ const getUrl = (searchTerm) => `${API_ENDPOINT}${searchTerm}`;
 
 Into a composable API constant with its parameters:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const API_BASE = 'https://hn.algolia.com/api/v1';
@@ -49,14 +49,14 @@ const getUrl = (searchTerm) =>
 
 Fortunately, we don't need to adjust the API endpoints at other places of the application, because we extracted a common `getUrl` function for it. However, there is one spot where we must address this logic for the future:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
-const extractSearchTerm = url => url.replace(API_ENDPOINT, '');
+const extractSearchTerm = (url) => url.replace(API_ENDPOINT, '');
 ~~~~~~~
 
 In the next steps, it won't be sufficient to replace the base of our API endpoint, which is no longer in our code. With more parameters for the API endpoint, the URL becomes more complex. It will change from X to Y:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 // X
 https://hn.algolia.com/api/v1/search?query=react
@@ -67,7 +67,7 @@ https://hn.algolia.com/api/v1/search?query=react&page=0
 
 It's better to extract the search term by extracting everything between `?` and `&`. Also consider that the `query` parameter is directly after the `?` and all other parameters like `page` follow it:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const extractSearchTerm = (url) =>
@@ -77,7 +77,7 @@ const extractSearchTerm = (url) =>
 
 The key (`query=`) also needs to be replaced, leaving only the value (`searchTerm`):
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const extractSearchTerm = (url) =>
   url
@@ -89,7 +89,7 @@ const extractSearchTerm = (url) =>
 
 Essentially, we'll trim the string until we leave only the search term:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 // url
 https://hn.algolia.com/api/v1/search?query=react&page=0
@@ -103,7 +103,7 @@ react
 
 Next, the returned result from the Hacker News API delivers us the `page` data:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -135,7 +135,7 @@ const App = () => {
 
 We need to store this data to make paginated fetches later:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const storiesReducer = (state, action) => {
   switch (action.type) {
@@ -176,7 +176,7 @@ const App = () => {
 
 Extend the API endpoint with the new `page` parameter. This change was supported by our premature optimizations earlier, when we extracted the search term from the URL:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const API_BASE = 'https://hn.algolia.com/api/v1';
 const API_SEARCH = '/search';
@@ -194,7 +194,7 @@ const getUrl = (searchTerm, page) =>
 
 Next, we must adjust all `getUrl` invocations by passing the `page` argument. Since the initial search and the last search always fetch the first page (`0`), we pass this page as an argument to the function for retrieving the appropriate URL:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -204,6 +204,13 @@ const App = () => {
 # leanpub-end-insert
 
   ...
+
+# leanpub-start-insert
+  const handleSearch = (searchTerm, page) => {
+    const url = getUrl(searchTerm, page);
+# leanpub-end-insert
+    setUrls(urls.concat(url));
+  };
 
   const handleSearchSubmit = (event) => {
 # leanpub-start-insert
@@ -221,20 +228,13 @@ const App = () => {
 # leanpub-end-insert
   };
 
-# leanpub-start-insert
-  const handleSearch = (searchTerm, page) => {
-    const url = getUrl(searchTerm, page);
-# leanpub-end-insert
-    setUrls(urls.concat(url));
-  };
-
   ...
 };
 ~~~~~~~
 
 To fetch the next page when a button is clicked, we'll need to increment the `page` argument in this new handler:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -275,7 +275,7 @@ We've implemented data fetching with the dynamic `page` argument. The initial an
 
 We solve this in the reducer by avoiding the replacement of current `data` with new `data`, concatenating the paginated lists:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const storiesReducer = (state, action) => {
   switch (action.type) {
@@ -310,7 +310,7 @@ The displayed list grows after fetching more data with the new button. However, 
 
 The desired behavior is to render the list -- which is an empty list in the beginning -- and replace the "More"-button with the loading indicator only for the next requests. This is a common UI refactoring for conditional rendering when the task evolves from a single list to paginated lists:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -341,8 +341,8 @@ It's possible to fetch ongoing data for popular stories now. When working with t
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3plSBym).
-  * Confirm the [changes](https://bit.ly/3vu8OT1).
+* Compare your source code against the author's [source code](https://bit.ly/3dMhUGs).
+  * Recap all the [source code changes from this section](https://bit.ly/3SfuYDa).
 * Revisit the [Hacker News API documentation](https://hn.algolia.com/api): Is there a way to fetch more items in a list for a page by just adding further parameters to the API endpoint?
 * Revisit the beginning of this section which speaks about pagination and infinite pagination. How would you implement a normal pagination component with buttons from 1-[3]-10, where each button fetches and displays only one page of the list?
 * Instead of having one "More"-button, how would you implement infinite pagination with an infinite scroll technique? Rather than clicking a button for fetching the next page explicitly, the infinite scroll could fetch the next page once the viewport of the browser hits the bottom of the displayed list.

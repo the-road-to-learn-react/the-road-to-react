@@ -4,7 +4,7 @@ Perhaps you've noticed a disconnect between the single states in the App compone
 
 There is nothing wrong with multiple `useState` hooks in one React component. Be wary once you see multiple state updater functions in a row, however. These conditional states can lead to **impossible states** and undesired behavior in the UI. Try changing your pseudo data fetching function to the following implementation to simulate an error and thus our implementation of error handling:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const getAsyncStories = () =>
   new Promise((resolve, reject) => setTimeout(reject, 2000));
@@ -14,7 +14,7 @@ The impossible state happens when an error occurs for the asynchronous data. The
 
 Fortunately, we can improve our chances of not dealing with such bugs by moving states that belong together from multiple `useState` (and `useReducer`) hooks into a single `useReducer` hook. Take the following hooks:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -32,7 +32,7 @@ const App = () => {
 
 And merge them into one `useReducer` hook for a unified state management which encompasses a more complex state object and eventually more complex state transitions:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -50,7 +50,7 @@ const App = () => {
 
 Since we cannot use the state updater functions from React's useState Hooks anymore, everything related to asynchronous data fetching must use the new dispatch function for the state transitions. The most straightforward approach is exchanging the state updater function with the dispatch function. Then the dispatch function receives a distinct `type` and a `payload`. The latter resembles the same payload that we would have used to update the state with a state updater function:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -87,7 +87,7 @@ const App = () => {
 
 We changed two things for the reducer function. First, we introduced new types when we called the dispatch function from the outside. Therefore we need to add new cases for state transitions. And second, we changed the state structure from an array to a complex object. Therefore we need to take the new complex object into account as incoming state and returned state:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const storiesReducer = (state, action) => {
   switch (action.type) {
@@ -129,7 +129,7 @@ For every state transition, we return a *new state* object which contains all th
 
 Observe how the `REMOVE_STORY` action changed as well. It operates on the `state.data`, and no longer just on the plain `state`. The state is a complex object with `data`, `isLoading`, and `error` states rather than just a list of stories. This has to be solved in the remaining code by addressing the state as object and not as array anymore:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -172,7 +172,7 @@ const App = () => {
 
 Try to use the erroneous data fetching function again and check whether everything works as expected now:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const getAsyncStories = () =>
   new Promise((resolve, reject) => setTimeout(reject, 2000));
@@ -182,8 +182,9 @@ We moved from unreliable state transitions with multiple `useState` hooks to pre
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3G6AphY).
-  * Confirm the [changes](https://bit.ly/3jepMA7).
+* Compare your source code against the author's [source code](https://bit.ly/3R97YnT).
+  * Recap all the [source code changes from this section](https://bit.ly/3xIh9oF).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3Ceq83w).
 * Read more about [when to use useState or useReducer in React](https://www.robinwieruch.de/react-usereducer-vs-usestate/).
 * Read more about [deriving state from props in React](https://www.robinwieruch.de/react-derive-state-props/).
 * Optional: [Leave feedback for this section](https://forms.gle/XWTJS65iu6WkiZMCA).

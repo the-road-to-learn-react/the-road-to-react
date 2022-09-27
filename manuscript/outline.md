@@ -14,7 +14,7 @@ If you're looking for extensions for your application, I recommend several learn
 
 * **State Management:** You have used React to manage local component state exclusively in this learning experience. It's a good start for most applications, but there are also external state management solutions for React. I explore the most popular one in my book ["The Road to Redux"](https://www.roadtoredux.com/).
 
-* **Tooling with Webpack and Babel:** We used *create-react-app* to set up the application in this book. At some point you may want to learn the tooling around it, to create projects without *create-react-app*. I recommend a minimal setup with [Webpack](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/), after which you can apply additional tooling.
+* **Tooling with Webpack and Babel:** We used *Vite* to set up the application in this book. At some point you may want to learn the tooling around it, to create projects without *Vite*. I recommend a minimal setup with [Webpack](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/), after which you can apply additional tooling.
 
 * **Code Organization:** Recall the chapter about code organization and apply these changes, if you haven't already. It will help organize your components into structured files and folders, and it will help you understand the principles of code splitting, reusability, maintainability, and module API design. Your application will grow and need structured modules eventually; so it's better to start now.
 

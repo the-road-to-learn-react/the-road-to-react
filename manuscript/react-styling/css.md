@@ -1,8 +1,8 @@
 # Styling in React
 
-There are many ways to style a React application, and there are lengthy debates about the best **styling strategy** and **styling approach**. We'll go over a few of these approaches without giving them too much weight. There will be some pro and con arguments, but it's mostly a matter of what fits best for developers and teams.
+There are many ways to style a React application, and there are lengthy debates about the best **styling strategy** and **styling approach**. We'll go over a few of these strategies each representing one approach without giving them too much weight. There will be some pro and con arguments, but it's mostly a matter of what fits best for developers and their teams.
 
-We will begin React styling with common CSS in React, but then explore two alternatives for more advanced **CSS-in-CSS** (**CSS Modules**) and **CSS-in-JS** (**Styled Components**) strategies. CSS Modules and Styled Components are only two approaches out of many in both groups of strategies. We'll also cover how to include scalable vector graphics (SVGs), such as a logo or icons, in our React application.
+We will begin React styling with common CSS in React, but then explore two alternatives for more advanced **CSS-in-CSS** (with **CSS Modules**) and **CSS-in-JS** (with s**Styled Components**) strategies. CSS Modules and Styled Components are only two approaches out of many in both groups of strategies. We'll also cover how to include scalable vector graphics (SVGs), such as a logo or icons, in our React application.
 
 ![](images/css-style-strategies.png)
 
@@ -10,17 +10,52 @@ If you don't want to build common UI components (e.g. button, dialog, dropdown) 
 
 ![](images/ui-library.png)
 
-The following styling approaches and SVGs are pre-configured in `create-react-app`. If you're in control of the build tools (e.g. Webpack) by having a custom setup, they might need to be configured to enable importing CSS or SVG files. Since we are using create-react-app, we can use these files as assets right away.
+The following styling approaches and SVGs are mostly pre-configured in Vite. If you're in control of the build tools (e.g. Webpack) by having a custom setup, they might need to be configured to enable importing CSS or SVG files. Since we are using Vite, we can use these files right away. For example, in your *src/main.jsx* file, make sure to import the *src/index.css* file:
+
+{title="src/main.jsx",lang="javascript"}
+~~~~~~~
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+
+# leanpub-start-insert
+import './index.css';
+# leanpub-end-insert
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+~~~~~~~
+
+Use the following CSS in the *src/index.css* file for removing the margin and for using a standardized font with fallbacks:
+
+{title="src/index.css",lang="css"}
+~~~~~~~
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+~~~~~~~
+
+Essentially you can declare all the CSS that should apply globally for your project in this file.
 
 ### Exercises:
 
+* Compare your source code against the author's [source code](https://bit.ly/3xLnIXI).
+  * Recap all the [source code changes from this section](https://bit.ly/3f2gJ5U).
 * Read more about [the different styling strategies and approaches in React](https://www.robinwieruch.de/react-css-styling/).
 
 ## CSS in React
 
 Common CSS in React is similar to the standard CSS you may have already learned. Each web application gives HTML elements a `class` (in React it's `className`) attribute that is styled via a CSS file:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -49,9 +84,9 @@ const App = () => {
 };
 ~~~~~~~
 
-The `<hr />` was removed because the CSS handles the border in the next steps. We'll import the CSS file, which is done with the help of the create-react-app configuration:
+The `<hr />` was removed because the CSS handles the border in the next steps. We'll import the CSS file, which is done with the help of how Vite resolves imports:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 import * as React from 'react';
 import axios from 'axios';
@@ -84,7 +119,7 @@ This CSS file will define the two (and more) CSS classes we used (and will use) 
 
 You should see the first stylings taking effect in your application when you start it again. Next, we will head over to the Item component. Some of its elements receive the `className` attribute too, however, we are also using a new styling technique here:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
 # leanpub-start-insert
@@ -167,7 +202,7 @@ The button style from the previous component is still missing, so we'll define a
 
 Apart from styling approaches in React, naming conventions ([CSS guidelines](https://mzl.la/3m5avnb)) are a whole other topic. The last CSS snippet followed BEM rules by defining modifications of a class with an underscore (`_`). Choose whatever naming convention suits you and your team. Without further ado, we will style the next React component:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const SearchForm = ({ ... }) => (
 # leanpub-start-insert
@@ -192,7 +227,7 @@ const SearchForm = ({ ... }) => (
 
 We can also pass the `className` attribute as a prop to React components. For example, we can use this option to pass the SearchForm component a flexible style with a `className` prop from a range of predefined classes (e.g. `button_large` or `button_small`) from a CSS file. Lastly, style the InputWithLabel component:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const InputWithLabel = ({ ... }) => {
   ...
@@ -250,10 +285,9 @@ For simplicity, we styled elements like label and input individually in the *src
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3jk9llQ).
-  * Confirm the [changes](https://bit.ly/3vrrnr4).
-* Read more about [CSS stylesheets in create-react-app](https://bit.ly/3G0fTjn).
-  * Try to pass `className` prop from App to SearchForm component, either with the value `button_small` or `button_large`, and use this as `className` for the button element.
-* Read more about [Sass in create-react-app](https://bit.ly/3GeJGF9) for taking advantage of more advanced CSS features like nesting.
-* Enable Sass in your create-react-app and start to use its features (e.g. nesting) in your CSS file.
+* Compare your source code against the author's [source code](https://bit.ly/3qZE0rQ).
+  * Recap all the [source code changes from this section](https://bit.ly/3R5s3M8).
+* Try to pass `className` prop from App to SearchForm component, either with the value `button_small` or `button_large`, and use this as `className` for the button element.
+* Read more about [CSS stylesheets in Vite](https://bit.ly/3S7peLJ).
+  * Read more about how to use Sass in Vite for taking advantage of more advanced CSS features like nesting.
 * Optional: [Leave feedback for this section](https://forms.gle/RovYbjYF9McD1h6c7).

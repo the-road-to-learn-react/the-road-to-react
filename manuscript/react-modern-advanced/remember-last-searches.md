@@ -10,7 +10,7 @@
 
 Let's get to it. First, we will refactor all `url` to `urls` state and all `setUrl` to `setUrls` state updater functions. Instead of initializing the state with an `url` as a string, make it an array with the initial `url` as its only entry:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -29,7 +29,7 @@ const App = () => {
 
 Second, instead of using the current `url` state for data fetching, use the last `url` entry from the `urls` array. If another `url` is added to the list of `urls`, it is used to fetch data instead:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
 
@@ -61,7 +61,7 @@ const App = () => {
 
 And third, instead of storing the `url` string as state with the state updater function, concatenate the new `url` using the concat method with the previous `urls` in an array for the new state:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -81,7 +81,7 @@ const App = () => {
 
 With each search, another URL is stored in our state of `urls`. Next, render a button for each of the last five URLs. We'll include a new universal handler for these buttons, and each passes a specific `url` with a more specific inline handler:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const getLastSearches = (urls) => urls.slice(-5);
@@ -128,7 +128,7 @@ const App = () => {
 
 Next, instead of showing the whole URL of the last search in the button as button text, show only the search term by replacing the API's endpoint with an empty string:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const extractSearchTerm = (url) => url.replace(API_ENDPOINT, '');
@@ -174,7 +174,7 @@ const App = () => {
 
 The `getLastSearches` function now returns search terms instead of URLs. The actual `searchTerm` is passed to the inline handler instead of the `url`. By mapping over the list of `urls` in `getLastSearches`, we can extract the search term for each `url` within the array's map method. Making it more concise, it can also look like this:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const getLastSearches = (urls) =>
 # leanpub-start-insert
@@ -184,7 +184,7 @@ const getLastSearches = (urls) =>
 
 Now we'll provide functionality for the new handler used by every button, since clicking one of these buttons should trigger another search. Since we use the `urls` state for fetching data, and since we know the last URL is always used for data fetching, concatenate a new `url` to the list of `urls` to trigger another search request:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -202,7 +202,7 @@ const App = () => {
 
 If you compare this new handler's implementation logic to the `handleSearchSubmit`, you may see some common functionality. Extract this common functionality to a new handler and a new extracted utility function:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const getUrl = (searchTerm) => `${API_ENDPOINT}${searchTerm}`;
@@ -212,6 +212,13 @@ const getUrl = (searchTerm) => `${API_ENDPOINT}${searchTerm}`;
 
 const App = () => {
   ...
+
+# leanpub-start-insert
+  const handleSearch = (searchTerm) => {
+    const url = getUrl(searchTerm);
+    setUrls(urls.concat(url));
+  };
+# leanpub-end-insert
 
   const handleSearchSubmit = (event) => {
 # leanpub-start-insert
@@ -227,20 +234,13 @@ const App = () => {
 # leanpub-end-insert
   };
 
-# leanpub-start-insert
-  const handleSearch = (searchTerm) => {
-    const url = getUrl(searchTerm);
-    setUrls(urls.concat(url));
-  };
-# leanpub-end-insert
-
   ...
 };
 ~~~~~~~
 
 The new utility function can be used somewhere else in the App component. If you extract functionality that can be used by two parties, always check to see if it can be used by a third-party:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -256,7 +256,7 @@ const App = () => {
 
 The functionality should work, but it complains or breaks if the same search term is used more than once, because `searchTerm` is used for each button element as `key` attribute. Make the key more specific by concatenating it with the `index` of the mapped array.
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -295,7 +295,7 @@ It's not the perfect solution, because the `index` isn't a stable key (especiall
 
 The source of the five rendered buttons is the `getLastSearches` function. There, we take the array of `urls` and return the last five entries from it. Now we'll change this utility function to return the last six entries instead of five by removing the last one, in order to not show the current search as a button. Afterward, only the five *previous* searches are displayed as buttons:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const getLastSearches = (urls) =>
   urls
@@ -308,7 +308,7 @@ const getLastSearches = (urls) =>
 
 If the same search is executed two or more times in a row, duplicate buttons appear, which is likely not your desired behavior. It would be acceptable to group identical searches into one button if they followed each other. We will solve this problem in the utility function as well. Before separating the array into the five previous searches, group the identical searches:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const getLastSearches = (urls) =>
   urls
@@ -337,7 +337,7 @@ The reduce function starts with an empty array as its `result`. The first iterat
 
 The SearchForm component's input field should be set with the new `searchTerm` if one of the last search buttons is clicked. We can solve this using the state updater function for the specific value used in the SearchForm component.
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -356,7 +356,7 @@ const App = () => {
 
 Lastly, extract the feature's new rendered content from this section as a standalone component, to keep the App component lightweight:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -404,7 +404,7 @@ This feature wasn't an easy one. Lots of fundamental React but also JavaScript k
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3vtAYgZ).
-  * Confirm the [changes](https://bit.ly/3jlnHm1).
+* Compare your source code against the author's [source code](https://bit.ly/3fqttDT).
+  * Recap all the [source code changes from this section](https://bit.ly/3rgcDda).
 * Read more about [grouping in JavaScript](https://www.robinwieruch.de/javascript-groupby/).
 * Optional: [Leave feedback for this section](https://forms.gle/LhNVodZgu8qTqHhN6).

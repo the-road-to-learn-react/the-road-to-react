@@ -8,11 +8,61 @@ Performance optimization prevents applications from slowing down by assuring eff
 
 This section is just here for the sake of learning about performance improvements in React. We wouldn't need optimizations in most React applications, as React is fast out of the box. While more sophisticated tools exist for performance measurements in JavaScript and React, we will stick to a simple `console.log()` and our browser's developer tools for the logging output.
 
+### Strict Mode
+
+Before we can learn about performance in React, we will briefly look at React's Strict Mode which gets enabled in the *src/main.jsx* file:
+
+{title="src/main.jsx",lang="javascript"}
+~~~~~~~
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+~~~~~~~
+
+[React's Strict Mode](https://bit.ly/3SufTxx) is a helper component which notifies developers in the case of something being wrong in our implementation. For example, using a [deprecated](https://bit.ly/3R8ycam) React API (e.g. using a legacy React hook) would give us a warning in the browser's developer tools. However, it also ensures that state and side-effects are implemented well by a developer. Let's experience what this means in our code.
+
+The App component fetches initially data from a remote API which gets displayed as a list. We are using React's useEffect hook for initializing the data fetching. Now I encourage you to add a `console.log()` which logs whenever this hook runs:
+
+{title="src/main.jsx",lang="javascript"}
+~~~~~~~
+const App = () => {
+  ...
+
+  React.useEffect(() => {
+# leanpub-start-insert
+    console.log('How many times do I log?');
+# leanpub-end-insert
+    handleFetchStories();
+  }, [handleFetchStories]);
+
+  ...
+};
+~~~~~~~
+
+Many would expect seeing the logging only once in the browser's developer tools, because this side-effect should only run once (or if the `handleFetchStories` function changes). However, you will see the logging twice for the App component's initial render. To be honest, this is a highly unexpected behavior (even for seasoned React developers), which makes it difficult to understand for React beginners. However, the React core team decided that this behavior is needed for surfacing bugs related to misused side-effects in the application.
+
+So React's Strict Mode runs React's useEffect Hooks twice for the initial render. Because this results in fetching the *same* data twice, this is not a problem for us. The operation is called idempotent, which means that the result of a successfully performed request is independent of the number of times it is executed. After all, it's *only* a performance problem, because there are two network requests, but it doesn't result in a buggy behavior of the application. In addition to all of this uncertainty, the Strict Mode is only applied for the development environment, so whenever this application gets build for production, the Strict Mode gets removed automatically.
+
+Both of these behaviors, running React's useEffect Hook twice for the initial render and having different outcomes between development and production, surface many warranted discussions around React's Strict Mode.
+
+For the following performance sections, I encourage you to disable the Strict Mode by simply removing it. This way, we can follow the logging that would happen for this application once it is build for a production environment:
+
+{title="src/main.jsx",lang="javascript"}
+~~~~~~~
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <App />
+);
+~~~~~~~
+
+However, at the end of the performance sections, I encourage you to add the Strict Mode back again, because it is there to help you after all.
+
 ### Don't run on first render
 
 Previously, we have covered React's useEffect Hook, which is used for side-effects. It runs the first time a component renders (mounting), and then every re-render (updating). By passing an empty dependency array to it as a second argument, we can tell the hook to run on the first render only. Out of the box, there is no way to tell the hook to run only on every re-render (update) and not on the first render (mount). For example, examine our custom hook for state management with React's useState Hook and its semi-persistent state with local storage using React's useEffect Hook:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const useStorageState = (key, initialState) => {
   const [value, setValue] = React.useState(
@@ -34,7 +84,7 @@ With a closer look at the developer's tools, we can see the log for the first ti
 
 As mentioned, there is no React Hook that runs on every re-render, and there is no way to tell the `useEffect` hook in a React idiomatic way to call its function only on every re-render. However, by using React's useRef Hook which keeps its `ref.current` property intact over re-renders, we can keep a *made up state* (without re-rendering the component on state updates) with an instance variable of our component's lifecycle:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const useStorageState = (key, initialState) => {
 # leanpub-start-insert
@@ -75,7 +125,7 @@ The above was only about preventing the invocation of one simple function for a 
 
 Earlier, we have explored React's re-rendering mechanism. We'll repeat this exercise for the App and List components. For both components, add a logging statement:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -120,7 +170,7 @@ console.log(getTheTruth());
 // false
 ~~~~~~~
 
-Let's focus on the actual logging in the browser's developer tools. You should see a similar output. First, the App component renders, followed by its child components (e.g. List component).
+Let's focus on the actual logging in the browser's developer tools when refreshing the page. You should see a similar output. First, the App component renders, followed by its child components (e.g. List component).
 
 {title="Visualization",lang="text"}
 ~~~~~~~
@@ -131,7 +181,7 @@ B:App
 B:List
 ~~~~~~~
 
-*Note: If you are seeing more than these loggings, check whether your *src/index.js* file uses `<React.StrictMode>` as a wrapper for your App component. If it's the case, remove the strict mode and check your logging again. Explanation: In development mode, React's StrictMode renders a component twice to detect problems with your implementation in order to warn you about these. This StrictMode is automatically excluded for applications in production. However, if you don't want to be confused by the multiple renders, remove StrictMode from the *src/index.js* file.*
+*Again: If you are seeing more than these loggings, check whether your *src/main.jsx* file uses `<React.StrictMode>` as a wrapper for your App component. If it's the case, remove the Strict Mode and check your logging again. Explanation: In development mode, React's Strict Mode renders a component twice to detect problems with your implementation in order to warn you about these. This Strict Mode is automatically excluded for applications in production. However, if you don't want to be confused by the multiple renders, remove Strict Mode from the *src/main.jsx* file.*
 
 Since a side-effect triggers data fetching after the first render, only the App component renders, because the List component is replaced by a loading indicator in a conditional rendering. Once the data arrives, both components render again.
 
@@ -141,7 +191,7 @@ Since a side-effect triggers data fetching after the first render, only the App 
 B:App
 B:List
 
-// data fetching with loading
+// data fetching with loading instead of List component
 B:App
 
 // re-rendering with data
@@ -157,11 +207,11 @@ B:App
 B:List
 ~~~~~~~
 
-What's striking is that the List component shouldn't re-render, but it does. The search feature isn't executed via its button, so the `list` passed to the List component remains the same for every keystroke. This is React's default behavior, re-rendering everything below a component with a state change, which surprises many people. In other words, if a parent component re-renders, its child components re-render as well. React does this by default, because preventing a re-render of child components could lead to bugs, and the re-rendering mechanism of React is often fast enough by default..
+What's striking is that the List component shouldn't re-render, but it does. The search feature isn't executed via its button, so the `list` passed to the List component via the App component remains the same for every keystroke. This is React's default behavior, re-rendering everything below a component (here: the `App` component) with a state change, which surprises many people. In other words, if a parent component re-renders, its descendent components re-render as well. React does this by default, because preventing a re-render of child components could lead to bugs. Because the re-rendering mechanism of React is often fast enough by default, the automatic re-rendering of descendent components is encouraged by React.
 
-Sometimes we want to prevent re-rendering, however. For example, huge data sets displayed in a table shouldn't re-render if they are not affected by an update. It's more efficient to perform an equality check if something changed for the component. Therefore, we can use React's memo API to make this equality check for the props:
+Sometimes we want to prevent re-rendering, however. For example, huge data sets displayed in a table (e.g. List component) shouldn't re-render if they are not affected by an update (e.g. Search component). It's more efficient to perform an equality check if something changed for the component. Therefore, we can use React's memo API to make this equality check for the props:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const List = React.memo(
@@ -183,7 +233,7 @@ const List = React.memo(
 # leanpub-end-insert
 ~~~~~~~
 
-However, the output stays the same when typing into the SearchForm's input field:
+React's memo API checks whether the props of a component have changed. If not, it does not re-render even though its parent component re-rendered. However, the output stays the same when typing into the SearchForm's input field:
 
 {title="Visualization",lang="text"}
 ~~~~~~~
@@ -191,9 +241,9 @@ B:App
 B:List
 ~~~~~~~
 
-That's because the `list` passed to the List component is the same, but the `onRemoveItem` callback handler isn't. If the App component re-renders, it always creates a new version of this callback handler as a new function. Earlier, we used React's useCallback Hook to prevent this behavior, by creating a function only on a re-render (if one of its dependencies has changed):
+The `list` passed to the List component is the same, but the `onRemoveItem` callback handler isn't. If the App component re-renders, it always creates a new version of this callback handler as a new function. Earlier, we used React's useCallback Hook to prevent this behavior, by creating a function only on the initial render (or if one of its dependencies has changed):
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -232,7 +282,7 @@ While all props passed to a component stay the same, the component renders again
 
 Sometimes we'll have performance-intensive computations in our React components -- between a component's function signature and return block -- which run on every render. For this scenario, we must create a use case in our current application first:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const getSumComments = (stories) => {
@@ -270,15 +320,16 @@ If all arguments are passed to a function, it's acceptable to have it outside th
 
 Each time text is typed in the input field of the SearchForm component, this computation runs again with an output of "C". This may be fine for a non-heavy computation like this one, but imagine this computation would take more than 500ms. It would give the re-rendering a delay, because everything in the component has to wait for this computation. We can tell React to only run a function if one of its dependencies has changed. If no dependency changed, the result of the function stays the same. React's useMemo Hook helps us here:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
 
 # leanpub-start-insert
-  const sumComments = React.useMemo(() => getSumComments(stories), [
-    stories,
-  ]);
+  const sumComments = React.useMemo(
+    () => getSumComments(stories),
+    [stories]
+  );
 # leanpub-end-insert
 
   return ( ... );
@@ -293,11 +344,11 @@ Now, after we went through these scenarios for `useMemo`, `useCallback`, and `me
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3AYYTpJ).
-  * Confirm the [changes](https://bit.ly/3aVxXgc).
+* Compare your source code against the author's [source code](https://bit.ly/3R2xISV).
+  * Recap all the [source code changes from this section](https://bit.ly/3R8BYk2).
 * Read more about [React's useMemo Hook](https://www.robinwieruch.de/react-usememo-hook/).
 * Download *React Developer Tools* as an extension for your browser. Open it for your application in the browser via the browser's developer tools and try its various features. For example, you can use it to visualize React's component tree and its updating components.
-* Does the SearchForm re-render when removing an item from the List with the "Dismiss"-button? If it's the case, apply performance optimization techniques to prevent re-rendering.
+* Does the SearchForm re-render when removing an item from the List with the "Dismiss"-button? If it's the case, apply performance optimization techniques (using `useCallback` and `memo`) to prevent re-rendering.
 * Does each Item re-render when removing an item from the List with the "Dismiss"-button? If it's the case, apply performance optimization techniques to prevent re-rendering.
 * Remove all performance optimizations to keep the application simple. Our current application doesn't suffer from any performance bottlenecks. Try to avoid [premature optimzations](https://bit.ly/3AYktL8). Use this section and its further reading material as a reference, in case you run into performance problems.
 * Optional: [Leave feedback for this section](https://forms.gle/FwNrJSdLikquVzsB6).

@@ -6,7 +6,7 @@ In addition, the Search component risks introducing bugs, because if two of thes
 
 Since the Search component doesn't have any actual "search" functionality, it takes little effort to generalize the search domain-specific properties to make the component reusable for the rest of the application. Let's pass a dynamic `id` and `label` prop to the Search component, rename the actual value and callback handler to something more generic, and rename the component too:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -53,7 +53,7 @@ const InputWithLabel = ({ id, label, value, onInputChange }) => (
 
 It's fully reusable, but only when using an input with a text. If we would want to support numbers (`number`) or phone numbers (`tel`) too, the `type` attribute of the input field needs to be accessible from the outside too:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const InputWithLabel = ({
   id,
@@ -87,12 +87,13 @@ It's always a trade-off between generalization and specialization of components.
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3B0roTU).
-  * Confirm the [changes](https://bit.ly/3C2DzAY).
+* Compare your source code against the author's [source code](https://bit.ly/3dCtfJe).
+  * Recap all the [source code changes from this section](https://bit.ly/3S9O8KH).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3Ce3312).
 * Read more about [Reusable React Components](https://www.robinwieruch.de/react-reusable-components/) and build some of these components yourself:
-  * [Dropdown in React](https://www.robinwieruch.de/react-dropdown/)
-  * [Checkbox in React](https://www.robinwieruch.de/react-checkbox/)
   * [Button in React](https://www.robinwieruch.de/react-button/)
   * [Radio Button in React](https://www.robinwieruch.de/react-radio-button/)
+  * [Checkbox in React](https://www.robinwieruch.de/react-checkbox/)
+  * [Dropdown in React](https://www.robinwieruch.de/react-dropdown/)
 * Before we used the text "Search:" with a ":". How would you deal with it now? Would you pass it with `label="Search:"` as prop to the InputWithLabel component or hardcode it after the `<label htmlFor={id}>{label}:</label>` usage in the InputWithLabel component? We will see how to cope with this later.
 * Optional: [Leave feedback for this section](https://forms.gle/76C3LvW3kHHwdhgq5).

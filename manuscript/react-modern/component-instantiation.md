@@ -40,7 +40,7 @@ console.log(dennis.getName());
 
 The concept of a class with declaration and instantiation is similar to a React component, which also has only *one* component declaration, but can have *multiple* component instances:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 // declaration of App component
 function App() {
@@ -60,11 +60,12 @@ function App() {
 function List() { ... }
 ~~~~~~~
 
-Once we've defined a **component**, we can use it as an **element** anywhere in our JSX. The element produces a **component instance** of your component, or in other words, the component gets instantiated. You can create as many component instances as you want as long as you have a component declaration. It's not much different from a JavaScript class declaration and instantiation, however, as mentioned before, technically a JavaScript class and React component are not the same. Just their usage makes it convenient to demonstrate their similarities.
+Once we've defined a **component**, we can use it as an **element** anywhere in our JSX. The element produces an **instance** of your component, or in other words, the component gets instantiated. You can create as many instances of a component as you want as long as you have a component declaration. It's not much different from a JavaScript class declaration and instantiation, however, as mentioned before, technically a JavaScript class and React component are not the same. Just their usage makes it convenient to demonstrate their similarities.
 
 ### Exercises:
 
-* Familiarize yourself with the terms *component declaration*, *component instance*, and *element*.
+* Read more about [component, element, and instance in React](https://www.robinwieruch.de/react-element-component/).
+  * Familiarize yourself with the terms *component declaration*, *component instance*, and *element*.
 * Experiment by creating multiple component instances of a List component.
 * If we keep treating the `list` variable as a global variable, every List component would use the same `list`. Think about how it could be possible to give each List component its own `list` variable.
 * Optional: [Leave feedback for this section](https://forms.gle/sf1UMNR58v3NsRUSA).

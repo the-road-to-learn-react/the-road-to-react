@@ -2,7 +2,7 @@
 
 Everything returned from a React component will be displayed in the browser. Until now, we only returned HTML from the App component. However, recall that I mentioned the returned output of the App component not only resembles HTML, but it can also be mixed with JavaScript. In fact, this output is called **JSX (JavaScript XML)**, which powerfully combines HTML and JavaScript. Let's see how this works for displaying the variable from the previous section:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 import * as React from 'react';
 
@@ -21,13 +21,13 @@ function App() {
 export default App;
 ~~~~~~~
 
-Either start your application again with `npm start` (or check whether your application still runs) and look for the rendered (read: displayed) `title` in the browser. The output should read "Hello React". If you change the variable in the source code, the browser should reflect that change.
+Either start your application again with `npm run dev` (or check whether your application still runs) and look for the rendered (read: displayed) `title` in the browser. The output should read "Hello React". If you change the variable in the source code, the browser should reflect that change.
 
 Changing the variable in the source code and seeing the change reflected in the browser is not solely connected to React, but also to the underlying development server when we start our application on the command line. Any time one of our files changes, the development server notices it and reloads all affected files for the browser. The bridge between React and the development server which makes this behavior possible is called **React Fast Refresh** (prior to that it was **React Hot Loader**) on React's side and **Hot Module Replacement** on the development server's side.
 
-Next, try to define a HTML input field (read: `<input>` tag) and a HTML label (read: `<label>` tag) in your JSX yourself. It should also be possible to focus the input field when clicking the label either by nesting the input field in the label or by using dedicated HTML attributes for both. The following code snippet will show you the book's implementation of this task and you may be surprised that HTML slightly differs when used in HTML:
+Next, try to define a HTML input field (read: `<input>` tag) and a HTML label (read: `<label>` tag) in your JSX yourself. It should also be possible to focus the input field when clicking the label either by nesting the input field in the label or by using dedicated HTML attributes for both. The following code snippet will show you the book's implementation of this task and you may be surprised that HTML slightly differs when used in JSX:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 import * as React from 'react';
 
@@ -61,7 +61,7 @@ We will revisit the HTML input field and its label for further implementation de
 
 The following code snippet will show you the solution to the task. Before we have defined a JavaScript string primitive to be displayed in the App component. Now, the same can be done with a JavaScript object by accessing its properties within JSX:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 import * as React from 'react';
 
@@ -92,7 +92,7 @@ export default App;
 
 While HTML can be used almost (except for the attributes) in its native way in JSX, everything in curly braces can be used to interpolate JavaScript in it. For example, you could define a function that returns the title and execute it within the curly braces:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 import * as React from 'react';
 
@@ -118,7 +118,7 @@ function App() {
 export default App;
 ~~~~~~~
 
-JSX is a syntax extension to JavaScript. In the past, JavaScript files which made use of JSX [had to use](https://github.com/airbnb/javascript/pull/985) the *.jsx* instead of the *.js* extension. However, these days the underlying build tools (read: compiler/bundler) [can be configured to acknowledge JSX in a .js file](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/). If they are configured this way, they will transpile JSX to JavaScript. Tools like create-react-app take care of this for us, because they have all the internal build tools (e.g. Webpack, Babel) in place to make this happen. So you don't need to worry about these kind of setup related topics as a beginner.
+JSX is a syntax extension to JavaScript. In the past, JavaScript files which made use of JSX [had to use](https://github.com/airbnb/javascript/pull/985) the *.jsx* instead of the *.js* extension. However, these days the underlying build tools (read: compiler/bundler) [can be configured to acknowledge JSX in a .js file](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/). If they are configured this way, they will transpile JSX to JavaScript. Tools like Vite embrace the *.jsx* extension though, because it makes it more explicit for developers.
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -140,8 +140,9 @@ Initially invented for React, JSX gained popularity in other modern libraries an
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3vvS8ec).
-  * Confirm the [changes](https://bit.ly/3n3WW6o).
+* Compare your source code against the author's [source code](https://bit.ly/3S2uyQy).
+  * Recap all the [source code changes from this section](https://bit.ly/3dAr0G3).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3LJx1Nu).
 * Beginner: Read more about [JavaScript Variables](https://www.robinwieruch.de/javascript-variable/).
   * Beginner: Define more primitive and complex JavaScript data types and render them in JSX.
   * Advanced: Try to render a JavaScript array in JSX by using the array's built-in `map()` method to return JSX for each item in the list. If it's too complicated, don't worry, because you will learn more about this in the next section.

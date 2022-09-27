@@ -6,7 +6,7 @@ Now try the following: When initializing the `searchTerm` state in the App compo
 
 While the `stories` have been filtered respectively to the new initial `searchTerm`, the HTML input field doesn't show the value in the browser. Only when we start typing into the input field do we see the changes reflected in it. That's because the input field doesn't know anything about React's state (here: `searchTerm`), it only uses its handler to communicate (see `handleSearch()`) its internal state to React state. And once a user starts typing into the input field, the HTML element keeps track of these changes itself. However, if we want to get things right, the HTML should know about the React state. Therefore, we need to provide the current state as `value` to it:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   const stories = [ ... ];
@@ -53,7 +53,8 @@ Earlier the HTML element did its own thing, but now we are in control of it by f
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3aXr7GZ).
-  * Confirm the [changes](https://bit.ly/3aV4XVO).
+* Compare your source code against the author's [source code](https://bit.ly/3dzwFwb).
+  * Recap all the [source code changes from this section](https://bit.ly/3BXGMEk).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SfJBGP).
 * Read more about [controlled components in React](https://www.robinwieruch.de/react-controlled-components/).
 * Optional: [Leave feedback for this section](https://forms.gle/7VYTww2EQiPkFnaR8).

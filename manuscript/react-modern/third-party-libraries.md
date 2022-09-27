@@ -13,7 +13,7 @@ npm install axios
 
 Second, import axios in your App component's file:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 import * as React from 'react';
 # leanpub-start-insert
@@ -25,7 +25,7 @@ import axios from 'axios';
 
 You can use `axios` instead of `fetch`. Its usage looks almost identical to the native fetch API: It takes the URL as an argument and returns a promise. You don't have to transform the returned response to JSON anymore, since axios wraps the result into a data object in JavaScript for you. Just make sure to adapt your code to the returned data structure:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -58,8 +58,9 @@ In this code, we call axios `axios.get()` for an explicit [HTTP GET request](htt
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3piaFt4).
-  * Confirm the [changes](https://bit.ly/3jjMruF).
+* Compare your source code against the author's [source code](https://bit.ly/3LxrDwE).
+  * Recap all the [source code changes from this section](https://bit.ly/3BytHA5).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SzVPtl).
 * Read more about [popular libraries in React](https://www.robinwieruch.de/react-libraries/).
 * Optional: Read more about [axios](https://bit.ly/3jjEupg).
 * Optional: [Leave feedback for this section](https://forms.gle/wfDb7r5K4az3TiWN9).

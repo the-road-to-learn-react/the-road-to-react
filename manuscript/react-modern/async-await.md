@@ -6,7 +6,7 @@ If you are already familiar with async/await or you want to explore [its usage](
 
 Let's continue with the task here. First, you would have to replace the then/catch syntax with the async/await syntax. The following refactoring of the `handleFetchStories()` function shows how to accomplish it without error handling:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -34,7 +34,7 @@ const App = () => {
 
 To use async/await, our function requires the `async` keyword. Once you start using the `await` keyword on returned promises, everything reads like synchronous code. Actions after the `await` keyword are not executed until the promise resolves, meaning the code will wait. To include error handling as before, the `try` and `catch` blocks are there to help. If something goes wrong in the `try` block, the code will jump into the `catch` block to handle the error:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -66,7 +66,9 @@ After all, using async/await with try/catch over then/catch makes it often more 
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3po4jsf).
-  * Confirm the [changes](https://bit.ly/3G4t3LV).
+* Compare your source code against the author's [source code](https://bit.ly/3Slryyv).
+  * Recap all the [source code changes from this section](https://bit.ly/3xIbSNE).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3UASg86).
+* Alternative: Check out this little [helper library](https://bit.ly/3SBwGOT) which simplifies error handling without using try/catch.
 * Read more about [data fetching in React](https://www.robinwieruch.de/react-hooks-fetch-data/).
 * Optional: [Leave feedback for this section](https://forms.gle/mtMmwrrsiwioZ8GH6).

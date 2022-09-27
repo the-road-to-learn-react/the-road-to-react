@@ -1,19 +1,19 @@
 ## React Project Structure
 
-With multiple React components in one file, you might wonder why we didn't put components into different files from the start. We already have multiple components in the *src/App.js* file that can be defined in their own files/folders (sometimes also called modules). For learning, it's more practical to keep these components in one place. Once your application grows, consider splitting these components into multiple files/folders/modules so it scales properly.
+With multiple React components in one file, you might wonder why we didn't put components into different files from the start. We already have multiple components in the *src/App.jsx* file that can be defined in their own files/folders (sometimes also called modules). For learning, it's more practical to keep these components in one place. Once your application grows, consider splitting these components into multiple files/folders/modules so it scales properly. Before we restructure our React project, recap [JavaScript's import and export statements](https://www.robinwieruch.de/javascript-import-export/), because importing and exporting files are two fundamental concepts in JavaScript you should learn before React.
 
-Before we restructure our React project, recap [JavaScript's import and export statements](https://www.robinwieruch.de/javascript-import-export/). Importing and exporting files are two fundamental concepts in JavaScript you must learn before React. There's no right way to structure a React application, as they evolve naturally along with the project's structure. We'll complete a simple refactoring for the project's folder/file structure for the sake of learning about the process. Afterward, there will be a few additional options about restructuring this project or React projects in general. You can continue with the restructured project, though we'll continue developing with the *src/App.js* file to keep things simple.
+It's important to note that there's no right way to structure a React application, as they evolve naturally along with the project's requirements. We'll complete a simple refactoring for this project's folder/file structure for the sake of learning about the process. Afterward, there will be an important article as exercise about the folder/file organizations of React projects.
 
-On the command line in your project's folder, navigate into the *src/* folder and create the following component dedicated files:
+On the command line in your project's folder, create the following files for all of our components in the *src/* folder:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
-touch src/List.js src/InputWithLabel.js src/SearchForm.js
+touch src/List.jsx src/InputWithLabel.jsx src/SearchForm.jsx
 ~~~~~~~
 
-Move every component from the *src/App.js* file in its own file, except for the List component which has to share its place with the Item component in the *src/List.js* file. Then in every file make sure to import React and to export the component which needs to be used from the file. For example, in *src/List.js* file:
+Move every component from the *src/App.jsx* file in its own file, except for the List component which has to share its place with the Item component in the *src/List.jsx* file. Then in every file make sure to import React and to export the component which needs to be used from the file. For example, in *src/List.jsx* file:
 
-{title="src/List.js",lang="javascript"}
+{title="src/List.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 import * as React from 'react';
@@ -52,9 +52,53 @@ export { List };
 # leanpub-end-insert
 ~~~~~~~
 
-Since only the List component uses the Item component, we can keep it in the same file. If this changes because the Item component is used elsewhere, we can give the Item component its own file. The SearchForm component in the *src/SearchForm.js* file must import the InputWithLabel component. Like the Item component, we could have left the InputWithLabel component next to the SearchForm; but our goal is to make InputWithLabel component reusable with other components:
+Since only the List component uses the Item component, we can keep it in the same file. If this changes because the Item component is used elsewhere, we can give the Item component its own file. Next, the InputWithLabel component gets its dedicated file too:
 
-{title="src/SearchForm.js",lang="javascript"}
+{title="src/InputWithLabel.jsx",lang="javascript"}
+~~~~~~~
+# leanpub-start-insert
+import * as React from 'react';
+# leanpub-end-insert
+
+const InputWithLabel = ({
+  id,
+  value,
+  type = 'text',
+  onInputChange,
+  isFocused,
+  children,
+}) => {
+  const inputRef = React.useRef();
+
+  React.useEffect(() => {
+    if (isFocused && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isFocused]);
+
+  return (
+    <>
+      <label htmlFor={id}>{children}</label>
+      &nbsp;
+      <input
+        ref={inputRef}
+        id={id}
+        type={type}
+        value={value}
+        onChange={onInputChange}
+      />
+    </>
+  );
+};
+
+# leanpub-start-insert
+export { InputWithLabel };
+# leanpub-end-insert
+~~~~~~~
+
+The SearchForm component in the *src/SearchForm.jsx* file must import the InputWithLabel component. Like the Item component, we could have left the InputWithLabel component next to the SearchForm; but our goal is to make InputWithLabel component reusable with other components:
+
+{title="src/SearchForm.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 import * as React from 'react';
@@ -92,7 +136,7 @@ export { SearchForm };
 
 The App component has to import all the components it needs to render. It doesn't need to import InputWithLabel, because it's only used for the SearchForm component.
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 import * as React from 'react';
 import axios from 'axios';
@@ -116,19 +160,19 @@ Components that are used in other components now have their own file. If a compo
 {title="Project Structure",lang="text"}
 ~~~~~~~
 - List/
--- index.js
+-- index.jsx
 - SearchForm/
--- index.js
+-- index.jsx
 - InputWithLabel/
--- index.js
+-- index.jsx
 ~~~~~~~
 
-The *index.js* file holds the implementation details for the component, while other files in the same folder have different responsibilities like styling, testing, and types:
+The *index.jsx* file holds the implementation details for the component, while other files in the same folder have different responsibilities like styling, testing, and types:
 
 {title="Project Structure",lang="text"}
 ~~~~~~~
 - List/
--- index.js
+-- index.jsx
 -- style.css
 -- test.js
 -- types.js
@@ -139,7 +183,7 @@ If using CSS-in-JS, where no CSS file is needed, one could still have a separate
 {title="Project Structure",lang="text"}
 ~~~~~~~
 - List/
--- index.js
+-- index.jsx
 # leanpub-start-insert
 -- style.js
 # leanpub-end-insert
@@ -151,11 +195,11 @@ Sometimes we'll need to move from a **technical-oriented folder structure** to a
 
 {title="Project Structure",lang="text"}
 ~~~~~~~
-- Messages.js
-- Users.js
+- Messages.jsx
+- Users.jsx
 - shared/
--- Button.js
--- Input.js
+-- Button.jsx
+-- Input.jsx
 ~~~~~~~
 
 If you scale this to the deeper level folder structure, each component will have its own folder in a domain-oriented project structure as well:
@@ -163,23 +207,23 @@ If you scale this to the deeper level folder structure, each component will have
 {title="Project Structure",lang="text"}
 ~~~~~~~
 - Messages/
--- index.js
+-- index.jsx
 -- style.css
 -- test.js
 -- types.js
 - Users/
--- index.js
+-- index.jsx
 -- style.css
 -- test.js
 -- types.js
 - shared/
 -- Button/
---- index.js
+--- index.jsx
 --- style.css
 --- test.js
 --- types.js
 -- Input/
---- index.js
+--- index.jsx
 --- style.css
 --- test.js
 --- types.js
@@ -189,9 +233,8 @@ There are many ways on how to structure your React project from small to large p
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/2XxzDcG).
-  * Confirm the [changes](https://bit.ly/3DW8109).
-* Read more about [JavaScript's import and export statements](https://www.robinwieruch.de/javascript-import-export/).
+* Compare your source code against the author's [source code](https://bit.ly/3Sodk0k).
+  * Recap all the [source code changes from this section](https://bit.ly/3Sj7L2Z).
 * Read more about [React Folder Structures](https://www.robinwieruch.de/react-folder-structure/).
-* Keep the current folder structure if you feel confident. The ongoing sections will omit it, only using the *src/App.js* file.
+* Keep the current folder structure if you feel confident. The ongoing sections will omit it, only using the *src/App.jsx* file.
 * Optional: [Leave feedback for this section](https://forms.gle/yLzszsmtdB1DQBCe7).

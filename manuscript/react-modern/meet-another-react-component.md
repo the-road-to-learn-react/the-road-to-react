@@ -2,7 +2,7 @@
 
 Components are the foundation of every React application. With a growing React project, you will get more and more components to manage. Each component encapsulates functionalities (e.g. rendering a list of items). So far we've only been using the App component. This will not end up well, because components should scale with your application's size. So instead of making one component larger and more complex over time, we'll split one component into multiple components eventually. Therefore, we'll start with a new List component which extracts functionalities from the App component:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const list = [ ... ];
 
@@ -32,7 +32,7 @@ function List() {
 
 Then the new List component can be used in the App component where we have been using the inlined HTML elements previously:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 function App() {
   return (
@@ -54,7 +54,7 @@ function App() {
 
 You've just created your first React component. With this example in mind, we can see how components encapsulate meaningful tasks while contributing to the greater good of a larger React project. Extracting a component is a task that you will perform very often as a React developer, because it's always the case that a component will grow in size and complexity. Go ahead and extract the label and input elements from the App component into their own Search component. The following code snippet shows how the book would solve this task:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 function App() {
   return (
@@ -94,7 +94,8 @@ You can see how a React application grows in size by creating more components wh
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3plb66a).
-  * Confirm the [changes](https://bit.ly/3G61kKU).
+* Compare your source code against the author's [source code](https://bit.ly/3R0Aw35).
+  * Recap all the [source code changes from this section](https://bit.ly/3f5pTi7).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3RlJKXM).
 * We can't extract an Item component from the List component (like in the illustration) yet, because we don't know how to pass individual items from the list to each Item component. Think about a way to do it.
 * Optional: [Leave feedback for this section](https://forms.gle/EZENmy48zvDP82NL7).

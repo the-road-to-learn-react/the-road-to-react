@@ -4,7 +4,7 @@ We have two interactions in our application: searching the list and removing ite
 
 Usually, data from a remote backend/database arrives asynchronously for client-side applications like React. Thus it's often the case that we must render a component before we can initiate the data fetching. In the following, we will start by simulating this kind of asynchronous data with our sample data in the application. Later, we will replace the sample data with real data fetched from a real remote API. We start off with a function that returns a promise with data in its shorthand version once it resolves. The resolved object holds the previous list of stories:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const initialStories = [ ... ];
 
@@ -16,7 +16,7 @@ const getAsyncStories = () =>
 
 In the App component, instead of using the `initialStories`, use an empty array for the initial state. We want to start off with an empty list of stories and simulate fetching these stories asynchronously. In a new `useEffect` hook, call the function and resolve the returned promise as a side-effect. Due to the empty dependency array, the side-effect only runs once the component renders for the first time:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -39,7 +39,7 @@ const App = () => {
 
 Even though the data should arrive asynchronously when we start the application, it appears to arrive synchronously, because it's rendered immediately. Let's change this by giving it a bit of a realistic delay, because every network request to a remote API would come with a delay. First, remove the shorthand version for the promise:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const getAsyncStories = () =>
 # leanpub-start-insert
@@ -51,7 +51,7 @@ const getAsyncStories = () =>
 
 And second, when resolving the promise, delay it for 2 seconds:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const getAsyncStories = () =>
   new Promise((resolve) =>
@@ -70,8 +70,9 @@ This section was only the first stepping stone to asynchronous data in React. In
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3vu6kEb).
-  * Confirm the [changes](https://bit.ly/3B0p7rQ).
+* Compare your source code against the author's [source code](https://bit.ly/3R2obLU).
+  * Recap all the [source code changes from this section](https://bit.ly/3QXCOjq).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3BNW79l).
 * Optional: Read more about [JavaScript Promises](https://mzl.la/3aTGuQz).
 * Read more about [faking a remote API with JavaScript](https://www.robinwieruch.de/javascript-fake-api/).
   * Read more about [using mock data in React](https://www.robinwieruch.de/react-mock-data/).

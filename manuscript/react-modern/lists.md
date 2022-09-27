@@ -16,7 +16,7 @@ console.log(exponentialNumbers);
 
 In React, the array's built-in `map()` method is used to transform a list of items into JSX by returning JSX for each item. In the following, we want to display a list of items (here: JavaScript objects) in React. First, we will define the array outside of the component. Afterward, try yourself to render each object with its `title` property in React by inlining the array's `map()` method in JSX:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 import * as React from 'react';
 
@@ -56,7 +56,7 @@ Each item in the list has a `title`, an `url`, an `author`, an identifier (`obje
 
 Next, we'll render the list inlined in JSX with the array's built-in `map()` method. Hence we won't map from one JavaScript data type to another, but instead return JSX that renders each item of the list:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 function App() {
   return (
@@ -90,7 +90,7 @@ Actually, rendering a list of items in React was one of my personal JSX "Aha" mo
 
 Finally React displays each item now. But there is one important piece missing. If you check your browser's developer tools, you should see a warning showing up in the "Console"-tab which says that every React element in a list should have a key assigned to it. The `key` is an HTML attribute and should be a stable identifier. Fortunately, our items come with such a stable identifier, because they have an `id` (here: `objectId`):
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 function App() {
   return (
@@ -113,7 +113,7 @@ The `key` attribute is used for one specific reason: Whenever React has to re-re
 
 ![](images/react-keys-performance.png)
 
-The key is not difficult to find, because usually when having data in shape of an array, we can use each item's stable identifier. However, sometimes you do not have an `id`, so you need to come up with another identifier (e.g. `title` if it does not change and if it's unique in the array). As last resort, you can use the index of the item in the list too:
+The key is not difficult to find, because usually when having data in shape of an array, we can use each item's stable identifier (e.g. `id` property). However, sometimes you do not have an `id`, so you need to come up with another identifier (e.g. `title` if it does not change and if it's unique in the array). As last resort, you can use the index of the item in the list too:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -133,9 +133,9 @@ The key is not difficult to find, because usually when having data in shape of a
 
 Usually using an index should be avoided though, because it comes with the same rendering performance issues from above. In addition, it can [cause actual bugs in the UI](https://www.robinwieruch.de/react-list-key/) whenever the order of items got changed (e.g. re-ordering, appending or removing items). However, as last resort, if the list does not change its order in any way, using the index is fine.
 
-So far, we are only displaying the `title` of each item. Go ahead and render the item's `url`, `author`, `num_comments`, and `points` as well. In the special case of the `url`, use an HTML anchor element (read: `<a>` tag) that surrounds the `title`. For guidance, the following solution will show you how the book implements this to be prepared for the next sections:
+So far, we are only displaying the `title` of each item. Go ahead and render the item's `url`, `author`, `num_comments`, and `points` as well. In the special case of the `url`, use an HTML anchor HTML element (read: `<a>` tag) that surrounds the `title`. For guidance, the following solution will show you how the book implements this to be prepared for the next sections:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 function App() {
   return (
@@ -163,13 +163,14 @@ function App() {
 }
 ~~~~~~~
 
-The array's `map()` method is inlined concisely in your JSX for rendering a list. Within the `map()` method, we have access to each object and its properties. The `url` property of each item is used as `href` attribute for the HTML anchor element. Not only can JavaScript in JSX be used to display elements, but also to assign HTML attributes dynamically. This section only scratches the surface of how powerful it is to mix JavaScript and HTML, however, using an array's `map()` method and assigning HTML attributes should give you a good first impression.
+The array's `map()` method is inlined concisely in your JSX for rendering a list. Within the `map()` method, we have access to each object and its properties. The `url` property of each item is used as `href` attribute for the anchor HTML element. Not only can JavaScript in JSX be used to display elements, but also to assign HTML attributes dynamically. This section only scratches the surface of how powerful it is to mix JavaScript and HTML, however, using an array's `map()` method and assigning HTML attributes should give you a good first impression.
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/2Z6e2ZI).
-  * Confirm the [changes](https://bit.ly/3jf7a2Q).
-* Recap the [standard built-in array methods](https://mzl.la/3b9V9rf), especially *map*, *filter*, and *reduce*, which are available in native JavaScript.
+* Compare your source code against the author's [source code](https://bit.ly/3ByuIYR).
+  * Recap all the [source code changes from this section](https://bit.ly/3BVF1Yu).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SEnv0u).
+* Recap the [standard built-in array methods](https://mzl.la/3b9V9rf), especially *map*, *filter*, and *reduce*, which are available in JavaScript.
 * Question: What happens if you return `null` instead of the JSX?
   * Answer: Returning `null` in JSX is allowed. It's always used if you want to render nothing.
 * Extend the list with some more items to make the example more realistic.

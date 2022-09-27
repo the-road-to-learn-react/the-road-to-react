@@ -12,17 +12,25 @@ While this section will teach you about inline handlers as new fundamental build
 
 Now we want to check out how to implement this feature step by step. At the moment, the list of items (here: `stories`) that we have in our App component is an unstateful variable. We can filter the rendered list with the search feature, but the list itself stays intact. The filtered list is just a derived state through a third-party (here: `searchTerm`), but we do not manipulate the actual list yet. To gain control over the list, make it stateful by using it as initial state in React's useState Hook. The returned values from the array are the current state (`stories`) and the state updater function (`setStories`):
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const initialStories = [
   {
     title: 'React',
-    ...
+    url: 'https://reactjs.org/',
+    author: 'Jordan Walke',
+    num_comments: 3,
+    points: 4,
+    objectID: 0,
   },
   {
     title: 'Redux',
-    ...
+    url: 'https://redux.js.org/',
+    author: 'Dan Abramov, Andrew Clark',
+    num_comments: 2,
+    points: 5,
+    objectID: 1,
   },
 ];
 # leanpub-end-insert
@@ -42,7 +50,7 @@ const App = () => {
 
 The application behaves the same because the `stories`, now returned as a stateful list from React's `useState` Hook, are still filtered into `searchedStories` and displayed in the List component. Just the origin where the stories are coming from has changed. Next, we will write an event handler which removes an item from the list:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -81,7 +89,7 @@ The callback handler in the App component -- which will be used in the List/Item
 
 However, what's missing is how the List/Item components are using this new functionality which modifies the state in the App component. The List component itself does not use this new callback handler, but only passes it on to the Item component:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const List = ({ list, onRemoveItem }) => (
@@ -102,7 +110,7 @@ const List = ({ list, onRemoveItem }) => (
 
 Finally, the Item component uses the incoming callback handler as a function in a new handler. In this handler, we will pass the specific item to it. Moreover, an additional button element is needed to trigger the actual event:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const Item = ({ item, onRemoveItem }) => {
@@ -139,7 +147,7 @@ Let's enter the topic of inline handlers: You may have noticed that we had to in
 
 If you want to make this more elegant though, you can use an **inline handler** which allows you to execute the callback handler function in the Item component right in the JSX. There are two solutions using the incoming `onRemoveItem` function in the Item component as an inline handler. First, using JavaScript's bind method:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
   <li>
@@ -162,7 +170,7 @@ const Item = ({ item, onRemoveItem }) => (
 
 Using [JavaScript's bind method](https://mzl.la/3ncEkBu) on a function allows us to bind arguments directly to that function that should be used when executing it. The bind method returns a new function with the bound argument attached. In contrast, the second and more popular solution is to use an inline arrow function, which allows us to sneak in arguments like the `item`:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const Item = ({ item, onRemoveItem }) => (
   <li>
@@ -212,9 +220,10 @@ As a rule of thumb: It's okay to use inline handlers if they do not obscure crit
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3vrGWzb).
-  * Confirm the [changes](https://bit.ly/3jj37CR).
+* Compare your source code against the author's [source code](https://bit.ly/3DKaWfy).
+  * Recap all the [source code changes from this section](https://bit.ly/3SqUtku).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3BKP8hv).
 * Read more about how to [add](https://www.robinwieruch.de/react-add-item-to-list), [update](https://www.robinwieruch.de/react-update-item-in-list/), [remove](https://www.robinwieruch.de/react-remove-item-from-list) items in a list.
 * Read more about [computed properties in React](https://www.robinwieruch.de/react-computed-properties/).
-* Review handlers, callback handlers, and inline handlers.
+* Review [handlers, callback handlers, and inline handlers](https://www.robinwieruch.de/react-event-handler/).
 * Optional: [Leave feedback for this section](https://forms.gle/19NvNYMk2RUKTDyZ6).

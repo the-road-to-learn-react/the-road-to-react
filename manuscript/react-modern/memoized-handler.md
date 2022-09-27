@@ -4,7 +4,7 @@ Functions that are defined in a React components are most of the time event hand
 
 We will refactor the code upfront to use a memoized function and provide the explanations afterward. The refactoring consists of moving all the data fetching logic from the side-effect into a arrow function expression (A), wrapping this new function into React's `useCallback` hook (B), and invoking it in the `useEffect` hook (C):
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -72,7 +72,8 @@ By moving the data fetching function outside the React's useEffect Hook, it beco
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3aSpb2v).
-  * Confirm the [changes](https://bit.ly/3G4vkGX).
+* Compare your source code against the author's [source code](https://bit.ly/3St2K7T).
+  * Recap all the [source code changes from this section](https://bit.ly/3DIE4Uu).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3BShUNj).
 * Read more about [React's useCallback Hook](https://www.robinwieruch.de/react-usecallback-hook/).
 * Optional: [Leave feedback for this section](https://forms.gle/HSX9aurgsf5j76HR9).

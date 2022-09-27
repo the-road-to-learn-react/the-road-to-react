@@ -6,7 +6,7 @@ At the moment, whenever you search for a term in our application you will get th
 
 Let's implement this feature by using a side-effect to store the recent search from the browser's local storage and retrieve it upon the initial component initialization. First, use the local storage to store the `searchTerm` accompanied by an identifier whenever a user types into the HTML input field:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -25,7 +25,7 @@ const App = () => {
 
 Second, use the stored value, if a value exists, to set the initial state of the `searchTerm` in React's useState Hook. Otherwise, default to our initial state (here: "React") as before:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -58,9 +58,9 @@ const initialState = hasStored
 
 When using the input field and refreshing the browser tab, the browser should remember the latest search term now. Essentially we synchronized the browser's local storage with React's state: While we initialize the state with the browser's local storage's value (or a fallback), we write the new value  when the handler is called to the browser's storage and the component's state.
 
-The feature is complete, but there is one flaw that may introduce bugs in the long run: The handler function should mostly be concerned with updating the state, but it has a side-effect now. The flaw: If we use the `setSearchTerm` state updater function somewhere elsewhere in our application, we break the feature because the local storage doesn't get updated. Let's fix this by handling the side-effect at a centralized place and not in a specific handler. We'll use **React's useEffect Hook** to trigger the desired side-effect each time the `searchTerm` changes:
+The feature is complete, but there is one flaw that may introduce bugs in the long run: The handler function should mostly be concerned with updating the state, but it has a side-effect now. The flaw: If we use the `setSearchTerm` state updater function somewhere else in our application, we break the feature because the local storage doesn't get updated. Let's fix this by handling the side-effect at a centralized place and not in a specific handler. We'll use **React's useEffect Hook** to trigger the desired side-effect each time the `searchTerm` changes:
 
-{title="src/App.js",lang="javascript"}
+{title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 const App = () => {
   ...
@@ -93,8 +93,9 @@ In conclusion, using React `useEffect` Hook instead of managing the side-effect 
 
 ### Exercises:
 
-* Confirm your [source code](https://bit.ly/3jj9TbC).
-  * Confirm the [changes](https://bit.ly/3E12iGK).
+* Compare your source code against the author's [source code](https://bit.ly/3LvTSvT).
+  * Recap all the [source code changes from this section](https://bit.ly/3BEcchA).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3DXpQzt).
 * Read more about [React's useEffect Hook](https://www.robinwieruch.de/react-useeffect-hook/).
   * Give the first argument's function a `console.log()` and experiment with React's useEffect Hook's dependency array. Check the logs for an empty dependency array too.
 * Read more about [using local storage with React](https://www.robinwieruch.de/local-storage-react/).
