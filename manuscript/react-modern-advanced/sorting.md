@@ -21,7 +21,7 @@ Okay, let's tackle this task! We will treat the list of data like a table. Each 
 ~~~~~~~
 const List = ({ list, onRemoveItem }) => (
   <ul>
-  # leanpub-start-insert
+# leanpub-start-insert
     <li style={{ display: 'flex' }}>
       <span style={{ width: '40%' }}>Title</span>
       <span style={{ width: '30%' }}>Author</span>
