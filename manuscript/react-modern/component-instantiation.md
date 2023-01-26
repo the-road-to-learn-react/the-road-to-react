@@ -38,7 +38,7 @@ console.log(dennis.getName());
 // "Dennis Wieruch"
 ~~~~~~~
 
-The concept of a class with declaration and instantiation is similar to a React component, which also has only *one* component declaration, but can have *multiple* component instances:
+The concept of a JavaScript class with declaration and instantiation is similar to a React component, which also has only *one* component declaration, but can have *multiple* component instances:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
