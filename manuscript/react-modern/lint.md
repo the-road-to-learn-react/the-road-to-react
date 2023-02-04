@@ -4,7 +4,7 @@ Linting is a process in programming where code is analyzed for potential errors,
 
 [ESLint](http://bit.ly/3HAHuJg) is a popular linting tool for JavaScript. It allows developers to define a set of rules for their code, including coding style and syntax, and then checks the code against those rules. ESLint is highly configurable, with a large number of rules and plugins available, making it a versatile tool for any JavaScript project. It can be integrated into an IDE/editor or run as part of a build process, making it easy to use and a popular choice for many JavaScript developers.
 
-We will make the case for using linting (general programming concept) with ESLint (JavaScript tool for linting) in this section, because it catches errors early. In your file for the App component, adjust the JSX with an inlined `"Hello World"` without using the `title` variable anymore:
+We will make the case for using linting (as general programming concept) with ESLint (JavaScript tool for linting) in this section, because it catches errors early. In your file for the App component, adjust the JSX with an inlined `"Hello World"` without using the `title` variable anymore:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
