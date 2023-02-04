@@ -27,3 +27,7 @@ npm --version
 ~~~~~~~
 
 If you have already installed Node and npm, make sure that your installation is the most recent version. If you're new to npm or need a refresher, this [npm crash course](https://www.robinwieruch.de/npm-crash-course/) I created will get you up to speed.
+
+### Exercises:
+
+* Read more about [yarn](https://yarnpkg.com/) and [pnpm](https://pnpm.io/). Both can be used as replacement for npm. However, I do not recommend using them as a beginner. This exercise should only make sure that you know about your options.

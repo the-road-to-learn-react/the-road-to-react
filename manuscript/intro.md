@@ -14,7 +14,7 @@ Currently, I am a self-employed developer helping companies in creating their MV
 
 **How to get updates?**
 
-I have two channels where I share updates about my content. You can [subscribe to updates by email](https://www.getrevue.co/profile/rwieruch) or [follow me on Twitter](https://twitter.com/rwieruch). Regardless of the channel, my objective is to only share quality content. Once you receive a notification about an update, you can download a new version of the book from my website.
+I have two channels where I share updates about my content. You can [subscribe to updates by email](https://rwieruch.substack.com/) or [follow me on Twitter](https://twitter.com/rwieruch). Regardless of the channel, my objective is to only share quality content. Once you receive a notification about an update, you can download a new version of the book from my website.
 
 **Is the learning material up-to-date?**
 

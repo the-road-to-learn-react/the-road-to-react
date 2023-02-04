@@ -26,7 +26,7 @@ If you're looking for extensions for your application, I recommend several learn
 
 * **React Native:** [React Native](https://facebook.github.io/react-native/) brings your application to mobile devices like iOS and Android. Once you've mastered React, the learning curve for React Native shouldn't be that steep, as they share the same principles. The only difference with mobile devices are the layout components, the build tools, and the APIs of your mobile device.
 
-I invite you to visit my [website](https://www.robinwieruch.de) to find more interesting topics about web development and software engineering. You can also [subscribe to my Newsletter](https://www.getrevue.co/profile/rwieruch) or [Twitter page](https://twitter.com/rwieruch) to get updates about articles, books, and courses. If you have only the book and want to extend it to the course, check out the official [course website](https://www.roadtoreact.com/).
+I invite you to visit my [website](https://www.robinwieruch.de) to find more interesting topics about web development and software engineering. You can also [subscribe to my Newsletter](https://rwieruch.substack.com/) or [Twitter page](https://twitter.com/rwieruch) to get updates about articles, books, and courses. If you have only the book and want to extend it to the course, check out the official [course website](https://www.roadtoreact.com/).
 
 Thank you for reading the Road to React.
 
