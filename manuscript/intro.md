@@ -6,7 +6,7 @@ The Road to React teaches the fundamentals of React. You will build a real-world
 
 I am a German software and web developer dedicated to learning and teaching JavaScript. After obtaining my Master's Degree in computer science, I gained experience from the startup world where I used JavaScript intensively during both my professional life and spare time. For a few years, I worked closely with an exceptional team of engineers at a company in Berlin, developing large-scale JavaScript applications, which eventually led to a desire to teach others about these topics.
 
-During my time as a developer in Berlin, I regularly wrote articles about web development on my website. I received great feedback from people learning from my articles which allowed me to improve my writing and teaching style. Article after article, I grew my ability to teach others. I find it it fulfilling to see students strive by giving them clear objectives and short feedback loops.
+During my time as a developer in Berlin, I regularly wrote articles about web development on my website. I received great feedback from people learning from my articles which allowed me to improve my writing and teaching style. Article after article, I grew my ability to teach others. I find it fulfilling to see students strive by giving them clear objectives and short feedback loops.
 
 Currently, I am a self-employed developer helping companies in creating their MVPs, conducting workshops and code audits/reviews, and creating large-scale JavaScript applications. You can find more information about me, ways to support me, and how to work with me on my [website](https://www.robinwieruch.de/about/).
 
