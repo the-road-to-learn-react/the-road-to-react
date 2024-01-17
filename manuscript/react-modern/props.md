@@ -1,8 +1,8 @@
 ## React Props
 
-Currently we are using the `list` as a global variable in our project. At the beginning, we used it directly from the global scope in the App component and later in the List component. This could work if you only had one global variable, but it isn't maintainable with multiple variables across multiple components (within multiple folders/files). By using so-called props in React, we can pass variables as information from one component to another component. Let's explore how this works.
+Currently we are using the `list` as a global variable in our project. At the beginning, we used it directly from the global scope in the App component and later in the List component. This could work if you only had one global variable and only one file with all of the components, but it isn't maintainable with multiple variables across multiple components (within multiple folders/files). By using so-called props in React, we can pass variables as information from one component to another component even though these components are not placed in the same file at some point. Let's explore how this works.
 
-Before using props for the first time, we'll move the `list` from the global scope into the App component and give it a self-descriptive name. Don't forget to refactor the App component's function from concise to block body in order to declare the `list` prior to the return statement:
+Before using props for the first time, we'll move the `list` from the global scope into the App component and give it a more self-descriptive name. Don't forget to refactor the App component's function from concise to block body in order to declare the `list` prior to the return statement:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -13,13 +13,17 @@ const App = () => {
       title: 'React',
       url: 'https://reactjs.org/',
       author: 'Jordan Walke',
-      ...
+      num_comments: 3,
+      points: 4,
+      objectID: 0,
     },
     {
       title: 'Redux',
       url: 'https://redux.js.org/',
       author: 'Dan Abramov, Andrew Clark',
-      ...
+      num_comments: 2,
+      points: 5,
+      objectID: 1,
     },
   ];
 
@@ -28,7 +32,7 @@ const App = () => {
 # leanpub-end-insert
 ~~~~~~~
 
-Next, we'll use **React props** to pass the list of items to the List component. The variable is called `stories` in the App component and we pass it under this name to the List component. However, in the List component's instantiation, it is assigned to the `list` HTML attribute:
+Next, we'll use **React props** to pass the list of items to the List component. The variable is called `stories` in the App component and we pass it under this name to the List component. However, in the List component's instantiation, it is assigned to a new `list` HTML attribute:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -68,7 +72,17 @@ const List = (props) => (
 
 Everything that we pass from a parent component to a child component via the component element's HTML attribute can be accessed in the child component. The child component receives a parameter (`props`) as object in its function signature which includes all the passed attributes as properties (short: props).
 
-Note that at this point, we could also define `stories` directly in the List component and would not need to pass them as props from the App component; however, in the future we will make use of the `stories` in the App component and thus will keep them there. In addition, this was a great learning exercise to get to know props in React.
+A point to consider regarding ESLint: you might encounter an error stating, "error 'list' is missing in props validation." In an ideal scenario where React is used without TypeScript, a solution would be to incorporate [prop-types](https://bit.ly/48Tbn3F) to provide your component with better insights into the props it receives. However, it's worth mentioning that while prop-types serve the same purpose as TypeScript, they are considered less robust. If achieving this goal is a prerequisite for your project, it is recommended to embrace TypeScript in your React development. In cases where JavaScript is the exclusive choice, my suggestion is to disable this specific ESLint rule in your configuration file to resolve the issue.
+
+{title=".eslintrc.cjs",lang="javascript"}
+~~~~~~~
+rules: {
+    ...
+# leanpub-start-insert
+    'react/prop-types': 'off',
+# leanpub-end-insert
+  },
+~~~~~~~
 
 Another use case for React props is the List component and its potential child component. Previously, we couldn't extract an Item component from the List component, because we didn't know how to pass each item to the extracted Item component. With this new knowledge about React props, we can perform the component extraction and pass each item along to the List component's new child component.
 
@@ -100,12 +114,25 @@ const Item = (props) => (
 # leanpub-end-insert
 ~~~~~~~
 
+Don't forget the `key` attribute which we introduced in an earlier section. When working with lists in JSX within a React application, it is essential to remember the significance of the key attribute. As previously discussed in a dedicated section, the key attribute plays a crucial role in the efficient rendering and updating of items within a list. By assigning a unique key to each list item, React can accurately track and manage the elements.
+
 At the end, you should see the list rendering again. The most important fact about props: it's not allowed to change them, because they should be treated as an immutable data structure. They are only used to pass information *down* the component hierarchy. Continuing this thought, information (props) *can only* be passed from a parent to a child component and not vice versa. We will learn how to overcome this limitation later. For now, we have found our vehicle to share information from top to bottom in a React component tree.
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3BZnazZ).
-  * Recap all the [source code changes from this section](https://bit.ly/3DYIiI3).
+* Compare your source code against the author's [source code](https://bit.ly/48XUAfE).
+  * Recap all the [source code changes from this section](https://bit.ly/421fKaA).
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3DSLIvL).
 * Read more about [how to use props in React](https://www.robinwieruch.de/react-pass-props-to-component/).
 * Optional: [Leave feedback for this section](https://forms.gle/APwaUSAuVAAA56sY6).
+
+### Interview Questions:
+
+* Question: What are props in React?
+  * Answer: Props (short for properties) are a mechanism for passing data from a parent component to a child component.
+* Question: How do you pass props to a component in JSX?
+  * Answer: Include them as attributes, like `<MyComponent prop1={value1} prop2={value2} />`.
+* Question: How do you access props in a function component?
+  * Answer: Use the function parameters to access props, like function `MyComponent(props) {...}`.
+* Question: Can you modify the value of props inside a component?
+  * Answer: No, props are immutable. They should be treated as read-only.
