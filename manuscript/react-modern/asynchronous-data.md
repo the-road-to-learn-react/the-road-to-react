@@ -72,7 +72,7 @@ This section was only the first stepping stone to asynchronous data in React. In
 
 * Compare your source code against the author's [source code](https://bit.ly/3R2obLU).
   * Recap all the [source code changes from this section](https://bit.ly/3QXCOjq).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3BNW79l).
+  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3BNW79l).
 * Optional: Read more about [JavaScript Promises](https://mzl.la/3aTGuQz).
 * Read more about [faking a remote API with JavaScript](https://www.robinwieruch.de/javascript-fake-api/).
   * Read more about [using mock data in React](https://www.robinwieruch.de/react-mock-data/).

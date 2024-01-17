@@ -106,6 +106,6 @@ At the end, you should see the list rendering again. The most important fact abo
 
 * Compare your source code against the author's [source code](https://bit.ly/3BZnazZ).
   * Recap all the [source code changes from this section](https://bit.ly/3DYIiI3).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3DSLIvL).
+  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3DSLIvL).
 * Read more about [how to use props in React](https://www.robinwieruch.de/react-pass-props-to-component/).
 * Optional: [Leave feedback for this section](https://forms.gle/APwaUSAuVAAA56sY6).

@@ -114,5 +114,5 @@ Caveat: Re-fetching data each time someone types into the input field isn't opti
 
 * Compare your source code against the author's [source code](https://bit.ly/3DJRZd3).
   * Recap all the [source code changes from this section](https://bit.ly/3S2P1og).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3C9TFvb).
+  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3C9TFvb).
 * Optional: [Leave feedback for this section](https://forms.gle/ywE4bFy6D2HSG8Rd7).

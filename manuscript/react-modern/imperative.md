@@ -182,7 +182,7 @@ Essentially that's the whole example of how to move from declarative to imperati
 
 * Compare your source code against the author's [source code](https://bit.ly/3dx5KRA).
   * Recap all the [source code changes from this section](https://bit.ly/3S4mq25).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3fpKxJR).
+  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3fpKxJR).
 * Read more about [refs in React](https://www.robinwieruch.de/react-ref/) and optionally check out the following tutorials which are using refs:
   * [Create a Slider component with a ref](https://www.robinwieruch.de/react-slider/)
   * [Create an image from a React component with a ref](https://www.robinwieruch.de/react-component-to-image/)

@@ -75,7 +75,7 @@ When the UI is rendered for the first time, every rendered component's `useState
 
 * Compare your source code against the author's [source code](https://bit.ly/3R07WyW).
   * Recap all the [source code changes from this section](https://bit.ly/3f7mpMe).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SwxFQu).
+  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3SwxFQu).
 * Optional: Read more about [JavaScript array destructuring](https://mzl.la/3ncC7WI).
 * Read more about [React's useState Hook](https://www.robinwieruch.de/react-usestate-hook/).
 * Optional: [Leave feedback for this section](https://forms.gle/ZJNbQqq3Lw3RiD4H9).

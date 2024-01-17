@@ -377,7 +377,7 @@ Rules of thumb:
 
 * Compare your source code against the author's [source code](https://bit.ly/3dAh1kg).
   * Recap all the [source code changes from this section](https://bit.ly/3SkjoGA).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3Ee9pyX).
+  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3Ee9pyX).
 * Read more about [how to use props in React](https://www.robinwieruch.de/react-pass-props-to-component/).
 * Optional: Read more about [JavaScript's destructuring assignment](https://mzl.la/30KbXTC).
 * Question: Why is array destructuring used for React Hooks like `useState` and object destructuring for props?

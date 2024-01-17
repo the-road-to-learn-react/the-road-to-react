@@ -134,6 +134,6 @@ On your journey as a React developer, and in this learning experience, you will 
 ### Exercises:
 
 * Compare your source code against the author's [source code](https://bit.ly/490FAxX).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3RhDTm8).
+  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3RhDTm8).
 * Think about ways to display the `title` variable in your App component's returned HTML. In the next section, we'll put this variable to use.
 * Optional: [Leave feedback for this section](https://forms.gle/VYiZqqjzXGE11wCv6).

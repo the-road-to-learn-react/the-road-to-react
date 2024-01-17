@@ -89,7 +89,7 @@ It's always a trade-off between generalization and specialization of components.
 
 * Compare your source code against the author's [source code](https://bit.ly/3dCtfJe).
   * Recap all the [source code changes from this section](https://bit.ly/3S9O8KH).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3Ce3312).
+  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3Ce3312).
 * Read more about [Reusable React Components](https://www.robinwieruch.de/react-reusable-components/) and build some of these components yourself:
   * [Button in React](https://www.robinwieruch.de/react-button/)
   * [Radio Button in React](https://www.robinwieruch.de/react-radio-button/)

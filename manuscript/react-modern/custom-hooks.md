@@ -142,6 +142,6 @@ You've just created your first custom hook. If you're not comfortable with custo
 
 * Compare your source code against the author's [source code](https://bit.ly/3fcvkMp).
   * Recap all the [source code changes from this section](https://bit.ly/3UnqBr8).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SD7dok).
+  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3SD7dok).
 * Read more about [React Hooks](https://www.robinwieruch.de/react-hooks/) and [custom React Hooks](https://www.robinwieruch.de/react-custom-hook/) to get a good understanding of them, because they are the bread and butter in React function components.
 * Optional: [Leave feedback for this section](https://forms.gle/5seN1Rv3ZwXmWmDR9).

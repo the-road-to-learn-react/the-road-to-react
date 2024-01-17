@@ -87,7 +87,7 @@ Both elements in the Search component - input field and label - should be still 
 
 * Compare your source code against the author's [source code](https://bit.ly/3faQJVY).
   * Recap all the [source code changes from this section](https://bit.ly/3BCwyb4).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SfRv2B).
+  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3SfRv2B).
 * Question: Can JSX elements have multiple root elements?
   * Answer: No, JSX elements must have a single root element. You can wrap them in a parent container.
 * Optional: [Leave feedback for this section](https://forms.gle/kNpEySPZzckNe6f96).

@@ -167,7 +167,7 @@ The array's `map()` method is inlined concisely in your JSX for rendering a list
 
 * Compare your source code against the author's [source code](https://bit.ly/48YGefo).
   * Recap all the [source code changes from this section](https://bit.ly/3O1N0ZK).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SEnv0u).
+  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3SEnv0u).
 * Recap the [standard built-in array methods](https://mzl.la/3b9V9rf), especially *map*, *filter*, and *reduce*, which are available in JavaScript.
 * Extend the list with some more items to make the example more realistic.
 * Practice using different JavaScript expressions in JSX.

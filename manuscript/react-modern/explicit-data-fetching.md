@@ -124,7 +124,7 @@ Before the `searchTerm` was used for two cases: updating the input field's state
 
 * Compare your source code against the author's [source code](https://bit.ly/3SkBAjX).
   * Recap all the [source code changes from this section](https://bit.ly/3qVR29V).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3Cf3ND9).
+  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3Cf3ND9).
 * Question: Why is `useState` instead of `useStorageState` used for the `url` state management?
   * Answer: We do not want to remember the `url` in the browser's local storage, because it's already derived from a static string (here: `API_ENDPOINT`) and the `searchTerm` which already comes from the browser's local storage.
 * Question: Why is there no check for an empty `searchTerm` in the `handleFetchStories` function anymore?

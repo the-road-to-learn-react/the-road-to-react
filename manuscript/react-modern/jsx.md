@@ -134,7 +134,7 @@ Initially invented for React, JSX gained popularity in other modern libraries an
 
 * Compare your source code against the author's [source code](https://bit.ly/3S51Lfu).
   * Recap all the [source code changes from this section](https://bit.ly/3vLjctL).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3LJx1Nu).
+  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3LJx1Nu).
 * Question: What is JSX in React?
   * Answer: JSX is a syntax extension for JavaScript recommended by React for describing what the UI should look like.
 * Question: Can JSX be directly rendered by browsers?

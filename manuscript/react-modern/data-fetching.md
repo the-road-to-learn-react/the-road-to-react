@@ -74,7 +74,7 @@ Check your browser to see stories related to the initial query fetched from the 
 
 * Compare your source code against the author's [source code](https://bit.ly/3DICIsS).
   * Recap all the [source code changes from this section](https://bit.ly/3R4EaJ2).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3LK6OhQ).
+  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3LK6OhQ).
 * Read through [Hacker News](https://news.ycombinator.com) and its [API](https://hn.algolia.com/api).
 * Optional: Read more about [JavaScript's Template Literals](https://mzl.la/3jlcVfn).
 * Optional: [Leave feedback for this section](https://forms.gle/hoJxjjpoZQGCS7Vp9).

@@ -155,7 +155,7 @@ Conditional rendering is not just for asynchronous data though. The simplest exa
 
 * Compare your source code against the author's [source code](https://bit.ly/3xKEdTD).
   * Recap all the [source code changes from this section](https://bit.ly/3fdJOf3).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3dQai5F).
+  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3dQai5F).
 * Read more about [conditional rendering in React](https://www.robinwieruch.de/conditional-rendering-react/).
 * Question: Why didn't we need a conditional rendering for the empty `stories` before they get fetched from the fake API?
   * Answer: The `stories` are mapped as list in the List component by using the `map()` method. When mapping over a list, the `map()` method returns for every item a modified version (in our case JSX). If there are no items in the list, the `map()` method will return nothing. Therefore we do not need a conditional rendering here.

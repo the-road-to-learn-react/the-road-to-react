@@ -65,6 +65,6 @@ The concept of the callback handler in a nutshell: We pass a function from a par
 
 * Compare your source code against the author's [source code](https://bit.ly/3BVIZjQ).
   * Recap all the [source code changes from this section](https://bit.ly/3S97S1e).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3LKjtBa).
+  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3LKjtBa).
 * Revisit the concepts of [(event) handler and callback handler](https://www.robinwieruch.de/react-event-handler/) as many times as you need.
 * Optional: [Leave feedback for this section](https://forms.gle/3LoBoWKCMNT2YpnA7).

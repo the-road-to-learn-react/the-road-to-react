@@ -68,7 +68,7 @@ After all, using async/await with try/catch over then/catch makes it often more 
 
 * Compare your source code against the author's [source code](https://bit.ly/3Slryyv).
   * Recap all the [source code changes from this section](https://bit.ly/3xIbSNE).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3UASg86).
+  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3UASg86).
 * Alternative: Check out this little [helper library](https://bit.ly/3SBwGOT) which simplifies error handling without using try/catch.
 * Read more about [data fetching in React](https://www.robinwieruch.de/react-hooks-fetch-data/).
 * Optional: [Leave feedback for this section](https://forms.gle/mtMmwrrsiwioZ8GH6).
