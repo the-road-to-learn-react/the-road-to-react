@@ -4,7 +4,7 @@ While it is not allowed to mutate React props as a developer, because they are o
 
 ![](images/react-state.png)
 
-Both concepts, props and state, have clear defined purposes: While props are used to pass information down the component hierarchy, state is used to change information over time. Let's start with state in React with the following use case: Whenever a user types text into our HTML input field element in the Search component, the user wants to see this information (state) displayed next to it. An intuitive (but not working) approach would be the following:
+Both concepts, props and state, have clear defined purposes: While props are used to pass information down the component hierarchy, state is used to modify information over time. Let's start with state in React with the following use case: Whenever a user types text into our HTML input field element in the Search component, the user wants to see this information (state) displayed next to it. An intuitive (but not working) approach would be the following:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -38,6 +38,12 @@ When you try this in the browser, you will see that the output does not appear b
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
+# leanpub-start-insert
+import * as React from 'react';
+# leanpub-end-insert
+
+...
+
 const Search = () => {
 # leanpub-start-insert
   const [searchTerm, setSearchTerm] = React.useState('');
@@ -59,7 +65,7 @@ React's `useState` method takes an *initial state* as an argument -- in our case
 
 ![](images/react-usestate.png)
 
-When the user types into the input field, the input field's change event runs into the event handler. The handler's logic uses the event's value of the target and the state updater function to set the updated state. Afterward, the component re-renders (read: the component function runs). The updated state becomes the current state (here: `searchTerm`) and is displayed in the component's JSX.
+When the user types into the input field, the input field's change event uses the event handler. The handler's logic uses the event's value of the target and the state updater function to set the new state. Afterward, the component re-renders (read: the component function runs). The updated state becomes the current state (here: `searchTerm`) and is displayed in the component's JSX.
 
 As an exercise, put a `console.log()` into each of your components. For example, the App component gets a `console.log('App renders')`, the List component gets a `console.log('List renders')` and so on. Now check your browser: For the first rendering, all loggings should appear, however, once you type into the HTML input field, only the Search component's logging should appear. React only re-renders this component (and all of its potential descendant components) after its state has changed.
 
@@ -67,15 +73,38 @@ Now you have heard the terms rendering and re-rendering in a technical context a
 
 ![](images/react-lifecycle.png)
 
-It's important to note that the `useState` function is called a **React hook**. It's only one of many hooks provided by React and this section only scratched the surface of hooks in React. You will learn more about them throughout the next sections. As for now, you should know that you can have as many `useState` hooks as you want in one or multiple components whereas state can be anything from a JavaScript string (like in this case) to a more complex data structure such as an array or object.
+It's important to note that the `useState` function is called a **React hook**. It's only one of several hooks provided by React and this section only scratched the surface of hooks in React. You will learn more about them throughout the next sections. As for now, you should know that you can have as many `useState` hooks as you want in one or multiple components whereas state can be anything from a JavaScript string (like in this case) to a more complex data structure such as an array or object.
+
+It is also important to note that you may see loggings twice in your browser's developer tools, a result of React's StrictMode (refer to the *src/main.jsx* file). StrictMode, functioning exclusively in the development environment, conducts extra checks and warnings to identify potential issues. When applied to the root component, it effectively highlights any problems that may arise. Later in production, there will be only one rendering.
 
 When the UI is rendered for the first time, every rendered component's `useState` hook gets initialized with an initial state which gets returned as current state. Whenever the UI is re-rendered because of a state change, the `useState` hook uses the most recent state from its internal [closure](https://www.robinwieruch.de/javascript-closure/). This might seem odd, as one would assume the `useState` gets declared from scratch every time a component's function runs. However, next to each component React allocates an object where information like state is stored in memory. Eventually the memory gets cleaned up once a component is not rendered anymore through JavaScript's garbage collection.
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3R07WyW).
-  * Recap all the [source code changes from this section](https://bit.ly/3f7mpMe).
+* Compare your source code against the author's [source code](https://bit.ly/3U3B799).
+  * Recap all the [source code changes from this section](https://bit.ly/3vw4M0z).
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3SwxFQu).
-* Optional: Read more about [JavaScript array destructuring](https://mzl.la/3ncC7WI).
 * Read more about [React's useState Hook](https://www.robinwieruch.de/react-usestate-hook/).
+* Optional: Read more about [JavaScript array destructuring](https://mzl.la/3ncC7WI).
 * Optional: [Leave feedback for this section](https://forms.gle/ZJNbQqq3Lw3RiD4H9).
+
+### Interview Questions:
+
+* Question: What is useState in React?
+  * Answer: useState is a React hook that allows function components to manage and update state.
+* Question: How do you use useState to declare state in a function component?
+  * Answer: `const [state, setState] = useState(initialState);`
+* Question: What triggers a re-render in React?
+  * Answer: State changes or prop updates can trigger a re-render in React.
+* Question: What is the purpose of the initial state in useState?
+  * Answer: It sets the initial value of the state variable and only applies during the first render.
+* Question: How do you update state using useState?
+  * Answer: Use the second entry returned by useState to update the state.
+* Question: Does calling setState trigger an immediate re-render?
+  * Answer: No, React batches state updates and performs re-renders asynchronously for performance reasons.
+* Question: What is the difference between using multiple useState calls and a single useState call with an object?
+  * Answer: Using multiple calls creates independent state variables, while a single call with an object allows you to manage multiple state values within one variable.
+* Question: Can you directly mutate the state variable obtained from useState?
+  * Answer: No, you should always use the setState function to update the state in a immutable way.
+* Question: Does updating state always trigger a re-render?
+  * Answer: Yes, updating state with setState triggers a re-render of the component.

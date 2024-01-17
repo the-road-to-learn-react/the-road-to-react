@@ -162,3 +162,10 @@ Conditional rendering is not just for asynchronous data though. The simplest exa
 * Question: What would happen if the initial state of `stories` would be set to `null` instead of `[]`?
   * Answer: Then we would need a conditional rendering in the List component, because calling `map()` on `null` would throw an exception.
 * Optional: [Leave feedback for this section](https://forms.gle/kHLAXtMaKsTFtWjY9).
+
+### Interview Questions:
+
+* Question: How can you conditionally render content based on state using useState?
+  * Answer: Use conditional statements (e.g., if or ternary operator) in JSX based on the state value.
+* Question: Can you use useState (or other hooks) inside conditional statements or loops?
+  * Answer: No, hooks must be used at the top level of a function component, not within conditions or loops.
