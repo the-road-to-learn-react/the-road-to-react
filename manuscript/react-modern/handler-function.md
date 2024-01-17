@@ -68,10 +68,33 @@ As you can see, HTML and JavaScript work well together in JSX. JavaScript in HTM
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3Us2EPz).
-  * Recap all the [source code changes from this section](https://bit.ly/3UuCxr6).
+* Compare your source code against the author's [source code](https://bit.ly/48VWc9R).
+  * Recap all the [source code changes from this section](https://bit.ly/424TMUo).
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3LNvo1h).
 * Read more about [React's event handler](https://www.robinwieruch.de/react-event-handler/).
   * Read more about [event capturing and bubbling in React](https://www.robinwieruch.de/react-event-bubbling-capturing/).
 * In addition to the `onChange` attribute, add a `onBlur` attribute with an event handler to your input field and verify its logging in the browser's developer tools.
 * Optional: [Leave feedback for this section](https://forms.gle/oSKyMudmb8X1iSsv8).
+
+### Interview Questions:
+
+* Question: How do you define an event handler in React?
+  * Answer: Create a function that handles the event, like `function handleClick() {...}`.
+* Question: How do you attach an event handler in JSX?
+  * Answer: Use the appropriate attribute, like `onClick={handleClick}`.
+* Question: What is the common pattern for naming event handler functions?
+  * Answer: Prefix the function name with "handle" followed by the event name, like `handleClick` for a click event.
+* Question: Can you use arrow functions directly in the JSX for event handlers?
+  * Answer: Yes, using arrow functions directly in JSX is a common pattern for concise event handlers.
+* Question: How do you pass arguments to an event handler in JSX?
+  * Answer: Use an arrow function to call the handler with arguments, like `onClick={() => handleClick(arg)}`.
+* Question: Can you reuse event handlers across multiple elements?
+  * Answer: Yes, event handlers can be reused for multiple elements with the same event type.
+* Question: What is the purpose of the e.target property in an event handler?
+  * Answer: It refers to the DOM element that triggered the event, allowing you to access its properties or manipulate it.
+* Question: How do you access the event object in an event handler?
+  * Answer: Include (event) as a parameter in the handler function, like function `handleClick(event) {...}`.
+* Question: What does `event.preventDefault()` do in an event handler?
+  * Answer: It prevents the default behavior of the event, such as submitting a form or following a link.
+* Question: What is the purpose of the e.stopPropagation() method in an event handler?
+  * Answer: It stops the event from propagating up or down the DOM tree, preventing parent or child elements from handling the same event.

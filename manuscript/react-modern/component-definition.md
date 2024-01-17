@@ -155,8 +155,11 @@ As a rule of thumb, use either function declarations or arrow function expressio
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3STeJfd).
 * Familiarize yourself with arrow functions with block body and explicit return and concise body without return (implicit return).
 * Optional: Read more about [JavaScript arrow functions](https://mzl.la/3BYCOcp).
+* Optional: [Leave feedback for this section](https://forms.gle/iWSchmqasbZUWUpT8).
+
+### Interview Questions:
+
 * Question: How do you declare a function component using a function declaration?
   * Answer: Use the function keyword, like `function MyComponent() {...}`.
 * Question: How do you declare a function component using an arrow function expression?
   * Answer: Use the arrow function syntax, like `const MyComponent = () => {...};`.
-* Optional: [Leave feedback for this section](https://forms.gle/iWSchmqasbZUWUpT8).

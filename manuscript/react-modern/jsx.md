@@ -135,6 +135,13 @@ Initially invented for React, JSX gained popularity in other modern libraries an
 * Compare your source code against the author's [source code](https://bit.ly/3S51Lfu).
   * Recap all the [source code changes from this section](https://bit.ly/3vLjctL).
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3LJx1Nu).
+* Beginner: Read more about [JavaScript Variables](https://www.robinwieruch.de/javascript-variable/).
+  * Beginner: Define more primitive and complex JavaScript data types and render them in JSX.
+  * Advanced: Try to render a JavaScript array in JSX by using the array's built-in `map()` method to return JSX for each item in the list. If it's too complicated, don't worry, because you will learn more about this in the next section.
+* Optional: [Leave feedback for this section](https://forms.gle/R6y6kEqGPACLrXmP8).
+
+### Interview Questions:
+
 * Question: What is JSX in React?
   * Answer: JSX is a syntax extension for JavaScript recommended by React for describing what the UI should look like.
 * Question: Can JSX be directly rendered by browsers?
@@ -143,7 +150,3 @@ Initially invented for React, JSX gained popularity in other modern libraries an
   * Answer: No, JSX is not mandatory, but it's a widely used and convenient way to write React components.
 * Question: How do you render a variable in JSX?
   * Answer: Use curly braces `{}` to embed variables in JSX, like `{myVariable}`.
-* Beginner: Read more about [JavaScript Variables](https://www.robinwieruch.de/javascript-variable/).
-  * Beginner: Define more primitive and complex JavaScript data types and render them in JSX.
-  * Advanced: Try to render a JavaScript array in JSX by using the array's built-in `map()` method to return JSX for each item in the list. If it's too complicated, don't worry, because you will learn more about this in the next section.
-* Optional: [Leave feedback for this section](https://forms.gle/R6y6kEqGPACLrXmP8).

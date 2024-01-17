@@ -129,7 +129,7 @@ The key is not difficult to find, because usually when having data in shape of a
 </ul>
 ~~~~~~~
 
-Usually using an index should be avoided though, because it comes with the same rendering performance issues from above. In addition, it can [cause actual bugs in the UI](https://www.robinwieruch.de/react-list-key/) whenever the order of items got changed (e.g. re-ordering, appending or removing items). However, as last resort, if the list does not change its order in any way, using the index is fine.
+Usually using an index should be avoided though, because it comes with the same rendering performance issues from above. In addition, it can [cause actual bugs in the UI](https://www.robinwieruch.de/react-list-key/) whenever the order of items changes (e.g. re-ordering, appending or removing items). However, as last resort, if the list does not change its order in any way, using the index is fine.
 
 So far, we are only displaying the `title` of each item. Go ahead and render the item's `url`, `author`, `num_comments`, and `points` as well. In the special case of the `url`, use an HTML anchor HTML element (read: `<a>` tag) that surrounds the `title`. Try it yourself! For guidance, the following solution will show you how the book implements this to be prepared for the next sections:
 
@@ -171,6 +171,10 @@ The array's `map()` method is inlined concisely in your JSX for rendering a list
 * Recap the [standard built-in array methods](https://mzl.la/3b9V9rf), especially *map*, *filter*, and *reduce*, which are available in JavaScript.
 * Extend the list with some more items to make the example more realistic.
 * Practice using different JavaScript expressions in JSX.
+* Optional: [Leave feedback for this section](https://forms.gle/aZmLFjEdSMTk9Thk9).
+
+### Interview Questions:
+
 * Question: How to render a list of items in JSX?
   * Answer: Use map() to iterate over the array and return JSX elements for each item.
 * Question: What happens if you return `null` instead of the JSX?
@@ -181,4 +185,3 @@ The array's `map()` method is inlined concisely in your JSX for rendering a list
   * Answer: Yes, you can embed HTML directly within JSX, but it's generally discouraged due to security risks. Use dangerouslySetInnerHTML cautiously.
 * Question: How do you comment in JSX?
   * Answer: Use curly braces for JavaScript comments, like `{/* Your comment here */}`.
-* Optional: [Leave feedback for this section](https://forms.gle/aZmLFjEdSMTk9Thk9).
