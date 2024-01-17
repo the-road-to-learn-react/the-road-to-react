@@ -1,13 +1,13 @@
 ## Setting up a React Project
 
-In the Road to React, we'll use [Vite](https://bit.ly/3BsG1TH) to set up our React application. Vite, a french word which translates to "quick", is a modern build tool for status quo web frameworks (e.g. React) which comes with sensible defaults (read: configuration) while staying highly extensible for specific use cases (e.g. SVG support, Lint support, TypeScript) later on. The essential core of Vite is a **development server**, which allows you to start your React application on your local machine (read: development environment), and a bundler, which outputs highly optimized files for a production-ready deployment (read: production environment). What matters for a React beginner here: getting started with React by just learning React while not getting distracted by any tooling around it. Therefore Vite is the perfect partner for learning React.
+In the Road to React, we'll use [Vite](https://bit.ly/3BsG1TH) to set up our React application. Vite, a french word which translates to "quick", is a modern build tool for status quo web frameworks (e.g. React) which comes with sensible defaults (read: configuration) while staying highly extensible for specific use cases (e.g. SVGs, Linting, TypeScript). The essential core of Vite is a **development server**, which allows you to start your React application on your local machine (read: development environment), and a bundler, which outputs highly optimized files for a production-ready deployment (read: production environment). What matters for a React beginner here: getting started with React by just learning React while not getting distracted by any tooling around it. Therefore Vite is the perfect partner for learning React.
 
-There are two ways to create your project with Vite. First, choosing an [online template](https://bit.ly/3RPAZWz), either React (recommended for this book) or React TypeScript (advanced, which means you implement the types for TypeScript yourself) for working on your project online without a local setup. Second, which is the way I would recommend, is creating a React project with Vite on your local machine for working on it in your local IDE/editor (e.g. VSCode).
+There are two ways to create your project with Vite. First, choosing an [online template](https://bit.ly/3RPAZWz), either React (recommended for this book) or React TypeScript (advanced, which means you implement the types for TypeScript yourself) for working on your project online without a local setup. Second, which is the way I would recommend, is creating a React project with Vite on your local machine for working on it in your local IDE (e.g. VSCode).
 
-Since the online template works out of the box, we will focus on the setup for your local machine in this section (recommended). In a previous section, you have installed Node and npm. The latter enables you to install third-party dependencies (read: libraries/frameworks/etc.) from the command line. So open up your command line tool and move to a folder where you want to create your React project. As a crash course for navigating on the command line:
+Since the online template works out of the box, we will focus on the setup for your local machine in this section (recommended). In a previous section, you have installed Node and npm. The latter enables you to install third-party dependencies (read: libraries, frameworks, etc.) from the command line. So open up your command line tool and move to a folder where you want to create your React project. As a crash course for navigating on the command line:
 
-* use `pwd` (Windows: `cd`) to display the current folder
-* use `ls` (Windows: `dir`) to display all folders and files in the current folder
+* use `pwd` (on Windows: `cd`) to display the current folder
+* use `ls` (on Windows: `dir`) to display all folders and files in the current folder
 * use `mkdir <folder_name>` to create a folder
 * use `cd <folder_name>` to move into a folder
 * use `cd ..` to move outside of a folder
@@ -19,7 +19,9 @@ After navigating into a folder where you want to create your React project, type
 npm create vite@latest hacker-stories -- --template react
 ~~~~~~~
 
-Optionally you can also go with a React + TypeScript project if you feel confident (check Vite's installation website to follow their instructions for a React + TypeScript project). The book comes with a TypeScript section later on, however, it will not do any hand-holding throughout the sections for transforming JavaScript into TypeScript. Next, follow the instructions given on the command line for navigating into the folder, installing all the third-party dependencies of the project, and running it locally on your machine:
+Optionally you can also go with a React + TypeScript project if you feel confident (check Vite's installation website to follow their instructions for a React + TypeScript project). The book comes with a TypeScript section later, however, it will not do any hand-holding throughout the sections for transforming JavaScript into TypeScript. Only at the end of each section you will find an alternative TypeScript implementation.
+
+Next, follow the instructions given on the command line for navigating into the folder, installing all the third-party dependencies of the project, and running it locally on your machine:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
@@ -47,10 +49,12 @@ hacker-stories/
 ----App.jsx
 ----index.css
 ----main.jsx
+--.eslintrc.cjs
 --.gitignore
 --index.html
 --package-lock.json
 --package.json
+--README.md
 --vite.config.js
 ~~~~~~~
 
@@ -66,7 +70,7 @@ This is a breakdown of the most important folders and files:
 
 In the beginning, everything you need is located in the *src/* folder. The main focus lies on the *src/App.jsx* file which is used to implement React components. It will be used to implement your application, but later you might want to split up your React components into multiple files, where each file maintains one or more components on its own. We will arrive at this point eventually.
 
-Additionally, you will find a *src/main.jsx* as an entry point to the React world. You will get to know this file intimately in later sections. There is also a *src/index.css* and a *src/App.css* file to style your overall application and components, which comes with the default style when you open them. You will modify them later as well.
+Additionally, you will find a *src/main.jsx* as an entry point to the React world. You will get to know this file in later sections. There is also a *src/index.css* and a *src/App.css* file to style your overall application and components, which comes with the default style when you open them. You will modify them later as well.
 
 ## npm Scripts
 
@@ -80,6 +84,7 @@ After you have learned about the folder and file structure of your React project
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   ...
@@ -93,11 +98,14 @@ These scripts are executed with the `npm run <script>` command in an IDE-integra
 # Runs the application locally for the browser
 npm run dev
 
+# Lint the application locally for code style errors
+npm run lint
+
 # Builds the application for production
 npm run build
 ~~~~~~~
 
-Another command from the previous npm scripts called `preview` can be used to run the production-ready build on your local machine for testing purposes. In order to make it work, you have to execute `npm run build` before running `npm run preview`. Essentially `npm run dev` and `npm run preview` (after `npm run build`) should give the identical output in the browser. However, the former is not optimized by a build for production and should exclusively be used for the local development of the application.
+Another command from the previous npm scripts called `preview` can be used to run the production-ready build on your local machine for testing purposes. In order to make it work, you have to execute `npm run build` before running `npm run preview`. Essentially `npm run dev` and `npm run preview` (after `npm run build`) should give the identical output in the browser. However, the former is not optimized for production and should exclusively be used for the local development of the application.
 
 ### Exercises:
 

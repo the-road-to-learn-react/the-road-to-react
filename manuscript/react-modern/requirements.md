@@ -1,10 +1,10 @@
 ## Requirements
 
-To follow this book, you'll need to be familiar with the basics of web development, i.e how to use HTML, CSS, and JavaScript. It also helps to understand [APIs](https://www.robinwieruch.de/what-is-an-api-javascript/), as they will be covered in this learning experience. Along with these skills, you'll need the following tools to code with me while reading this book.
+To navigate through this book, it's essential to have a foundational understanding of web development, encompassing HTML, CSS, and JavaScript. Familiarity with [APIs](https://www.robinwieruch.de/what-is-an-api-javascript/) is beneficial, as they will be discussed later. Additionally, you'll require the following coding tools to follow along with the book, complementing these skills.
 
 ### Editor and Terminal
 
-I have provided [a setup guide](https://www.robinwieruch.de/developer-setup/) to get you started with general web development. For this learning experience, you will need a text editor (e.g. Sublime Text) and a command line tool (e.g. iTerm). As an alternative, I recommend using an IDE, for example **Visual Studio Code** (also called VSCode), for beginners, as it's an all-in-one solution that provides an advanced editor with an integrated command line tool, and because it's a popular choice among web developers.
+For this learning experience, you will need a editor (e.g. Sublime Text) and a command line tool (e.g. iTerm). As an alternative, I recommend using an IDE, for example **Visual Studio Code** (also called VSCode), for beginners, as it's an all-in-one solution that provides an advanced editor with an integrated command line tool, and because it is the most popular choice among web developers. I have provided [a setup guide](https://www.robinwieruch.de/developer-setup/) to get you started with general web development. It comes with all the details and I keep it separate from the book, because it offers options for Windows and MacOS users.
 
 If you don't want to set up the editor/terminal combination or IDE on your local machine, **[CodeSandbox](https://codesandbox.io)**, an online editor, is also a viable alternative. While CodeSandbox is a great tool for sharing code online, a local machine setup is a better tool for learning the different ways to create a web application. Also, if you want to develop applications professionally, a local setup will be required.
 
@@ -30,4 +30,4 @@ If you have already installed Node and npm, make sure that your installation is 
 
 ### Exercises:
 
-* Read more about [yarn](https://yarnpkg.com/) and [pnpm](https://pnpm.io/). Both can be used as replacement for npm. However, I do not recommend using them as a beginner. This exercise should only make sure that you know about your options.
+* Optional: Read more about [yarn](https://yarnpkg.com/) and [pnpm](https://pnpm.io/). Both can be used as replacement for npm. However, I do not recommend using them as a beginner. This exercise should only make sure that you know about the alternatives.

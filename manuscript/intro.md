@@ -1,52 +1,48 @@
 # Foreword
 
-The Road to React teaches the fundamentals of React. You will build a real-world application in plain React without complicated tooling. Everything from project setup to deployment on a server will be explained to you. The book comes with additional referenced reading material and exercises with each chapter. After reading the book, you will be able to build your own applications in React. The material is kept up to date by myself and the community. In the Road to React, I offer a foundation before you dive into the broader React ecosystem. It explains general concepts, patterns, and best practices for a real-world React application. Essentially, you will learn to build your own React application from scratch, with features like pagination, client-side and server-side searching, and advanced interactions like sorting. I hope this book captures my enthusiasm for React and JavaScript, and that it helps you get started with it.
+I've been a React developer since its inception. When I first encountered it, there was an air of mystery surrounding it as it distinguished itself from its competitors by emphasizing the exclusive use of components. Over a decade later, I find myself unable to envision working with any other framework in the near future. React continues to reinvent itself while pushing other frameworks around it to evolve too. As a freelance web developer collaborating closely with companies, React is my indispensable daily companion, enhancing my productivity in every project.
+
+"The Road to React" made its debut in 2016, and since then, I've almost rewritten it annually. This book teaches the core principles of React, guiding you through building a practical application in pure React without complex tooling. The book covers everything from setting up the project to deploying it on a server. Each chapter includes additional recommended reading and exercises. By the end, you'll have the skills to develop your own React applications.
+
+In "The Road to React," I establish a solid foundation before delving into the broader React ecosystem. The book clarifies general concepts, patterns, and best practices for real-world React applications. Ultimately, you'll learn to construct a React application from scratch, incorporating features such as pagination, client-side and server-side searching, and advanced UI interactions like sorting. My aspiration is that this book conveys my passion for React and JavaScript, helping you embark on your journey with confidence.
 
 ## About the Author
 
-I am a German software and web developer dedicated to learning and teaching JavaScript. After obtaining my Master's Degree in computer science, I gained experience from the startup world where I used JavaScript intensively during both my professional life and spare time. For a few years, I worked closely with an exceptional team of engineers at a company in Berlin, developing large-scale JavaScript applications, which eventually led to a desire to teach others about these topics.
+I am a German software and web developer with a passion for learning and teaching JavaScript. Following the completion of my Master's Degree in computer science, I immersed myself in the startup world, extensively using JavaScript both professionally and in my free time. Collaborating with an exceptional team of engineers in Berlin, we developed large-scale JavaScript applications which sparked my interest in sharing this knowledge with others.
 
-During my time as a developer in Berlin, I regularly wrote articles about web development on my website. I received great feedback from people learning from my articles which allowed me to improve my writing and teaching style. Article after article, I grew my ability to teach others. I find it it fulfilling to see students strive by giving them clear objectives and short feedback loops.
+During this time, I regularly authored articles on web development for my website. Positive feedback from readers seeking to learn from my articles motivated me to refine my writing and teaching style. With each article, my ability to effectively educate others continued to grow. Witnessing students thrive by providing them with clear objectives and quick feedback loops is particularly fulfilling.
 
-Currently, I am a self-employed developer helping companies in creating their MVPs, conducting workshops and code audits/reviews, and creating large-scale JavaScript applications. You can find more information about me, ways to support me, and how to work with me on my [website](https://www.robinwieruch.de/about/).
+Presently, I operate as a self-employed web developer, closely working with companies on their products. More information about collaborating with me can be found on my [website](https://www.robinwieruch.de/).
 
 ## FAQ
 
 **How to get updates?**
 
-I have two channels where I share updates about my content. You can [subscribe to updates by email](https://rwieruch.substack.com/) or [follow me on Twitter](https://twitter.com/rwieruch). Regardless of the channel, my objective is to only share quality content. Once you receive a notification about an update, you can download a new version of the book from my website.
+Stay informed about the latest updates through two channels. You can subscribe to [email updates](https://rwieruch.substack.com/) or follow me on [Twitter](https://twitter.com/rwieruch). Regardless of the channel you choose, rest assured that I prioritize sharing only high-quality content. Upon receiving a notification about an update for the book, simply visit my website to download the latest version of the book.
 
 **Is the learning material up-to-date?**
 
-Programming books are usually outdated soon after their release, but since this book is self-published, I can update it as needed whenever a new version of something related to this book gets released.
+Unlike traditional programming books that quickly become outdated, this self-published book allows for prompt updates whenever new versions of relevant tools or technologies are released. Rest assured, you'll always have access to the latest information.
 
-**Can I get a digital copy of the book if I bought it on Amazon?**
+**Can I get a digital copy of the book if I've purchased it on Amazon?**
 
-If you have bought the book on Amazon, you may have seen that the book is available on my website too. Since I use Amazon as one way to monetize my often free content, I honestly thank you for your support and invite you to sign up for my [courses](https://courses.robinwieruch.de/). After creating an account there, write me an email about your purchase with a receipt from Amazon, so that I can unlock the content for you. With an account on my platform, you always have access to the latest version of the book.
+If you've purchased the book on Amazon, you might have noticed it's also available on my website. Since I use Amazon as one way to generate revenue for my frequently free content, I genuinely appreciate your support and I encourage to sign up for my [courses](https://courses.robinwieruch.de/). Once you've created an account, send me an email detailing your Amazon purchase. This will enable me to unlock the content for you. By having an account on my platform, you'll always enjoy access to the most up-to-date version of the book. Thank you for your support!
 
-**Why is the print copy so large in size?**
+**Why is the print version so large?**
 
-If you have purchased the print version of the book, make sure to take notes in the book. It was my intention to keep the printed book extra-large, for the sake of giving larger code snippets enough space, but also for giving you enough space to work with it.
+If you've acquired the print version of the book, consider making notes directly in its pages. The deliberate choice to keep the printed book extra-large was made to provide ample space for extensive code snippets and to afford you sufficient room for your annotations and personal notes. This size decision was crafted with the intention of enhancing your overall reading and learning experience.
 
 **Why does the book not have many pages?**
 
-First of all, the print version of book is large (see above), so there are less pages overall. However, even though most of the sections in this book are concisely written, there are plenty of external resources to get more in-depth knowledge about certain topics. I wanted to give every reader the chance to get through the book without painfully having to read lots of pages, so I extracted optional in-depth and advanced material that can be read online as exercise. So I encourage everyone who wants to learn React to go through the exercises of every section too, however, the book itself should teach you the essentials and more to get started as well.
+The print version's larger dimensions contribute to fewer pages. While most sections are concise, detailed material is available online for in-depth insights. This allows a smooth reading experience, with essential React concepts covered in the book for a quick start. Engaging in optional exercises is encouraged for a comprehensive understanding.
 
 **Why is the book written like a long read tutorial?**
 
-If you have read programming books before, you may be surprised by how this book is written and structured. When I started coding myself, there were not many hands-on books about coding out there. However, I've been always a good learner when I got practical step by step instructions which taught me the what, how, and why. By self-publishing this book, I wanted to bring this experience to other developers.
+The unconventional writing and structure of this book may be surprising if you're accustomed to traditional programming texts. In my early coding days, practical, hands-on books were scarce. I thrived as a learner with step-by-step instructions that explained the what, how, and why. Through self-publishing, my aim is to share this immersive learning experience with fellow developers.
 
 **What do I do if I encounter a bug?**
 
-If you encounter any bug in the code, you should find a URL to the current GitHub project at the end of each section. Feel free to open a GitHub issue there. Your help is very much appreciated!
-
-**How to support the project?**
-
-If you find my lessons useful and would like to contribute, seek my website's [about page](https://www.robinwieruch.de/about/) for information about how to offer support. It is also very helpful for my readers to spread the word about how my books helped them, so others might discover it as ways to improve their web development skills. Contributing through any of the provided channels gives me the freedom to create in-depth courses, and to continue offering free material on my website.
-
-**What's your motivation behind the book?**
-
-I want to teach about this topic consistently. I often find materials online that don't receive updates, or only apply to a small part of a topic. Sometimes people struggle to find consistent and up-to-date resources to learn from. I want to provide this consistent and up-to-date learning experience. Also, I hope I can support the less fortunate with my projects by giving them the content for free or by [having other impacts](https://www.robinwieruch.de/giving-back-by-learning-react/).
+Should you come across any bugs in the code, locate the current GitHub project URL at the end of each section. Feel free to open a GitHub issue there, and your assistance will be highly valued!
 
 ## Who is this book for?
 
