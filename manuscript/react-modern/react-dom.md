@@ -8,8 +8,7 @@ Open the *src/main.jsx* file to the see App components instantiation with the `<
 ~~~~~~~
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-
+import App from './App.jsx';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -38,6 +37,6 @@ Anyway, do you recall the introduction about the rise of single-page application
 
 ### Exercises:
 
-* Read more about [rendering elements in React](https://bit.ly/3aUySgP).
-* Read more about [React's StrictMode](https://bit.ly/3SufTxx).
+* Read more about [React's createRoot](https://bit.ly/3vx3uT2).
+* Read more about [React's StrictMode](https://bit.ly/48TUA0k).
 * Optional: [Leave feedback for this section](https://forms.gle/zSqHUhmsuQ35vqoj9).
