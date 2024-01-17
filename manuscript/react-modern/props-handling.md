@@ -386,3 +386,8 @@ Rules of thumb:
 * Get a good sense about JavaScript (e.g. destructuring, spread operator, rest destructuring) and how it relates to React (e.g. props) from the last lessons.
 * Continue to use your favorite way to handle React's props. If you're still undecided, consider the variation used in the previous section.
 * Optional: [Leave feedback for this section](https://forms.gle/WNB4R6yEP1hot3tK8).
+
+### Interview Questions:
+
+* Question: What challenges might arise when lifting state in React?
+  * Answer: Prop drilling, where props need to be passed through multiple layers of components to reach a specific child, because state is higher up in the component tree.
