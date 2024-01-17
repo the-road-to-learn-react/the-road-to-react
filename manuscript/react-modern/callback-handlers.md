@@ -1,12 +1,12 @@
 ## Callback Handlers in JSX
 
-While props are passed down as information from parent to child components, state can be used to change information over time. However, we don't have all the pieces yet to make our components talk to each other. When using props as vehicle to transport information, we can only talk to descendant components. When using state, we can make information stateful, but this information can also only be passed down by using props as container.
+While props are passed down as information from parent to child components, state can be used to change information over time. However, we don't have all the pieces yet to make our components talk to each other. When using props as vehicle to transport information, we can only talk to descendant components. When using state, we can make information stateful, but this information can also only be passed down by using props.
 
 For example, at the moment, the Search component does not share its state with other components, so it's only used (here: displayed) and updated by the Search component. That's fine for displaying the most recent state in the Search component, however, at the end we want to use this state somewhere else. In this section for example, we want to use the state in the App component to filter the `stories` by `searchTerm` before they get passed to the List component. So we know that we could communicate to a child component via props, but do not know how to communicate the state up to a parent component (here: from Search to App component).
 
 ![](images/callback-handler-1.png)
 
-There is no way to pass information up the component tree, since props are naturally only passed downwards. However, we can introduce a **callback handler** instead: A callback handler gets introduced as event handler (A), is passed as function in props to another component (B), is executed there as callback handler (C), and *calls back* to the place it was introduced (D):
+There is no way to pass information up the component tree, since props are naturally only passed downwards. However, we can introduce a **callback handler** instead: A callback handler gets introduced as event handler (A), is passed as function in props to another component (B), is executed there as handler (C), and *calls back* to the place it was introduced (D):
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -63,8 +63,27 @@ The concept of the callback handler in a nutshell: We pass a function from a par
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3BVIZjQ).
-  * Recap all the [source code changes from this section](https://bit.ly/3S97S1e).
+* Compare your source code against the author's [source code](https://bit.ly/3O6t1c8).
+  * Recap all the [source code changes from this section](https://bit.ly/3SmJ8Fe).
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3LKjtBa).
 * Revisit the concepts of [(event) handler and callback handler](https://www.robinwieruch.de/react-event-handler/) as many times as you need.
 * Optional: [Leave feedback for this section](https://forms.gle/3LoBoWKCMNT2YpnA7).
+
+### Interview Questions:
+
+* Question: What is a callback handler in React?
+  * Answer: A callback handler is a function passed as a prop to a child component, allowing the child to communicate with the parent.
+* Question: How do you pass a callback handler to a child component?
+  * Answer: Include it as a prop, like `<ChildComponent callback={handleCallback} />`.
+* Question: How do you define a callback handler in a parent component?
+  * Answer: Create a function in the parent component, e.g., `function handleCallback(data) {...}`.
+* Question: Can a callback handler receive parameters?
+  * Answer: Yes, callback handlers can receive parameters passed by the child component.
+* Question: Can callback handlers be asynchronous?
+  * Answer: Yes, callback handlers can be asynchronous, allowing for handling asynchronous operations.
+* Question: Can you pass a callback handler through multiple layers of components?
+  * Answer: Yes, you can pass callback handlers through multiple layers of components.
+* Question: Can a child component have multiple callback handlers from the same parent?
+  * Answer: Yes, a child component can receive and use multiple callback handlers passed from the same parent component.
+* Question: Is it common to use callback handlers for form submissions in React?
+  * Answer: Yes, callback handlers are commonly used for handling form submissions and updating state in parent components.

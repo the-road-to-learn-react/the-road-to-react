@@ -352,3 +352,8 @@ Now, after we went through these scenarios for `useMemo`, `useCallback`, and `me
 * Does each Item re-render when removing an item from the List with the "Dismiss"-button? If it's the case, apply performance optimization techniques to prevent re-rendering.
 * Remove all performance optimizations to keep the application simple. Our current application doesn't suffer from any performance bottlenecks. Try to avoid [premature optimzations](https://bit.ly/3AYktL8). Use this section and its further reading material as a reference, in case you run into performance problems.
 * Optional: [Leave feedback for this section](https://forms.gle/FwNrJSdLikquVzsB6).
+
+### Interview Questions:
+
+* Question: How do you prevent callback handlers from being recreated on each render?
+  * Answer: Use the useCallback hook to memoize the callback function in the parent component.

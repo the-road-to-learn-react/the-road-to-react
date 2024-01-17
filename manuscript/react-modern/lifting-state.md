@@ -155,3 +155,8 @@ After all, knowing where to instantiate state in React turns out to be an import
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3SEqxl1).
 * Read more about [lifting state in React](https://www.robinwieruch.de/react-lift-state/).
 * Optional: [Leave feedback for this section](https://forms.gle/EqJGjxCM1Xzw9S6g7).
+
+### Interview Questions:
+
+* Question: Can a child component modify the state of a parent component directly through a callback handler?
+  * Answer: No, the child component can invoke the callback to notify the parent, and the parent can decide how to update its state.
