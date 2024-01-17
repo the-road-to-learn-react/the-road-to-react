@@ -4,7 +4,7 @@ HTML elements come with their internal state which is not coupled to React. Conf
 
 Now try the following: When initializing the `searchTerm` state in the App component, use `'React'` as initial state instead of an empty string. Afterward, open the application in the browser. Can you spot the problem? Spend some time on your own figuring out what happens here and how to fix this problem.
 
-While the `stories` have been filtered respectively to the new initial `searchTerm`, the HTML input field doesn't show the value in the browser. Only when we start typing into the input field do we see the changes reflected in it. That's because the input field doesn't know anything about React's state (here: `searchTerm`), it only uses its handler to communicate (see `handleSearch()`) its internal state to React state. And once a user starts typing into the input field, the HTML element keeps track of these changes itself. However, if we want to get things right, the HTML should know about the React state. Therefore, we need to provide the current state as `value` to it:
+While the `stories` have been filtered respectively to the new initial `searchTerm` in the last section, the HTML input field doesn't show the value in the browser. Only when we start typing into the input field do we see the changes reflected in it. That's because the input field doesn't know anything about React's state (here: `searchTerm`), it only uses its handler to communicate (see `handleSearch()`) its internal state to React state. And once a user starts typing into the input field, the HTML element keeps track of these changes itself. However, if we want to get things right, the HTML should know about the React state. Therefore, we need to provide the current state as `value` to it:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -49,12 +49,27 @@ Now both states are synchronized. Instead of giving the HTML element the freedom
 
 ![](images/controlled-component.png)
 
-Earlier the HTML element did its own thing, but now we are in control of it by feeding React's state into it. Now, while the input field became explicitly a **controlled element**, the Search component became implicitly a **controlled component**. As a React beginner, using controlled components is important, because you want to enforce a predictable behavior. Later though, there will be cases for uncontrolled components too.
+Earlier the HTML element did its own thing, but now we are in control of it by feeding React's state into it. Now, while the input field became explicitly a **controlled element**, the Search component became implicitly a **controlled component**. As a React beginner, using controlled components is important, because you want to enforce a predictable behavior. Later though, there may be cases for uncontrolled components too.
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3dzwFwb).
-  * Recap all the [source code changes from this section](https://bit.ly/3BXGMEk).
+* Compare your source code against the author's [source code](https://bit.ly/3U9zc3f).
+  * Recap all the [source code changes from this section](https://bit.ly/4b09Omb).
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3SfJBGP).
 * Read more about [controlled components in React](https://www.robinwieruch.de/react-controlled-components/).
 * Optional: [Leave feedback for this section](https://forms.gle/7VYTww2EQiPkFnaR8).
+
+### Interview Questions:
+
+* Question: What is a controlled component in React?
+  * Answer: A controlled component is a component whose form elements are controlled by React state.
+* Question: How do you create a controlled input in React?
+  * Answer: Set the input value attribute to a state variable and provide an onChange handler to update the state.
+* Question: What is the role of the value prop in a controlled input element?
+  * Answer: The value prop sets the current value of the input, making it a controlled component.
+* Question: How do you handle a controlled checkbox in React?
+  * Answer: Use the checked attribute and provide an onChange handler to update the corresponding state.
+* Question: How do you clear the value of a controlled component?
+  * Answer: Set the state variable to an empty or null value to clear the value of a controlled component.
+* Question: What are the potential downsides of using controlled components?
+  * Answer: Controlled components can lead to verbose code, especially in forms with many input elements.
