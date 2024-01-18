@@ -182,9 +182,22 @@ We moved from unreliable state transitions with multiple `useState` hooks to pre
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3R97YnT).
-  * Recap all the [source code changes from this section](https://bit.ly/3xIh9oF).
+* Compare your source code against the author's [source code](https://bit.ly/3SlNaO4).
+  * Recap all the [source code changes from this section](https://bit.ly/4b2GkEh).
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3Ceq83w).
 * Read more about [when to use useState or useReducer in React](https://www.robinwieruch.de/react-usereducer-vs-usestate/).
 * Read more about [deriving state from props in React](https://www.robinwieruch.de/react-derive-state-props/).
 * Optional: [Leave feedback for this section](https://forms.gle/XWTJS65iu6WkiZMCA).
+
+### Interview Questions:
+
+* Question: What are "impossible states" in React?
+  * Answer: "Impossible states" refer to combinations of state values that should never occur in a well-designed application.
+* Question: Why is it important to handle impossible states in React applications?
+  * Answer: Handling impossible states ensures that the application remains in a valid and predictable state, preventing unexpected behavior.
+* Question: How can reducers help manage impossible states in React?
+  * Answer: Reducers provide a controlled way to update state, allowing developers to enforce rules and avoid transitioning to impossible states.
+* Question: How does centralized state management contribute to handling impossible states?
+  * Answer: Centralized state management through reducers allows for consistent validation and state updates, reducing the risk of impossible states across components.
+* Question: How can documentation contribute to managing impossible states with reducers?
+  * Answer: Well-documented state structures, actions, and their expected effects can guide developers in avoiding unintended state combinations and handling impossible states more effectively.
