@@ -169,3 +169,9 @@ Conditional rendering is not just for asynchronous data though. The simplest exa
   * Answer: Use conditional statements (e.g., if or ternary operator) in JSX based on the state value.
 * Question: Can you use useState (or other hooks) inside conditional statements or loops?
   * Answer: No, hooks must be used at the top level of a function component, not within conditions or loops.
+* Question: Why is conditional rendering often employed when handling asynchronous data in React?
+  * Answer: Conditional rendering helps manage the UI display based on the state of asynchronous data, showing loading indicators or actual content as needed.
+* Question: How do you handle loading states while waiting for asynchronous data in React?
+  * Answer: Loading states are managed using conditional rendering or state variables, indicating to users that data is being fetched.
+* Question: Can you handle errors during asynchronous data fetching in React?
+  * Answer: Yes, error handling mechanisms, such as try...catch blocks or .catch with promises, can be implemented to manage errors during data fetching.

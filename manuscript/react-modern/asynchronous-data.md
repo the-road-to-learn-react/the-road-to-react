@@ -1,6 +1,6 @@
 ## React Asynchronous Data
 
-We have two interactions in our application: searching the list and removing items from the list. While the first interaction is a fluctuant interference through a third-party state (`searchTerm`) applied on the list, the second interaction is a non-reversible deletion of an item from the list. However, the list we are dealing with is still just sample data. What about preparing our application to deal with real data instead?
+We have two interactions in our application: searching the list and removing items from the list. While the first interaction is a fluctuant modification through a third-party state (`searchTerm`) applied on the list, the second interaction is a non-reversible deletion of an item from the list. However, the list we are dealing with is still just sample data. What about preparing our application to deal with real data instead?
 
 Usually, data from a remote backend/database arrives asynchronously for client-side applications like React. Thus it's often the case that we must render a component before we can initiate the data fetching. In the following, we will start by simulating this kind of asynchronous data with our sample data in the application. Later, we will replace the sample data with real data fetched from a real remote API. We start off with a function that returns a promise with data in its shorthand version once it resolves. The resolved object holds the previous list of stories:
 
@@ -70,10 +70,29 @@ This section was only the first stepping stone to asynchronous data in React. In
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3R2obLU).
-  * Recap all the [source code changes from this section](https://bit.ly/3QXCOjq).
+* Compare your source code against the author's [source code](https://bit.ly/3tQ2nO3).
+  * Recap all the [source code changes from this section](https://bit.ly/425WXuH).
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3BNW79l).
 * Optional: Read more about [JavaScript Promises](https://mzl.la/3aTGuQz).
 * Read more about [faking a remote API with JavaScript](https://www.robinwieruch.de/javascript-fake-api/).
   * Read more about [using mock data in React](https://www.robinwieruch.de/react-mock-data/).
 * Optional: [Leave feedback for this section](https://forms.gle/sfQcc477xmgGRLyB7).
+
+### Interview Questions:
+
+* Question: Why is handling asynchronous data common in React applications?
+  * Answer: Client-side React applications often fetch data from remote sources.
+* Question: What is the typical approach for rendering components before data fetching in React?
+  * Answer: Components are often rendered before initiating data fetching, and conditional rendering or placeholder content is used until the data arrives.
+* Question: How can you simulate asynchronous data fetching in React using sample data?
+  * Answer: Simulating asynchronous data involves using functions that return promises, resolving with sample data, and later replacing it with real data.
+* Question: What is the purpose of promises in handling asynchronous data in React?
+  * Answer: Promises are used to manage asynchronous operations, allowing components to wait for data resolution before rendering.
+* Question: Why is asynchronous data fetching essential for responsive user interfaces in React?
+  * Answer: Asynchronous data fetching prevents blocking the UI, ensuring responsiveness, and enabling the display of updated information when available.
+* Question: Can you replace simulated sample data with real data fetched from a remote API in React?
+  * Answer: Yes, after simulating asynchronous data with sample data, it can be replaced seamlessly with real data fetched from a remote API.
+* Question: What is the significance of using the useState hook when dealing with asynchronous data in React?
+  * Answer: useState allows components to manage state changes, including loading states and the updated data received asynchronously.
+* Question: How does React ensure that components re-render when asynchronous data arrives?
+  * Answer: React's state management ensures that when asynchronous data arrives and state is updated, components re-render to reflect the new data.
