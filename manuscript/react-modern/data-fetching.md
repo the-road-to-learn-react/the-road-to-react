@@ -72,9 +72,30 @@ Check your browser to see stories related to the initial query fetched from the 
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3DICIsS).
-  * Recap all the [source code changes from this section](https://bit.ly/3R4EaJ2).
+* Compare your source code against the author's [source code](https://bit.ly/3O6YxXD).
+  * Recap all the [source code changes from this section](https://bit.ly/3vErwvF).
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3LK6OhQ).
 * Read through [Hacker News](https://news.ycombinator.com) and its [API](https://hn.algolia.com/api).
 * Optional: Read more about [JavaScript's Template Literals](https://mzl.la/3jlcVfn).
 * Optional: [Leave feedback for this section](https://forms.gle/hoJxjjpoZQGCS7Vp9).
+
+### Interview Questions:
+
+* Question: Why is fetching data from APIs common in React applications?
+  * Answer: Fetching data from APIs allows React applications to dynamically retrieve and display information from external sources.
+* Question: What is the purpose of the useEffect hook in React when working with APIs?
+  * Answer: useEffect is used to perform side effects, such as data fetching, in function components. It ensures that the effect runs after rendering.
+* Question: How do you handle asynchronous API calls in React components?
+  * Answer: Asynchronous API calls are typically handled using async/await syntax or promises within the useEffect hook.
+* Question: Can you perform cleanup operations after API requests using useEffect in React?
+  * Answer: Yes, useEffect allows for cleanup operations, like canceling pending requests or clearing subscriptions, by returning a cleanup function.
+* Question: What is the purpose of the second argument (dependency array) in useEffect when working with APIs?
+  * Answer: The dependency array controls when the effect runs. Specifying dependencies ensures that the effect is re-executed only when those dependencies change.
+* Question: How do you handle errors during API requests in React?
+  * Answer: Errors during API requests can be handled using try...catch blocks, .catch with promises, or by setting error state variables.
+* Question: What is the significance of state management when working with API data in React?
+  * Answer: State management allows React components to store and update data retrieved from APIs, triggering re-renders when necessary.
+* Question: Can you explain the concept of debouncing API requests in React?
+  * Answer: Debouncing involves delaying the execution of API requests to reduce the number of requests made within a short time, typically to enhance performance and avoid rate limits.
+* Question: Why is it important to handle loading states when making API requests in React?
+  * Answer: Handling loading states provides feedback to users while data is being fetched, enhancing the user experience and indicating ongoing background processes.
