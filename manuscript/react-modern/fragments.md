@@ -85,9 +85,26 @@ Both elements in the Search component - input field and label - should be still 
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3faQJVY).
-  * Recap all the [source code changes from this section](https://bit.ly/3BCwyb4).
+* Compare your source code against the author's [source code](https://bit.ly/3u4IimX).
+  * Recap all the [source code changes from this section](https://bit.ly/3S0MLPH).
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3SfRv2B).
-* Question: Can JSX elements have multiple root elements?
-  * Answer: No, JSX elements must have a single root element. You can wrap them in a parent container.
 * Optional: [Leave feedback for this section](https://forms.gle/kNpEySPZzckNe6f96).
+
+### Interview Questions:
+
+* Question: What is a Fragment in React?
+  * Answer: A Fragment is a way to group multiple React elements without introducing an additional DOM element.
+* Question: How do you use Fragments in JSX?
+  * Answer: Wrap the elements with `<React.Fragment>` or its shorthand syntax `<>...</>`.
+* Question: Why use Fragments in React?
+  * Answer: Fragments allow grouping elements without adding extra nodes to the DOM, useful when a parent wrapper is not desired.
+* Question: Can Fragments have keys?
+  * Answer: Yes, Fragments can have keys when mapping over a list of elements.
+* Question: Are Fragments required in every React component?
+  * Answer: No, Fragments are optional and are typically used when a component needs to return multiple elements without a parent wrapper.
+* Question: Do Fragments impact the rendered HTML structure?
+  * Answer: No, Fragments do not introduce any additional nodes to the HTML structure.
+* Question: Can Fragments have attributes like class or style?
+  * Answer: No, Fragments themselves cannot have attributes. Attributes should be applied to the elements within the Fragment.
+* Question: How does using Fragments differ from using div containers?
+  * Answer: Fragments don't create an extra DOM node, providing a cleaner HTML structure compared to using div containers.
