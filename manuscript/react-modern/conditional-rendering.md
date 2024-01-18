@@ -1,6 +1,6 @@
 ## React Conditional Rendering
 
-We will implement a new feature related to the just recently introduced asynchronous data. In a real application, a user would see some kind of feedback (e.g. loading spinner) when data gets loaded. In this section, we want to implement such feedback. Again you can try to implement it yourself first and later check out how the book implements this task.
+We are set to introduce a new feature associated with the recently introduced asynchronous data handling. In a genuine application, users typically receive feedback, such as a loading spinner, while data is being loaded. In this section, our goal is to implement this feedback mechanism. Feel free to attempt implementing it independently, and later, you can refer to the book to compare your solution with the provided implementation.
 
 **Task:** It takes some time to load the sample data from the promise. During this time, a user should be presented with a loading indicator in its simplest form (e.g. text which says "Loading ..."). Once the data arrived asynchronously, hide the loading indicator.
 
@@ -12,7 +12,7 @@ We will implement a new feature related to the just recently introduced asynchro
 
 A **conditional rendering** in React always happens if we have to render different JSX based on information (e.g. state, props). Dealing with asynchronous data is a good use case for making use of conditional rendering. For example, when the application initializes for the first time, there is no data to start with. Next, we are loading data and eventually, we have the data at our hands to display it. Sometimes the data fetching fails and we receive an error instead. So there are lots of things to cover for us as developers.
 
-Fortunately, a few of these cases are already taken care of. For instance, because the initial state is an empty list `[]` rather than `null`, we don't have to worry that this breaks the application when we filter and map over this list. However, a few mentioned things are still missing. For example, what about a loading state which will show the user a loading indicator as feedback about the pending data request? We could introduce this as new stateful value and set the state accordingly when data gets fetched:
+Fortunately, some aspects are already handled. For example, because the initial state is an empty list `[]` instead of `null`, concerns about breaking the application when filtering or mapping over this list are alleviated. Yet, certain aspects still need attention. Consider the absence of a loading state to provide users with feedback on pending data requests. Introducing a new stateful value can address this, allowing us to set the state accordingly when data is being fetched:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -153,18 +153,18 @@ Conditional rendering is not just for asynchronous data though. The simplest exa
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3xKEdTD).
-  * Recap all the [source code changes from this section](https://bit.ly/3fdJOf3).
+* Compare your source code against the author's [source code](https://bit.ly/3u1f2h5).
+  * Recap all the [source code changes from this section](https://bit.ly/3tUXbIF).
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3dQai5F).
 * Read more about [conditional rendering in React](https://www.robinwieruch.de/conditional-rendering-react/).
-* Question: Why didn't we need a conditional rendering for the empty `stories` before they get fetched from the fake API?
-  * Answer: The `stories` are mapped as list in the List component by using the `map()` method. When mapping over a list, the `map()` method returns for every item a modified version (in our case JSX). If there are no items in the list, the `map()` method will return nothing. Therefore we do not need a conditional rendering here.
-* Question: What would happen if the initial state of `stories` would be set to `null` instead of `[]`?
-  * Answer: Then we would need a conditional rendering in the List component, because calling `map()` on `null` would throw an exception.
 * Optional: [Leave feedback for this section](https://forms.gle/kHLAXtMaKsTFtWjY9).
 
 ### Interview Questions:
 
+* Question: Why didn't we need a conditional rendering for the empty `stories` before they get fetched from the fake API?
+  * Answer: The `stories` are mapped as list in the List component by using the `map()` method. When mapping over a list, the `map()` method returns for every item a modified version (in our case JSX). If there are no items in the list, the `map()` method will return nothing. Therefore we do not need a conditional rendering here.
+* Question: What would happen if the initial state of `stories` would be set to `null` instead of `[]`?
+  * Answer: Then we would need a conditional rendering in the List component, because calling `map()` on `null` would throw an exception.
 * Question: How can you conditionally render content based on state using useState?
   * Answer: Use conditional statements (e.g., if or ternary operator) in JSX based on the state value.
 * Question: Can you use useState (or other hooks) inside conditional statements or loops?
