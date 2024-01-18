@@ -1,8 +1,8 @@
 ## React Custom Hooks (Advanced)
 
-So far, we've covered the two most popular hooks in React: useState and useEffect. useState is used for values that change over time; useEffect is used to opt into the lifecycle of your components to introduce side-effects. We'll eventually cover more hooks that come with React, but next, we'll tackle **React custom Hooks** which means creating a hook yourself.
+Until now, we have delved into two of React's most popular hooks: useState and useEffect. The former proves valuable for managing values that undergo changes, while the latter facilitates the inclusion of side effects in the lifecycle of React components. While there are additional hooks provided by React, our upcoming focus will be on **React custom Hooks**, involving the creation of our own hooks tailored to specific requirements.
 
-We will use the two hooks that we already know to create a new custom hook called `useStorageState` which will keep the component's state in sync with the browser's local storage. We will start with how we want to use the hook in our App component:
+To illustrate this concept, we will leverage our understanding of useState and useEffect to craft a new custom hook dubbed `useStorageState`. The primary objective of this custom hook is to ensure the synchronization of a component's state with the local storage of the browser. We will initiate our exploration by outlining how we intend to utilize this hook within our App component:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -27,7 +27,7 @@ const App = () => {
 };
 ~~~~~~~
 
-This new custom hook allows us to use it the same way as React's built-in useState Hook. It returns a state and a state updater function and accepts an initial state as argument. Under the hood, we want that this hook synchronizes the state with the browser's local storage. If you look closely at the App component in the previous code snippet, you can see that none of the previously introduced local storage features are there anymore. Instead, we will copy and paste this functionality over to our new custom hook:
+With this custom hook, we can use it in a manner akin to React's native useState Hook. It provides both a state variable and a function for updating the state, taking an initial state as an argument. The underlying functionality of this hook will be designed to ensure the synchronization of the state with the local storage of the browser. If you look closely at the App component in the previous code snippet, you can see that none of the previously introduced local storage features are there anymore. Instead, we will copy and paste this functionality over to our new custom hook:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -96,7 +96,7 @@ const useStorageState = (initialState) => {
 
 Now we handle an abstracted "value" within the custom hook. Using it in the App component, we can name the returned current state and state updater function anything domain-related (e.g. `searchTerm` and `setSearchTerm`) with array destructuring.
 
-There is still one problem with this custom hook. Using the custom hook more than once in a React application leads to an overwrite of the "value"-allocated item in the local storage, because it uses the same key in the local storage. To fix this, pass in a flexible key. Since the key comes from outside, the custom hook assumes that it could change, so it needs to be included in the dependency array of the `useEffect` hook as well. Without it, the side-effect may run with an outdated key (also called *stale*) if the key changed between renders:
+There is still one problem with this custom hook. Using the custom hook more than once in a React application leads to an overwrite of the "value"-allocated item in the local storage, because it uses the same key in the local storage. To fix this, we need to pass in a flexible key. Since the key comes from outside, the custom hook assumes that it could change, so it needs to be included in the dependency array of the `useEffect` hook as well. Without it, the side-effect may run with an outdated key (also called *stale*) if the key changed between renders:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -140,8 +140,33 @@ You've just created your first custom hook. If you're not comfortable with custo
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3fcvkMp).
-  * Recap all the [source code changes from this section](https://bit.ly/3UnqBr8).
+* Compare your source code against the author's [source code](https://bit.ly/3vC6zkJ).
+  * Recap all the [source code changes from this section](https://bit.ly/4aYZjjc).
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3SD7dok).
 * Read more about [React Hooks](https://www.robinwieruch.de/react-hooks/) and [custom React Hooks](https://www.robinwieruch.de/react-custom-hook/) to get a good understanding of them, because they are the bread and butter in React function components.
 * Optional: [Leave feedback for this section](https://forms.gle/5seN1Rv3ZwXmWmDR9).
+
+### Interview Questions:
+
+* Question: What are React custom hooks?
+  * Answer: Custom hooks are JavaScript functions that utilize React hooks to encapsulate and reuse logic in function components.
+* Question: How do you create a custom hook in React?
+  * Answer: Create a function starting with "use" and use existing React hooks or other custom hooks within it.
+* Question: Can custom hooks have state?
+  * Answer: Yes, custom hooks can use hooks like useState.
+* Question: What naming convention should custom hooks follow?
+  * Answer: Custom hooks should be named with the prefix "use" to signal their association with React hooks.
+* Question: Can custom hooks accept parameters?
+  * Answer: Yes, custom hooks can accept parameters to make them flexible and customizable.
+* Question: How do you share stateful logic between components using custom hooks?
+  * Answer: Extract the shared logic into a custom hook and use it in multiple components.
+* Question: Do custom hooks have access to the component's props?
+  * Answer: No, custom hooks don't have direct access to the component's props. They usually accept necessary data through arguments.
+* Question: Can you use multiple custom hooks in a single component?
+  * Answer: Yes, you can use multiple custom hooks in a single component to leverage different pieces of reusable logic.
+* Question: What's the key benefit of using custom hooks?
+  * Answer: Custom hooks promote code reuse, abstraction of complex logic, and maintainability in React function components.
+* Question: Can custom hooks have side effects like data fetching?
+  * Answer: Yes, custom hooks can encapsulate side effects using hooks like useEffect to perform tasks such as data fetching.
+* Question: Are custom hooks only for state management?
+  * Answer: No, while custom hooks can manage state, they can encapsulate any reusable logic, including side effects and computations.
