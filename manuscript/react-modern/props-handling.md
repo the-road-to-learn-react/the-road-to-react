@@ -25,9 +25,9 @@ const lastName = user.lastName;
 const { firstName, lastName } = user;
 ~~~~~~~
 
-If we need to access multiple properties of an object, using one line of code instead of multiple lines is often simpler and more elegant. That's why object destructuring is already widely used in JavaScript. Before you read the following code, try to transfer this knowledge to the React props in our Search component yourself.
+When we need to access various properties of an object, employing a single line of code rather than multiple lines is often a more straightforward and elegant approach. This is why object destructuring is commonly utilized in JavaScript. Before delving into the upcoming code snippet, attempt to apply this understanding to the React props within our Search component.
 
-Let's see how we can make use of props destructuring here. First, we have to refactor the Search component's arrow function from the concise body into block body. And second, we can apply the destructuring of the `props` object in the component's function body:
+Now, let's explore how we can employ props destructuring. Initially, we need to refactor the Search component's arrow function from a concise body to a block body. Subsequently, we can implement the destructuring of the props object within the function body:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -109,7 +109,7 @@ const Item = ({ item }) => (
 );
 ~~~~~~~
 
-This should be the basic lesson learned from this section, however, we can take this one step further with a bunch of optional advanced lessons.
+The use of object destructuring aligns with JavaScript's best practices and promotes a cleaner and more efficient React component structure. It allows for a more straightforward extraction of the required properties, enhancing both the clarity of the code and the overall development experience in React applications. However, we can take this one step further with some more optional advanced lessons.
 
 ### Nested Destructuring
 
@@ -177,7 +177,7 @@ const Item = ({
 );
 ~~~~~~~
 
-The nested destructuring helps us to gather all the needed information of the `item` object in the function signature for its immediate usage in the component's elements. However, nested destructuring introduces lots of clutter through indentations in the function signature. While here it's not the most readable option, it can be useful in other scenarios though.
+In summary, nested destructuring in React proves to be a powerful and efficient technique when dealing with complex data structures, especially within nested objects or arrays in props or state. This approach simplifies the extraction of deeply nested values, making the code more concise and readable. However, nested destructuring introduces lots of clutter through indentations in the function signature. While here it's not the most readable option, it can be useful in other scenarios though.
 
 ### Spread and Rest Operators
 
@@ -307,7 +307,7 @@ console.log(city);
 
 Even though both have the same syntax (three dots), the rest operator shouldn't be mistaken with the spread operator. Whereas the rest operator happens on the left side of an assignment, the spread operator happens on the right side. The rest operator is always used to separate an object from some of its properties.
 
-Now it can be used in our List component to separate the `objectID` from the item, because the `objectID` is only used as a `key` and isn't used in the Item component. Only the remaining (rest) item gets spread as attribute/value pairs into the Item component (as before):
+Now it can be used in our List component to separate the `objectID` from the item, because the `objectID` is only used as a `key` and isn't used in the Item component. Only the remaining (read: rest) item gets spread as attribute/value pairs into the Item component (as before):
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -340,7 +340,7 @@ In this final variation, the rest operator is used to destructure the `objectID`
 
 In this section, we have learned about JavaScript object destructuring which can be commonly used not only for the `props` object, but also for other objects like the `item` object which are nested within the props. We have also seen how nested destructuring can be used (Variation 1), but also how it didn't add any benefits in our case because it just made the component bigger. In the future, you are more likely to find use cases for nested destructuring which are beneficial.
 
-Last but not least, you have learned about JavaScript's spread and rest operators, which shouldn't be confused with each other, to perform operations on JavaScript objects and to pass the `props` object from one component to another component in the most concise way. In the end, I want to point out the initial version again which we will save for the next sections:
+Last but not least, you have learned about JavaScript's spread and rest operators, which shouldn't be confused with each other, to perform operations on JavaScript objects and to pass the `props` object from one component to another component in the most concise way. In the end, I want to point out the initial version again which we will continue to use in the next sections:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -368,20 +368,18 @@ It may not be the most concise, but it is the easiest to understand. Variation 1
 
 Rules of thumb:
 
-* Always use object destructuring for props in a function component's function signature, because props are rarely used themselves. Exception: When props are only passed through the component to the next child component (see when to use spread operator).
+* Almost always use object destructuring for props in a function component's function signature, because props are rarely used themselves. Exception: When props are only passed through the component to the next child component (see when to use spread operator).
 * Use the spread operator when you want to pass all key/value pairs of an object to a child component in JSX. For example, often props themselves are not used in a component but only passed along to the next component. Then it makes sense to just spread the props object `{...props}` to the next component.
 * Use the rest operator when you only want to split out certain properties from your props object.
 * Use nested destructuring only when it improves readability.
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3dAh1kg).
-  * Recap all the [source code changes from this section](https://bit.ly/3SkjoGA).
+* Compare your source code against the author's [source code](https://bit.ly/48TdhkK).
+  * Recap all the [source code changes from this section](https://bit.ly/3SndcQQ).
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3Ee9pyX).
 * Read more about [how to use props in React](https://www.robinwieruch.de/react-pass-props-to-component/).
 * Optional: Read more about [JavaScript's destructuring assignment](https://mzl.la/30KbXTC).
-* Question: Why is array destructuring used for React Hooks like `useState` and object destructuring for props?
-  * Answer: A React Hook like `useState` returns an array whereas props are an object; hence we need to apply the appropriate operation for the underlying data structure. The benefit of having an array returned from `useState` is that the values can be given any name in the destructuring operation.
 * Read more about [JavaScript's spread operator](https://mzl.la/3jetIkn) and [rest operator](https://mzl.la/3GeJbef).
 * Get a good sense about JavaScript (e.g. destructuring, spread operator, rest destructuring) and how it relates to React (e.g. props) from the last lessons.
 * Continue to use your favorite way to handle React's props. If you're still undecided, consider the variation used in the previous section.
@@ -389,5 +387,23 @@ Rules of thumb:
 
 ### Interview Questions:
 
-* Question: What challenges might arise when lifting state in React?
-  * Answer: Prop drilling, where props need to be passed through multiple layers of components to reach a specific child, because state is higher up in the component tree.
+* Question: What is props destructuring in React?
+  * Answer: Props destructuring is a feature in React that allows you to extract specific properties from the props object in a concise manner.
+* Question: How do you destructure props in a functional component's parameters?
+  * Answer: You can destructure props directly in the function parameters, like this: function MyComponent({ prop1, prop2 }) {...}.
+* Question: Can you provide a default value while destructuring props?
+  * Answer: Yes, you can provide default values during destructuring, such as { prop1 = 'default', prop2 }.
+* Question: Is it necessary to destructure all props, or can you choose specific ones?
+  * Answer: You can choose to destructure specific props based on your component's needs, leaving others untouched.
+* Question: How is the spread operator (...) used in React props?
+  * Answer: The spread operator is used to pass all properties of an object as separate props to a React component, like <MyComponent {...obj} />.
+* Question: Can you use the spread operator to combine props with additional ones?
+  * Answer: Yes, you can combine existing props with additional ones using the spread operator, like <MyComponent {...props} newProp={value} />.
+* Question: Does the spread operator create a shallow or deep copy of an object?
+  * Answer: The spread operator creates a shallow copy of an object, meaning nested objects are still references to the original.
+* Question: What is the purpose of the rest operator (...rest) in React?
+  * Answer: The rest operator is used to collect remaining properties into a new object, often used in combination with props destructuring.
+* Question: Why is array destructuring used for React Hooks like `useState` and object destructuring for props?
+  * Answer: A React Hook like `useState` returns an array whereas props are an object; hence we need to apply the appropriate operation for the underlying data structure. The benefit of having an array returned from `useState` is that the values can be given any name in the destructuring operation.
+* Question: What is prop drilling in React?
+  * Answer: Prop drilling is the process of passing props through multiple layers of components to reach a deeply nested child component.
