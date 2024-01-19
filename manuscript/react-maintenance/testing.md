@@ -29,6 +29,8 @@ Then in your package.json file, add another script which will run the tests even
 # leanpub-start-insert
     "test": "vitest",
 # leanpub-end-insert
+    "test": "vitest",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   ...
@@ -97,16 +99,15 @@ Finally you can run tests using the test script from your *package.json* on the 
 
 {title="Command Line",lang="text"}
 ~~~~~~~
-  ✓ src/App.test.jsx (2)
+ ✓ src/App.test.jsx (2)
+   ✓ something truthy and falsy (2)
+     ✓ true to be true
+     ✓ false to be false
 
-Test Files  1 passed (1)
-     Tests  2 passed (2)
-  Start at  12:58:02
-  Duration  419ms (transform 242ms, setup 0ms, collect 30ms, tests 2ms)
-
-
- PASS  Waiting for file changes...
-       press h to show help, press q to quit
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  13:19:38
+   Duration  122ms
 ~~~~~~~
 
 When we run the test command, the test runner matches all files with a *test.jsx* suffix. Successful tests are displayed in green, failed tests in red. The interactive test script watches your tests and source code and executes tests when the files change. Vitest also provides a few interactive commands (press "h" to see all of them), such as pressing "f" to run failed tests and "a" for running all tests. Let's see how this looks for a failed test:
@@ -132,32 +133,28 @@ The tests run again, and the command line output shows a failed test in red:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
- ❯ src/App.test.jsx (2)
-   ❯ something truthy and falsy (2)
-     ✓ true to be true
-     × false to be false
-
-⎯⎯ Failed Tests 1 ⎯⎯
-
- FAIL  src/App.test.jsx > something truthy and falsy > false to be false
 AssertionError: expected false to be true // Object.is equality
- ❯ src/App.test.jsx:9:18
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/App.test.jsx:9:19
       7|
       8|   it('false to be false', () => {
       9|     expect(false).toBe(true);
-       |                  ^
+       |                   ^
      10|   });
      11| });
 
-  - Expected   "true"
-  + Received   "false"
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 
-⎯⎯ [1/1] ⎯⎯
-
-Test Files  1 failed (1)
-     Tests  1 failed | 1 passed (2)
-  Start at  12:59:39
-  Duration  416ms (transform 240ms, setup 0ms, collect 30ms, tests 2ms)
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  13:20:44
+   Duration  124ms
 
 
  FAIL  Tests failed. Watching for file changes...
@@ -183,15 +180,14 @@ describe('something truthy and falsy', () => {
 # leanpub-end-insert
   });
 });
-
 ~~~~~~~
 
 Once you start testing, it's a good practice to keep two command line interfaces open: one for watching your tests (`npm run test`) and one for developing your application (`npm run dev`). If you are using source control like git, you may want to have even one more command line interface for adding your source code to the repository.
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3fmrvUT).
-  * Recap all the [source code changes from this section](https://bit.ly/3UDWqMw).
+* Compare your source code against the author's [source code](https://bit.ly/3O5SDWL).
+  * Recap all the [source code changes from this section](https://bit.ly/3tRdxSH).
 * Read more about [Vitest](https://vitest.dev/).
 
 ### Unit Testing: Functions
@@ -341,8 +337,8 @@ Remember, a reducer function will always follow the same test pattern: given a s
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3UEzTPJ).
-  * Recap all the [source code changes from this section](https://bit.ly/3r8YRcl).
+* Compare your source code against the author's [source code](https://bit.ly/47WVUPn).
+  * Recap all the [source code changes from this section](https://bit.ly/47JTgMq).
 * Continue to write a test case for every reducer action and its state transition.
 * Read more about [Vitest's assertive functions](https://bit.ly/3xVJbwZ) like `toBe` and `toStrictEqual`.
 
@@ -412,15 +408,12 @@ Last, include the following implementation details in the new setup file for our
 
 {title="tests/setup.js",lang="javascript"}
 ~~~~~~~
-import { afterEach } from 'vitest';
+import { expect, afterEach } from 'vitest';
 import { cleanup } from '@testing-library/react';
-import matchers from '@testing-library/jest-dom/matchers';
-import { expect } from 'vitest';
+import * as matchers from "@testing-library/jest-dom/matchers";
 
-// extends Vitest's expect method with methods from react-testing-library
 expect.extend(matchers);
 
-// runs a cleanup after each test case (e.g. clearing jsdom)
 afterEach(() => {
   cleanup();
 });
@@ -758,8 +751,8 @@ All the callback handler tests for Item and SearchForm component verify only whe
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3DUxomh).
-  * Recap all the [source code changes from this section](https://bit.ly/3UJmje6).
+* Compare your source code against the author's [source code](https://bit.ly/48vMWtj).
+  * Recap all the [source code changes from this section](https://bit.ly/3O8yHCu).
 * Read more about [React Testing Library](https://bit.ly/30KueQH).
   * Read more about [search functions](https://bit.ly/3jjUw2t).
 * Use `toHaveBeenCalledWith` next to `toHaveBeenCalledTimes` to make your assertions more bullet proof.
@@ -1136,8 +1129,8 @@ React Testing Library with Vitest is the most popular library combination for Re
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3LHSvu2).
-  * Recap all the [source code changes from this section](https://bit.ly/3LLbTX9).
+* Compare your source code against the author's [source code](https://bit.ly/3O8zp2C).
+  * Recap all the [source code changes from this section](https://bit.ly/3U85PhI).
 * Read more about [React Testing Library in React](https://www.robinwieruch.de/react-testing-library/).
 * Read more about [E2E tests in React](https://www.robinwieruch.de/react-testing-cypress/).
 * While you continue with the upcoming sections, keep your tests green and add new tests when needed.
@@ -1218,7 +1211,7 @@ Snapshot tests are useful for setting up tests quickly in React, though it's bes
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3Sx41dZ).
-  * Recap all the [source code changes from this section](https://bit.ly/3BOrz7i).
+* Compare your source code against the author's [source code](https://bit.ly/47FyXjl).
+  * Recap all the [source code changes from this section](https://bit.ly/3SroKCV).
 * Add one snapshot test for each of all the other components and check the content of your *src/_snapshots_/* folder.
 * Optional: [Leave feedback for this section](https://forms.gle/tMJyXvxS1AmRvSUU9).
