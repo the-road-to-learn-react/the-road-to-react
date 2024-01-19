@@ -114,7 +114,7 @@ Note: However, re-fetching data with every keystroke isn't optimal, as this impl
 
 * Compare your source code against the author's [source code](https://bit.ly/3vF23lz).
   * Recap all the [source code changes from this section](https://bit.ly/3U4PB8Q).
-  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3C9TFvb).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3C9TFvb).
 * Optional: [Leave feedback for this section](https://forms.gle/ywE4bFy6D2HSG8Rd7).
 
 ### Interview Questions:

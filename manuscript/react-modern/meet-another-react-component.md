@@ -96,7 +96,7 @@ You can see how a React application grows in size by creating more components wh
 
 * Compare your source code against the author's [source code](https://bit.ly/3S5rDb5).
   * Recap all the [source code changes from this section](https://bit.ly/47Ed7MY).
-  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3RlJKXM).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3RlJKXM).
 * We can't extract an Item component from the List component (like in the illustration) yet, because we don't know how to pass individual items from the list to each Item component. Think about a way to do it.
 * Optional: [Leave feedback for this section](https://forms.gle/EZENmy48zvDP82NL7).
 

@@ -87,7 +87,7 @@ Both elements in the Search component - input field and label - should be still 
 
 * Compare your source code against the author's [source code](https://bit.ly/3u4IimX).
   * Recap all the [source code changes from this section](https://bit.ly/3S0MLPH).
-  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3SfRv2B).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SfRv2B).
 * Optional: [Leave feedback for this section](https://forms.gle/kNpEySPZzckNe6f96).
 
 ### Interview Questions:

@@ -72,7 +72,7 @@ By moving the data fetching function outside the React's useEffect Hook, it beco
 
 * Compare your source code against the author's [source code](https://bit.ly/422ZA0k).
   * Recap all the [source code changes from this section](https://bit.ly/3vFwrMT).
-  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3BShUNj).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3BShUNj).
 * Read more about [React's useCallback Hook](https://www.robinwieruch.de/react-usecallback-hook/).
 * Optional: [Leave feedback for this section](https://forms.gle/HSX9aurgsf5j76HR9).
 

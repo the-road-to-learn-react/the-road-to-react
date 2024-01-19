@@ -60,7 +60,7 @@ In this code, we call axios `axios.get()` for an explicit [HTTP GET request](htt
 
 * Compare your source code against the author's [source code](https://bit.ly/3O8sXbU).
   * Recap all the [source code changes from this section](https://bit.ly/3vHe3mC).
-  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3SzVPtl).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SzVPtl).
 * Read more about [popular libraries in React](https://www.robinwieruch.de/react-libraries/).
 * Optional: Read more about [axios](https://bit.ly/3jjEupg).
 * Optional: [Leave feedback for this section](https://forms.gle/wfDb7r5K4az3TiWN9).

@@ -55,7 +55,7 @@ Earlier the HTML element did its own thing, but now we are in control of it by f
 
 * Compare your source code against the author's [source code](https://bit.ly/3U9zc3f).
   * Recap all the [source code changes from this section](https://bit.ly/4b09Omb).
-  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3SfJBGP).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SfJBGP).
 * Read more about [controlled components in React](https://www.robinwieruch.de/react-controlled-components/).
 * Optional: [Leave feedback for this section](https://forms.gle/7VYTww2EQiPkFnaR8).
 

@@ -113,7 +113,7 @@ Another command from the previous npm scripts called `preview` can be used to ru
 * Exercise npm scripts:
   * Start your React application with `npm run dev` on the command line and check it out in the browser.
     * Exit the command on the command line by pressing `Control + C`.
-  * Run the `npm run build` script and verify that a *dist/* folder was added to your project. Note that the build folder can be used later on to [deploy your application](https://www.robinwieruch.de/deploy-applications-digital-ocean/). Afterward, run `npm run preview` to see the production-ready application in the browser.
+  * Run the `npm run build` script and verify that a *dist/* folder was added to your project. Note that the build folder can be used later on to deploy your application. Afterward, run `npm run preview` to see the production-ready application in the browser.
 * Every time we change something in our source code throughout the coming sections, make sure to check the output in your browser for getting visual feedback. Use `npm run dev` to keep your application running.
 * Optional: If you use git and GitHub, add and commit your changes after every section of the book.
 * Optional: [Leave feedback for this section](https://forms.gle/bvH2jcppsSA6p9i16).

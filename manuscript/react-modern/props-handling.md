@@ -377,7 +377,7 @@ Rules of thumb:
 
 * Compare your source code against the author's [source code](https://bit.ly/48TdhkK).
   * Recap all the [source code changes from this section](https://bit.ly/3SndcQQ).
-  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3Ee9pyX).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3Ee9pyX).
 * Read more about [how to use props in React](https://www.robinwieruch.de/react-pass-props-to-component/).
 * Optional: Read more about [JavaScript's destructuring assignment](https://mzl.la/30KbXTC).
 * Read more about [JavaScript's spread operator](https://mzl.la/3jetIkn) and [rest operator](https://mzl.la/3GeJbef).

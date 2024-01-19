@@ -95,7 +95,7 @@ In conclusion, using React `useEffect` Hook instead of managing the side-effect 
 
 * Compare your source code against the author's [source code](https://bit.ly/48JDlzm).
   * Recap all the [source code changes from this section](https://bit.ly/3U7NwJk).
-  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3DXpQzt).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3DXpQzt).
 * Read more about [React's useEffect Hook](https://www.robinwieruch.de/react-useeffect-hook/).
   * Give the first argument's function a `console.log()` and experiment with React's useEffect Hook's dependency array. Check the logs for an empty dependency array too.
 * Read more about [using local storage with React](https://www.robinwieruch.de/local-storage-react/).

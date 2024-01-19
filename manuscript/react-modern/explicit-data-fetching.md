@@ -124,7 +124,7 @@ Before the `searchTerm` was used for two cases: updating the input field's state
 
 * Compare your source code against the author's [source code](https://bit.ly/3Soxdqc).
   * Recap all the [source code changes from this section](https://bit.ly/3S3vJAo).
-  * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3Cf3ND9).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3Cf3ND9).
 * Optional: [Leave feedback for this section](https://forms.gle/HuJDuVNZmEDbhGzU9).
 
 ### Interview Questions:
