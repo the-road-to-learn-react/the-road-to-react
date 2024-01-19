@@ -13,7 +13,7 @@ npm install vite-plugin-svgr --save-dev
 
 Next the new plugin for SVGs can be used for Vite's configuration:
 
-{title="src/App.jsx",lang="javascript"}
+{title="vite.config.js",lang="javascript"}
 ~~~~~~~
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -29,7 +29,7 @@ export default defineConfig({
 });
 ~~~~~~~
 
-That's it for the general setup. The following icon as SVG is taken from [Flaticon's Freepick](https://bit.ly/3E16SEz). Many of the SVGs on this website are free to use, though they require you to mention the author. You can download the icon from [here](https://bit.ly/2Z2EoeA) as SVG and put it in your project as *src/check.svg*. Downloading the file is the recommended way, however, for the sake of completion, this is the verbose SVG definition:
+That's it for the general setup. We will use the following SVG and create a new *src/check.svg* file for it:
 
 {title="src/check.svg",lang="html"}
 ~~~~~~~
@@ -103,8 +103,7 @@ The Vite plugin makes using SVGs straightforward, with not much extra configurat
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3DNI6v5).
-  * Recap all the [source code changes from this section](https://bit.ly/3xLtOY6).
-* Add another SVG icon in your application.
+* Compare your source code against the author's [source code](https://bit.ly/4b1ZPge).
+  * Recap all the [source code changes from this section](https://bit.ly/3U6XJpr).
 * Integrate the third-party library [react-icons](https://bit.ly/3nayoJ7) into your application and use its SVG symbols by importing them as React components right away.
 * Optional: [Leave feedback for this section](https://forms.gle/3yGgMDR2VQ5WksSXA).

@@ -285,9 +285,7 @@ For simplicity, we styled elements like label and input individually in the *src
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3qZE0rQ).
-  * Recap all the [source code changes from this section](https://bit.ly/3R5s3M8).
+* Compare your source code against the author's [source code](https://bit.ly/4b3Lik9).
+  * Recap all the [source code changes from this section](https://bit.ly/4b4wdiA).
 * Try to pass `className` prop from App to SearchForm component, either with the value `button_small` or `button_large`, and use this as `className` for the button element.
-* Read more about [CSS stylesheets in Vite](https://bit.ly/3S7peLJ).
-  * Read more about how to use Sass in Vite for taking advantage of more advanced CSS features like nesting.
 * Optional: [Leave feedback for this section](https://forms.gle/RovYbjYF9McD1h6c7).
