@@ -4,7 +4,7 @@ To navigate through this book, it's essential to have a foundational understandi
 
 ### Editor and Terminal
 
-For this learning experience, you will need a editor (e.g. Sublime Text) and a command line tool (e.g. iTerm). As an alternative, I recommend using an IDE, for example **Visual Studio Code** (also called VSCode), for beginners, as it's an all-in-one solution that provides an advanced editor with an integrated command line tool, and because it is the most popular choice among web developers. I have provided [a setup guide](https://www.robinwieruch.de/developer-setup/) to get you started with general web development. It comes with all the details and I keep it separate from the book, because it offers options for Windows and MacOS users.
+For this learning experience, you will need an editor (e.g. Sublime Text) and a command line tool (e.g. iTerm). As an alternative, I recommend using an IDE, for example **Visual Studio Code** (also called VSCode), for beginners, as it's an all-in-one solution that provides an advanced editor with an integrated command line tool, and because it is the most popular choice among web developers. I have provided [a setup guide](https://www.robinwieruch.de/developer-setup/) to get you started with general web development. It comes with all the details and I keep it separate from the book, because it offers options for Windows and MacOS users.
 
 If you don't want to set up the editor/terminal combination or IDE on your local machine, **[CodeSandbox](https://codesandbox.io)**, an online editor, is also a viable alternative. While CodeSandbox is a great tool for sharing code online, a local machine setup is a better tool for learning the different ways to create a web application. Also, if you want to develop applications professionally, a local setup will be required.
 
@@ -30,4 +30,4 @@ If you have already installed Node and npm, make sure that your installation is 
 
 ### Exercises:
 
-* Optional: Read more about [yarn](https://yarnpkg.com/) and [pnpm](https://pnpm.io/). Both can be used as replacement for npm. However, I do not recommend using them as a beginner. This exercise should only make sure that you know about the alternatives.
+* Optional: Read more about [yarn](https://yarnpkg.com/) and [pnpm](https://pnpm.io/). Both can be used as a replacement for npm. However, I do not recommend using them as a beginner. This exercise should only make sure that you know about the alternatives.

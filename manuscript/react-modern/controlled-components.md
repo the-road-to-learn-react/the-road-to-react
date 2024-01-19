@@ -45,7 +45,7 @@ const Search = (props) => (
 );
 ~~~~~~~
 
-Now both states are synchronized. Instead of giving the HTML element the freedom of keeping track of its internal state, it uses React's state by leveraging the element's `value` attribute instead. Whenever the HTML element emits a change event, the new value is written to Reacts state and re-renders the components. Then the HTML element uses the recent state as `value` again.
+Now both states are synchronized. Instead of giving the HTML element the freedom of keeping track of its internal state, it uses React's state by leveraging the element's `value` attribute instead. Whenever the HTML element emits a change event, the new value is written to React's state and re-renders the components. Then the HTML element uses the recent state as `value` again.
 
 ![](images/controlled-component.png)
 

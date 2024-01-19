@@ -1,10 +1,10 @@
 ## React State
 
-While it is not allowed to mutate React props as a developer, because they are only there to pass information from parent to child components, **React state** introduces a mutable data structure (read: stateful values). These stateful values get instantiated in a React component as so called state, can be passed with props as vehicle down to child components, but can also get mutated by using a function to modify the state. When a state gets mutated, the component with the state and all child components will re-render.
+While it is not allowed to mutate React props as a developer, because they are only there to pass information from parent to child components, **React state** introduces a mutable data structure (read: stateful values). These stateful values get instantiated in a React component as state, can be passed with props as vehicle down to child components, but can also get mutated by using a function to modify the state. When a state gets mutated, the component with the state and all child components will re-render.
 
 ![](images/react-state.png)
 
-Both concepts, props and state, have clear defined purposes: While props are used to pass information down the component hierarchy, state is used to modify information over time. Let's start with state in React with the following use case: Whenever a user types text into our HTML input field element in the Search component, the user wants to see this information (state) displayed next to it. An intuitive (but not working) approach would be the following:
+Both concepts, props and state, have cleary defined purposes: While props are used to pass information down the component hierarchy, state is used to modify information over time. Let's start with state in React with the following use case: Whenever a user types text into our HTML input field element in the Search component, the user wants to see this information (state) displayed next to it. An intuitive (but not working) approach would be the following:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~

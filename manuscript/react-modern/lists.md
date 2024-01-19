@@ -111,7 +111,7 @@ The `key` attribute is used for one specific reason: Whenever React has to re-re
 
 ![](images/react-keys-performance.png)
 
-The key is not difficult to find, because usually when having data in shape of an array, we can use each item's stable identifier (e.g. `id` property). However, sometimes you do not have an `id`, so you need to come up with another identifier (e.g. `title` if it does not change and if it's unique in the array). As last resort, you can use the index of the item in the list too:
+The key is not difficult to find, because usually when having data in the shape of an array, we can use each item's stable identifier (e.g. `id` property). However, sometimes you do not have an `id`, so you need to come up with another identifier (e.g. `title` if it does not change and if it's unique in the array). As last resort, you can use the index of the item in the list too:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~

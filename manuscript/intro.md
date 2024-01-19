@@ -26,7 +26,7 @@ Unlike traditional programming books that quickly become outdated, this self-pub
 
 **Can I get a digital copy of the book if I've purchased it on Amazon?**
 
-If you've purchased the book on Amazon, you might have noticed it's also available on my website. Since I use Amazon as one way to generate revenue for my frequently free content, I genuinely appreciate your support and I encourage to sign up for my [courses](https://courses.robinwieruch.de/). Once you've created an account, send me an email detailing your Amazon purchase. This will enable me to unlock the content for you. By having an account on my platform, you'll always enjoy access to the most up-to-date version of the book. Thank you for your support!
+If you've purchased the book on Amazon, you might have noticed it's also available on my website. Since I use Amazon as one way to generate revenue for my frequently free content, I genuinely appreciate your support and I encourage you to sign up for my [courses](https://courses.robinwieruch.de/). Once you've created an account, send me an email detailing your Amazon purchase. This will enable me to unlock the content for you. By having an account on my platform, you'll always enjoy access to the most up-to-date version of the book. Thank you for your support!
 
 **Why is the print version so large?**
 
@@ -72,7 +72,7 @@ If you are a team lead, product owner or product manager of your development dep
 
 ## How to read the book?
 
-Most programming books are high-level and go into very much technical detail, but they lack the ability to get their readers into coding. That's why this book may be different from the books that you are used to read in this domain, because it attempts to teach aspiring developer actual programming. Hence I try to keep a good balance between being pragmatic, by giving you all the tools to get the job done, while still being detail-oriented, by giving you as much information as needed to understand these tools and how they are used in practice.
+Most programming books are high-level and go into very much technical detail, but they lack the ability to get their readers into coding. That's why this book may be different from the books that you are used to reading in this domain, because it attempts to teach aspiring developers actual programming. Hence I try to keep a good balance between being pragmatic, by giving you all the tools to get the job done, while still being detail-oriented, by giving you as much information as needed to understand these tools and how they are used in practice.
 
 Every section in this book introduces you to a new topic. For the fast pace learners who do not want to go into much detail, it's possible to read from section to section. However, if learners want to dive deeper into certain topics, they can read more by following the footnotes. I want to offer you a way to get a great overview of the topic at hand while still enabling you to dig deeper if you want to. After reading the book either way, you should be able to code what you have learned in a pragmatic way.
 
@@ -88,8 +88,8 @@ Do not just copy paste code, instead type it yourself. Do not be satisfied when 
 
 **Anticipate**
 
-There will be many coding problems presented in this book. Often I will give you the option to solve things yourself before reading about the solution in the next paragraph or code snippet. However, it breaks the flow of reading repeating myself, so I keep these encouragements to a minimum. Instead I am hoping for your eagerness here to jump ahead. Try to solve things before I get the chance to present you the solution. Only by trying, failing, and solving a problem you will become a better developer.
+There will be many coding problems presented in this book. Often I will give you the option to solve things yourself before reading about the solution in the next paragraph or code snippet. However, it breaks the flow of repeating myself, so I keep these encouragements to a minimum. Instead I am hoping for your eagerness here to jump ahead. Try to solve things before I get the chance to present you the solution. Only by trying, failing, and solving a problem you will become a better developer.
 
 **Take Breaks**
 
-Since every section introduces you to a new topic, it happens fast that you forget the learnings from the previous section. In addition to coding along with every section, I recommend you to take breaks between the sections which allow learnings to sink in. Read the section, code along the way, do the exercise afterwards, code even a bit more if you like, and then rest. Think about your learnings while taking a walk outside or speak with someone about what you have learned even though this other person is not into coding. After all, taking breaks is always essential if you want to learn something new.
+Since every section introduces you to a new topic, it happens fast that you forget the learnings from the previous section. In addition to coding along with every section, I recommend you to take breaks between the sections which allow the learnings to sink in. Read the section, code along the way, do the exercise afterwards, code even a bit more if you like, and then rest. Think about your learnings while taking a walk outside or speak with someone about what you have learned even though this other person is not into coding. After all, taking breaks is always essential if you want to learn something new.

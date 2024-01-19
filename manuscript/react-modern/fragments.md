@@ -39,7 +39,7 @@ const Search = ({ search, onSearch }) => [
 ];
 ~~~~~~~
 
-Fortunately there exists another way of returning siblings elements side-by-side without a top-level element, because the last approach with the array doesn't turn out very readable and becomes verbose with the additional key attribute. Another solution is to use a **React fragment**:
+Fortunately there exists another way of returning sibling elements side-by-side without a top-level element, because the last approach with the array doesn't turn out very readable and becomes verbose with the additional key attribute. Another solution is to use a **React fragment**:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
