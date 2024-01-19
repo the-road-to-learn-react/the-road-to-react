@@ -1,16 +1,16 @@
 ## Data Re-Fetching in React
 
-Finally we have data from a remote API. That's more encouraging to play around with in contrast to sample data. When you started your application after the last section, you may have noticed that it doesn't feel complete yet. Because we are fetching data with a predefined query (here: `'react'`), we always see "React"-related stories. Even though we have a search feature, we can filter only the stories that are already there. Hence the search feature is called a client-side search, because it does not interact with the remote API, but only with the data that's already there.
+Now, we have data retrieved from a remote API, providing a more engaging environment compared to sample data. If you launched your application after the previous section, you might have sensed that it lacks completeness. Since we fetch data with a predefined query (in this case: `'react'`), we consistently see stories related to "React." Despite having a search feature, it can only filter existing stories. Therefore, the search feature is termed a client-side search because it operates solely on the available data, without interacting with the remote API.
 
-In this section, we want to change the client-side search to a server-side search. While a client-side search only filters the stories that are available on the client (after the initial data fetching), a server-side search would allow us to get data from the remote API based on the search term. Try to tackle the following task yourself again before continuing to read the book.
+While a client-side search only filters the stories that are available on the client (after the initial data fetching), a server-side search would allow us to get data from the remote API based on the search term. Essentially client-side and server-side searching differ in where the search operation takes place. Client-side searching occurs on the user's device, providing fast responses but may be less suitable for large datasets. Server-side searching happens on the server, better suited for large datasets but may result in slower user response times due to server round-trips. The choice depends on factors like dataset size, search complexity, and performance considerations. In this section, we want to change the client-side search to a server-side search. Try to tackle the following task yourself again before continuing to read the book.
 
 **Task:** The search feature is a client-side search, because it filters only the data that's already there. Instead it should be possible to use the search to fetch data related to the search term.
 
 **Optional Hints:**
 
-* The derived value `searchedStories` can be removed, because we expect the data to come filtered from the API.
-* For the data fetching, the hardcoded `'react'` needs to get replaced by the `searchTerm`.
-* Handle the edge case when `searchTerm` is an empty string.
+* The calculated value `searchedStories` can be omitted as we anticipate filtered data directly from the API.
+* In the data retrieval process, replace the hardcoded `'react'` with the dynamic `searchTerm`.
+* Address the edge case where `searchTerm` is an empty string.
 
 There are not many steps involved to migrate the application from a client-side to a server-side search. First, remove `searchedStories` because we will receive the stories filtered by search term from the API. Pass only the regular stories to the List component:
 
@@ -106,13 +106,30 @@ const App = () => {
 };
 ~~~~~~~
 
-We changed the feature from a client-side to server-side search. Instead of filtering a predefined list of stories on the client, the `searchTerm` is used to fetch a server-side filtered list. The server-side search happens not only for the initial data fetching, but also for data fetching if the `searchTerm` changes. The search feature is fully server-side now.
+We've transitioned the feature from a client-side search to a server-side search. Instead of filtering a predefined list of stories on the client, the `searchTerm` is now utilized to retrieve a server-side filtered list. Server-side searching occurs not only during the initial data fetch but also when the `searchTerm` undergoes changes. The search feature is now entirely server-side.
 
-Caveat: Re-fetching data each time someone types into the input field isn't optimal though, because this implementation stresses the API with every keystroke. Hence you might experience API errors if you trigger requests too often, because most APIs protect themselves against the flood of request by using so called rate limiting (e.g. allowing only X requests in 1 minute). We will fix this soonish.
+Note: However, re-fetching data with every keystroke isn't optimal, as this implementation puts strain on the API with frequent requests. Excessive requests may lead to API errors due to rate limiting, a measure many APIs employ to protect against a high volume of requests (e.g., allowing only X requests in 1 minute). We plan to address this issue soon.
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3DJRZd3).
-  * Recap all the [source code changes from this section](https://bit.ly/3S2P1og).
+* Compare your source code against the author's [source code](https://bit.ly/3vF23lz).
+  * Recap all the [source code changes from this section](https://bit.ly/3U4PB8Q).
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3C9TFvb).
 * Optional: [Leave feedback for this section](https://forms.gle/ywE4bFy6D2HSG8Rd7).
+
+### Interview Questions:
+
+* Question: What is client-side searching?
+  * Answer: Client-side searching involves filtering and manipulating data on the user's device or browser.
+* Question: How does client-side searching impact performance?
+  * Answer: It can offer fast response times but may be limited by the amount of data that needs to be loaded from the server.
+* Question: What is server-side searching?
+  * Answer: Server-side searching entails sending search queries to the server, where the data is filtered, and the results are returned to the client.
+* Question: When is server-side searching preferred?
+  * Answer: Server-side searching is preferable for large datasets or when complex search logic and data reside on the server.
+* Question: What are potential drawbacks of client-side searching?
+  * Answer: Limitations may arise with large datasets, slower initial page loads, and the need to load extensive data to the client.
+* Question: What is the impact of frequent API requests in client-side searching?
+  * Answer: Frequent requests can stress the API, potentially leading to errors, especially if the API employs rate limiting measures.
+* Question: How can the performance issue of frequent API requests be addressed?
+  * Answer: Implementing debouncing or throttling techniques can mitigate the impact of frequent API requests and prevent overloading the server.
