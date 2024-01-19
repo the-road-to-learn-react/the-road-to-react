@@ -214,8 +214,8 @@ Task's done and here comes the recap: First we extracted the sort function from 
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3LN8IhE).
-  * Recap all the [source code changes from this section](https://bit.ly/3BN0m58).
+* Compare your source code against the author's [source code](https://bit.ly/3ScYrz4).
+  * Recap all the [source code changes from this section](https://bit.ly/3HruJBg).
 * Read more about [Lodash](https://lodash.com).
 * Why did we use numeric properties like `points` and `num_comments` for a reverse sort?
 * Use your styling skills to give the user feedback about the current active sort. This mechanism can be as straightforward as giving the active sort button a different color.
