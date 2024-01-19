@@ -42,10 +42,6 @@ react-modern/forms.md
 
 react-roadmap/react-roadmap.md
 
-react-legacy/class-components.md
-react-legacy/class-components-sate.md
-react-legacy/imperative-react.md
-
 react-styling/css.md
 react-styling/css-modules.md
 react-styling/styled-components.md
