@@ -1,6 +1,6 @@
 ## Forms in React
 
-There will be no modern application that doesn't use forms. A form is just a proper vehicle to submit data via a button from various input controls (e.g. input field, checkbox, radio button, slider). Earlier we introduced a new button to fetch data explicitly with a button click. We'll advance its use with a proper HTML form, which encapsulates the button and input field for the search term with its label.
+There is no modern application that doesn't use forms. A form is just a proper vehicle to submit data via a button from various input controls (e.g. input field, checkbox, radio button, slider). Earlier we introduced a new button to fetch data explicitly with a button click. We'll advance its use with a proper HTML form, which encapsulates the button and input field for the search term with its label.
 
 Forms aren't much different in React's JSX than in HTML. We'll implement it in two refactoring steps with some HTML/JavaScript. First, wrap the input field and button into an HTML form element:
 
@@ -63,7 +63,7 @@ const App = () => {
 };
 ~~~~~~~
 
-Now we can execute the search feature with the keyboard's "Enter" key, because we are using a form instead of just a standalone button. In the next two steps, we will separate the whole form into a new SearchForm component. If you want to go ahead yourself, do not hesitate. Anyway, that's how the form can gets extracted into its own component:
+Now we can execute the search feature with the keyboard's "Enter" key, because we are using a form instead of just a standalone button. In the next two steps, we will separate the whole form into a new SearchForm component. If you want to go ahead yourself, do not hesitate. Anyway, this is how the form can be extracted into its own component:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -128,10 +128,29 @@ Forms aren't much different in React than in plain HTML. When we have input fiel
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3RXqiSl).
-  * Recap all the [source code changes from this section](https://bit.ly/3fe5uaw).
+* Compare your source code against the author's [source code](https://bit.ly/3u4ZHfi).
+  * Recap all the [source code changes from this section](https://bit.ly/3SpINjZ).
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3xVur1e).
 * Read more about [forms in React](https://www.robinwieruch.de/react-form/).
 * Try what happens without using `preventDefault`.
   * Read more about [preventDefault for events in React](https://www.robinwieruch.de/react-preventdefault/).
 * Optional: [Leave feedback for this section](https://forms.gle/d14Mf7WzetP25jxq5).
+
+### Interview Questions:
+
+* Questions: How do you handle form input in React?
+  * Answers: In React, form input is typically managed using state. Each input field has a corresponding state variable, and the value of the input is set to the state.
+* Questions: What is the purpose of the onChange event in React forms?
+  * Answers: The onChange event is used to capture user input in real-time and update the state accordingly, ensuring the form reflects the latest input.
+* Questions: How can you prevent the default form submission behavior in React?
+  * Answers: Use the e.preventDefault() method within the form's submit handler to prevent the default form submission behavior.
+* Questions: What is controlled and uncontrolled form input in React?
+  * Answers: Controlled form input is when React state manages the input value. Uncontrolled input is when the DOM handles the input, and React does not track its state.
+* Questions: How do you perform form validation in React?
+  * Answers: Form validation in React is typically done by checking the input values against certain conditions or using validation libraries. The onSubmit handler is a common place to implement validation.
+* Questions: What is the purpose of the value attribute in form inputs?
+  * Answers: The value attribute sets the initial value of a form input and ensures that the input is controlled by React state.
+* Questions: How can you handle multiple form inputs with a single onChange handler in React?
+  * Answers: Use the name attribute on each input field and access the corresponding value using event.target.name in the onChange handler.
+* Questions: What is the role of the onSubmit event in React forms?
+  * Answers: The onSubmit event is triggered when the form is submitted. It's where you handle form validation, data processing, or any other actions related to the form submission.
