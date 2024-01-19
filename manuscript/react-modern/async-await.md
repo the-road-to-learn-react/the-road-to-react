@@ -1,8 +1,8 @@
 ## Async/Await in React
 
-There is no way around asynchronous data when working on real world applications. There will always be a remote API that gives your frontend data, so you need to work with this data asynchronously. In our React application, we have started to resolve promises with then/catch blocks. However, in modern JavaScript (and therefore React), a more popular solution is using async/await.
+There is no way around asynchronous data when working on real world applications. There will always be a remote API that gives you data, whether it is on the frontend or backend, so you need to understand how to work with this data asynchronously. In our React application, we have started to resolve promises with then/catch blocks. However, in modern JavaScript (and therefore React), a more popular solution is using async/await.
 
-If you are already familiar with async/await or you want to explore [its usage](https://mzl.la/3AWyWaw) yourself, go ahead and change the code from using then/catch to async/await. If you have come this far, you could also consider compensating for the removal of the catch block for the error handling by using a try/catch blocks instead.
+If you are already familiar with async/await or you want to explore [its usage](https://mzl.la/3AWyWaw) yourself, go ahead and change the code from using then/catch to async/await. If you have come this far, you could also consider compensating for the removal of the catch block for the error handling by using a try/catch block instead.
 
 Let's continue with the task here. First, you would have to replace the then/catch syntax with the async/await syntax. The following refactoring of the `handleFetchStories()` function shows how to accomplish it without error handling:
 
@@ -66,9 +66,25 @@ After all, using async/await with try/catch over then/catch makes it often more 
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3Slryyv).
-  * Recap all the [source code changes from this section](https://bit.ly/3xIbSNE).
+* Compare your source code against the author's [source code](https://bit.ly/3S8xI6D).
+  * Recap all the [source code changes from this section](https://bit.ly/42llSLf).
   * Optional: If you are using TypeScript, check out Robin's source code [here](https://bit.ly/3UASg86).
-* Alternative: Check out this little [helper library](https://bit.ly/3SBwGOT) which simplifies error handling without using try/catch.
 * Read more about [data fetching in React](https://www.robinwieruch.de/react-hooks-fetch-data/).
 * Optional: [Leave feedback for this section](https://forms.gle/mtMmwrrsiwioZ8GH6).
+
+### Interview Questions:
+
+* Question: What is async/await?
+  * Answer: async and await are keywords in JavaScript used for handling asynchronous operations in a synchronous-like manner, making code more readable.
+* Question: How do you use async/await with a function in React?
+  * Answer: Declare the function with the async keyword and use await within the function to handle promises.
+* Question: What is the purpose of async functions in React?
+  * Answer: async functions allow you to work with asynchronous code in a more readable and sequential manner, enhancing the handling of promises.
+* Question: How do you handle errors with async/await in React?
+  * Answer: Use a try/catch block to catch and handle errors in an async function.
+* Question: How does async/await differ from using .then() with Promises in React?
+  * Answer: async/await provides a more concise syntax, making asynchronous code look similar to synchronous code, compared to chaining .then().
+* Question: Can you use async/await with the Fetch API in React?
+  * Answer: Yes, async/await is commonly used with the Fetch API for asynchronous data fetching in React.
+* Question: How do you handle multiple asynchronous operations with async/await in React?
+  * Answer: Use Promise.all() to handle multiple asynchronous operations concurrently in an async function.
