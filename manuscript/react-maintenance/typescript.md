@@ -9,6 +9,8 @@ To use TypeScript in React (with Vite), install TypeScript and its dependencies 
 {title="Command Line",lang="text"}
 ~~~~~~~
 npm install typescript @types/react @types/react-dom --save-dev
+npm install @typescript-eslint/eslint-plugin --save-dev
+npm install @typescript-eslint/parser --save-dev
 ~~~~~~~
 
 Add two TypeScript configuration files; one for the browser environment and one for the Node environment:
@@ -24,21 +26,25 @@ In the TypeScript file for the browser environment include the following configu
 ~~~~~~~
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
-    "skipLibCheck": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
@@ -52,12 +58,37 @@ Then In the TypeScript file for the Node environment include some more configura
 {
   "compilerOptions": {
     "composite": true,
+    "skipLibCheck": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true
   },
   "include": ["vite.config.ts"]
 }
+~~~~~~~
+
+If you have a ESLint configuration, you need to adapt it to TypeScript too:
+
+{title=".eslintrc.cjs",lang="javascript"}
+~~~~~~~
+module.exports = {
+  root: true,
+  env: { browser: true, es2020: true },
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended',
+  ],
+  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['react-refresh'],
+  rules: {
+    'react-refresh/only-export-components': [
+      'warn',
+      { allowConstantExport: true },
+    ],
+  },
+};
 ~~~~~~~
 
 Next, rename all JavaScript files (*.jsx*) to TypeScript files (*.tsx*).
@@ -89,6 +120,13 @@ And in your *index.html* file, reference the new TypeScript file instead of a Ja
 </html>
 ~~~~~~~
 
+You may also need a new vite-env.d.ts file in your project's root with the following content:
+
+{title="index.html",lang="javascript"}
+~~~~~~~
+/// <reference types="vite/client" />
+~~~~~~~
+
 Restart your development server on the command line. You may encounter compile errors in the browser and editor/IDE. If you don't see any errors in your editor/IDE when opening the renamed TypeScript files (e.g. *src/App.tsx*), try installing a TypeScript plugin for your editor or a TypeScript extension for your IDE. Usually you should see red lines under all the values where TypeScript definitions are missing.
 
 ### Type Safety for Functions and Components
@@ -101,11 +139,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-ReactDOM.createRoot(
 # leanpub-start-insert
-  document.getElementById('root') as HTMLElement
+ReactDOM.createRoot(document.getElementById('root')!).render(
 # leanpub-end-insert
-).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
@@ -114,7 +150,7 @@ ReactDOM.createRoot(
 
 Without this change, TypeScript should output us the following error: *Argument of type 'HTMLElement | null' is not assignable to parameter of type 'Element | DocumentFragment'.*. It can be translated as: "The returned HTML element from `getElementById()` could be null if there is no such HTML element, but `createRoot()` expects it to be an Element." Because we know for sure that there is a HTML element with this specific identifier in the *index.html* file, we are replying TypeScript with "I know better" by using a so called type assertion (here: `as` keyword) in TypeScript.
 
-Next, we'll add [type safety](https://bit.ly/3jhm6xi) for the entire *src/App.tsx* file. When looking at a custom React hook plainly from a programming language perspective, it is just another function. In TypeScript a function's input (and optionally output) has to be type safe though. Let's start by making our `useStorageState()` hook type safe:
+Next, we'll add [type safety](https://bit.ly/3jhm6xi) for the entire *src/App.tsx* file. When looking at a custom React hook plainly from a programming language perspective, it is just another function. In TypeScript a function's input (and optionally output) has to be type safe though. Let's start by making our `useStorageState()` hook type safe where we are telling the function to expect two arguments as string primitives:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -136,7 +172,7 @@ const useStorageState = (
 };
 ~~~~~~~
 
-We are telling the function to expect two arguments as string primitives. Also, we can tell the function to return an array (`[]`) with a first value (current state) of type `string` and a second value (state updater function) that takes a new value (new state) of type `string` to return nothing (`void`):
+Also, we can tell the function to return an array (`[]`) with a first value (current state) of type `string` and a second value (state updater function) that takes a new value (new state) of type `string` to return nothing (`void`):
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -167,7 +203,7 @@ const [value, setValue] = React.useState('React');
 // setValue only takes a string as argument
 ~~~~~~~
 
-However, if the *initial state* would be null initially, we would have to tell TypeScript all of React's useState Hook potential types (here with a so called union type in TypeScript where `|` makes a union of two or more types). A [TypeScript generic](https://www.robinwieruch.de/typescript-generics/) is used to tell the function (here: a React hook) about it:
+However, if the *initial state* would be `null` initially, we would have to tell TypeScript all of React's useState Hook potential types (here with a so called union type in TypeScript where `|` makes a union of two or more types). A [TypeScript generic](https://www.robinwieruch.de/typescript-generics/) is used to tell the function (here: a React hook) about it:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -209,7 +245,7 @@ const Item = ({
 );
 ~~~~~~~
 
-There are two problems: the code is verbose, and it has duplicates. Let's get rid of both problems by defining a custom `Story` type outside the component, at the top of *src/App.jsx*:
+There are two problems: the code is verbose, and it has duplicates (see: `item`). Let's get rid of both problems by defining a custom `Story` type outside the component, at the top of *src/App.jsx*:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -261,63 +297,19 @@ const Item = ({ item, onRemoveItem }: ItemProps) => (
 );
 ~~~~~~~
 
-That's only one way to type React component's props with TypeScript. An alternative would be the following way (which I generally prefer), because it works most of the times better with third-party tools:
-
-{title="src/App.tsx",lang="javascript"}
-~~~~~~~
-type ItemProps = {
-  item: Story;
-  onRemoveItem: (item: Story) => void;
-};
-
-# leanpub-start-insert
-const Item: React.FC<ItemProps> = ({ item, onRemoveItem }) => (
-# leanpub-end-insert
-  <li>
-    ...
-  </li>
-);
-~~~~~~~
-
-Fortunately, the return type of a function component is inferred. However, if you want to explicitly use it (which I usually not recommend, because as noted it is inferred for us), you can do so with `JSX.Element`:
-
-{title="src/App.tsx",lang="javascript"}
-~~~~~~~
-const Item: React.FC<ItemProps> = ({
-  item,
-  onRemoveItem,
-# leanpub-start-insert
-}): JSX.Element => (
-# leanpub-end-insert
-  <li>
-    ...
-  </li>
-);
-~~~~~~~
-
 From here, we can navigate up the component tree into the List component and apply the same type definitions for the props. First try it yourself and then check out the following implementation:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
-type Story = {
-  ...
-};
-
-# leanpub-start-insert
-type Stories = Story[];
-# leanpub-end-insert
-
-...
-
 # leanpub-start-insert
 type ListProps = {
-  list: Stories;
+  list: Story[];
   onRemoveItem: (item: Story) => void;
 };
 # leanpub-end-insert
 
 # leanpub-start-insert
-const List: React.FC<ListProps> = ({ list, onRemoveItem }) => (
+const List = ({ list, onRemoveItem }: ListProps) => (
 # leanpub-end-insert
   <ul>
     ...
@@ -327,7 +319,7 @@ const List: React.FC<ListProps> = ({ list, onRemoveItem }) => (
 
 The `onRemoveItem` function is typed twice for the `ItemProps` and `ListProps` now. To be more accurate, you *could* extract this to a standalone defined `OnRemoveItem` TypeScript type and reuse it for both `onRemoveItem` prop type definitions. Note, however, that development becomes increasingly difficult as components are split up into different files. That's why we will keep the duplication here.
 
-Now, since we already have the `Story` and `Stories` (which is just an array of a Story type) types, we can repurpose them for other components. Add the `Story` type to the callback handler in the `App` component:
+Next we can repurpose the `Story` type for other components. For instance, add the `Story` type to the callback handler in the `App` component:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -353,7 +345,7 @@ The reducer function manages the `Story` type as well, without really touching i
 ~~~~~~~
 # leanpub-start-insert
 type StoriesState = {
-  data: Stories;
+  data: Story[];
   isLoading: boolean;
   isError: boolean;
 };
@@ -387,7 +379,7 @@ type StoriesFetchInitAction = {
 
 type StoriesFetchSuccessAction = {
   type: 'STORIES_FETCH_SUCCESS';
-  payload: Stories;
+  payload: Story[];
 }
 
 type StoriesFetchFailureAction = {
@@ -414,9 +406,7 @@ const storiesReducer = (
 };
 ~~~~~~~
 
-The reducer's current state, action, and returned state (inferred) are type safe now. For example, if you would dispatch an action to the reducer with an action type that's not defined, you would get an error from TypeScript. Or if you would pass something else than a story to the action which removes a story, you would get a type error as well.
-
-Let's shift our focus to the SearchForm component, which has callback handlers with events:
+The reducer's current state, action, and returned state (inferred) are type safe now. For example, if you would dispatch an action to the reducer with an action type that's not defined, you would get an error from TypeScript. Or if you would pass something else than a story to the action which removes a story, you would get a type error as well. Now let's shift our focus to the SearchForm component, which has callback handlers with events:
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
@@ -428,13 +418,13 @@ type SearchFormProps = {
 };
 # leanpub-end-insert
 
-# leanpub-start-insert
-const SearchForm: React.FC<SearchFormProps> = ({
-# leanpub-end-insert
+const SearchForm = ({
   searchTerm,
   onSearchInput,
   onSearchSubmit,
-}) => (
+# leanpub-start-insert
+}: SearchFormProps) => (
+# leanpub-end-insert
   ...
 );
 ~~~~~~~
@@ -501,16 +491,16 @@ type InputWithLabelProps = {
 };
 # leanpub-end-insert
 
-# leanpub-start-insert
-const InputWithLabel: React.FC<InputWithLabelProps> = ({
-# leanpub-end-insert
+const InputWithLabel = ({
   id,
   value,
   type = 'text',
   onInputChange,
   isFocused,
   children,
-}) => {
+# leanpub-start-insert
+}: InputWithLabelProps) => {
+# leanpub-end-insert
   ...
 };
 ~~~~~~~
@@ -521,8 +511,8 @@ Our entire React application is finally typed by TypeScript, making it easy to s
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3dAvnRx).
-  * Recap all the [source code changes from this section](https://bit.ly/3LATRXm).
+* Compare your source code against the author's [source code](https://bit.ly/3S3yfGW).
+  * Recap all the [source code changes from this section](https://bit.ly/48WSexM).
 * Dig into the [React + TypeScript Cheatsheet](https://bit.ly/3phdf2H), because most common use cases we faced in this section are covered there as well. There is no need to know everything from the top of your head.
 * While you continue with the learning experience in the following sections, remove or keep your types with TypeScript. If you do the latter, add new types whenever you get a compile error.
 * Optional: [Leave feedback for this section](https://forms.gle/Pyw2oUjXV85hwk2t6).
