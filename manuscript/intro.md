@@ -38,7 +38,7 @@ The print version's larger dimensions contribute to fewer pages. While most sect
 
 **Why is the book written like a long read tutorial?**
 
-The unconventional writing and structure of this book may be surprising if you're accustomed to traditional programming texts. In my early coding days, practical, hands-on books were scarce. I thrived as a learner with step-by-step instructions that explained the what, how, and why. Through self-publishing, my aim is to share this immersive learning experience which reads like a pragmatic tutorial with fellow developers.
+The unconventional manner in which this book is written and structured might come as a surprise to those more accustomed to the conventional format of programming texts. When I first started coding, there was a scarcity of practical, hands-on resources available. As a learner, I found great value in materials that provided step-by-step instructions, guiding me through not only the 'what' and 'how' but also the 'why' behind each concept. With the goal of replicating this immersive learning experience, I've taken on the task of self-publishing, hoping to extend this valuable knowledge-sharing opportunity to fellow developers within our community.
 
 **What do I do if I encounter a bug?**
 
