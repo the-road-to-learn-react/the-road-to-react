@@ -8,7 +8,7 @@ To use TypeScript in React (with Vite), install TypeScript and its dependencies 
 
 {title="Command Line",lang="text"}
 ~~~~~~~
-npm install typescript --save-dev
+npm install typescript @types/react @types/react-dom --save-dev
 npm install @typescript-eslint/eslint-plugin --save-dev
 npm install @typescript-eslint/parser --save-dev
 ~~~~~~~
