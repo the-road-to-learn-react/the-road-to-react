@@ -91,11 +91,7 @@ It's always a trade-off between generalization and specialization of components.
   * Recap all the [source code changes from this section](https://bit.ly/3vDLFBP).
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3Oun6hn).
 * Read more about [Reusable React Components](https://www.robinwieruch.de/react-reusable-components/) and create some of these components yourself:
-  * [Button in React](https://www.robinwieruch.de/react-button/)
-  * [Radio Button in React](https://www.robinwieruch.de/react-radio-button/)
-  * [Checkbox in React](https://www.robinwieruch.de/react-checkbox/)
-  * [Dropdown in React](https://www.robinwieruch.de/react-dropdown/)
-  * [Drag-and-Drop List in React (Advanced)](https://www.robinwieruch.de/react-drag-and-drop/)
+  * [Button in React](https://www.robinwieruch.de/react-button/), [Radio Button in React](https://www.robinwieruch.de/react-radio-button/), [Checkbox in React](https://www.robinwieruch.de/react-checkbox/), [Dropdown in React](https://www.robinwieruch.de/react-dropdown/), [Drag-and-Drop List in React (Advanced)](https://www.robinwieruch.de/react-drag-and-drop/), ...
 * Before we used the text "Search:" with a ":". How would you deal with it now? Would you pass it with `label="Search:"` as prop to the InputWithLabel component or hardcode it after the `<label htmlFor={id}>{label}:</label>` usage in the InputWithLabel component? We will see how to cope with this later.
 * Optional: [Leave feedback for this section](https://forms.gle/76C3LvW3kHHwdhgq5).
 
