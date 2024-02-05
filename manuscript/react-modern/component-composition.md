@@ -110,5 +110,3 @@ With the React children prop, we can compose React components into each other. W
   * Answer: Yes, a component can exist without any "children" by not placing content between its opening and closing tags.
 * Question: What is the difference between "children" and other props in React?
   * Answer: "Children" refers specifically to the content between tags, while other props are key-value pairs passed to a component.
-* Question: How do you check if a React component has "children"?
-  * Answer: Use the React.Children.count or React.Children.toArray methods to check if a component has "children."
