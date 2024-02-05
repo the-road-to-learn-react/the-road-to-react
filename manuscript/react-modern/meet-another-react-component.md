@@ -84,7 +84,7 @@ function Search() {
 # leanpub-end-insert
 ~~~~~~~
 
-Finally, we have three components in our application: App, List, and Search. Generally speaking, a React application consists of many hierarchical components; which we can put into the following categories. The following illustration assumes that we have split out an Item component from the List component as well -- which helps us to clarify the taxonomie.
+Finally, we have three components in our application: App, List, and Search. Generally speaking, a React application consists of many hierarchical components; which we can put into the following categories. The following illustration assumes that we have split out an Item component from the List component as well -- which helps us to clarify the taxonomy.
 
 ![](images/component-tree.png)
 
@@ -94,8 +94,19 @@ You can see how a React application grows in size by creating more components wh
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3R0Aw35).
-  * Recap all the [source code changes from this section](https://bit.ly/3f5pTi7).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3RlJKXM).
+* Compare your source code against the author's [source code](https://bit.ly/3S5rDb5).
+  * Recap all the [source code changes from this section](https://bit.ly/47Ed7MY).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SuMogq).
 * We can't extract an Item component from the List component (like in the illustration) yet, because we don't know how to pass individual items from the list to each Item component. Think about a way to do it.
 * Optional: [Leave feedback for this section](https://forms.gle/EZENmy48zvDP82NL7).
+
+### Interview Questions:
+
+* Question: Why is it beneficial to extract components in React?
+  * Answer: Extracting components promotes reusability, maintainability, and a cleaner component structure.
+* Question: How do you decide when to extract a component?
+  * Answer: Extract a component when you find repeated UI patterns or functionality within your code.
+* Question: What is the process of extracting a component called in React?
+  * Answer: It's called refactoring, specifically extracting a component to improve code organization.
+* Question: Is it possible to extract components across different files?
+  * Answer: Yes, extracting components into separate files promotes better file organization and modularity.

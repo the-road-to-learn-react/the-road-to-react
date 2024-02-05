@@ -9,7 +9,6 @@ react-modern/requirements.md
 react-modern/setup.md
 react-modern/meet-the-react-component.md
 react-modern/jsx.md
-react-modern/lint.md
 react-modern/lists.md
 react-modern/meet-another-react-component.md
 react-modern/component-instantiation.md
@@ -42,10 +41,6 @@ react-modern/async-await.md
 react-modern/forms.md
 
 react-roadmap/react-roadmap.md
-
-react-legacy/class-components.md
-react-legacy/class-components-sate.md
-react-legacy/imperative-react.md
 
 react-styling/css.md
 react-styling/css-modules.md

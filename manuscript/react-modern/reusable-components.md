@@ -1,10 +1,10 @@
 ## Reusable React Component
 
-Have a closer look at the Search component: Every implementation detail is tied to the search feature. However, internally the component is only a label and an input, so why should it be tied so strictly to one domain? Being tied to one feature makes a component less reusable for the rest of the application. In this case, the Search component cannot be used for non-search-related tasks.
+Examine the Search component more closely: Every intricate detail of its implementation is closely linked to the search feature. However, internally, the component is composed of merely a label and an input. Why should it be so tightly bound to a singular domain? This narrow association makes the component less adaptable for other functionalities within the application. Consequently, the Search component becomes impractical for tasks unrelated to searching.
 
-In addition, the Search component risks introducing bugs, because if two of these Search components are rendered on the same page, their `htmlFor`/`id` combination is duplicated and therefore breaking the focus when one of the labels is clicked by the user. Let's fix these underlying issues by making the Search component reusable.
+Moreover, the Search component poses a risk of introducing bugs. If multiple instances of this Search component are rendered on the same page, their `htmlFor`/`id` combination is duplicated. This duplication disrupts the focus when a user clicks on one of the labels. To rectify these issues, let's enhance the Search component's reusability.
 
-Since the Search component doesn't have any actual "search" functionality, it takes little effort to generalize the search domain-specific properties to make the component reusable for the rest of the application. Let's pass a dynamic `id` and `label` prop to the Search component, rename the actual value and callback handler to something more generic, and rename the component too:
+Given that the Search component lacks actual "search" functionality, making it reusable for various application features involves minimal effort. We can achieve this by introducing dynamic `id` and `label` props to the Search component, renaming the specific value and callback handler to more generic terms, and consequently, renaming the component itself:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -51,7 +51,7 @@ const InputWithLabel = ({ id, label, value, onInputChange }) => (
 );
 ~~~~~~~
 
-It's fully reusable, but only when using an input with a text. If we would want to support numbers (`number`) or phone numbers (`tel`) too, the `type` attribute of the input field needs to be accessible from the outside too:
+While it is entirely reusable, its applicability is limited to using an input with `text`. To broaden its scope and support additional input types, such as numbers (`number`) or phone numbers (`tel`), the `type` attribute of the input field needs to be accessible from the outside too:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -87,13 +87,29 @@ It's always a trade-off between generalization and specialization of components.
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3dCtfJe).
-  * Recap all the [source code changes from this section](https://bit.ly/3S9O8KH).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3Ce3312).
-* Read more about [Reusable React Components](https://www.robinwieruch.de/react-reusable-components/) and build some of these components yourself:
+* Compare your source code against the author's [source code](https://bit.ly/3U98mIj).
+  * Recap all the [source code changes from this section](https://bit.ly/3vDLFBP).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3Oun6hn).
+* Read more about [Reusable React Components](https://www.robinwieruch.de/react-reusable-components/) and create some of these components yourself:
   * [Button in React](https://www.robinwieruch.de/react-button/)
   * [Radio Button in React](https://www.robinwieruch.de/react-radio-button/)
   * [Checkbox in React](https://www.robinwieruch.de/react-checkbox/)
   * [Dropdown in React](https://www.robinwieruch.de/react-dropdown/)
+  * [Drag-and-Drop List in React (Advanced)](https://www.robinwieruch.de/react-drag-and-drop/)
 * Before we used the text "Search:" with a ":". How would you deal with it now? Would you pass it with `label="Search:"` as prop to the InputWithLabel component or hardcode it after the `<label htmlFor={id}>{label}:</label>` usage in the InputWithLabel component? We will see how to cope with this later.
 * Optional: [Leave feedback for this section](https://forms.gle/76C3LvW3kHHwdhgq5).
+
+### Interview Questions:
+
+* Question: Why is reusability important in React?
+  * Answer: Reusability promotes code efficiency, maintainability, and consistency by allowing components to be used across various parts of an application.
+* Question: How can you make a React component reusable?
+  * Answer: Make components more generic by using props for customizable behavior and ensuring they are not tightly coupled to specific functionalities.
+* Question: How do React props contribute to reusability?
+  * Answer: Props make components adaptable and reusable by allowing dynamic customization.
+* Question: Can a reusable component have internal state?
+  * Answer: Yes, a reusable component can have internal state by using a hook like useState.
+* Question: Why is component abstraction important for reusability?
+  * Answer: Abstraction hides unnecessary details, making components more versatile and easier to reuse without exposing their internal complexities.
+* Question: Is it advisable to make all components in a React application reusable?
+  * Answer: While reusability is beneficial, not all components need to be reusable. Often there are components which have only a single purpose and are only used once in a React application.

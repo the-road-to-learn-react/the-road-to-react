@@ -15,10 +15,6 @@ Move every component from the *src/App.jsx* file in its own file, except for the
 
 {title="src/List.jsx",lang="javascript"}
 ~~~~~~~
-# leanpub-start-insert
-import * as React from 'react';
-# leanpub-end-insert
-
 const List = ({ list, onRemoveItem }) => (
   <ul>
     {list.map((item) => (
@@ -100,10 +96,6 @@ The SearchForm component in the *src/SearchForm.jsx* file must import the InputW
 
 {title="src/SearchForm.jsx",lang="javascript"}
 ~~~~~~~
-# leanpub-start-insert
-import * as React from 'react';
-# leanpub-end-insert
-
 # leanpub-start-insert
 import { InputWithLabel } from './InputWithLabel';
 # leanpub-end-insert
@@ -233,8 +225,8 @@ There are many ways on how to structure your React project from small to large p
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3Sodk0k).
-  * Recap all the [source code changes from this section](https://bit.ly/3Sj7L2Z).
+* Compare your source code against the author's [source code](https://bit.ly/3vAhuLO).
+  * Recap all the [source code changes from this section](https://bit.ly/3vJDx2U).
 * Read more about [React Folder Structures](https://www.robinwieruch.de/react-folder-structure/).
 * Keep the current folder structure if you feel confident. The ongoing sections will omit it, only using the *src/App.jsx* file.
 * Optional: [Leave feedback for this section](https://forms.gle/yLzszsmtdB1DQBCe7).

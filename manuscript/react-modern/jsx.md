@@ -4,8 +4,6 @@ Everything returned from a React component will be displayed in the browser. Unt
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
-import * as React from 'react';
-
 const title = 'React';
 
 function App() {
@@ -21,7 +19,7 @@ function App() {
 export default App;
 ~~~~~~~
 
-Either start your application again with `npm run dev` (or check whether your application still runs) and look for the rendered (read: displayed) `title` in the browser. The output should read "Hello React". If you change the variable in the source code, the browser should reflect that change.
+Either start your application again with `npm run dev` (or check whether your application still runs) and look for the displayed (read: rendered) `title` in the browser. The output should read "Hello React". If you change the variable in the source code, the browser should reflect that change.
 
 Changing the variable in the source code and seeing the change reflected in the browser is not solely connected to React, but also to the underlying development server when we start our application on the command line. Any time one of our files changes, the development server notices it and reloads all affected files for the browser. The bridge between React and the development server which makes this behavior possible is called **React Fast Refresh** (prior to that it was **React Hot Loader**) on React's side and **Hot Module Replacement** on the development server's side.
 
@@ -29,8 +27,6 @@ Next, try to define a HTML input field (read: `<input>` tag) and a HTML label (r
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
-import * as React from 'react';
-
 const title = 'React';
 
 function App() {
@@ -57,14 +53,12 @@ When using HTML in JSX, React internally translates all HTML attributes to JavaS
 
 ![](images/rendering-jsx.png)
 
-We will revisit the HTML input field and its label for further implementation details with JavaScript later. For now, in order to contrast how HTML and JavaScript are used in JSX, let's use more complex JavaScript data types in JSX. Instead of defining a JavaScript string primitive like `title`, define a JavaScript object called `welcome` which has a `title` (e.g. `'React'`) and a `greeting` (e.g. `'Hey'`) as properties. Afterward, try yourself to render both properties of the object in JSX side by side in the `<h1>` tag.
+We will revisit the HTML input field and its label for further implementation details with JavaScript later. For now, in order to contrast how HTML and JavaScript are used in JSX, let's use more complex JavaScript data types in JSX. Instead of defining a JavaScript string primitive like `title`, define a JavaScript object called `welcome` which has a `title` (e.g. `'React'`) and a `greeting` (e.g. `'Hey'`) as properties. Afterward, try to render both properties of the object in JSX side by side in the `<h1>` tag.
 
 The following code snippet will show you the solution to the task. Before we have defined a JavaScript string primitive to be displayed in the App component. Now, the same can be done with a JavaScript object by accessing its properties within JSX:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
-import * as React from 'react';
-
 # leanpub-start-insert
 const welcome = {
   greeting: 'Hey',
@@ -94,8 +88,6 @@ While HTML can be used almost (except for the attributes) in its native way in J
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
-import * as React from 'react';
-
 # leanpub-start-insert
 function getTitle(title) {
   return title;
@@ -118,7 +110,7 @@ function App() {
 export default App;
 ~~~~~~~
 
-JSX is a syntax extension to JavaScript. In the past, JavaScript files which made use of JSX [had to use](https://github.com/airbnb/javascript/pull/985) the *.jsx* instead of the *.js* extension. However, these days the underlying build tools (read: compiler/bundler) [can be configured to acknowledge JSX in a .js file](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/). If they are configured this way, they will transpile JSX to JavaScript. Tools like Vite embrace the *.jsx* extension though, because it makes it more explicit for developers.
+JSX is a syntax extension to JavaScript. In the past, JavaScript files which made use of JSX [had to use](https://bit.ly/3tT0DDD) the *.jsx* instead of the *.js* extension. However, these days several build tools (read: compiler/bundler) [can be configured to acknowledge JSX in a .js file](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/). If they are configured this way, they will transpile JSX to JavaScript. Tools like Vite embrace the *.jsx* extension though, because it makes it more explicit for developers.
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -140,11 +132,21 @@ Initially invented for React, JSX gained popularity in other modern libraries an
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3S2uyQy).
-  * Recap all the [source code changes from this section](https://bit.ly/3dAr0G3).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3LJx1Nu).
+* Compare your source code against the author's [source code](https://bit.ly/3S51Lfu).
+  * Recap all the [source code changes from this section](https://bit.ly/3vLjctL).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SukC3A).
 * Beginner: Read more about [JavaScript Variables](https://www.robinwieruch.de/javascript-variable/).
   * Beginner: Define more primitive and complex JavaScript data types and render them in JSX.
   * Advanced: Try to render a JavaScript array in JSX by using the array's built-in `map()` method to return JSX for each item in the list. If it's too complicated, don't worry, because you will learn more about this in the next section.
-* Optional: Read more about [React's JSX](https://bit.ly/3BZSkVk).
 * Optional: [Leave feedback for this section](https://forms.gle/R6y6kEqGPACLrXmP8).
+
+### Interview Questions:
+
+* Question: What is JSX in React?
+  * Answer: JSX is a syntax extension for JavaScript recommended by React for describing what the UI should look like.
+* Question: Can JSX be directly rendered by browsers?
+  * Answer: No, browsers can't understand JSX. It needs to be transpiled to regular JavaScript using tools like Babel.
+* Question: Is JSX mandatory in React?
+  * Answer: No, JSX is not mandatory, but it's a widely used and convenient way to write React components.
+* Question: How do you render a variable in JSX?
+  * Answer: Use curly braces `{}` to embed variables in JSX, like `{myVariable}`.

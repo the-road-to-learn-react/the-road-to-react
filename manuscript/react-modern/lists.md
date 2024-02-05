@@ -18,8 +18,6 @@ In React, the array's built-in `map()` method is used to transform a list of ite
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
-import * as React from 'react';
-
 # leanpub-start-insert
 const list = [
   {
@@ -45,14 +43,14 @@ function App() { ... }
 
 # leanpub-start-insert
 // note the ... as placeholder
-// for source code that didn't change
+// which is use for source code that didn't change
 // and isn't relevant for this code snippet
 # leanpub-end-insert
 
 export default App;
 ~~~~~~~
 
-Each item in the list has a `title`, an `url`, an `author`, an identifier (`objectID`), `points` -- which indicate the popularity of an item -- and a count of comments (`num_comments`). The property names are chosen this way, because they resemble real world data that we are going to use later. They don't fit the desired [naming conventions](https://www.robinwieruch.de/javascript-naming-conventions/) for JavaScript though.
+Each item in the list has a `title`, an `url`, an `author`, an identifier (`objectID`), `points` -- which indicate the popularity of an item -- and a count of comments (`num_comments`). The property names are chosen this way, because they resemble real world data that we are going to use later. They don't fit the desired [naming conventions](https://www.robinwieruch.de/javascript-naming-conventions/) for JavaScript though, because one of them uses an underscore for example.
 
 Next, we'll render the list inlined in JSX with the array's built-in `map()` method. Hence we won't map from one JavaScript data type to another, but instead return JSX that renders each item of the list:
 
@@ -84,7 +82,7 @@ function App() {
 }
 ~~~~~~~
 
-Actually, rendering a list of items in React was one of my personal JSX "Aha" moments. Without any made up templating syntax, it's possible to use JavaScript to map from a list of items to a list of HTML elements. That's what JSX is for the developer in the end: just JS mixed with HTML.
+Actually, rendering a list of items in React was one of my personal JSX "Aha"-moments. Without any made up templating syntax, it's possible to use JavaScript to map from an array of JavaScript objects to a list of HTML elements. That's what JSX is for the developer in the end: just JS mixed with HTML.
 
 ![](images/jsx-mapping.png)
 
@@ -113,7 +111,7 @@ The `key` attribute is used for one specific reason: Whenever React has to re-re
 
 ![](images/react-keys-performance.png)
 
-The key is not difficult to find, because usually when having data in shape of an array, we can use each item's stable identifier (e.g. `id` property). However, sometimes you do not have an `id`, so you need to come up with another identifier (e.g. `title` if it does not change and if it's unique in the array). As last resort, you can use the index of the item in the list too:
+The key is not difficult to find, because usually when having data in the shape of an array, we can use each item's stable identifier (e.g. `id` property). However, sometimes you do not have an `id`, so you need to come up with another identifier (e.g. `title` if it does not change and if it's unique in the array). As last resort, you can use the index of the item in the list too:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -131,9 +129,9 @@ The key is not difficult to find, because usually when having data in shape of a
 </ul>
 ~~~~~~~
 
-Usually using an index should be avoided though, because it comes with the same rendering performance issues from above. In addition, it can [cause actual bugs in the UI](https://www.robinwieruch.de/react-list-key/) whenever the order of items got changed (e.g. re-ordering, appending or removing items). However, as last resort, if the list does not change its order in any way, using the index is fine.
+Usually using an index should be avoided though, because it comes with the same rendering performance issues from above. In addition, it can [cause actual bugs in the UI](https://www.robinwieruch.de/react-list-key/) whenever the order of items changes (e.g. re-ordering, appending or removing items). However, as last resort, if the list does not change its order in any way, using the index is fine.
 
-So far, we are only displaying the `title` of each item. Go ahead and render the item's `url`, `author`, `num_comments`, and `points` as well. In the special case of the `url`, use an HTML anchor HTML element (read: `<a>` tag) that surrounds the `title`. For guidance, the following solution will show you how the book implements this to be prepared for the next sections:
+So far, we are only displaying the `title` of each item. Go ahead and render the item's `url`, `author`, `num_comments`, and `points` as well. In the special case of the `url`, use an HTML anchor HTML element (read: `<a>` tag) that surrounds the `title`. Try it yourself! For guidance, the following solution will show you how the book implements this to be prepared for the next sections:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -167,12 +165,23 @@ The array's `map()` method is inlined concisely in your JSX for rendering a list
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3ByuIYR).
-  * Recap all the [source code changes from this section](https://bit.ly/3BVF1Yu).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SEnv0u).
+* Compare your source code against the author's [source code](https://bit.ly/48YGefo).
+  * Recap all the [source code changes from this section](https://bit.ly/3O1N0ZK).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/484qh6p).
 * Recap the [standard built-in array methods](https://mzl.la/3b9V9rf), especially *map*, *filter*, and *reduce*, which are available in JavaScript.
-* Question: What happens if you return `null` instead of the JSX?
-  * Answer: Returning `null` in JSX is allowed. It's always used if you want to render nothing.
 * Extend the list with some more items to make the example more realistic.
 * Practice using different JavaScript expressions in JSX.
 * Optional: [Leave feedback for this section](https://forms.gle/aZmLFjEdSMTk9Thk9).
+
+### Interview Questions:
+
+* Question: How to render a list of items in JSX?
+  * Answer: Use map() to iterate over the array and return JSX elements for each item.
+* Question: What happens if you return `null` instead of the JSX?
+  * Answer: Returning `null` in JSX is allowed. It's always used if you want to render nothing.
+* Question: What does the term "JSX expressions" refer to?
+  * Answer: JSX expressions are JavaScript expressions embedded within curly braces in JSX, allowing dynamic content.
+* Question: Can you embed HTML directly within JSX?
+  * Answer: Yes, you can embed HTML directly within JSX, but it's generally discouraged due to security risks. Use dangerouslySetInnerHTML cautiously.
+* Question: How do you comment in JSX?
+  * Answer: Use curly braces for JavaScript comments, like `{/* Your comment here */}`.

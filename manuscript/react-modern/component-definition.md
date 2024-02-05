@@ -1,6 +1,6 @@
 ## React Component Declaration
 
-We have declared multiple React components so far. Since these components are function components, we can leverage the different ways of declaring functions in JavaScript. So far, we have used the standard function declaration, though arrow functions can be used more concisely and therefore can establish a new standard for declaring function components:
+We have declared multiple React components so far. Since these components are so called function components, we can leverage the different ways of declaring functions in JavaScript for them. So far, we have used the standard function declaration, though arrow functions can be used more concisely and therefore can establish a new standard for declaring function components:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -11,7 +11,7 @@ function App() { ... }
 const App = () => { ... }
 ~~~~~~~
 
-Equipped with this knowledge, go through your React project and refactor all function declarations to arrow function expressions. While this refactoring can be applied to function components, it can also be used for any other functions that are used in the project. In the book, we will go ahead as well and refactor all the function component's function declarations to arrow function expressions:
+Equipped with this knowledge, go through your React project and refactor all function declarations to arrow function expressions. While this refactoring can be applied to function components, it can also be used for any other functions that are used in the project. We will go ahead as well and refactor all the function component's function declarations to arrow function expressions:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -61,7 +61,7 @@ const List = () => {
 };
 ~~~~~~~
 
-If an arrow function's only purpose is to return a value and it doesn't have any business logic in between, you can remove the **block body** (curly braces) of the function. In a **concise body**, an **implicit return statement** is attached, so you can remove the return statement:
+Moreover, if an arrow function's only purpose is to return a value and it doesn't have any business logic in between, you can remove the **block body** (curly braces) of the function. In a **concise body**, an **implicit return statement** is attached, so you can remove the return statement. Check out the following demonstration:
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
@@ -80,22 +80,28 @@ const addOne = (count) =>
 const addOne = (count) => count + 1;
 ~~~~~~~
 
-This can be done for the App, List, and Search components as well, because they only return JSX and don't perform any task in between. In addition, it also applies to the arrow function that's used in the `map()` method:
+Let's see this in action for the Search component:
+
+{title="src/App.jsx",lang="javascript"}
+~~~~~~~
+# leanpub-start-insert
+const Search = () => (
+# leanpub-end-insert
+  <div>
+    <label htmlFor="search">Search: </label>
+    <input id="search" type="text" />
+  </div>
+# leanpub-start-insert
+);
+# leanpub-end-insert
+~~~~~~~
+
+This can be done for the App and List components as well, because they only return JSX and don't perform any task in between. In addition, it also applies to the arrow function that's used in the `map()` method:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const App = () => (
-# leanpub-end-insert
-  <div>
-    ...
-  </div>
-# leanpub-start-insert
-);
-# leanpub-end-insert
-
-# leanpub-start-insert
-const Search = () => (
 # leanpub-end-insert
   <div>
     ...
@@ -144,9 +150,16 @@ As a rule of thumb, use either function declarations or arrow function expressio
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3QVhIlK).
-  * Recap all the [source code changes from this section](https://bit.ly/3eX5hZi).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3STeJfd).
-* Optional: Read more about [JavaScript arrow functions](https://mzl.la/3BYCOcp).
+* Compare your source code against the author's [source code](https://bit.ly/3U2fu9g).
+  * Recap all the [source code changes from this section](https://bit.ly/3O7JLzI).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SJbE42).
 * Familiarize yourself with arrow functions with block body and explicit return and concise body without return (implicit return).
+* Optional: Read more about [JavaScript arrow functions](https://mzl.la/3BYCOcp).
 * Optional: [Leave feedback for this section](https://forms.gle/iWSchmqasbZUWUpT8).
+
+### Interview Questions:
+
+* Question: How do you declare a function component using a function declaration?
+  * Answer: Use the function keyword, like `function MyComponent() {...}`.
+* Question: How do you declare a function component using an arrow function expression?
+  * Answer: Use the arrow function syntax, like `const MyComponent = () => {...};`.

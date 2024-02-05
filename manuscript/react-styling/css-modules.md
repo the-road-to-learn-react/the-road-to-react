@@ -263,7 +263,6 @@ Again, CSS Modules -- like any other CSS-in-CSS approach -- can use Sass for mor
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3xM1HYw).
-  * Recap all the [source code changes from this section](https://bit.ly/3dxsZLz).
-* Read more about [CSS Modules in Vite](https://bit.ly/3S7peLJ).
+* Compare your source code against the author's [source code](https://bit.ly/490UtQu).
+  * Recap all the [source code changes from this section](https://bit.ly/3tYvKxt).
 * Optional: [Leave feedback for this section](https://forms.gle/iuU7WaeJVwHN2pFCA).

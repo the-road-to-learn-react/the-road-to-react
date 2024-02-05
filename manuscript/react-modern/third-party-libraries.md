@@ -58,9 +58,24 @@ In this code, we call axios `axios.get()` for an explicit [HTTP GET request](htt
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3LxrDwE).
-  * Recap all the [source code changes from this section](https://bit.ly/3BytHA5).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SzVPtl).
+* Compare your source code against the author's [source code](https://bit.ly/3O8sXbU).
+  * Recap all the [source code changes from this section](https://bit.ly/3vHe3mC).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3Ss6Yyb).
 * Read more about [popular libraries in React](https://www.robinwieruch.de/react-libraries/).
 * Optional: Read more about [axios](https://bit.ly/3jjEupg).
 * Optional: [Leave feedback for this section](https://forms.gle/wfDb7r5K4az3TiWN9).
+
+### Interview Questions:
+
+* Question: What is Axios in the context of React?
+  * Answer: Axios is a popular JavaScript library for making HTTP requests, commonly used in React applications for data fetching.
+* Question: How does Axios differ from the Fetch API in React?
+  * Answer: Axios is a third-party library providing additional features and a more convenient API compared to the native Fetch API.
+* Question: Why might you choose Axios over Fetch in a React project?
+  * Answer: Axios offers features like automatic JSON parsing, request/response interceptors, and better browser support, making it a preferred choice for many developers.
+* Question: How do you make a GET request using Axios in React?
+  * Answer: Use axios.get(url) to make a GET request in React with Axios.
+* Question: How is error handling done in Axios requests in React?
+  * Answer: Axios provides a .catch() method to handle errors in the request.
+* Question: What is the main advantage of using Fetch API in React?
+  * Answer: The Fetch API is built into modern browsers, eliminating the need for additional dependencies and making it a lightweight choice for simple scenarios.

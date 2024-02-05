@@ -1,12 +1,12 @@
 ## Inline Handler in JSX
 
-While this section will teach you about inline handlers as new fundamental building block in React, we will implement our next feature which allows us to remove items from the list. Without reading any further, you can tackle this task yourself, because it can be solved without the knowledge about inline handlers too. What follows are a couple of instructions. If you get stuck, continue to read this section for the solution. If you found a solution yourself, compare it to the solution from the book which uses inline handlers.
+In this section, you'll learn about inline handlers as a new fundamental building block in React. Simultaneously, we'll implement our next feature that enables the removal of items from the list. Before delving further, feel free to attempt this task independently, as it can be solved without prior knowledge of inline handlers. Provided below are step-by-step instructions. If you encounter difficulties, proceed to read this section for the solution. If you successfully find a solution on your own, compare it with the book's solution, which utilizes inline handlers.
 
 **Task:** The application renders a list of items and allows its users to filter the list via a search feature. Next the application should render a button next to each list item which allows its users to remove the item from the list.
 
 **Optional Hints:**
 
-* The list of items needs to become a stateful value in order to manipulate it (e.g. removing an item) later.
+* The list of items needs to become a stateful value (here: stateful array) with useState in order to manipulate it (e.g. removing an item) later.
 * Every list item renders a button with a click handler. When clicking the button, the item gets removed from the list by manipulating the state.
 * Since the stateful list resides in the App component, one needs to use callback handlers to enable the Item component to communicate up to the App component for removing an item by its identifier.
 
@@ -48,7 +48,7 @@ const App = () => {
 };
 ~~~~~~~
 
-The application behaves the same because the `stories`, now returned as a stateful list from React's `useState` Hook, are still filtered into `searchedStories` and displayed in the List component. Just the origin where the stories are coming from has changed. Next, we will write an event handler which removes an item from the list:
+The application behaves the same because the `stories`, now returned as a stateful list from React's `useState` Hook, are still filtered into `searchedStories` and displayed in the List component. Just the origin where the stories are coming from has changed. But we are not modifying the stories yet. Next, we will write an event handler which removes an item from the list:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -220,10 +220,21 @@ As a rule of thumb: It's okay to use inline handlers if they do not obscure crit
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3DKaWfy).
-  * Recap all the [source code changes from this section](https://bit.ly/3SqUtku).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3BKP8hv).
+* Compare your source code against the author's [source code](https://bit.ly/4b4LQX2).
+  * Recap all the [source code changes from this section](https://bit.ly/3u85gcS).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3UwzjWz).
 * Read more about how to [add](https://www.robinwieruch.de/react-add-item-to-list), [update](https://www.robinwieruch.de/react-update-item-in-list/), [remove](https://www.robinwieruch.de/react-remove-item-from-list) items in a list.
 * Read more about [computed properties in React](https://www.robinwieruch.de/react-computed-properties/).
 * Review [handlers, callback handlers, and inline handlers](https://www.robinwieruch.de/react-event-handler/).
 * Optional: [Leave feedback for this section](https://forms.gle/19NvNYMk2RUKTDyZ6).
+
+### Interview Questions:
+
+* Question: What is an inline function in React?
+  * Answer: An inline function in React is often used as a function defined directly within the JSX.
+* Question: What is the advantage of using inline functions for event handlers in React?
+  * Answer: Inline functions allow you to pass additional parameters easily.
+* Question: What is the alternative to using inline functions for event handlers in React?
+  * Answer: Creating handler functions outside the render method and passing references to them can be an alternative.
+* Question: What is the syntax for creating an inline function in a React JSX event handler?
+  * Answer: Use arrow function syntax directly within the event handler attribute, like `onClick={() => myFunction()}`.

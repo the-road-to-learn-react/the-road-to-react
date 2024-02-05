@@ -147,9 +147,24 @@ What we've covered is a minimal version of a reducer in JavaScript and its usage
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3Usx6sT).
-  * Recap all the [source code changes from this section](https://bit.ly/3Lzbzus).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3RijH3Q).
+* Compare your source code against the author's [source code](https://bit.ly/48GEXd8).
+  * Recap all the [source code changes from this section](https://bit.ly/3UbjXqx).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3OwtVie).
 * Read more about [reducers and useReducer in React](https://www.robinwieruch.de/react-usereducer-hook/).
 * Extract the action types `'SET_STORIES'` and `'REMOVE_STORY'` as variables and reuse them in the reducer and the dispatch functions. This way, you will avoid introducing typos in your action types.
 * Optional: [Leave feedback for this section](https://forms.gle/tNqqVynwQV9Ym9u68).
+
+### Interview Questions:
+
+* Question: What is useReducer in React?
+  * Answer: useReducer is a React hook that manages complex state logic in function components by dispatching actions to update state.
+* Question: How does useReducer differ from useState in React?
+  * Answer: While useState is simpler for managing individual state variables, useReducer is more suitable for complex state logic where multiple values depend on each other.
+* Question: What is the basic structure of the useReducer hook?
+  * Answer: It returns the current state and a dispatch function for triggering state updates, taking a reducer function and an initial state as arguments.
+* Question: What is a reducer function in useReducer?
+  * Answer: The reducer function is responsible for specifying how the state should change in response to dispatched actions, based on the current state and the action.
+* Question: How is state updated using useReducer?
+  * Answer: State is updated by dispatching actions, and the reducer function determines the new state based on the current state and the action type.
+* Question: Can useReducer replace all use cases of useState in React?
+  * Answer: While useReducer is powerful, it's not necessary for all scenarios. useState is simpler and more suitable for managing individual state variables.

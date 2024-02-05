@@ -4,7 +4,7 @@ In this section, we are confronted with the following task: Use the stateful `se
 
 One solution could be establishing another state in the App component which captures the arriving `searchTerm` in the App component and then uses it for filtering the `stories` before they are passed to the List component as props. However, this adds duplication as a bad practice, because the `searchTerm` would have a state in the Search and App components then. So think about it another way: If the App component is interested in the `searchTerm` state to filter the `stories`, why not instantiate the state in the App component instead of in the Search component in the first place?
 
-Try it yourself: Move the state from the Search component to the App component, pass the state updater function to the Search component as callback handler and use it to update the state when a user types into the input field. Then use the new state in the App component to `filter()` the `stories` before they are passed to the List component. The following implementation demonstrates the first part of the solution:
+We will move the `useState` hook from the Search component to the App component, use the state updater function in the provided callback handler, and use the callback handler in the Search component to pass the event to the parent component. Then, whenever a user types into the input field, the state in the App component will update. Afterward, we will use the new state in the App component to `filter()` the `stories` before they are passed to the List component. The following implementation demonstrates the first part of it:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -125,7 +125,7 @@ const App = () => {
 
 That's all to the refactoring steps of the inlined function for the `filter()` method. There are many variations to it -- and it's not always simple to keep a good balance between readability and conciseness -- however, I feel like keeping it concise whenever possible keeps it most of the time readable as well.
 
-What's not working very well yet: The `filter()` method checks whether the `searchTerm` is present as string in the `title` property of each story, but it's case sensitive. If we search for "react", there is no filtered "React" story in your rendered list. Try to fix this problem yourself by making the `filter()` method's condition case insensitive. The following code snippet shows you how to achieve it by lower casing the `searchTerm` and the `title` of the story:
+What's not working very well yet: The `filter()` method checks whether the `searchTerm` is present as string in the `title` property of each story, but it's case sensitive. If we search for "react", there is no filtered "React" story in your rendered list. Try to fix this problem yourself by making the `filter()` method's condition case insensitive with the pure force of JavaScript. The following code snippet shows you how to achieve it by lower casing the `searchTerm` and the `title` of the story:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -150,8 +150,29 @@ After all, knowing where to instantiate state in React turns out to be an import
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3dCKU3f).
-  * Recap all the [source code changes from this section](https://bit.ly/3DG8Op8).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SEqxl1).
+* Compare your source code against the author's [source code](https://bit.ly/48U6Rlq).
+  * Recap all the [source code changes from this section](https://bit.ly/3U3Fhhh).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/49k1Cf9).
 * Read more about [lifting state in React](https://www.robinwieruch.de/react-lift-state/).
 * Optional: [Leave feedback for this section](https://forms.gle/EqJGjxCM1Xzw9S6g7).
+
+### Interview Questions:
+
+* Question: What is lifting state in React?
+  * Answer: Lifting state refers to the practice of moving the state from a child component to its parent component.
+* Question: Why would you lift state in React?
+  * Answer: To share and manage state at a higher level, making it accessible to multiple child components.
+* Question: How do you lift state in React?
+  * Answer: Move the state and related functions to a common ancestor (usually a parent) component.
+* Question: Can multiple child components share the same lifted state?
+  * Answer: Yes, lifting state allows multiple child components to share the same state.
+* Question: What's the advantage of lifting state over using local state in a component?
+  * Answer: Lifting state promotes sharing state among components.
+* Question: What is the role of callbacks in lifting state?
+  * Answer: Callback functions are used to pass data from child to parent components when lifting state.
+* Question: Can a child component modify the state of a parent component directly through a callback handler?
+  * Answer: No, the child component can invoke the callback to notify the parent, and the parent can decide how to update its state.
+* Question: Is it necessary to lift all state to the top-level parent component?
+  * Answer: No, only lift state to a level where it needs to be shared among multiple components.
+* Question: How does lifting state contribute to better component reusability?
+  * Answer: Lifting state allows stateful logic to be concentrated in a common ancestor, making components more reusable.

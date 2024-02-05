@@ -404,7 +404,7 @@ This feature wasn't an easy one. Lots of fundamental React but also JavaScript k
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3fqttDT).
-  * Recap all the [source code changes from this section](https://bit.ly/3rgcDda).
+* Compare your source code against the author's [source code](https://bit.ly/3SmzaDJ).
+  * Recap all the [source code changes from this section](https://bit.ly/48Jyuhp).
 * Read more about [grouping in JavaScript](https://www.robinwieruch.de/javascript-groupby/).
 * Optional: [Leave feedback for this section](https://forms.gle/LhNVodZgu8qTqHhN6).
