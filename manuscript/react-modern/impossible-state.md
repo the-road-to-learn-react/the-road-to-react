@@ -199,5 +199,3 @@ We moved from unreliable state transitions with multiple `useState` hooks to pre
   * Answer: Reducers provide a controlled way to update state, allowing developers to enforce rules and avoid transitioning to impossible states.
 * Question: How does centralized state management contribute to handling impossible states?
   * Answer: Centralized state management through reducers allows for consistent validation and state updates, reducing the risk of impossible states across components.
-* Question: How can documentation contribute to managing impossible states with reducers?
-  * Answer: Well-documented state structures, actions, and their expected effects can guide developers in avoiding unintended state combinations and handling impossible states more effectively.
