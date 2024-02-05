@@ -8,7 +8,7 @@ To use TypeScript in React (with Vite), install TypeScript and its dependencies 
 
 {title="Command Line",lang="text"}
 ~~~~~~~
-npm install typescript @types/react @types/react-dom --save-dev
+npm install typescript --save-dev
 npm install @typescript-eslint/eslint-plugin --save-dev
 npm install @typescript-eslint/parser --save-dev
 ~~~~~~~
@@ -191,6 +191,25 @@ const useStorageState = (
   }, [value, key]);
 
   return [value, setValue];
+};
+~~~~~~~
+
+Since TypeScript could already infer this type from React's useState Hook, we could simply remove the return type again. However, we need to declare the returned array as TypeScript `const`, because otherwise the order of the entries in the array would not be known to other parts of the application:
+
+{title="src/App.tsx",lang="javascript"}
+~~~~~~~
+const useStorageState = (key: string, initialState: string) => {
+  const [value, setValue] = React.useState(
+    localStorage.getItem(key) || initialState
+  );
+
+  React.useEffect(() => {
+    localStorage.setItem(key, value);
+  }, [value, key]);
+
+# leanpub-start-insert
+  return [value, setValue] as const;
+# leanpub-end-insert
 };
 ~~~~~~~
 

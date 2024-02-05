@@ -155,7 +155,7 @@ Conditional rendering is not just for asynchronous data though. The simplest exa
 
 * Compare your source code against the author's [source code](https://bit.ly/3u1f2h5).
   * Recap all the [source code changes from this section](https://bit.ly/3tUXbIF).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3dQai5F).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3Ss5RP1).
 * Read more about [conditional rendering in React](https://www.robinwieruch.de/conditional-rendering-react/).
 * Optional: [Leave feedback for this section](https://forms.gle/kHLAXtMaKsTFtWjY9).
 

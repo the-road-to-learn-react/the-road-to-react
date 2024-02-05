@@ -130,7 +130,7 @@ Forms aren't much different in React than in plain HTML. When we have input fiel
 
 * Compare your source code against the author's [source code](https://bit.ly/3u4ZHfi).
   * Recap all the [source code changes from this section](https://bit.ly/3SpINjZ).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3xVur1e).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/42qnJ18).
 * Read more about [forms in React](https://www.robinwieruch.de/react-form/).
 * Try what happens without using `preventDefault`.
   * Read more about [preventDefault for events in React](https://www.robinwieruch.de/react-preventdefault/).

@@ -152,7 +152,7 @@ As a rule of thumb, use either function declarations or arrow function expressio
 
 * Compare your source code against the author's [source code](https://bit.ly/3U2fu9g).
   * Recap all the [source code changes from this section](https://bit.ly/3O7JLzI).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3STeJfd).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SJbE42).
 * Familiarize yourself with arrow functions with block body and explicit return and concise body without return (implicit return).
 * Optional: Read more about [JavaScript arrow functions](https://mzl.la/3BYCOcp).
 * Optional: [Leave feedback for this section](https://forms.gle/iWSchmqasbZUWUpT8).

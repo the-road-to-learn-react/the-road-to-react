@@ -222,7 +222,7 @@ As a rule of thumb: It's okay to use inline handlers if they do not obscure crit
 
 * Compare your source code against the author's [source code](https://bit.ly/4b4LQX2).
   * Recap all the [source code changes from this section](https://bit.ly/3u85gcS).
-  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3BKP8hv).
+  * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3UwzjWz).
 * Read more about how to [add](https://www.robinwieruch.de/react-add-item-to-list), [update](https://www.robinwieruch.de/react-update-item-in-list/), [remove](https://www.robinwieruch.de/react-remove-item-from-list) items in a list.
 * Read more about [computed properties in React](https://www.robinwieruch.de/react-computed-properties/).
 * Review [handlers, callback handlers, and inline handlers](https://www.robinwieruch.de/react-event-handler/).
