@@ -387,8 +387,6 @@ Rules of thumb:
 
 ### Interview Questions:
 
-* Question: What is props destructuring in React?
-  * Answer: Props destructuring is a feature in React that allows you to extract specific properties from the props object in a concise manner.
 * Question: How do you destructure props in a function component's parameters?
   * Answer: You can destructure props directly in the function parameters, like this: function MyComponent({ prop1, prop2 }) {...}.
 * Question: Can you provide a default value while destructuring props?
