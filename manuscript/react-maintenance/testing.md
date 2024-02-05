@@ -21,20 +21,18 @@ Then in your package.json file, add another script which will run the tests even
 
 {title="package.json",lang="javascript"}
 ~~~~~~~
-{
-  ...
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+...
+"scripts": {
+  "dev": "vite",
+  "build": "vite build",
 # leanpub-start-insert
-    "test": "vitest",
+  "test": "vitest",
 # leanpub-end-insert
-    "test": "vitest",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
-  ...
-}
+  "test": "vitest",
+  "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+  "preview": "vite preview"
+},
+...
 ~~~~~~~
 
 Last, create a new file for testing functions and components:
