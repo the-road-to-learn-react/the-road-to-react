@@ -21,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 );
 ~~~~~~~
 
-[React's Strict Mode](https://bit.ly/3SufTxx) is a helper component which notifies developers in the case of something being wrong in our implementation. For example, using a [deprecated](https://bit.ly/3R8ycam) React API (e.g. using a legacy React hook) would give us a warning in the browser's developer tools. However, it also ensures that state and side-effects are implemented well by a developer. Let's experience what this means in our code.
+[React's Strict Mode](https://bit.ly/48TUA0k) is a helper component which notifies developers in the case of something being wrong in our implementation. For example, using a [deprecated](https://bit.ly/3R8ycam) React API (e.g. using a legacy React hook) would give us a warning in the browser's developer tools. However, it also ensures that state and side-effects are implemented well by a developer. Let's experience what this means in our code.
 
 The App component fetches initially data from a remote API which gets displayed as a list. We are using React's useEffect hook for initializing the data fetching. Now I encourage you to add a `console.log()` which logs whenever this hook runs:
 

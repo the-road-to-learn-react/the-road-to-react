@@ -29,7 +29,7 @@ export default defineConfig({
 });
 ~~~~~~~
 
-That's it for the general setup. We will use the following SVG and create a new *src/check.svg* file for it:
+That's it for the general setup. We will use the following [SVG](https://bit.ly/3w4xNRz) and create a new *src/check.svg* file:
 
 {title="src/check.svg",lang="html"}
 ~~~~~~~

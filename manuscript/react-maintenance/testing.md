@@ -135,21 +135,18 @@ AssertionError: expected false to be true // Object.is equality
 - true
 + false
 
- ❯ src/App.test.jsx:9:19
-      7|
-      8|   it('false to be false', () => {
-      9|     expect(false).toBe(true);
-       |                   ^
-     10|   });
-     11| });
-
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+src/App.test.jsx:9:19
+  7|
+  8|   it('false to be false', () => {
+  9|     expect(false).toBe(true);
+   |                   ^
+ 10|   });
+ 11| });
 
  Test Files  1 failed (1)
       Tests  1 failed | 1 passed (2)
    Start at  13:20:44
    Duration  124ms
-
 
  FAIL  Tests failed. Watching for file changes...
        press h to show help, press q to quit
@@ -547,7 +544,7 @@ describe('Item', () => {
 });
 ~~~~~~~
 
-The `getByRole` function is usually used to retrieve elements by [aria-label attributes](https://mzl.la/3B3bBDP). However, there are also [implicit roles on HTML elements](https://mzl.la/3n7SgN7) -- like "button" for a button HTML element. Thus you can select elements not only by visible text, but also by their (implicit) accessibility role with React Testing Library. A neat feature of `getRoleBy` is that [it suggests roles if you provide a role that's not available](https://bit.ly/3pnPXrQ).
+The `getByRole` function is usually used to retrieve elements by [aria-label attributes](https://mzl.la/49oo8U0). However, there are also [implicit roles on HTML elements](https://mzl.la/3n7SgN7) -- like "button" for a button HTML element. Thus you can select elements not only by visible text, but also by their (implicit) accessibility role with React Testing Library. A neat feature of `getRoleBy` is that [it suggests roles if you provide a role that's not available](https://bit.ly/3pnPXrQ).
 
 {title="src/App.test.jsx",lang="javascript"}
 ~~~~~~~
@@ -573,27 +570,20 @@ Which should output something similar to the following on the command line:
 {title="Command Line",lang="text"}
 ~~~~~~~
 TestingLibraryElementError:
-
 Unable to find an accessible element with the role ""
-
 Here are the accessible roles:
 
   listitem:
-
   Name "":
   <li />
 
-  --------------------------------------------------
   link:
-
   Name "React":
   <a
     href="https://reactjs.org/"
   />
 
-  --------------------------------------------------
   button:
-
   Name "Dismiss":
   <button
     type="button"
