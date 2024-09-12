@@ -48,7 +48,7 @@ const App = () => {
 };
 ~~~~~~~
 
-The application behaves the same because the `stories`, now returned as a stateful list from React's `useState` Hook, are still filtered into `searchedStories` and displayed in the List component. Just the origin where the stories are coming from has changed. But we are not modifying the stories yet. Next, we will write an event handler which removes an item from the list:
+The application behaves the same because the `stories`, now returned as a stateful list from React's `useState` Hook, are still filtered (as searched stories) into `stories` and displayed in the List component. Just the origin where the stories are coming from has changed. But we are not modifying the stories yet. Next, we will write an event handler which removes an item from the list:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -78,7 +78,7 @@ const App = () => {
       <hr />
 
 # leanpub-start-insert
-      <List list={searchedStories} onRemoveItem={handleRemoveStory} />
+      <List list={stories} onRemoveItem={handleRemoveStory} />
 # leanpub-end-insert
     </div>
   );
