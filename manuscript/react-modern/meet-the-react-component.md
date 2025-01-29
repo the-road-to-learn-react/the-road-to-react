@@ -1,29 +1,25 @@
 ## Meet the React Component
 
-Every React application is built on the foundation of **React components**. In this section, you will get to know your first React component which is located in the *src/App.jsx* file and which should look similar to the example below. Depending on your Vite version, the content of the file might differ slightly:
+Every React application is built on the foundation of **React components**. In this section, you will be introduced to your first React component, which is located in the *src/App.jsx* file. It should look similar to the example below. Depending on your Vite version, the content of the file may differ slightly:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
+        <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img
-            src={reactLogo}
-            className="logo react"
-            alt="React logo"
-          />
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
       <h1>Vite + React</h1>
@@ -39,10 +35,10 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
 ~~~~~~~
 
 This file will be our focus throughout this book, unless otherwise specified. Even though this file will grow in size, because we are not splitting it up from the beginning into multiple files, it will be simpler to understand as a beginner, because everything is at one place. Once you get more comfortable with React, I will show you how to split your React project with your components into multiple files.

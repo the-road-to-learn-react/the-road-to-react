@@ -6,16 +6,16 @@ Open the *src/main.jsx* file to the see App components instantiation with the `<
 
 {title="src/main.jsx",lang="javascript"}
 ~~~~~~~
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import './index.css';
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
     <App />
-  </React.StrictMode>
-);
+  </StrictMode>,
+)
 ~~~~~~~
 
 There are two libraries imported at the beginning of the file: `react` and `react-dom`. While React is used for the day to day business of a React developer, React DOM is usually used once in a React application to hook React into the native HTML world. Open the *index.html* file on the side and spot the HTML element where the `id` attribute equals `"root"`. That's exactly the element where React inserts itself into the HTML to bootstrap the entire React application -- starting with the App component.

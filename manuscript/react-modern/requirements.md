@@ -1,22 +1,22 @@
 ## Requirements
 
-To navigate through this book, it's essential to have a foundational understanding of web development, encompassing HTML, CSS, and JavaScript. Familiarity with [APIs](https://www.robinwieruch.de/what-is-an-api-javascript/) is beneficial, as they will be discussed later. Additionally, you'll require the following coding tools to follow along with the book, complementing these skills.
+To navigate this book effectively, you should have a basic understanding of web development, including HTML, CSS, and JavaScript. Familiarity with [APIs](https://www.robinwieruch.de/what-is-an-api-javascript/) is helpful, as they will be covered later. Additionally, you'll need the following coding tools to follow along.
 
 ### Editor and Terminal
 
-For this learning experience, you will need an editor (e.g. Sublime Text) and a command line tool (e.g. iTerm). As an alternative, I recommend using an IDE, for example **Visual Studio Code** (also called VSCode), for beginners, as it's an all-in-one solution that provides an advanced editor with an integrated command line tool, and because it is the most popular choice among web developers. I have provided [a setup guide](https://www.robinwieruch.de/developer-setup/) to get you started with general web development. It comes with all the details and I keep it separate from the book, because it offers options for Windows and MacOS users.
+For this learning experience, I recommend using an [IDE](http://bit.ly/3OWCnan), such as Visual Studio Code (VSCode), especially for beginners. It provides an advanced editor with an integrated terminal and is the most popular choice among web developers. I've created a [setup guide](https://www.robinwieruch.de/developer-setup/) to help you get started with general web development. It includes all the details and is kept separate from this book since it offers options for both Windows and macOS users. Optionally, you can also check out my complete [macOS setup guide](https://www.robinwieruch.de/mac-setup-web-development/).
 
-If you don't want to set up the editor/terminal combination or IDE on your local machine, **[CodeSandbox](https://codesandbox.io)**, an online editor, is also a viable alternative. While CodeSandbox is a great tool for sharing code online, a local machine setup is a better tool for learning the different ways to create a web application. Also, if you want to develop applications professionally, a local setup will be required.
+If you prefer not to set up an editor and terminal on your local machine, [CodeSandbox](https://codesandbox.io) is a viable online alternative. While **CodeSandbox** is great for sharing code, a local setup is a better learning environment for building web applications. If you plan to develop applications professionally, a local setup will eventually be required.
 
-Throughout this learning experience, I will use the term *command line*, which will be used synonymously for the terms *command line tool*, *terminal*, and *integrated terminal*. The same applies to the terms *editor*, *text editor*, and *IDE*, depending on what you decided to use for your setup.
+Throughout this book, I will use *command* line as a general term for *command line tool*, *terminal*, and *integrated terminal*. Similarly, *editor*, *text editor*, and *IDE* will be used interchangeably, depending on your setup.
 
-Optionally, I recommend managing projects on **GitHub** while we conduct the exercises in this book, and I've provided a [short guide](https://www.robinwieruch.de/git-essential-commands/) on how to use these tools. Github has excellent version control, so you can see what changes were made if you make a mistake or just want a more direct way to follow along. It's also a great way to share your code later with other people.
+Additionally, I recommend using **GitHub** to manage projects as we go through the exercises. I've provided a [short guide](https://www.robinwieruch.de/git-essential-commands/) on using Git and GitHub. Version control is invaluable--it allows you to track changes, undo mistakes, and follow along more effectively. It's also a great way to share your code with others.
 
 ### Node and NPM
 
-Before we can begin, we'll need to have **[Node and NPM](https://nodejs.org/en/)** installed. Both are used to manage libraries (node packages) that you will need along the way. These node packages can be libraries or whole frameworks. We'll install external node packages via npm (node package manager).
+Before we begin, you'll need to install [Node and NPM](https://nodejs.org/en/). These tools help manage the libraries (Node packages) required throughout this book. These packages can range from small utilities to entire frameworks. We'll use npm (Node Package Manager) to install them.
 
-You can verify node and npm versions on the command line using the `node --version` and `npm --version` commands. If you don't receive output in the terminal indicating which version is installed, you need to install node and npm:
+To check if Node and npm are installed, run the following commands in your terminal:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
@@ -26,7 +26,7 @@ npm --version
 *vXX.YY.ZZ
 ~~~~~~~
 
-If you have already installed Node and npm, make sure that your installation is the most recent version. If you're new to npm or need a refresher, this [npm crash course](https://www.robinwieruch.de/npm-crash-course/) I created will get you up to speed.
+If no version numbers appear, you'll need to install Node and npm. If you already have them installed, ensure you're using the latest version. If you're new to npm or need a refresher, my [npm crash course](https://www.robinwieruch.de/npm-crash-course/) will get you up to speed.
 
 ### Exercises:
 

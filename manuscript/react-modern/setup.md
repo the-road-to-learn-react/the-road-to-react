@@ -1,10 +1,22 @@
 ## Setting up a React Project
 
-In the Road to React, we'll use [Vite](https://bit.ly/3BsG1TH) to set up our React application. Vite, a french word which translates to "quick", is a modern build tool for status quo web frameworks (e.g. React) which comes with sensible defaults (read: configuration) while staying highly extensible for specific use cases (e.g. SVGs, Linting, TypeScript). The essential core of Vite is a **development server**, which allows you to start your React application on your local machine (read: development environment), and a bundler, which outputs highly optimized files for a production-ready deployment (read: production environment). What matters for a React beginner here: getting started with React by just learning React while not getting distracted by any tooling around it. Therefore Vite is the perfect partner for learning React.
+In The Road to React, we'll use [Vite](https://bit.ly/3BsG1TH) to set up our React application. Vite--a French word meaning quick--is a modern build tool for contemporary web frameworks (e.g. React). It comes with sensible defaults (read: built-in configuration) while remaining highly extensible for specific use cases (e.g. SVGs, linting, TypeScript, server-side rendering).
 
-There are two ways to create your project with Vite. First, choosing an [online template](https://bit.ly/3RPAZWz), either React (recommended for this book) or React TypeScript (advanced, which means you implement the types for TypeScript yourself) for working on your project online without a local setup. Second, which is the way I would recommend, is creating a React project with Vite on your local machine for working on it in your local IDE (e.g. VSCode).
+The core of Vite consists of:
 
-Since the online template works out of the box, we will focus on the setup for your local machine in this section (recommended). In a previous section, you have installed Node and npm. The latter enables you to install third-party dependencies (read: libraries, frameworks, etc.) from the command line. So open up your command line tool and move to a folder where you want to create your React project. As a crash course for navigating on the command line:
+* A development server, which allows you to run your React application locally (read: development environment).
+* A bundler, which generates highly optimized files for production-ready deployment (read: production environment).
+
+For React beginners, the key benefit of Vite is that it enables you to focus solely on learning React without being distracted by complex tooling. This makes Vite the perfect partner for getting started with React.
+
+There are two ways to create a React project with Vite:
+
+* Using an [online template](https://bit.ly/3RPAZWz) -- You can choose either React (recommended for this book) or React with TypeScript (for advanced users, requiring manual type implementation). This option lets you work online without setting up a local environment.
+* Setting up Vite locally (recommended) -- This method involves creating a React project with Vite on your local machine and working in your preferred IDE (e.g. VSCode).
+
+Since the online template works out of the box, we'll focus on setting up Vite on your local machine in this section. In a previous section, you installed Node and npm. The latter allows you to install third-party dependencies (read: libraries, frameworks, etc.) from the command line.
+
+To get started, open your command line tool and navigate to the folder where you want to create your React project. Here's a quick crash course on command-line navigation:
 
 * use `pwd` (on Windows: `cd`) to display the current folder
 * use `ls` (on Windows: `dir`) to display all folders and files in the current folder
@@ -12,16 +24,16 @@ Since the online template works out of the box, we will focus on the setup for y
 * use `cd <folder_name>` to move into a folder
 * use `cd ..` to move outside of a folder
 
-After navigating into a folder where you want to create your React project, type the following command. We'll refer to this project as *hacker-stories*, but you may choose any project name you like:
+After navigating to the folder where you want to create your React project, enter the following command. We'll refer to this project as *hacker-stories*, but feel free to choose any name you like.
 
 {title="Command Line",lang="text"}
 ~~~~~~~
 npm create vite@latest hacker-stories -- --template react
 ~~~~~~~
 
-Optionally you can also go with a React + TypeScript project if you feel confident (check Vite's installation website to follow their instructions for a React + TypeScript project). The book comes with a TypeScript section later, however, it will not do any hand-holding throughout the sections for transforming JavaScript into TypeScript. Only at the end of each section you will find an alternative TypeScript implementation.
+Optionally, you can choose a React + TypeScript project if you feel confident. Check Vite's installation website for instructions on setting up a React + TypeScript project. This book includes a TypeScript section later; however, it does not provide step-by-step guidance on converting JavaScript to TypeScript. Instead, at the end of each section, you'll find an alternative TypeScript implementation.
 
-Next, follow the instructions given on the command line for navigating into the folder, installing all the third-party dependencies of the project, and running it locally on your machine:
+Next, follow the command line instructions to navigate into the project folder, install all third-party dependencies, and run the project locally on your machine:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
@@ -30,11 +42,15 @@ npm install
 npm run dev
 ~~~~~~~
 
-The command line should output a URL where you can find your project running in the browser. Open up the browser with the given URL and verify that you can see the React project running there. We will continue developing this project in the next sections, however, for the rest of this section, we will go through explaining the project structure and the scripts (e.g. `npm run dev`).
+The command line will output a URL where your project is running in the browser. Open the browser, navigate to the provided URL, and verify that the React project is displayed correctly. We will continue developing this project in the next sections; however, for the remainder of this section, we will explore the project structure and scripts (e.g. `npm run dev`).
+
+### Exercises:
+
+* Read more about [how to start a React project](https://www.robinwieruch.de/react-starter/).
 
 ## Project Structure
 
-First, let's open the application in an editor/IDE. For VSCode, you can simply type `code .` on the command line. The following folder structure, or a variation of it depending on the *Vite* version, should be presented:
+First, let's open the application in an editor/IDE. If you're using VSCode, simply type `code .` in the command line. The following folder structure (or a variation of it, depending on the Vite version) should be displayed:
 
 {title="Project Structure",lang="text"}
 ~~~~~~~
@@ -49,8 +65,8 @@ hacker-stories/
 ----App.jsx
 ----index.css
 ----main.jsx
---.eslintrc.cjs
 --.gitignore
+--eslint.config.js
 --index.html
 --package-lock.json
 --package.json
@@ -68,9 +84,9 @@ This is a breakdown of the most important folders and files:
 * **public/:** This folder holds static assets for the project like a [favicon](https://bit.ly/3QvRupG) which is used for the browser tab's thumbnail when starting the development server or building the project for production.
 * **index.html:** The HTML that is displayed in the browser when starting the project. If you open it, you shouldn't see much content though. However, you should see a script tag which links to your source folder where all the React code is located to output HTML/CSS in the browser.
 
-In the beginning, everything you need is located in the *src/* folder. The main focus lies on the *src/App.jsx* file which is used to implement React components. It will be used to implement your application, but later you might want to split up your React components into multiple files, where each file maintains one or more components on its own. We will arrive at this point eventually.
+In the beginning, everything you need is located in the *src/* folder. The main focus is on the *src/App.jsx* file, where React components are implemented. This file will serve as the foundation for your application, but later on, you may want to split your React components into multiple files, with each file managing one or more components. We'll get to that point eventually.
 
-Additionally, you will find a *src/main.jsx* as an entry point to the React world. You will get to know this file in later sections. There is also a *src/index.css* and a *src/App.css* file to style your overall application and components, which comes with the default style when you open them. You will modify them later as well.
+Additionally, you'll find a src/main.jsx file, which serves as the entry point to the React world. You'll become more familiar with this file in later sections. There are also src/index.css and src/App.css files to style your overall application and components, both of which come with default styles when you open them. You'll modify these later as well.
 
 ## npm Scripts
 
@@ -80,7 +96,7 @@ After you have learned about the folder and file structure of your React project
 ~~~~~~~
 "dev": "vite",
 "build": "vite build",
-"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+"lint": "eslint .",
 "preview": "vite preview"
 ~~~~~~~
 
