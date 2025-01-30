@@ -375,28 +375,27 @@ Rules of thumb:
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/48TdhkK).
-  * Recap all the [source code changes from this section](https://bit.ly/3SndcQQ).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_props-handling).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_controlled-components...2025_props-handling) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SL9uRm).
 * Read more about [how to use props in React](https://www.robinwieruch.de/react-pass-props-to-component/).
 * Optional: Read more about [JavaScript's destructuring assignment](https://mzl.la/30KbXTC).
 * Read more about [JavaScript's spread operator](https://mzl.la/3jetIkn) and [rest operator](https://mzl.la/3GeJbef).
 * Get a good sense about JavaScript (e.g. destructuring, spread operator, rest destructuring) and how it relates to React (e.g. props) from the last lessons.
 * Continue to use your favorite way to handle React's props. If you're still undecided, consider the variation used in the previous section.
-* Optional: [Leave feedback for this section](https://forms.gle/WNB4R6yEP1hot3tK8).
 
 ### Interview Questions:
 
 * Question: How do you destructure props in a function component's parameters?
-  * Answer: You can destructure props directly in the function parameters, like this: function MyComponent({ prop1, prop2 }) {...}.
+  * Answer: You can destructure props directly in the function parameters, like this: `function MyComponent({ prop1, prop2 }) {...}`.
 * Question: Can you provide a default value while destructuring props?
-  * Answer: Yes, you can provide default values during destructuring, such as { prop1 = 'default', prop2 }.
+  * Answer: Yes, you can provide default values during destructuring, such as `{ prop1 = 'default', prop2 }`.
 * Question: Is it necessary to destructure all props, or can you choose specific ones?
   * Answer: You can choose to destructure specific props based on your component's needs, leaving others untouched.
 * Question: How is the spread operator (...) used in React props?
-  * Answer: The spread operator is used to pass all properties of an object as separate props to a React component, like <MyComponent {...obj} />.
+  * Answer: The spread operator is used to pass all properties of an object as separate props to a React component, like `<MyComponent {...obj} />`.
 * Question: Can you use the spread operator to combine props with additional ones?
-  * Answer: Yes, you can combine existing props with additional ones using the spread operator, like <MyComponent {...props} newProp={value} />.
+  * Answer: Yes, you can combine existing props with additional ones using the spread operator, like `<MyComponent {...props} newProp={value} />`.
 * Question: Does the spread operator create a shallow or deep copy of an object?
   * Answer: The spread operator creates a shallow copy of an object, meaning nested objects are still references to the original.
 * Question: What is the purpose of the rest operator (...rest) in React?

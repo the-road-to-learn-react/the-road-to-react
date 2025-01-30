@@ -140,11 +140,10 @@ You've just created your first custom hook. If you're not comfortable with custo
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3vC6zkJ).
-  * Recap all the [source code changes from this section](https://bit.ly/4aYZjjc).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_custom-hooks).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_side-effects...2025_custom-hooks) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/485dY9K).
 * Read more about [React Hooks](https://www.robinwieruch.de/react-hooks/) and [custom React Hooks](https://www.robinwieruch.de/react-custom-hook/) to get a good understanding of them, because they are the bread and butter in React function components.
-* Optional: [Leave feedback for this section](https://forms.gle/5seN1Rv3ZwXmWmDR9).
 
 ### Interview Questions:
 

@@ -4,13 +4,13 @@ Every React application is built on the foundation of **React components**. In t
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -19,7 +19,11 @@ function App() {
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <img
+            src={reactLogo}
+            className="logo react"
+            alt="React logo"
+          />
         </a>
       </div>
       <h1>Vite + React</h1>
@@ -35,10 +39,10 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
 ~~~~~~~
 
 This file will be our focus throughout this book, unless otherwise specified. Even though this file will grow in size, because we are not splitting it up from the beginning into multiple files, it will be simpler to understand as a beginner, because everything is at one place. Once you get more comfortable with React, I will show you how to split your React project with your components into multiple files.
@@ -129,7 +133,7 @@ On your journey as a React developer, and in this learning experience, you will 
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/490FAxX).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_meet-the-react-component).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_init...2025_meet-the-react-component) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3OvfqLO).
 * Think about ways to display the `title` variable in your App component's returned HTML. In the next section, we'll put this variable to use.
-* Optional: [Leave feedback for this section](https://forms.gle/VYiZqqjzXGE11wCv6).

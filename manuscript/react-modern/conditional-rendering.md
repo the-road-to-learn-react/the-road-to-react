@@ -153,11 +153,10 @@ Conditional rendering is not just for asynchronous data though. The simplest exa
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3u1f2h5).
-  * Recap all the [source code changes from this section](https://bit.ly/3tUXbIF).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_conditional-rendering).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_async-data...2025_conditional-rendering) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3Ss5RP1).
 * Read more about [conditional rendering in React](https://www.robinwieruch.de/conditional-rendering-react/).
-* Optional: [Leave feedback for this section](https://forms.gle/kHLAXtMaKsTFtWjY9).
 
 ### Interview Questions:
 

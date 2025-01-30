@@ -42,7 +42,23 @@ npm install
 npm run dev
 ~~~~~~~
 
-The command line will output a URL where your project is running in the browser. Open the browser, navigate to the provided URL, and verify that the React project is displayed correctly. We will continue developing this project in the next sections; however, for the remainder of this section, we will explore the project structure and scripts (e.g. `npm run dev`).
+The command line will output a URL where your project is running in the browser. Open the browser, navigate to the provided URL, and verify that the React project is displayed correctly.
+
+Additionally, please check in your *package.json* file whether you are on the latest React version. At the time of writing, Vite comes with React 18, but there is already React 19 out there. If you want to use React 19, you can manually upgrade React in your project.
+
+{title="Command Line",lang="text"}
+~~~~~~~
+npm install react@latest react-dom@latest
+~~~~~~~
+
+If you are using React with TypeScript, you also need to update the React's types:
+
+{title="Command Line",lang="text"}
+~~~~~~~
+npm install --save-dev @types/react@latest @types/react-dom@latest
+~~~~~~~
+
+We will continue developing this project in the next sections; however, for the remainder of this section, we will explore the project structure and scripts (e.g. `npm run dev`).
 
 ### Exercises:
 
@@ -125,4 +141,3 @@ Another command from the previous npm scripts called `preview` can be used to ru
   * Run the `npm run build` script and verify that a *dist/* folder was added to your project. Note that the build folder can be used later on to deploy your application. Afterward, run `npm run preview` to see the production-ready application in the browser.
 * Every time we change something in our source code throughout the coming sections, make sure to check the output in your browser for getting visual feedback. Use `npm run dev` to keep your application running.
 * Optional: If you use git and GitHub, add and commit your changes after every section of the book.
-* Optional: [Leave feedback for this section](https://forms.gle/bvH2jcppsSA6p9i16).

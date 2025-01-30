@@ -132,13 +132,12 @@ Initially invented for React, JSX gained popularity in other modern libraries an
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3S51Lfu).
-  * Recap all the [source code changes from this section](https://bit.ly/3vLjctL).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_jsx).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_meet-the-react-component...2025_jsx) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SukC3A).
 * Beginner: Read more about [JavaScript Variables](https://www.robinwieruch.de/javascript-variable/).
   * Beginner: Define more primitive and complex JavaScript data types and render them in JSX.
   * Advanced: Try to render a JavaScript array in JSX by using the array's built-in `map()` method to return JSX for each item in the list. If it's too complicated, don't worry, because you will learn more about this in the next section.
-* Optional: [Leave feedback for this section](https://forms.gle/R6y6kEqGPACLrXmP8).
 
 ### Interview Questions:
 

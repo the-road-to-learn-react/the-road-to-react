@@ -11,7 +11,7 @@ const App = () => {
   const stories = [
     {
       title: 'React',
-      url: 'https://reactjs.org/',
+      url: 'https://react.dev/',
       author: 'Jordan Walke',
       num_comments: 3,
       points: 4,
@@ -74,7 +74,7 @@ Everything that we pass from a parent component to a child component via the com
 
 A point to consider regarding ESLint: you might encounter an error stating, "error 'list' is missing in props validation." In an ideal scenario where React is used without TypeScript, a solution would be to incorporate [prop-types](https://bit.ly/48Tbn3F) to provide your component with better insights into the props it receives. However, it's worth mentioning that while prop-types serve a similar purpose as TypeScript, they are considered less robust. If achieving this goal is a prerequisite for your project, it is recommended to embrace TypeScript in your React development. In cases where JavaScript is the exclusive choice, my suggestion is to disable this specific ESLint rule in your configuration file to resolve the issue.
 
-{title=".eslintrc.cjs",lang="javascript"}
+{title="eslint.config.js",lang="javascript"}
 ~~~~~~~
 rules: {
     ...
@@ -120,11 +120,10 @@ At the end, you should see the list rendering again. The most important fact abo
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/48XUAfE).
-  * Recap all the [source code changes from this section](https://bit.ly/421fKaA).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_props).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_handler-function...2025_props) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SzqclA).
 * Read more about [how to use props in React](https://www.robinwieruch.de/react-pass-props-to-component/).
-* Optional: [Leave feedback for this section](https://forms.gle/APwaUSAuVAAA56sY6).
 
 ### Interview Questions:
 

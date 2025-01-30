@@ -14,18 +14,17 @@ The following styling approaches and SVGs are mostly pre-configured in Vite. If 
 
 {title="src/main.jsx",lang="javascript"}
 ~~~~~~~
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 # leanpub-start-insert
 import './index.css';
 # leanpub-end-insert
+import App from './App.jsx';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
     <App />
-  </React.StrictMode>
+  </StrictMode>
 );
 ~~~~~~~
 
@@ -47,8 +46,8 @@ Essentially you can declare all the CSS that should apply globally for your proj
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3xLnIXI).
-  * Recap all the [source code changes from this section](https://bit.ly/3f2gJ5U).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_css).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_forms-actions...2025_css) from this section.
 * Read more about [the different styling strategies and approaches in React](https://www.robinwieruch.de/react-css-styling/).
 
 ## CSS in React
@@ -69,7 +68,7 @@ const App = () => {
       <SearchForm
         searchTerm={searchTerm}
         onSearchInput={handleSearchInput}
-        onSearchSubmit={handleSearchSubmit}
+        searchAction={searchAction}
       />
 
       {stories.isError && <p>Something went wrong ...</p>}
@@ -90,7 +89,6 @@ The `<hr />` was removed because the CSS handles the border in the next steps. W
 ~~~~~~~
 import * as React from 'react';
 import axios from 'axios';
-
 # leanpub-start-insert
 import './App.css';
 # leanpub-end-insert
@@ -206,7 +204,7 @@ Apart from styling approaches in React, naming conventions ([CSS guidelines](htt
 ~~~~~~~
 const SearchForm = ({ ... }) => (
 # leanpub-start-insert
-  <form onSubmit={onSearchSubmit} className="search-form">
+  <form action={searchAction} className="search-form">
 # leanpub-end-insert
     <InputWithLabel ... >
       <strong>Search:</strong>
@@ -285,7 +283,6 @@ For simplicity, we styled elements like label and input individually in the *src
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/4b3Lik9).
-  * Recap all the [source code changes from this section](https://bit.ly/4b4wdiA).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_css-in-react).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_css...2025_css-in-react) from this section.
 * Try to pass `className` prop from App to SearchForm component, either with the value `button_small` or `button_large`, and use this as `className` for the button element.
-* Optional: [Leave feedback for this section](https://forms.gle/RovYbjYF9McD1h6c7).

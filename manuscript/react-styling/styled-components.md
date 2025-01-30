@@ -55,7 +55,7 @@ const App = () => {
       <SearchForm
         searchTerm={searchTerm}
         onSearchInput={handleSearchInput}
-        onSearchSubmit={handleSearchSubmit}
+        searchAction={searchAction}
       />
 
       {stories.isError && <p>Something went wrong ...</p>}
@@ -171,7 +171,7 @@ When we use a styled component like StyledSearchForm, its underlying form elemen
 ~~~~~~~
 const SearchForm = ({ ... }) => (
 # leanpub-start-insert
-  <StyledSearchForm onSubmit={onSearchSubmit}>
+  <StyledSearchForm action={searchAction}>
 # leanpub-end-insert
     <InputWithLabel
       id="search"
@@ -244,8 +244,7 @@ CSS-in-JS with styled components shifts the focus of defining styles to actual R
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/48UtG8s).
-  * Recap all the [source code changes from this section](https://bit.ly/3SpLli3).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_styled-components).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_css...2025_styled-components) from this section.
 * Read more about [best practices for Styled Components in React](https://www.robinwieruch.de/styled-components/).
 * Usually there is no *src/index.css* file for global styles when using Styled Components. Find out how to use global styles when using Styled Components with the help of your favorite search engine.
-* Optional: [Leave feedback for this section](https://forms.gle/5vFxvg9hSNAna37S8).

@@ -26,8 +26,7 @@ Then in your package.json file, add another script which will run the tests even
 # leanpub-start-insert
 "test": "vitest",
 # leanpub-end-insert
-"test": "vitest",
-"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+"lint": "eslint .",
 "preview": "vite preview"
 ~~~~~~~
 
@@ -61,7 +60,7 @@ describe('something truthy and falsy', () => {
 
 The "describe" block is our *test suite*, and the "it" blocks are our *test cases*. Note that test cases can be used without test suites:
 
-{title="src/App.test.jsx",lang="javascript"}
+{title="Code Playground",lang="javascript"}
 ~~~~~~~
 import { it, expect } from 'vitest';
 
@@ -177,8 +176,8 @@ Once you start testing, it's a good practice to keep two command line interfaces
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3O5SDWL).
-  * Recap all the [source code changes from this section](https://bit.ly/3tRdxSH).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_testing).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_forms-actions...2025_testing) from this section.
 * Read more about [Vitest](https://vitest.dev/).
 
 ### Unit Testing: Functions
@@ -222,7 +221,7 @@ Before we unit test our first React component, we'll cover how to test just a Ja
 # leanpub-start-insert
 const storyOne = {
   title: 'React',
-  url: 'https://reactjs.org/',
+  url: 'https://react.dev/',
   author: 'Jordan Walke',
   num_comments: 3,
   points: 4,
@@ -300,24 +299,10 @@ This test still fails because we are using `toBe` instead of `toStrictEqual`. Th
 
 {title="src/App.test.jsx",lang="javascript"}
 ~~~~~~~
-describe('storiesReducer', () => {
-  it('removes a story from all stories', () => {
-    const action = { type: 'REMOVE_STORY', payload: storyOne };
-    const state = { data: stories, isLoading: false, isError: false };
-
-    const newState = storiesReducer(state, action);
-
-    const expectedState = {
-      data: [storyTwo],
-      isLoading: false,
-      isError: false,
-    };
-
 # leanpub-start-insert
-    expect(newState).toStrictEqual(expectedState);
+expect(newState).toStrictEqual(expectedState);
+// expect(newState).toBe(expectedState);
 # leanpub-end-insert
-  });
-});
 ~~~~~~~
 
 There is always the decision to make for JavaScript objects whether you want to make a strict comparison or just a content comparison. Most often you only want to have a content comparison here, hence use `toStrictEqual`. For JavaScript primitives though, like strings or booleans, you can still use `toBe`. Also note that there is a `toEqual` function [which works slightly different](https://bit.ly/3jlPpii) than `toStrictEqual`.
@@ -328,8 +313,8 @@ Remember, a reducer function will always follow the same test pattern: given a s
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/47WVUPn).
-  * Recap all the [source code changes from this section](https://bit.ly/47JTgMq).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_testing-unit-functions).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_testing...2025_testing-unit-functions) from this section.
 * Continue to write a test case for every reducer action and its state transition.
 * Read more about [Vitest's assertive functions](https://bit.ly/3xVJbwZ) like `toBe` and `toStrictEqual`.
 
@@ -514,7 +499,7 @@ describe('Item', () => {
     expect(screen.getByText('Jordan Walke')).toBeInTheDocument();
     expect(screen.getByText('React')).toHaveAttribute(
       'href',
-      'https://reactjs.org/'
+      'https://react.dev/'
     );
 # leanpub-end-insert
   });
@@ -559,7 +544,7 @@ describe('Item', () => {
 # leanpub-start-insert
     screen.getByRole('');
 
-    // expect(screen.getByRole('button')).toBeInTheDocument();
+    expect(screen.getByRole('button')).toBeInTheDocument();
 # leanpub-end-insert
   });
 });
@@ -640,7 +625,7 @@ describe('SearchForm', () => {
   const searchFormProps = {
     searchTerm: 'React',
     onSearchInput: vi.fn(),
-    onSearchSubmit: vi.fn(),
+    searchAction: vi.fn(),
   };
 
   it('renders the input field with its value', () => {
@@ -702,7 +687,7 @@ describe('SearchForm', () => {
   const searchFormProps = {
     searchTerm: 'React',
     onSearchInput: vi.fn(),
-    onSearchSubmit: vi.fn(),
+    searchAction: vi.fn(),
   };
 
   ...
@@ -718,12 +703,12 @@ describe('SearchForm', () => {
     expect(searchFormProps.onSearchInput).toHaveBeenCalledTimes(1);
   });
 
-  it('calls onSearchSubmit on button submit click', () => {
+  it('calls searchAction on button submit click', () => {
     render(<SearchForm {...searchFormProps} />);
 
-    fireEvent.submit(screen.getByRole('button'));
+    fireEvent.click(screen.getByRole('button'));
 
-    expect(searchFormProps.onSearchSubmit).toHaveBeenCalledTimes(1);
+    expect(searchFormProps.searchAction).toHaveBeenCalledTimes(1);
   });
 # leanpub-end-insert
 });
@@ -735,8 +720,8 @@ All the callback handler tests for Item and SearchForm component verify only whe
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/48vMWtj).
-  * Recap all the [source code changes from this section](https://bit.ly/3O8yHCu).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_testing-unit-components).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_testing-unit-functions...2025_testing-unit-components) from this section.
 * Read more about [React Testing Library](https://bit.ly/30KueQH).
   * Read more about [search functions](https://bit.ly/3jjUw2t).
 * Use `toHaveBeenCalledWith` next to `toHaveBeenCalledTimes` to make your assertions more bullet proof.
@@ -1091,7 +1076,7 @@ describe('App', () => {
     ).toBeInTheDocument();
 
 # leanpub-start-insert
-    fireEvent.submit(screen.queryByText('Submit'));
+    fireEvent.click(screen.queryByText('Submit'));
 
     // Second Data Fetching
 
@@ -1113,8 +1098,8 @@ React Testing Library with Vitest is the most popular library combination for Re
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3O8zp2C).
-  * Recap all the [source code changes from this section](https://bit.ly/3U85PhI).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_testing-integration).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_testing-unit-components...2025_testing-integration) from this section.
 * Read more about [React Testing Library in React](https://www.robinwieruch.de/react-testing-library/).
 * Read more about [E2E tests in React](https://www.robinwieruch.de/react-testing-cypress/).
 * While you continue with the upcoming sections, keep your tests green and add new tests when needed.
@@ -1147,9 +1132,9 @@ Run the tests with `npm run test` and you'll see a new *src/_snapshots_* folder 
 const SearchForm = ({
   searchTerm,
   onSearchInput,
-  onSearchSubmit,
+  searchAction,
 }) => (
-  <form onSubmit={onSearchSubmit}>
+  <form action={searchAction}>
     <InputWithLabel
       id="search"
       value={searchTerm}
@@ -1195,7 +1180,6 @@ Snapshot tests are useful for setting up tests quickly in React, though it's bes
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/47FyXjl).
-  * Recap all the [source code changes from this section](https://bit.ly/3SroKCV).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_testing-snapshot).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_testing-integration...2025_testing-snapshot) from this section.
 * Add one snapshot test for each of all the other components and check the content of your *src/_snapshots_/* folder.
-* Optional: [Leave feedback for this section](https://forms.gle/tMJyXvxS1AmRvSUU9).

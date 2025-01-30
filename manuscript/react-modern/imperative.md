@@ -184,15 +184,14 @@ Essentially that's the whole example of how to move from declarative to imperati
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3U5XDP4).
-  * Recap all the [source code changes from this section](https://bit.ly/48Pl9DY).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_imperative).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_component-composition...2025_imperative) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/494zUDw).
 * Read more about [refs in React](https://www.robinwieruch.de/react-ref/) and optionally check out the following tutorials which are using refs:
   * [Create an image from a React component with a ref](https://www.robinwieruch.de/react-component-to-image/)
   * [Create a Slider component with a ref](https://www.robinwieruch.de/react-slider/)
   * [Create a custom hook with a ref](https://www.robinwieruch.de/react-custom-hook-check-if-overflow/)
 * Read more about [why frameworks matter](https://www.robinwieruch.de/why-frameworks-matter/).
-* Optional: [Leave feedback for this section](https://forms.gle/nABoW2tKAPd1yVkv7).
 
 ### Interview Questions:
 

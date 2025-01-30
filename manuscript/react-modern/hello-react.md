@@ -22,4 +22,3 @@ With React's rise, the concept of components became central. Each component enca
 * Optionally, if you need a motivational boost:
   * Read more about [how to learn a framework](https://www.robinwieruch.de/how-to-learn-framework/).
   * Read more about [how to learn React](https://www.robinwieruch.de/learn-react-js/).
-* Optional: [Leave feedback for this section](https://forms.gle/NTqhvyDaP1RjtanC6).

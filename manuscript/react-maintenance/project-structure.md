@@ -8,12 +8,12 @@ On the command line in your project's folder, create the following files for all
 
 {title="Command Line",lang="text"}
 ~~~~~~~
-touch src/List.jsx src/InputWithLabel.jsx src/SearchForm.jsx
+touch src/list.jsx src/input-with-label.jsx src/search-form.jsx
 ~~~~~~~
 
-Move every component from the *src/App.jsx* file in its own file, except for the List component which has to share its place with the Item component in the *src/List.jsx* file. Then in every file make sure to import React and to export the component which needs to be used from the file. For example, in *src/List.jsx* file:
+Move every component from the *src/App.jsx* file in its own file, except for the List component which has to share its place with the Item component in the *src/list.jsx* file. Then in every file make sure to import React and to export the component which needs to be used from the file. For example, in *src/list.jsx* file:
 
-{title="src/List.jsx",lang="javascript"}
+{title="src/list.jsx",lang="javascript"}
 ~~~~~~~
 const List = ({ list, onRemoveItem }) => (
   <ul>
@@ -50,7 +50,7 @@ export { List };
 
 Since only the List component uses the Item component, we can keep it in the same file. If this changes because the Item component is used elsewhere, we can give the Item component its own file. Next, the InputWithLabel component gets its dedicated file too:
 
-{title="src/InputWithLabel.jsx",lang="javascript"}
+{title="src/input-with-label.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 import * as React from 'react';
@@ -92,20 +92,16 @@ export { InputWithLabel };
 # leanpub-end-insert
 ~~~~~~~
 
-The SearchForm component in the *src/SearchForm.jsx* file must import the InputWithLabel component. Like the Item component, we could have left the InputWithLabel component next to the SearchForm; but our goal is to make InputWithLabel component reusable with other components:
+The SearchForm component in the *src/search-form.jsx* file must import the InputWithLabel component. Like the Item component, we could have left the InputWithLabel component next to the SearchForm; but our goal is to make InputWithLabel component reusable with other components:
 
-{title="src/SearchForm.jsx",lang="javascript"}
+{title="src/search-form.jsx",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
-import { InputWithLabel } from './InputWithLabel';
+import { InputWithLabel } from './input-with-label';
 # leanpub-end-insert
 
-const SearchForm = ({
-  searchTerm,
-  onSearchInput,
-  onSearchSubmit,
-}) => (
-  <form onSubmit={onSearchSubmit}>
+const SearchForm = ({ searchTerm, onSearchInput, searchAction }) => (
+  <form action={searchAction}>
     <InputWithLabel
       id="search"
       value={searchTerm}
@@ -134,8 +130,8 @@ import * as React from 'react';
 import axios from 'axios';
 
 # leanpub-start-insert
-import { SearchForm } from './SearchForm';
-import { List } from './List';
+import { SearchForm } from './search-form';
+import { List } from './list';
 # leanpub-end-insert
 
 ...
@@ -151,11 +147,11 @@ Components that are used in other components now have their own file. If a compo
 
 {title="Project Structure",lang="text"}
 ~~~~~~~
-- List/
+- list/
 -- index.jsx
-- SearchForm/
+- search-form/
 -- index.jsx
-- InputWithLabel/
+- input-with-label/
 -- index.jsx
 ~~~~~~~
 
@@ -163,7 +159,7 @@ The *index.jsx* file holds the implementation details for the component, while o
 
 {title="Project Structure",lang="text"}
 ~~~~~~~
-- List/
+- list/
 -- index.jsx
 -- style.css
 -- test.js
@@ -174,7 +170,7 @@ If using CSS-in-JS, where no CSS file is needed, one could still have a separate
 
 {title="Project Structure",lang="text"}
 ~~~~~~~
-- List/
+- list/
 -- index.jsx
 # leanpub-start-insert
 -- style.js
@@ -187,34 +183,34 @@ Sometimes we'll need to move from a **technical-oriented folder structure** to a
 
 {title="Project Structure",lang="text"}
 ~~~~~~~
-- Messages.jsx
-- Users.jsx
+- messages.jsx
+- users.jsx
 - shared/
--- Button.jsx
--- Input.jsx
+-- button.jsx
+-- input.jsx
 ~~~~~~~
 
 If you scale this to the deeper level folder structure, each component will have its own folder in a domain-oriented project structure as well:
 
 {title="Project Structure",lang="text"}
 ~~~~~~~
-- Messages/
+- messages/
 -- index.jsx
 -- style.css
 -- test.js
 -- types.js
-- Users/
+- users/
 -- index.jsx
 -- style.css
 -- test.js
 -- types.js
 - shared/
--- Button/
+-- button/
 --- index.jsx
 --- style.css
 --- test.js
 --- types.js
--- Input/
+-- input/
 --- index.jsx
 --- style.css
 --- test.js
@@ -225,8 +221,7 @@ There are many ways on how to structure your React project from small to large p
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3vAhuLO).
-  * Recap all the [source code changes from this section](https://bit.ly/3vJDx2U).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_project-structure).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_forms-actions...2025_project-structure) from this section.
 * Read more about [React Folder Structures](https://www.robinwieruch.de/react-folder-structure/).
 * Keep the current folder structure if you feel confident. The ongoing sections will omit it, only using the *src/App.jsx* file.
-* Optional: [Leave feedback for this section](https://forms.gle/yLzszsmtdB1DQBCe7).

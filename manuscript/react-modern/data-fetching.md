@@ -72,12 +72,11 @@ Check your browser to see stories related to the initial query fetched from the 
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3O6YxXD).
-  * Recap all the [source code changes from this section](https://bit.ly/3vErwvF).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_data-fetching).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_impossible-state...2025_data-fetching) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SztLZ0).
 * Read through [Hacker News](https://news.ycombinator.com) and its [API](https://hn.algolia.com/api).
 * Optional: Read more about [JavaScript's Template Literals](https://mzl.la/3jlcVfn).
-* Optional: [Leave feedback for this section](https://forms.gle/hoJxjjpoZQGCS7Vp9).
 
 ### Interview Questions:
 

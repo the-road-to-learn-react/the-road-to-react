@@ -86,11 +86,10 @@ With the React children prop, we can compose React components into each other. W
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/492oks5).
-  * Recap all the [source code changes from this section](https://bit.ly/3u4KkDB).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_component-composition).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_reusable-components...2025_component-composition) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3uvSg0S).
 * Read more about [Component Composition in React](https://www.robinwieruch.de/react-component-composition/).
-* Optional: [Leave feedback for this section](https://forms.gle/L2GgfHVjAAwbqudq8).
 
 ### Interview Questions:
 

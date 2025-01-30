@@ -6,16 +6,16 @@ Open the *src/main.jsx* file to the see App components instantiation with the `<
 
 {title="src/main.jsx",lang="javascript"}
 ~~~~~~~
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-  </StrictMode>,
-)
+  </StrictMode>
+);
 ~~~~~~~
 
 There are two libraries imported at the beginning of the file: `react` and `react-dom`. While React is used for the day to day business of a React developer, React DOM is usually used once in a React application to hook React into the native HTML world. Open the *index.html* file on the side and spot the HTML element where the `id` attribute equals `"root"`. That's exactly the element where React inserts itself into the HTML to bootstrap the entire React application -- starting with the App component.
@@ -24,9 +24,11 @@ In the JavaScript file, the  `createRoot()` method expects the HTML element that
 
 {title="Code Playground",lang="javascript"}
 ~~~~~~~
+import { createRoot } from 'react-dom/client';
+
 const title = 'React';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('root')).render(
   <h1>Hello {title}</h1>
 );
 ~~~~~~~
@@ -39,4 +41,3 @@ Anyway, do you recall the introduction about the rise of single-page application
 
 * Read more about [React's createRoot](https://bit.ly/3vx3uT2).
 * Read more about [React's StrictMode](https://bit.ly/48TUA0k).
-* Optional: [Leave feedback for this section](https://forms.gle/zSqHUhmsuQ35vqoj9).

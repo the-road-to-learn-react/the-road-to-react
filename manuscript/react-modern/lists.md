@@ -22,7 +22,7 @@ In React, the array's built-in `map()` method is used to transform a list of ite
 const list = [
   {
     title: 'React',
-    url: 'https://reactjs.org/',
+    url: 'https://react.dev/',
     author: 'Jordan Walke',
     num_comments: 3,
     points: 4,
@@ -165,13 +165,12 @@ The array's `map()` method is inlined concisely in your JSX for rendering a list
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/48YGefo).
-  * Recap all the [source code changes from this section](https://bit.ly/3O1N0ZK).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_lists).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_jsx...2025_lists) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/484qh6p).
 * Recap the [standard built-in array methods](https://mzl.la/3b9V9rf), especially *map*, *filter*, and *reduce*, which are available in JavaScript.
 * Extend the list with some more items to make the example more realistic.
 * Practice using different JavaScript expressions in JSX.
-* Optional: [Leave feedback for this section](https://forms.gle/aZmLFjEdSMTk9Thk9).
 
 ### Interview Questions:
 

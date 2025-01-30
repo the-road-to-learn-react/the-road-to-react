@@ -128,13 +128,12 @@ Forms aren't much different in React than in plain HTML. When we have input fiel
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3u4ZHfi).
-  * Recap all the [source code changes from this section](https://bit.ly/3SpINjZ).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_forms-onsubmit).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_async-await...2025_forms-onsubmit) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/42qnJ18).
 * Read more about [forms in React](https://www.robinwieruch.de/react-form/).
 * Try what happens without using `preventDefault`.
   * Read more about [preventDefault for events in React](https://www.robinwieruch.de/react-preventdefault/).
-* Optional: [Leave feedback for this section](https://forms.gle/d14Mf7WzetP25jxq5).
 
 ### Interview Questions:
 
@@ -154,3 +153,65 @@ Forms aren't much different in React than in plain HTML. When we have input fiel
   * Answers: Use the name attribute on each input field and access the corresponding value using event.target.name in the onChange handler.
 * Questions: What is the role of the onSubmit event in React forms?
   * Answers: The onSubmit event is triggered when the form is submitted. It's where you handle form validation, data processing, or any other actions related to the form submission.
+
+## Forms with Actions
+
+- TODO
+- change from onSubmit to action
+
+{title="src/App.jsx",lang="javascript"}
+~~~~~~~
+# leanpub-start-insert
+const SearchForm = ({ searchTerm, onSearchInput, searchAction }) => (
+  <form action={searchAction}>
+# leanpub-end-insert
+    <InputWithLabel
+      id="search"
+      value={searchTerm}
+      isFocused
+      onInputChange={onSearchInput}
+    >
+      <strong>Search:</strong>
+    </InputWithLabel>
+
+    <button type="submit" disabled={!searchTerm}>
+      Submit
+    </button>
+  </form>
+);
+~~~~~~~
+
+- TODO
+
+{title="src/App.jsx",lang="javascript"}
+~~~~~~~
+<SearchForm
+  searchTerm={searchTerm}
+  onSearchInput={handleSearchInput}
+# leanpub-start-insert
+  searchAction={searchAction}
+# leanpub-end-insert
+/>
+~~~~~~~
+
+- TODO
+
+{title="src/App.jsx",lang="javascript"}
+~~~~~~~
+# leanpub-start-insert
+const searchAction = () => {
+# leanpub-end-insert
+  setUrl(`${API_ENDPOINT}${searchTerm}`);
+
+# leanpub-start-insert
+  // event.preventDefault(); <--- we don't need this anymore
+# leanpub-end-insert
+};
+~~~~~~~
+
+- TODO
+
+### Exercises:
+
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_forms-actions).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_forms-onsubmit...2025_forms-actions) from this section.

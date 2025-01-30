@@ -112,10 +112,9 @@ Note: However, re-fetching data with every keystroke isn't optimal, as this impl
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3vF23lz).
-  * Recap all the [source code changes from this section](https://bit.ly/3U4PB8Q).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_data-re-fetching).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_data-fetching...2025_data-re-fetching) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/492rkVN).
-* Optional: [Leave feedback for this section](https://forms.gle/ywE4bFy6D2HSG8Rd7).
 
 ### Interview Questions:
 

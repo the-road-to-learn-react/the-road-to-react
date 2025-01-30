@@ -87,13 +87,12 @@ It's always a trade-off between generalization and specialization of components.
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3U98mIj).
-  * Recap all the [source code changes from this section](https://bit.ly/3vDLFBP).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_reusable-components).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_fragments...2025_reusable-components) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3Oun6hn).
 * Read more about [Reusable React Components](https://www.robinwieruch.de/react-reusable-components/) and create some of these components yourself:
   * [Button in React](https://www.robinwieruch.de/react-button/), [Radio Button in React](https://www.robinwieruch.de/react-radio-button/), [Checkbox in React](https://www.robinwieruch.de/react-checkbox/), [Dropdown in React](https://www.robinwieruch.de/react-dropdown/), [Drag-and-Drop List in React (Advanced)](https://www.robinwieruch.de/react-drag-and-drop/), ...
 * Before we used the text "Search:" with a ":". How would you deal with it now? Would you pass it with `label="Search:"` as prop to the InputWithLabel component or hardcode it after the `<label htmlFor={id}>{label}:</label>` usage in the InputWithLabel component? We will see how to cope with this later.
-* Optional: [Leave feedback for this section](https://forms.gle/76C3LvW3kHHwdhgq5).
 
 ### Interview Questions:
 

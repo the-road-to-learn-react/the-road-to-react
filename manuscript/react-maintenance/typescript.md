@@ -13,19 +13,20 @@ npm install @typescript-eslint/eslint-plugin --save-dev
 npm install @typescript-eslint/parser --save-dev
 ~~~~~~~
 
-Add two TypeScript configuration files; one for the browser environment and one for the Node environment:
+Add three TypeScript configuration files; one for the browser environment, one for the Node environment, and one to merge both configurations:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
-touch tsconfig.json tsconfig.node.json
+touch tsconfig.json tsconfig.app.json tsconfig.node.json
 ~~~~~~~
 
 In the TypeScript file for the browser environment include the following configuration:
 
-{title="tsconfig.json",lang="javascript"}
+{title="tsconfig.app.json",lang="javascript"}
 ~~~~~~~
 {
   "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
@@ -35,8 +36,8 @@ In the TypeScript file for the browser environment include the following configu
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
     "isolatedModules": true,
+    "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
 
@@ -44,10 +45,10 @@ In the TypeScript file for the browser environment include the following configu
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src"]
 }
 ~~~~~~~
 
@@ -57,38 +58,76 @@ Then In the TypeScript file for the Node environment include some more configura
 ~~~~~~~
 {
   "compilerOptions": {
-    "composite": true,
-    "skipLibCheck": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "target": "ES2022",
+    "lib": ["ES2023"],
     "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
   },
   "include": ["vite.config.ts"]
 }
 ~~~~~~~
 
+Finally merge both configurations into the main TypeScript configuration file:
+
+{title="tsconfig.json",lang="javascript"}
+~~~~~~~
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
+~~~~~~~
+
 If you have a ESLint configuration, you need to adapt it to TypeScript too:
 
-{title=".eslintrc.cjs",lang="javascript"}
+{title="eslint.config.js",lang="javascript"}
 ~~~~~~~
-module.exports = {
-  root: true,
-  env: { browser: true, es2020: true },
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
-  ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
-  rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
-  },
-};
+import js from "@eslint/js";
+import globals from "globals";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
+import tseslint from "typescript-eslint";
+
+export default tseslint.config(
+  { ignores: ["dist"] },
+  {
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ["**/*.{ts,tsx}"],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
+    plugins: {
+      "react-hooks": reactHooks,
+      "react-refresh": reactRefresh,
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      "react/prop-types": "off",
+      "react-refresh/only-export-components": [
+        "warn",
+        { allowConstantExport: true },
+      ],
+    },
+  }
+);
 ~~~~~~~
 
 Next, rename all JavaScript files (*.jsx*) to TypeScript files (*.tsx*).
@@ -103,7 +142,7 @@ And in your *index.html* file, reference the new TypeScript file instead of a Ja
 
 {title="index.html",lang="html"}
 ~~~~~~~
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -135,16 +174,12 @@ The application should still start, however, we are missing type definitions in 
 
 {title="src/main.tsx",lang="javascript"}
 ~~~~~~~
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-
 # leanpub-start-insert
-ReactDOM.createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
 # leanpub-end-insert
-  <React.StrictMode>
+  <StrictMode>
     <App />
-  </React.StrictMode>
+  </StrictMode>
 );
 ~~~~~~~
 
@@ -154,21 +189,10 @@ Next, we'll add [type safety](https://bit.ly/3jhm6xi) for the entire *src/App.ts
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
-const useStorageState = (
 # leanpub-start-insert
-  key: string,
-  initialState: string
+const useStorageState = (key: string, initialState: string) => {
 # leanpub-end-insert
-) => {
-  const [value, setValue] = React.useState(
-    localStorage.getItem(key) || initialState
-  );
-
-  React.useEffect(() => {
-    localStorage.setItem(key, value);
-  }, [value, key]);
-
-  return [value, setValue];
+  ...
 };
 ~~~~~~~
 
@@ -182,13 +206,7 @@ const useStorageState = (
 # leanpub-start-insert
 ): [string, (newValue: string) => void] => {
 # leanpub-end-insert
-  const [value, setValue] = React.useState(
-    localStorage.getItem(key) || initialState
-  );
-
-  React.useEffect(() => {
-    localStorage.setItem(key, value);
-  }, [value, key]);
+  ...
 
   return [value, setValue];
 };
@@ -198,7 +216,9 @@ Since TypeScript could already infer this type from React's useState Hook, we co
 
 {title="src/App.tsx",lang="javascript"}
 ~~~~~~~
+# leanpub-start-insert
 const useStorageState = (key: string, initialState: string) => {
+# leanpub-end-insert
   const [value, setValue] = React.useState(
     localStorage.getItem(key) || initialState
   );
@@ -368,16 +388,12 @@ type StoriesState = {
   isLoading: boolean;
   isError: boolean;
 };
-# leanpub-end-insert
 
-# leanpub-start-insert
 type StoriesAction = {
   type: string;
   payload: any;
 };
-# leanpub-end-insert
 
-# leanpub-start-insert
 const storiesReducer = (
   state: StoriesState,
   action: StoriesAction
@@ -433,14 +449,14 @@ The reducer's current state, action, and returned state (inferred) are type safe
 type SearchFormProps = {
   searchTerm: string;
   onSearchInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onSearchSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  searchAction: (formData: FormData) => void;
 };
 # leanpub-end-insert
 
 const SearchForm = ({
   searchTerm,
   onSearchInput,
-  onSearchSubmit,
+  searchAction,
 # leanpub-start-insert
 }: SearchFormProps) => (
 # leanpub-end-insert
@@ -461,16 +477,6 @@ const App = () => {
 # leanpub-end-insert
   ) => {
     setSearchTerm(event.target.value);
-  };
-
-  const handleSearchSubmit = (
-# leanpub-start-insert
-    event: React.FormEvent<HTMLFormElement>
-# leanpub-end-insert
-  ) => {
-    setUrl(`${API_ENDPOINT}${searchTerm}`);
-
-    event.preventDefault();
   };
 
   ...
@@ -530,8 +536,6 @@ Our entire React application is finally typed by TypeScript, making it easy to s
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3S3yfGW).
-  * Recap all the [source code changes from this section](https://bit.ly/48WSexM).
-* Dig into the [React + TypeScript Cheatsheet](https://bit.ly/3phdf2H), because most common use cases we faced in this section are covered there as well. There is no need to know everything from the top of your head.
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_typescript).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_forms-actions...2025_typescript) from this section.
 * While you continue with the learning experience in the following sections, remove or keep your types with TypeScript. If you do the latter, add new types whenever you get a compile error.
-* Optional: [Leave feedback for this section](https://forms.gle/Pyw2oUjXV85hwk2t6).

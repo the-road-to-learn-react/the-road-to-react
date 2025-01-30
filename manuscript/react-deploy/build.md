@@ -23,7 +23,3 @@ npm run preview
 ~~~~~~~
 
 A URL is presented that provides access to your optimized, packaged and hosted application. It's sent through a local IP address that can be made available over your local network, meaning we're hosting the application on our local machine.
-
-### Exercises:
-
-* Optional: [Leave feedback for this section](https://forms.gle/hFsut8q7eYsWfYL7A).

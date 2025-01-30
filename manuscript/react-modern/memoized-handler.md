@@ -70,11 +70,10 @@ By moving the data fetching function outside the React's useEffect Hook, it beco
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/422ZA0k).
-  * Recap all the [source code changes from this section](https://bit.ly/3vFwrMT).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_memoized-handler).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_data-re-fetching...2025_memoized-handler) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/49Fo6Yj).
 * Read more about [React's useCallback Hook](https://www.robinwieruch.de/react-usecallback-hook/).
-* Optional: [Leave feedback for this section](https://forms.gle/HSX9aurgsf5j76HR9).
 
 ### Interview Questions:
 

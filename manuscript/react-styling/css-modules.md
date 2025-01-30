@@ -34,7 +34,6 @@ Import the *src/App.module.css* file with a relative path again. This time, impo
 ~~~~~~~
 import * as React from 'react';
 import axios from 'axios';
-
 # leanpub-start-insert
 import styles from './App.module.css';
 # leanpub-end-insert
@@ -56,7 +55,7 @@ const App = () => {
       <SearchForm
         searchTerm={searchTerm}
         onSearchInput={handleSearchInput}
-        onSearchSubmit={handleSearchSubmit}
+        searchAction={searchAction}
       />
 
       {stories.isError && <p>Something went wrong ...</p>}
@@ -158,7 +157,7 @@ There is a shift toward pseudo BEM naming conventions here, in contrast to `butt
 ~~~~~~~
 const SearchForm = ({ ... }) => (
 # leanpub-start-insert
-  <form onSubmit={onSearchSubmit} className={styles.searchForm}>
+  <form action={searchAction} className={styles.searchForm}>
 # leanpub-end-insert
     <InputWithLabel ... >
       <strong>Search:</strong>
@@ -263,6 +262,5 @@ Again, CSS Modules -- like any other CSS-in-CSS approach -- can use Sass for mor
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/490UtQu).
-  * Recap all the [source code changes from this section](https://bit.ly/3tYvKxt).
-* Optional: [Leave feedback for this section](https://forms.gle/iuU7WaeJVwHN2pFCA).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_css-modules).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_css...2025_css-modules) from this section.

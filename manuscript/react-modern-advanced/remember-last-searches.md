@@ -66,13 +66,11 @@ And third, instead of storing the `url` string as state with the state updater f
 const App = () => {
   ...
 
-  const handleSearchSubmit = (event) => {
+  const searchAction = () => {
 # leanpub-start-insert
     const url = `${API_ENDPOINT}${searchTerm}`;
     setUrls(urls.concat(url));
 # leanpub-end-insert
-
-    event.preventDefault();
   };
 
   ...
@@ -150,7 +148,7 @@ const App = () => {
 
 # leanpub-start-insert
       {lastSearches.map((searchTerm) => (
-  # leanpub-end-insert
+# leanpub-end-insert
         <button
 # leanpub-start-insert
           key={searchTerm}
@@ -220,12 +218,10 @@ const App = () => {
   };
 # leanpub-end-insert
 
-  const handleSearchSubmit = (event) => {
+  const searchAction = () => {
 # leanpub-start-insert
     handleSearch(searchTerm);
 # leanpub-end-insert
-
-    event.preventDefault();
   };
 
   const handleLastSearch = (searchTerm) => {
@@ -404,7 +400,6 @@ This feature wasn't an easy one. Lots of fundamental React but also JavaScript k
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://bit.ly/3SmzaDJ).
-  * Recap all the [source code changes from this section](https://bit.ly/48Jyuhp).
+* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_remember).
+  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_reverse-sort...2025_remember) from this section.
 * Read more about [grouping in JavaScript](https://www.robinwieruch.de/javascript-groupby/).
-* Optional: [Leave feedback for this section](https://forms.gle/LhNVodZgu8qTqHhN6).
