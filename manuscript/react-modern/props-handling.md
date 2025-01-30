@@ -375,8 +375,8 @@ Rules of thumb:
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_props-handling).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_controlled-components...2025_props-handling) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/mwn986w5).
+  * Recap all the [source code changes](https://tinyurl.com/2j2mhtjd) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SL9uRm).
 * Read more about [how to use props in React](https://www.robinwieruch.de/react-pass-props-to-component/).
 * Optional: Read more about [JavaScript's destructuring assignment](https://mzl.la/30KbXTC).

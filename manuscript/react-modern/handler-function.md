@@ -68,8 +68,8 @@ As you can see, HTML and JavaScript work well together in JSX. JavaScript in HTM
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_handler-function).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_react-component-declaration...2025_handler-function) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/2uamttzd).
+  * Recap all the [source code changes](https://tinyurl.com/yc5fa5v7) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3UrYARS).
 * Read more about [React's event handler](https://www.robinwieruch.de/react-event-handler/).
   * Read more about [event capturing and bubbling in React](https://www.robinwieruch.de/react-event-bubbling-capturing/).

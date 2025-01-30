@@ -400,6 +400,6 @@ This feature wasn't an easy one. Lots of fundamental React but also JavaScript k
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_remember).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_reverse-sort...2025_remember) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/25u4ns35).
+  * Recap all the [source code changes](https://tinyurl.com/axtabwcj) from this section.
 * Read more about [grouping in JavaScript](https://www.robinwieruch.de/javascript-groupby/).

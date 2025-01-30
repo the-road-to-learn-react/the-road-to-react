@@ -214,8 +214,8 @@ Task's done and here comes the recap: First we extracted the sort function from 
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_sorting).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_forms-actions...2025_sorting) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/57ybtsmu).
+  * Recap all the [source code changes](https://tinyurl.com/2tke4skw) from this section.
 * Read more about [Lodash](https://lodash.com).
 * Why did we use numeric properties like `points` and `num_comments` for a reverse sort?
 * Use your styling skills to give the user feedback about the current active sort. This mechanism can be as straightforward as giving the active sort button a different color.

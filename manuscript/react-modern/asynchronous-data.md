@@ -70,8 +70,8 @@ This section was only the first stepping stone to asynchronous data in React. In
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_async-data).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_inline-handler...2025_async-data) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/jv3xcym3).
+  * Recap all the [source code changes](https://tinyurl.com/y4m3j9jb) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3StsfHt).
 * Optional: Read more about [JavaScript Promises](https://mzl.la/3aTGuQz).
 * Read more about [faking a remote API with JavaScript](https://www.robinwieruch.de/javascript-fake-api/).

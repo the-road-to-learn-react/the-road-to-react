@@ -1,6 +1,6 @@
 # Outline
 
-We've reached the end of The Road to React, and I hope you enjoyed reading it and that it helped you gain traction in React. If you liked the book, feel free to share it with friends who are interested in learning more about React. Also, a review on [Amazon](https://amzn.to/2JHlP42) or [Goodreads](https://www.goodreads.com/book/show/37503118-the-road-to-learn-react) would be greatly appreciated.
+We've reached the end of The Road to React, and I hope you enjoyed reading it and that it helped you gain traction in React. If you liked the book, feel free to share it with friends who are interested in learning more about React. Also, a review on [Amazon](https://amzn.to/2JHlP42) or [Goodreads](https://tinyurl.com/4bhcssu7) would be greatly appreciated.
 
 From here, I recommend you extend the application to create your own React projects before engaging another book, course, or tutorial. Try it for a week, take it to production by deploying it, and reach out to me or others to showcase it. I am always interested in seeing what my readers built, and learning how I can help them along.
 

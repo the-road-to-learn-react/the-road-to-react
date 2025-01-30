@@ -150,8 +150,8 @@ After all, knowing where to instantiate state in React turns out to be an import
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_lifting-state).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_callback-handlers...2025_lifting-state) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/5n77yypj).
+  * Recap all the [source code changes](https://tinyurl.com/3brrw4d6) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/49k1Cf9).
 * Read more about [lifting state in React](https://www.robinwieruch.de/react-lift-state/).
 

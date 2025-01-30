@@ -122,8 +122,8 @@ Before the `searchTerm` was used for two cases: updating the input field's state
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_explicit-data-fetching).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_memoized-handler...2025_explicit-data-fetching) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/8k7fmj6p).
+  * Recap all the [source code changes](https://tinyurl.com/4we2j96f) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/42tCHUa).
 
 ### Interview Questions:

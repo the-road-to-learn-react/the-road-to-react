@@ -63,8 +63,8 @@ The concept of the callback handler in a nutshell: We pass a function from a par
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_callback-handlers).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_state...2025_callback-handlers) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/bdat6vsa).
+  * Recap all the [source code changes](https://tinyurl.com/4uchxre7) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3UnOJMQ).
 * Revisit the concepts of [(event) handler and callback handler](https://www.robinwieruch.de/react-event-handler/) as many times as you need.
 

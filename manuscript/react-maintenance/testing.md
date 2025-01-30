@@ -176,8 +176,8 @@ Once you start testing, it's a good practice to keep two command line interfaces
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_testing).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_forms-actions...2025_testing) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/bdfyt6bd).
+  * Recap all the [source code changes](https://tinyurl.com/2zbz4jdh) from this section.
 * Read more about [Vitest](https://vitest.dev/).
 
 ### Unit Testing: Functions
@@ -313,8 +313,8 @@ Remember, a reducer function will always follow the same test pattern: given a s
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_testing-unit-functions).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_testing...2025_testing-unit-functions) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/yv78dcyr).
+  * Recap all the [source code changes](https://tinyurl.com/4vpp7sbe) from this section.
 * Continue to write a test case for every reducer action and its state transition.
 * Read more about [Vitest's assertive functions](https://bit.ly/3xVJbwZ) like `toBe` and `toStrictEqual`.
 
@@ -720,8 +720,8 @@ All the callback handler tests for Item and SearchForm component verify only whe
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_testing-unit-components).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_testing-unit-functions...2025_testing-unit-components) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/2tcf5pve).
+  * Recap all the [source code changes](https://tinyurl.com/2kmmzrtv) from this section.
 * Read more about [React Testing Library](https://bit.ly/30KueQH).
   * Read more about [search functions](https://bit.ly/3jjUw2t).
 * Use `toHaveBeenCalledWith` next to `toHaveBeenCalledTimes` to make your assertions more bullet proof.
@@ -1098,8 +1098,8 @@ React Testing Library with Vitest is the most popular library combination for Re
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_testing-integration).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_testing-unit-components...2025_testing-integration) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/mr2udtdx).
+  * Recap all the [source code changes](https://tinyurl.com/mt8ym9an) from this section.
 * Read more about [React Testing Library in React](https://www.robinwieruch.de/react-testing-library/).
 * Read more about [E2E tests in React](https://www.robinwieruch.de/react-testing-cypress/).
 * While you continue with the upcoming sections, keep your tests green and add new tests when needed.
@@ -1180,6 +1180,6 @@ Snapshot tests are useful for setting up tests quickly in React, though it's bes
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_testing-snapshot).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_testing-integration...2025_testing-snapshot) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/nhzuv8by).
+  * Recap all the [source code changes](https://tinyurl.com/y89ru5y9) from this section.
 * Add one snapshot test for each of all the other components and check the content of your *src/_snapshots_/* folder.

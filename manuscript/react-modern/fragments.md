@@ -85,8 +85,8 @@ Both elements in the Search component - input field and label - should be still 
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_fragments).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_custom-hooks...2025_fragments) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/mrf4hc3h).
+  * Recap all the [source code changes](https://tinyurl.com/3cmv4ump) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3HLzrtH).
 
 ### Interview Questions:

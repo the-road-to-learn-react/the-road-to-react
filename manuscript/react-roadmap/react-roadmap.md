@@ -14,7 +14,7 @@ Additionally, in this book, you used Vite to bootstrap your project. If you are 
 
 Last but not least, I encourage you to check out my course, [The Road to Next](https://www.road-to-next.com/). While React + Vite follow a client-side library approach, Next.js is a full-fledged framework for React. It comes with many built-in features such as server-side rendering, routing, and more. The course will guide you through the fundamentals of Next.js, helping you build a real-world application. It's a great way to deepen your understanding of React and its ecosystem while gaining experience in full-stack development.
 
-Moreover, React includes features such as [Server Components](https://react.dev/reference/rsc/server-components) and [Server Functions](https://react.dev/reference/rsc/server-functions), which (at the time of writing) can only be used in a full-stack framework like Next.js. So, I highly recommend exploring Next.js and its features to gain a broader understanding of React's ecosystem.
+Moreover, React includes features such as [Server Components](https://tinyurl.com/283wewxw) and [Server Functions](https://tinyurl.com/4en9pmj9), which (at the time of writing) can only be used in a full-stack framework like Next.js. So, I highly recommend exploring Next.js and its features to gain a broader understanding of React's ecosystem.
 
 Here is how I would prioritize the above resources:
 
@@ -29,7 +29,7 @@ Optionally, you can:
 * set up a React project from scratch
 * learn about React Context and useContext
 
-Now, we've reached the middle of The Road to React, and I hope you have enjoyed it so far. If you liked the book, it would mean a lot to me if you shared it with friends who are interested in learning React. Also, a **review on** [Amazon](https://amzn.to/2JHlP42) or [Goodreads](https://www.goodreads.com/book/show/37503118-the-road-to-learn-react) would be greatly appreciated.
+Now, we've reached the middle of The Road to React, and I hope you have enjoyed it so far. If you liked the book, it would mean a lot to me if you shared it with friends who are interested in learning React. Also, a **review on** [Amazon](https://amzn.to/2JHlP42) or [Goodreads](https://tinyurl.com/4bhcssu7) would be greatly appreciated.
 
 From this point forward, you can continue reading to learn about an opinionated selection of React's ecosystem, organizational recommendations, and more built-in React features (e.g., performance optimizations). Toward the end of the book, you will find additional sections that help you implement advanced features in your React application. In summary, I hope the knowledge you've gained so far -- along with the referenced materials and upcoming chapters -- helps you become a great React developer.
 

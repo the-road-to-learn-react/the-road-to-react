@@ -342,8 +342,8 @@ Now, after we went through these scenarios for `useMemo`, `useCallback`, and `me
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_performance).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_forms-actions...2025_performance) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/yz2jhjka).
+  * Recap all the [source code changes](https://tinyurl.com/3423xu4v) from this section.
 * Read more about [React's useMemo Hook](https://www.robinwieruch.de/react-usememo-hook/).
 * Download *React Developer Tools* as an extension for your browser. Open it for your application in the browser via the browser's developer tools and try its various features. For example, you can use it to visualize React's component tree and its updating components.
 * Does the SearchForm re-render when removing an item from the List with the "Dismiss"-button? If it's the case, apply performance optimization techniques (using `useCallback` and `memo`) to prevent re-rendering.

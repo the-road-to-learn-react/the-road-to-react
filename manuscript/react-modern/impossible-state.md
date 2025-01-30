@@ -182,8 +182,8 @@ We moved from unreliable state transitions with multiple `useState` hooks to pre
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_impossible-state).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_advanced-state...2025_impossible-state) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/u9dx8a3j).
+  * Recap all the [source code changes](https://tinyurl.com/38a5rjnc) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/42nPpE1).
 * Read more about [when to use useState or useReducer in React](https://www.robinwieruch.de/react-usereducer-vs-usestate/).
 * Read more about [deriving state from props in React](https://www.robinwieruch.de/react-derive-state-props/).

@@ -81,6 +81,6 @@ The Vite plugin makes using SVGs straightforward, with not much extra configurat
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_svg).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_css-in-react...2025_svg) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/3nf39wy3).
+  * Recap all the [source code changes](https://tinyurl.com/mrsfx32y) from this section.
 * Integrate the third-party library [react-icons](https://bit.ly/3nayoJ7) into your application and use its SVG symbols by importing them as React components right away.

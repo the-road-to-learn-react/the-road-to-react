@@ -132,8 +132,8 @@ Initially invented for React, JSX gained popularity in other modern libraries an
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_jsx).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_meet-the-react-component...2025_jsx) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/apb9nnbj).
+  * Recap all the [source code changes](https://tinyurl.com/v8zcahje) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SukC3A).
 * Beginner: Read more about [JavaScript Variables](https://www.robinwieruch.de/javascript-variable/).
   * Beginner: Define more primitive and complex JavaScript data types and render them in JSX.

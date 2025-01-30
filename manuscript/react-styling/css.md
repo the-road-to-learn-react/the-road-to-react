@@ -46,8 +46,8 @@ Essentially you can declare all the CSS that should apply globally for your proj
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_css).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_forms-actions...2025_css) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/38kw8tkn).
+  * Recap all the [source code changes](https://tinyurl.com/mr2fc836) from this section.
 * Read more about [the different styling strategies and approaches in React](https://www.robinwieruch.de/react-css-styling/).
 
 ## CSS in React
@@ -283,6 +283,6 @@ For simplicity, we styled elements like label and input individually in the *src
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_css-in-react).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_css...2025_css-in-react) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/3uncn45p).
+  * Recap all the [source code changes](https://tinyurl.com/2588rxvc) from this section.
 * Try to pass `className` prop from App to SearchForm component, either with the value `button_small` or `button_large`, and use this as `className` for the button element.

@@ -53,8 +53,8 @@ Earlier the HTML element did its own thing, but now we are in control of it by f
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_controlled-components).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_lifting-state...2025_controlled-components) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/53p67ybt).
+  * Recap all the [source code changes](https://tinyurl.com/5auk52n7) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3w3A5Ah).
 * Read more about [controlled components in React](https://www.robinwieruch.de/react-controlled-components/).
 

@@ -536,6 +536,6 @@ Our entire React application is finally typed by TypeScript, making it easy to s
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_typescript).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_forms-actions...2025_typescript) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/4v7ecp5w).
+  * Recap all the [source code changes](https://tinyurl.com/8umbbynt) from this section.
 * While you continue with the learning experience in the following sections, remove or keep your types with TypeScript. If you do the latter, add new types whenever you get a compile error.

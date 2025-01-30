@@ -81,8 +81,8 @@ When the UI is rendered for the first time, every rendered component's `useState
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_state).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_props...2025_state) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/4dy7s74t).
+  * Recap all the [source code changes](https://tinyurl.com/mryfs8pm) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/4bn9DSm).
 * Read more about [React's useState Hook](https://www.robinwieruch.de/react-usestate-hook/).
 * Optional: Read more about [JavaScript array destructuring](https://mzl.la/3ncC7WI).

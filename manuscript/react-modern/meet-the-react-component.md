@@ -133,7 +133,7 @@ On your journey as a React developer, and in this learning experience, you will 
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_meet-the-react-component).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_init...2025_meet-the-react-component) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/43uekprv).
+  * Recap all the [source code changes](https://tinyurl.com/n3wujpmu) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3OvfqLO).
 * Think about ways to display the `title` variable in your App component's returned HTML. In the next section, we'll put this variable to use.

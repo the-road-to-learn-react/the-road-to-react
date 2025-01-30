@@ -120,8 +120,8 @@ At the end, you should see the list rendering again. The most important fact abo
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_props).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_handler-function...2025_props) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/56wad6rt).
+  * Recap all the [source code changes](https://tinyurl.com/yvhx4nzz) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SzqclA).
 * Read more about [how to use props in React](https://www.robinwieruch.de/react-pass-props-to-component/).
 

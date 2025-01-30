@@ -150,8 +150,8 @@ As a rule of thumb, use either function declarations or arrow function expressio
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_react-component-declaration).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_meet-another-react-component...2025_react-component-declaration) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/3pwajd4u).
+  * Recap all the [source code changes](https://tinyurl.com/yve6n2df) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3SJbE42).
 * Familiarize yourself with arrow functions with block body and explicit return and concise body without return (implicit return).
 * Optional: Read more about [JavaScript arrow functions](https://mzl.la/3BYCOcp).

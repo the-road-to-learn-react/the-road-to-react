@@ -147,8 +147,8 @@ What we've covered is a minimal version of a reducer in JavaScript and its usage
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_advanced-state).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_conditional-rendering...2025_advanced-state) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/5xuuzdj2).
+  * Recap all the [source code changes](https://tinyurl.com/bdffdft8) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3OwtVie).
 * Read more about [reducers and useReducer in React](https://www.robinwieruch.de/react-usereducer-hook/).
 * Extract the action types `'SET_STORIES'` and `'REMOVE_STORY'` as variables and reuse them in the reducer and the dispatch functions. This way, you will avoid introducing typos in your action types.

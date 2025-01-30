@@ -262,5 +262,5 @@ Again, CSS Modules -- like any other CSS-in-CSS approach -- can use Sass for mor
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_css-modules).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_css...2025_css-modules) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/3h4j6uhr).
+  * Recap all the [source code changes](https://tinyurl.com/2m4apv8m) from this section.

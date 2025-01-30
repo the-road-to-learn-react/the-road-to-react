@@ -128,8 +128,8 @@ Forms aren't much different in React than in plain HTML. When we have input fiel
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_forms-onsubmit).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_async-await...2025_forms-onsubmit) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/mra85b3s).
+  * Recap all the [source code changes](https://tinyurl.com/3ecdcpje) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/42qnJ18).
 * Read more about [forms in React](https://www.robinwieruch.de/react-form/).
 * Try what happens without using `preventDefault`.
@@ -213,5 +213,5 @@ const searchAction = () => {
 
 ### Exercises:
 
-* Compare your source code against the author's [source code](https://github.com/the-road-to-learn-react/hacker-stories/tree/2025_forms-actions).
-  * Recap all the [source code changes](https://github.com/the-road-to-learn-react/hacker-stories/compare/2025_forms-onsubmit...2025_forms-actions) from this section.
+* Compare your source code against the author's [source code](https://tinyurl.com/4nchwt46).
+  * Recap all the [source code changes](https://tinyurl.com/2vnwf7ty) from this section.
