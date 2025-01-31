@@ -69,7 +69,8 @@ After all, using async/await with try/catch over then/catch makes it often more 
 * Compare your source code against the author's [source code](https://tinyurl.com/32shkr5e).
   * Recap all the [source code changes](https://tinyurl.com/2fvjcpak) from this section.
   * Optional: If you are using TypeScript, check out the author's source code [here](https://bit.ly/3wdPFJq).
-* Read more about [data fetching in React](https://www.robinwieruch.de/react-hooks-fetch-data/).
+* Read more about [data fetching in React](https://www.robinwieruch.de/react-fetching-data/).
+* Read more about [data fetching in React with Hooks](https://www.robinwieruch.de/react-hooks-fetch-data/).
 
 ### Interview Questions:
 

@@ -156,8 +156,7 @@ Forms aren't much different in React than in plain HTML. When we have input fiel
 
 ## Forms with Actions
 
-- TODO
-- change from onSubmit to action
+React forms are a powerful tool to submit data. In the previous section, we introduced a form to submit a search term to fetch data from an API. We used the `onSubmit` event handler to trigger the data fetching process. In this section, we'll introduce a new concept to the form: the `action` attribute. The `action` attribute is a standard HTML attribute that specifies the URL where the form data should be submitted. When using React, you can pass in an action function to the form component, which will be executed when the form is submitted:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -181,7 +180,7 @@ const SearchForm = ({ searchTerm, onSearchInput, searchAction }) => (
 );
 ~~~~~~~
 
-- TODO
+Instead of passing the submit handler to the form's `onSubmit` attribute, we pass a new `searchAction` function to the form's `action` attribute:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -194,7 +193,7 @@ const SearchForm = ({ searchTerm, onSearchInput, searchAction }) => (
 />
 ~~~~~~~
 
-- TODO
+Since we are closer to the native form behavior, we can remove the `preventDefault()` call from the submit handler:
 
 {title="src/App.jsx",lang="javascript"}
 ~~~~~~~
@@ -209,9 +208,11 @@ const searchAction = () => {
 };
 ~~~~~~~
 
-- TODO
+Moving forward with React 19, the `action` attribute will be used over the `onSubmit` attribute to submit form data, because it takes more advantage of the native form behavior. Optionally the form action's function signature would give you access to the [form data](https://tinyurl.com/bddjd59s), which can be useful for form validation or other form-related tasks.
 
 ### Exercises:
 
 * Compare your source code against the author's [source code](https://tinyurl.com/4nchwt46).
   * Recap all the [source code changes](https://tinyurl.com/2vnwf7ty) from this section.
+* Read more about [React and FormData](https://www.robinwieruch.de/react-form-data/).
+* Read more about [Forms and their Loading State](https://www.robinwieruch.de/react-form-loading-pending-action/).

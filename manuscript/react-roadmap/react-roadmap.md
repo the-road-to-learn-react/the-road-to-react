@@ -14,7 +14,7 @@ Additionally, in this book, you used Vite to bootstrap your project. If you are 
 
 Last but not least, I encourage you to check out my course, [The Road to Next](https://www.road-to-next.com/). While React + Vite follow a client-side library approach, Next.js is a full-fledged framework for React. It comes with many built-in features such as server-side rendering, routing, and more. The course will guide you through the fundamentals of Next.js, helping you build a real-world application. It's a great way to deepen your understanding of React and its ecosystem while gaining experience in full-stack development.
 
-Moreover, React includes features such as [Server Components](https://tinyurl.com/283wewxw) and [Server Functions](https://tinyurl.com/4en9pmj9), which (at the time of writing) can only be used in a full-stack framework like Next.js. So, I highly recommend exploring Next.js and its features to gain a broader understanding of React's ecosystem.
+Moreover, React includes features such as [Server Components](https://tinyurl.com/283wewxw) and [Server Functions](https://tinyurl.com/4en9pmj9), which (at the time of writing) can only be used in a full-stack framework like Next.js. So, I highly recommend exploring Next.js and its features to gain a broader understanding of React's ecosystem and [how it is becoming a full-stack framework](https://www.robinwieruch.de/react-full-stack-framework/).
 
 Here is how I would prioritize the above resources:
 
